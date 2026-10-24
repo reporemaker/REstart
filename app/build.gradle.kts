@@ -28,6 +28,10 @@ val baseVersionCode =
 //   Android configuration
 // =========================
 
+// Every configuration is locked (app/gradle.lockfile) so a transitive version cannot move unnoticed.
+// Refresh with: ./gradlew app:dependencies --write-locks
+dependencyLocking { lockAllConfigurations() }
+
 extensions.configure<ApplicationExtension>("android") {
 
     namespace = "ch.remaker.restart"
@@ -167,8 +171,6 @@ ksp {
 // =========================
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.recyclerview)
@@ -177,18 +179,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.viewpager2)
     implementation(libs.activity)
-    implementation(libs.commons.text)
 
-    implementation(libs.lifecycle.extensions)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.process)
 
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
 
-    implementation(libs.work.runtime.ktx)
-
     implementation(libs.constraintlayout)
-    implementation(libs.constraintlayout.compose)
     implementation(libs.activity.compose)
 
     implementation(libs.compose.material)
@@ -196,9 +194,10 @@ dependencies {
     implementation(libs.compose.animation)
     implementation(libs.compose.ui)
     implementation(libs.compose.foundation)
-    implementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.tooling)
 
-    implementation(libs.biometric.ktx)
+    implementation(libs.biometric)
+    implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.moshi)
     implementation(libs.moshi.ktx)
@@ -210,11 +209,11 @@ dependencies {
 
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.espresso.contrib)
-    implementation(libs.espresso.idling.resource)
+    androidTestImplementation(libs.espresso.idling.resource)
 
     androidTestImplementation(libs.test.runner)
     androidTestImplementation(libs.test.rules)
-    implementation(libs.test.core.ktx)
+    androidTestImplementation(libs.test.core.ktx)
 
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.test.manifest)

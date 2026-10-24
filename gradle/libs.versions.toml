@@ -5,6 +5,7 @@ agp = "9.4.1"
 kotlin = "2.4.20"
 viewpager2 = "1.1.0"
 junit = "4.13.2"
+kotlinx-coroutines = "1.9.0"
 
 # AndroidX Core and AppCompat
 core-ktx = "1.19.1"
@@ -15,7 +16,6 @@ activityKtx = "1.13.0"
 material = "1.14.0"
 
 # Android Lifecycle
-lifecycle-extensions = "2.2.0"
 lifecycle-viewmodel-ktx = "2.11.0"
 
 # Navigation
@@ -23,12 +23,8 @@ navigation-fragment-ktx = "2.10.2"
 navigation-ui-ktx = "2.10.2"
 navigation-testing = "2.10.2"
 
-# Work Manager
-work-runtime-ktx = "2.12.0"
-
 # ConstraintLayout
 constraintlayout = "2.2.2"
-constraintlayout-compose = "1.1.2"
 
 # Compose Versions
 activity-compose = "1.13.0"
@@ -40,8 +36,7 @@ compose-foundation = "1.11.4"
 compose-ui-tooling = "1.11.4"
 
 # Other Libraries
-commons-text = "1.15.0"
-biometric-ktx = "1.4.0-alpha02"
+biometric = "1.1.0"
 
 # AndroidX Test Libraries
 espresso = "3.7.0"
@@ -70,8 +65,8 @@ viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref =
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 # Android Lifecycle
-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "lifecycle-extensions" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", version.ref = "lifecycle-viewmodel-ktx" }
 
 # Navigation
 navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
@@ -79,11 +74,9 @@ navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx",
 navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navigation-testing" }
 
 # Work Manager
-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-runtime-ktx" }
 
 # ConstraintLayout
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose" }
 
 # Compose
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
@@ -95,8 +88,8 @@ compose-foundation = { group = "androidx.compose.foundation", name = "foundation
 compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose-ui-tooling" }
 
 # Miscellaneous Libraries
-commons-text = { group = "org.apache.commons", name = "commons-text", version.ref = "commons-text" }
-biometric-ktx = { group = "androidx.biometric", name = "biometric-ktx", version.ref = "biometric-ktx" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
 
 # Moshi
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
