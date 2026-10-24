@@ -16,7 +16,7 @@
     <string name="grant_location_permission">계속하려면 위치 권한을 허용해 주세요.</string>
     <string name="reason_location_permission">이 앱은 사용자의 현재 위치를 기반으로 정확한 날씨 정보를 제공하기 위해 위치 접근 권한이 필요합니다. 당사는 어떠한 개인 정보도 수집하거나 공유하지 않습니다.</string>
     <string name="grant_accessibility_permission">계속하려면 접근성 권한을 부여해 주세요.</string>
-    <string name="reason_accessibility_permission">Panther Launcher는 화면 잠금 및 빠른 설정 열기와 같은 향상된 기능을 제공하기 위해 접근성 권한이 필요합니다. 이러한 기능은 사용 편의성을 개선하는 데 도움이 됩니다. 당사는 어떠한 데이터도 수집하거나 공유하지 않습니다.</string>
+    <string name="reason_accessibility_permission">RE*start는 화면 잠금 및 빠른 설정 열기와 같은 향상된 기능을 제공하기 위해 접근성 권한이 필요합니다. 이러한 기능은 사용 편의성을 개선하는 데 도움이 됩니다. 당사는 어떠한 데이터도 수집하거나 공유하지 않습니다.</string>
     <string name="permission_granted">승인되었습니다! 계속 진행하셔도 됩니다.</string>
     <string name="this_can_be_disabled_later">* 이 권한은 나중에 비활성화될 수 있습니다.</string>
     <!-- Strings used for settings menus -->
@@ -176,7 +176,7 @@
     <string name="advanced_settings_app_info_title">앱 정보</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">기본 실행기로 설정</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Panther Launcher를 기본 홈 앱으로 설정하세요.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">RE*start를 기본 홈 앱으로 설정하세요.</string>
     <string name="advanced_settings_change_default_launcher">기본 실행기 변경</string>
     <string name="advanced_settings_change_default_launcher_description">기본 실행 프로그램으로 다른 프로그램을 선택하세요.</string>
     <string name="advanced_settings_restart_title">런처 재시작</string>
@@ -226,12 +226,12 @@
     <!-- Accessibility/Help Strings -->
     <string name="accessibility_service_name">멀티런처 액션 서비스</string>
     <string name="accessibility_service_why_we_need">접근성 권한이 필요한 이유</string>
-    <string name="accessibility_service_description">이 접근성 서비스는 Panther Launcher가 화면 잠금이나 빠른 설정 열기와 같은 특정 작업을 수행할 수 있도록 합니다. 당사의 접근성 서비스는 어떠한 데이터도 수집하거나 공유하지 않습니다.</string>
+    <string name="accessibility_service_description">이 접근성 서비스는 RE*start가 화면 잠금이나 빠른 설정 열기와 같은 특정 작업을 수행할 수 있도록 합니다. 당사의 접근성 서비스는 어떠한 데이터도 수집하거나 공유하지 않습니다.</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher는 다음과 같은 기능을 활성화하기 위해 접근성 서비스에 대한 접근 권한이 필요합니다.\n\n
+    RE*start는 다음과 같은 기능을 활성화하기 위해 접근성 서비스에 대한 접근 권한이 필요합니다.\n\n
     • 제스처 또는 바로가기를 이용한 화면 잠금\n
     • 빠른 설정 패널 빠르게 열기\n\n
-    이 권한을 통해 Panther Launcher는 사용자를 대신하여 이러한 작업을 수행할 수 있지만, 당사는 이 서비스를 통해 어떠한 개인 정보나 민감한 데이터도 수집, 저장 또는 공유하지 않습니다.\n\n
+    이 권한을 통해 RE*start는 사용자를 대신하여 이러한 작업을 수행할 수 있지만, 당사는 이 서비스를 통해 어떠한 개인 정보나 민감한 데이터도 수집, 저장 또는 공유하지 않습니다.\n\n
     기기 설정에서 언제든지 이 접근 권한을 비활성화할 수 있습니다.
     </string>
     <string name="can_not_delete_system_apps">시스템 앱을 삭제할 수 없습니다</string>
@@ -342,7 +342,7 @@
     <string name="widgets_not_added">아직 위젯이 추가되지 않았습니다. 길게 눌러서 위젯을 추가하세요.</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">이 기능을 사용하려면 Android 15 이상이 필요합니다.</string>
-    <string name="toast_private_space_default_home_screen">개인 공간에 접근하려면 Panther Launcher가 기본 홈 화면으로 설정되어 있어야 합니다.</string>
+    <string name="toast_private_space_default_home_screen">개인 공간에 접근하려면 RE*start가 기본 홈 화면으로 설정되어 있어야 합니다.</string>
     <string name="toast_private_space_locked">개인 공간 잠금됨</string>
     <string name="toast_private_space_unlocked">개인 공간 잠금 해제됨</string>
     <string name="toast_private_space_not_available">개인 공간을 이용할 수 없습니다.</string>

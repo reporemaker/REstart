@@ -16,11 +16,11 @@
     <string name="grant_location_permission">Pentru a continua, acordați permisiunea Locație.</string>
     <string name="reason_location_permission">Această aplicație are nevoie de Acces la Locație pentru a oferi actualizări meteo precise în funcție de locația dvs. actuală. Nu colectăm și nu partajăm date personale.</string>
     <string name="grant_accessibility_permission">Pentru a continua, vă rugăm să acordați permisiunea de Accesibilitate.</string>
-    <string name="reason_accessibility_permission">Panther Launcher necesită permisiunea de Accesibilitate pentru a oferi funcții îmbunătățite, cum ar fi blocarea ecranului și deschiderea setărilor rapide. Aceste funcții ajută la îmbunătățirea utilizări. Nu colectăm și nu partajăm date.</string>
+    <string name="reason_accessibility_permission">RE*start necesită permisiunea de Accesibilitate pentru a oferi funcții îmbunătățite, cum ar fi blocarea ecranului și deschiderea setărilor rapide. Aceste funcții ajută la îmbunătățirea utilizări. Nu colectăm și nu partajăm date.</string>
     <string name="permission_granted">Permisiune acordată! Puteți continua.</string>
     <string name="this_can_be_disabled_later">Această permisiune poate fi dezactivată ulterior.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Setări Panther Launcher</string>
+    <string name="settings_name">Setări RE*start</string>
     <string name="settings_features_title">Caracteristici</string>
     <string name="settings_features_description">Îmbunătățește-ți productivitatea.</string>
     <string name="settings_look_feel_title">Aspect &amp; funcționalitate</string>
@@ -40,7 +40,7 @@
     <string name="settings_advanced_description">Accesează informații despre aplicație, lansatorul implicit, instrumentele de backup și multe altele.</string>
     <string name="settings_expert_title">Expert</string>
     <string name="settings_expert_description">Deblochează opțiuni ascunse și setări avansate.</string>
-    <string name="settings_exit_launcher_title">Ieșire din Panther Launcher</string>
+    <string name="settings_exit_launcher_title">Ieșire din RE*start</string>
     <string name="settings_exit_launcher_description">Comută temporar la lansatorul implicit.</string>
     <string name="settings_exit_launcher_dialog">Alegeți un lansator</string>
     <!-- Strings used for features settings -->
@@ -176,7 +176,7 @@
     <string name="advanced_settings_app_info_title">Informații despre aplicație</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Setează ca lansator implicit</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Setați Panther Launcher ca aplicație implicită pentru acasă.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">Setați RE*start ca aplicație implicită pentru acasă.</string>
     <string name="advanced_settings_change_default_launcher">Schimbați lansatorul implicit</string>
     <string name="advanced_settings_change_default_launcher_description">Alegeți un alt lansator ca implicit.</string>
     <string name="advanced_settings_restart_title">Reporniți Lansatorul</string>
@@ -224,14 +224,14 @@
     <string name="empty_favorite">Neutilizat</string>
     <string name="confirm_remove_favorite">Sigur vrei să elimini această aplicație din favorite?</string>
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">Servicii de acțiune Panther Launcher</string>
+    <string name="accessibility_service_name">Servicii de acțiune RE*start</string>
     <string name="accessibility_service_why_we_need">De ce avem nevoie de permisiune de accesibilitate</string>
-    <string name="accessibility_service_description">Acest serviciu de accesibilitate permite Panther Launcher să efectueze anumite acțiuni, cum ar fi blocarea ecranului sau deschiderea setărilor rapide. Serviciul nostru de accesibilitate nu colectează și nu partajează date.</string>
+    <string name="accessibility_service_description">Acest serviciu de accesibilitate permite RE*start să efectueze anumite acțiuni, cum ar fi blocarea ecranului sau deschiderea setărilor rapide. Serviciul nostru de accesibilitate nu colectează și nu partajează date.</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher necesită acces la Serviciul de accesibilitate pentru a activa funcții precum:\n\n
+    RE*start necesită acces la Serviciul de accesibilitate pentru a activa funcții precum:\n\n
     • Blocarea ecranului cu un gest sau o comandă rapidă\n
     • Deschiderea rapidă a panoului Setări rapide\n\n
-    Această permisiune permite Panther Launcher să efectueze aceste acțiuni în numele dvs., dar nu colectăm, stocăm și nu partajăm date personale sau sensibile prin intermediul acestui serviciu.\n\n
+    Această permisiune permite RE*start să efectueze aceste acțiuni în numele dvs., dar nu colectăm, stocăm și nu partajăm date personale sau sensibile prin intermediul acestui serviciu.\n\n
     Puteți dezactiva acest acces oricând din setările dispozitivului.
     </string>
     <string name="can_not_delete_system_apps">Nu se pot șterge aplicațiile de sistem</string>
@@ -247,7 +247,7 @@
     <string name="text_authentication_cancel">Anulare autentificare.</string>
     <string name="text_authentication_error">Eroare de autentificare: %1$s (cod %2$d)</string>
     <string name="text_authentication_failed">Autentificarea a eșuat.</string>
-    <string name="text_biometric_login">Setări Panther Launcher pentru conectare biometrică</string>
+    <string name="text_biometric_login">Setări RE*start pentru conectare biometrică</string>
     <string name="text_biometric_login_app">Autentificare biometrică pentru %1$s</string>
     <string name="text_biometric_login_sub">Conectați-vă folosind acreditările biometrice.</string>
     <!-- Crash Strings -->
@@ -342,7 +342,7 @@
     <string name="widgets_not_added">Nu au fost adăugate încă widgeturi. Apăsați lung pentru a adăuga unul.</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">Această funcționalitate necesită Android 15 sau o versiune ulterioară.</string>
-    <string name="toast_private_space_default_home_screen">Panther Launcher trebuie să fie ecranul de pornire implicit pentru a accesa spațiul privat.</string>
+    <string name="toast_private_space_default_home_screen">RE*start trebuie să fie ecranul de pornire implicit pentru a accesa spațiul privat.</string>
     <string name="toast_private_space_locked">Spațiu privat blocat</string>
     <string name="toast_private_space_unlocked">Spațiu privat deblocat</string>
     <string name="toast_private_space_not_available">Spațiul privat nu este disponibil</string>

@@ -25,7 +25,7 @@
 -dontwarn javax.annotation.processing.SupportedOptions
 
 # Keep device info fields
--keepclassmembers class ch.smartkraft.pantherlauncher.helper.DeviceInfo {
+-keepclassmembers class ch.remaker.restart.helper.DeviceInfo {
     *;
 }
 

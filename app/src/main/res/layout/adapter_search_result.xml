@@ -25,14 +25,14 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <ch.smartkraft.components.views.FontAppCompatTextView
+        <ch.remaker.components.views.FontAppCompatTextView
             android:id="@+id/resultTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="middle"
             android:maxLines="1" />
 
-        <ch.smartkraft.components.views.FontAppCompatTextView
+        <ch.remaker.components.views.FontAppCompatTextView
             android:id="@+id/resultSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

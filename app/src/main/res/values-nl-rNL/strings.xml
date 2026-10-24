@@ -16,11 +16,11 @@
     <string name="grant_location_permission">Om verder te gaan, moet u toestemming geven voor toegang tot de locatie.</string>
     <string name="reason_location_permission">Deze app heeft toegang tot uw locatie nodig om nauwkeurige weersupdates te kunnen geven op basis van uw huidige locatie. We verzamelen of delen geen persoonlijke gegevens.</string>
     <string name="grant_accessibility_permission">Om door te gaan, moet u toestemming geven voor Toegankelijkheid.</string>
-    <string name="reason_accessibility_permission">Panther Launcher heeft toestemming voor toegankelijkheid nodig om geavanceerde functies te kunnen bieden, zoals het vergrendelen van het scherm en het openen van snelle instellingen. Deze functies dragen bij aan een betere gebruiksvriendelijkheid. We verzamelen of delen geen gegevens.</string>
+    <string name="reason_accessibility_permission">RE*start heeft toestemming voor toegankelijkheid nodig om geavanceerde functies te kunnen bieden, zoals het vergrendelen van het scherm en het openen van snelle instellingen. Deze functies dragen bij aan een betere gebruiksvriendelijkheid. We verzamelen of delen geen gegevens.</string>
     <string name="permission_granted">Toestemming verleend! U kunt doorgaan.</string>
     <string name="this_can_be_disabled_later">* Deze toestemming kan later worden uitgeschakeld.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Panther Launcher-instellingen</string>
+    <string name="settings_name">RE*start-instellingen</string>
     <string name="settings_features_title">Functies</string>
     <string name="settings_features_description">Verbeter uw productiviteit.</string>
     <string name="settings_look_feel_title">Uiterlijk &amp; Stijl</string>
@@ -40,7 +40,7 @@
     <string name="settings_advanced_description">Toegang tot app-info, standaard launcher, back-uptools en meer.</string>
     <string name="settings_expert_title">Deskundige</string>
     <string name="settings_expert_description">Ontgrendel verborgen opties en geavanceerde instellingen.</string>
-    <string name="settings_exit_launcher_title">Panther Launcher verlaten</string>
+    <string name="settings_exit_launcher_title">RE*start verlaten</string>
     <string name="settings_exit_launcher_description">Schakel tijdelijk over naar je standaard launcher.</string>
     <string name="settings_exit_launcher_dialog">Kies een launcher</string>
     <!-- Strings used for features settings -->
@@ -176,7 +176,7 @@
     <string name="advanced_settings_app_info_title">App informatie</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Instellen als standaard launcher</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Maak Panther Launcher je standaard startscherm-app.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">Maak RE*start je standaard startscherm-app.</string>
     <string name="advanced_settings_change_default_launcher">Standaard launcher wijzigen</string>
     <string name="advanced_settings_change_default_launcher_description">Kies een andere launcher als standaard.</string>
     <string name="advanced_settings_restart_title">Herstart Launcher</string>
@@ -224,14 +224,14 @@
     <string name="empty_favorite">Ongebruikt</string>
     <string name="confirm_remove_favorite">Weet je zeker dat je deze app uit je favorieten wilt verwijderen?</string>
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">Panther Launcher Actie Services</string>
+    <string name="accessibility_service_name">RE*start Actie Services</string>
     <string name="accessibility_service_why_we_need">Waarom we toestemming voor toegankelijkheid nodig hebben</string>
-    <string name="accessibility_service_description">Deze toegankelijkheidsservice stelt Panther Launcher in staat om bepaalde acties uit te voeren, zoals het vergrendelen van het scherm of het openen van de snelle instellingen. Onze toegankelijkheidsservice verzamelt of deelt geen gegevens.</string>
+    <string name="accessibility_service_description">Deze toegankelijkheidsservice stelt RE*start in staat om bepaalde acties uit te voeren, zoals het vergrendelen van het scherm of het openen van de snelle instellingen. Onze toegankelijkheidsservice verzamelt of deelt geen gegevens.</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher heeft toegang tot de Toegankelijkheidsservice nodig om functies zoals de volgende mogelijk te maken:\n\n
+    RE*start heeft toegang tot de Toegankelijkheidsservice nodig om functies zoals de volgende mogelijk te maken:\n\n
     • Het scherm vergrendelen met een gebaar of sneltoets\n
     • Het paneel Snelle instellingen snel openen\n\n
-    Deze toestemming stelt Panther Launcher in staat om deze acties namens u uit te voeren, maar we verzamelen, bewaren of delen geen persoonlijke of gevoelige gegevens via deze service.\n\n
+    Deze toestemming stelt RE*start in staat om deze acties namens u uit te voeren, maar we verzamelen, bewaren of delen geen persoonlijke of gevoelige gegevens via deze service.\n\n
     Je kunt deze toegang op elk moment uitschakelen via de instellingen van je apparaat.
     </string>
     <string name="can_not_delete_system_apps">Kan systeemapps niet verwijderen</string>
@@ -247,7 +247,7 @@
     <string name="text_authentication_cancel">Authenticatie Annuleren.</string>
     <string name="text_authentication_error">Authenticatiefout: %1$s (code %2$d)</string>
     <string name="text_authentication_failed">Authenticatie mislukt.</string>
-    <string name="text_biometric_login">Biometrische login Panther Launcher-instellingen</string>
+    <string name="text_biometric_login">Biometrische login RE*start-instellingen</string>
     <string name="text_biometric_login_app">Biometrische login voor %1$s</string>
     <string name="text_biometric_login_sub">Log in met uw biometrische gegevens</string>
     <!-- Crash Strings -->
@@ -342,7 +342,7 @@
     <string name="widgets_not_added">Er zijn nog geen widgets toegevoegd. Houd ingedrukt om er een toe te voegen.</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">Voor deze functionaliteit is Android 15 of hoger vereist.</string>
-    <string name="toast_private_space_default_home_screen">Panther Launcher moet het standaard startscherm zijn om toegang te krijgen tot uw privéruimte.</string>
+    <string name="toast_private_space_default_home_screen">RE*start moet het standaard startscherm zijn om toegang te krijgen tot uw privéruimte.</string>
     <string name="toast_private_space_locked">Privéruimte afgesloten</string>
     <string name="toast_private_space_unlocked">Privéruimte ontgrendeld</string>
     <string name="toast_private_space_not_available">Privéruimte is niet beschikbaar</string>

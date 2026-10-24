@@ -16,11 +16,11 @@
     <string name="grant_location_permission">Pro pokračování prosím udělte oprávnění k Poloze.</string>
     <string name="reason_location_permission">Tato aplikace potřebuje přístup k poloze, aby mohla poskytovat přesné informace o počasí na základě vaší aktuální polohy. Neshromažďujeme ani nesdílíme žádné osobní údaje.</string>
     <string name="grant_accessibility_permission">Chcete-li pokračovat, udělte prosím oprávnění k přístupnosti.</string>
-    <string name="reason_accessibility_permission">Panther Launcher potřebuje oprávnění k přístupnosti, aby mohl poskytovat vylepšené funkce, jako je zamykání obrazovky a otevírání rychlého nastavení. Tyto funkce pomáhají zlepšit použitelnost. Neshromažďujeme ani nesdílíme žádná data.</string>
+    <string name="reason_accessibility_permission">RE*start potřebuje oprávnění k přístupnosti, aby mohl poskytovat vylepšené funkce, jako je zamykání obrazovky a otevírání rychlého nastavení. Tyto funkce pomáhají zlepšit použitelnost. Neshromažďujeme ani nesdílíme žádná data.</string>
     <string name="permission_granted">Povolení uděleno! Můžete pokračovat.</string>
     <string name="this_can_be_disabled_later">* Toto oprávnění může být později zakázáno.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Nastavení Panther Launcheru</string>
+    <string name="settings_name">Nastavení RE*startu</string>
     <string name="settings_features_title">Funkce</string>
     <string name="settings_features_description">Zlepšete svou produktivitu.</string>
     <string name="settings_look_feel_title">Vzhled &amp; Cítit</string>
@@ -40,7 +40,7 @@
     <string name="settings_advanced_description">Přístup k informacím o aplikacích, výchozímu spouštěči, nástrojům pro zálohování a dalším funkcím.</string>
     <string name="settings_expert_title">Expert</string>
     <string name="settings_expert_description">Odemkněte skryté možnosti a pokročilá vylepšení.</string>
-    <string name="settings_exit_launcher_title">Ukončit Panther Launcher</string>
+    <string name="settings_exit_launcher_title">Ukončit RE*start</string>
     <string name="settings_exit_launcher_description">Dočasně přepněte na výchozí spouštěč.</string>
     <string name="settings_exit_launcher_dialog">Vyberte spouštěč</string>
     <!-- Strings used for features settings -->
@@ -176,7 +176,7 @@
     <string name="advanced_settings_app_info_title">Informace o aplikaci</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Nastavit jako výchozí spouštěč</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Nastavte si Panther Launcher jako výchozí domovskou aplikaci.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">Nastavte si RE*start jako výchozí domovskou aplikaci.</string>
     <string name="advanced_settings_change_default_launcher">Změnit výchozí spouštěč</string>
     <string name="advanced_settings_change_default_launcher_description">Vyberte jiný spouštěč jako výchozí.</string>
     <string name="advanced_settings_restart_title">Restartujte spouštěč</string>
@@ -224,14 +224,14 @@
     <string name="empty_favorite">Nepoužitý</string>
     <string name="confirm_remove_favorite">Opravdu chcete tuto aplikaci odebrat z oblíbených?</string>
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">Akční služby Panther Launcheru</string>
+    <string name="accessibility_service_name">Akční služby RE*startu</string>
     <string name="accessibility_service_why_we_need">Proč potřebujeme oprávnění k přístupnosti</string>
-    <string name="accessibility_service_description">Tato služba usnadnění přístupu umožňuje aplikaci Panther Launcher provádět určité akce, jako je uzamčení obrazovky nebo otevření rychlého nastavení. Naše služba usnadnění přístupu neshromažďuje ani nesdílí žádná data.</string>
+    <string name="accessibility_service_description">Tato služba usnadnění přístupu umožňuje aplikaci RE*start provádět určité akce, jako je uzamčení obrazovky nebo otevření rychlého nastavení. Naše služba usnadnění přístupu neshromažďuje ani nesdílí žádná data.</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher vyžaduje přístup ke Službě usnadnění přístupu, aby mohl používat funkce, jako například:\n\n
+    RE*start vyžaduje přístup ke Službě usnadnění přístupu, aby mohl používat funkce, jako například:\n\n
     • Uzamčení obrazovky gestem nebo zkratkou\n
     • Rychlé otevření panelu Rychlé nastavení\n\n
-    Toto oprávnění umožňuje Panther Launcheru provádět tyto akce vaším jménem, ale prostřednictvím této služby neshromažďujeme, neukládáme ani nesdílíme žádné osobní ani citlivé údaje.\n\n
+    Toto oprávnění umožňuje RE*startu provádět tyto akce vaším jménem, ale prostřednictvím této služby neshromažďujeme, neukládáme ani nesdílíme žádné osobní ani citlivé údaje.\n\n
     Tento přístup můžete kdykoli zakázat v nastavení zařízení.
     </string>
     <string name="can_not_delete_system_apps">Nelze smazat systémové aplikace</string>
@@ -247,7 +247,7 @@
     <string name="text_authentication_cancel">Zrušení ověření.</string>
     <string name="text_authentication_error">Chyba ověřování: %1$s (kód %2$d)</string>
     <string name="text_authentication_failed">Ověření se nezdařilo.</string>
-    <string name="text_biometric_login">Biometrické přihlášení Nastavení Panther Launcheru</string>
+    <string name="text_biometric_login">Biometrické přihlášení Nastavení RE*startu</string>
     <string name="text_biometric_login_app">Biometrické přihlášení pro %1$s</string>
     <string name="text_biometric_login_sub">Přihlaste se pomocí svých biometrických údajů.</string>
     <!-- Crash Strings -->
@@ -342,7 +342,7 @@
     <string name="widgets_not_added">Zatím nebyly přidány žádné widgety. Dlouhým stisknutím jej přidáte.</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">Tato funkce vyžaduje Android 15 nebo novější.</string>
-    <string name="toast_private_space_default_home_screen">Pro přístup k soukromému prostoru musí být jako výchozí domovská obrazovka nastaven Panther Launcher.</string>
+    <string name="toast_private_space_default_home_screen">Pro přístup k soukromému prostoru musí být jako výchozí domovská obrazovka nastaven RE*start.</string>
     <string name="toast_private_space_locked">Soukromý prostor uzamčen</string>
     <string name="toast_private_space_unlocked">Soukromý prostor odemčen</string>
     <string name="toast_private_space_not_available">Soukromý prostor není k dispozici</string>

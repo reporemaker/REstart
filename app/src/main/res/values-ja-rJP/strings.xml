@@ -16,7 +16,7 @@
     <string name="grant_location_permission">続行するには、位置情報へのアクセス許可を与えてください。</string>
     <string name="reason_location_permission">このアプリは、現在地に基づいて正確な天気予報を提供するために、位置情報へのアクセス権限を必要とします。当社は個人データを収集したり、共有したりすることはありません。</string>
     <string name="grant_accessibility_permission">続行するには、アクセシビリティのアクセス許可を与えてください。</string>
-    <string name="reason_accessibility_permission">Panther Launcherは、画面ロックやクイック設定の起動といった拡張機能を提供するために、アクセシビリティ権限を必要とします。これらの機能は、ユーザビリティの向上に役立ちます。当社は、いかなるデータも収集または共有しません。</string>
+    <string name="reason_accessibility_permission">RE*startは、画面ロックやクイック設定の起動といった拡張機能を提供するために、アクセシビリティ権限を必要とします。これらの機能は、ユーザビリティの向上に役立ちます。当社は、いかなるデータも収集または共有しません。</string>
     <string name="permission_granted">許可されました！続行してください。</string>
     <string name="this_can_be_disabled_later">※この権限は後で無効にされる可能性があります。</string>
     <!-- Strings used for settings menus -->
@@ -173,7 +173,7 @@
     <string name="advanced_settings_app_info_title">アプリ情報</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">デフォルトランチャーとして設定</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Panther Launcherをデフォルトのホームアプリに設定しましょう。</string>
+    <string name="advanced_settings_set_as_default_launcher_description">RE*startをデフォルトのホームアプリに設定しましょう。</string>
     <string name="advanced_settings_change_default_launcher">デフォルトランチャーを変更する</string>
     <string name="advanced_settings_change_default_launcher_description">デフォルトのランチャーを別のものに変更してください。</string>
     <string name="advanced_settings_restart_title">ランチャーを再起動してください</string>
@@ -223,12 +223,12 @@
     <!-- Accessibility/Help Strings -->
     <string name="accessibility_service_name">マルチランチャーアクションサービス</string>
     <string name="accessibility_service_why_we_need">アクセシビリティ許可が必要な理由</string>
-    <string name="accessibility_service_description">このアクセシビリティサービスにより、Panther Launcherは画面のロックやクイック設定の起動などの特定のアクションを実行できます。当社のアクセシビリティサービスは、いかなるデータも収集または共有しません。</string>
+    <string name="accessibility_service_description">このアクセシビリティサービスにより、RE*startは画面のロックやクイック設定の起動などの特定のアクションを実行できます。当社のアクセシビリティサービスは、いかなるデータも収集または共有しません。</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher は、次のような機能を有効にするためにアクセシビリティ サービスへのアクセスを必要とします。\n\n
+    RE*start は、次のような機能を有効にするためにアクセシビリティ サービスへのアクセスを必要とします。\n\n
     • ジェスチャーまたはショートカットによる画面のロック\n
     • クイック設定パネルをすばやく開く\n\n
-    この権限により、Panther Launcher はユーザーに代わってこれらのアクションを実行できますが、このサービスを通じて個人データや機密データを収集、保存、または共有することはありません。\n\n
+    この権限により、RE*start はユーザーに代わってこれらのアクションを実行できますが、このサービスを通じて個人データや機密データを収集、保存、または共有することはありません。\n\n
     デバイスの設定からいつでもこのアクセスを無効にできます。
     </string>
     <string name="can_not_delete_system_apps">システムアプリを削除できません</string>
@@ -331,7 +331,7 @@
     <string name="widgets_not_added">ウィジェットはまだ追加されていません。長押しして追加してください。</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">この機能を利用するには、Android 15以降が必要です。</string>
-    <string name="toast_private_space_default_home_screen">プライベートスペースにアクセスするには、Panther Launcherをデフォルトのホーム画面に設定する必要があります。</string>
+    <string name="toast_private_space_default_home_screen">プライベートスペースにアクセスするには、RE*startをデフォルトのホーム画面に設定する必要があります。</string>
     <string name="toast_private_space_locked">プライベート空間は施錠されています</string>
     <string name="toast_private_space_unlocked">プライベート空間のロックを解除</string>
     <string name="toast_private_space_not_available">個室は利用できません</string>

@@ -21,7 +21,7 @@
         android:paddingHorizontal="8dp"
         android:paddingVertical="10dp">
 
-        <ch.smartkraft.components.views.FontSearchView
+        <ch.remaker.components.views.FontSearchView
             android:id="@+id/search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             tools:layout_conversion_absoluteWidth="0dp" />
     </LinearLayout>
 
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/clearHomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
         app:theme="@style/AppSearchText" />
 
     <!-- Drawer button and tip, positioned below search container -->
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/appDrawerTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
         android:clipToPadding="false">
 
         <!-- RecyclerView positioned below the Drawer TextViews -->
-        <ch.smartkraft.components.views.FontRecyclerView
+        <ch.remaker.components.views.FontRecyclerView
             android:id="@+id/appsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -141,7 +141,7 @@
             android:requiresFadingEdge="vertical"
             android:scrollbars="none" />
 
-        <ch.smartkraft.components.views.FontRecyclerView
+        <ch.remaker.components.views.FontRecyclerView
             android:id="@+id/contactsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -159,7 +159,7 @@
         android:layout_margin="8dp"
         android:visibility="gone">
 
-        <ch.smartkraft.pantherlauncher.ui.components.AZSidebarView
+        <ch.remaker.restart.ui.components.AZSidebarView
             android:id="@+id/azSidebar"
             android:layout_width="32dp"
             android:layout_height="match_parent" />
@@ -167,7 +167,7 @@
 
 
     <!-- List Empty Hint, center aligned -->
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/listEmptyHint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -16,7 +16,7 @@
     <string name="grant_location_permission">للمتابعة، يرجى منح إذن الوصول إلى الموقع.</string>
     <string name="reason_location_permission">يحتاج هذا التطبيق إلى الوصول إلى الموقع لتوفير تحديثات دقيقة للطقس بناءً على موقعك الحالي. لا نقوم بجمع أو مشاركة أي بيانات شخصية.</string>
     <string name="grant_accessibility_permission">للمتابعة، يرجى منح إذن الوصول.</string>
-    <string name="reason_accessibility_permission">يحتاج تطبيق Panther Launcher إلى إذن الوصول لتوفير ميزات محسّنة، مثل قفل الشاشة وفتح الإعدادات السريعة. تُسهم هذه الوظائف في تحسين تجربة المستخدم. لا نقوم بجمع أو مشاركة أي بيانات.</string>
+    <string name="reason_accessibility_permission">يحتاج تطبيق RE*start إلى إذن الوصول لتوفير ميزات محسّنة، مثل قفل الشاشة وفتح الإعدادات السريعة. تُسهم هذه الوظائف في تحسين تجربة المستخدم. لا نقوم بجمع أو مشاركة أي بيانات.</string>
     <string name="permission_granted">تمت الموافقة! يمكنك المتابعة.</string>
     <string name="this_can_be_disabled_later">* قد يتم تعطيل هذا الإذن لاحقًا.</string>
     <!-- Strings used for settings menus -->
@@ -176,7 +176,7 @@
     <string name="advanced_settings_app_info_title">معلومات التطبيق</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">تعيينه كتطبيق تشغيل افتراضي</string>
-    <string name="advanced_settings_set_as_default_launcher_description">اجعل تطبيق Panther Launcher تطبيقك الرئيسي الافتراضي.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">اجعل تطبيق RE*start تطبيقك الرئيسي الافتراضي.</string>
     <string name="advanced_settings_change_default_launcher">تغيير المشغل الافتراضي</string>
     <string name="advanced_settings_change_default_launcher_description">اختر مشغلًا مختلفًا ليكون المشغل الافتراضي.</string>
     <string name="advanced_settings_restart_title">إعادة تشغيل المشغل</string>
@@ -226,11 +226,11 @@
     <!-- Accessibility/Help Strings -->
     <string name="accessibility_service_name">خدمات تشغيل متعددة المشغلات</string>
     <string name="accessibility_service_why_we_need">لماذا نحتاج إلى إذن الوصول؟</string>
-    <string name="accessibility_service_description">تتيح خدمة تسهيل الوصول هذه لبرنامج Panther Launcher القيام ببعض الإجراءات مثل قفل الشاشة أو فتح الإعدادات السريعة. ولا تقوم خدمة تسهيل الوصول لدينا بجمع أو مشاركة أي بيانات.</string>
-    <string name="accessibility_service_more_info">    يتطلب Panther Launcher الوصول إلى خدمة إمكانية الوصول لتمكين ميزات مثل:\n\n
+    <string name="accessibility_service_description">تتيح خدمة تسهيل الوصول هذه لبرنامج RE*start القيام ببعض الإجراءات مثل قفل الشاشة أو فتح الإعدادات السريعة. ولا تقوم خدمة تسهيل الوصول لدينا بجمع أو مشاركة أي بيانات.</string>
+    <string name="accessibility_service_more_info">    يتطلب RE*start الوصول إلى خدمة إمكانية الوصول لتمكين ميزات مثل:\n\n
     - قفل الشاشة باستخدام إيماءة أو اختصار\n
     - فتح لوحة الإعدادات السريعة بسرعة\n\n
-    يسمح هذا الإذن لـ Panther Launcher بتنفيذ هذه الإجراءات نيابةً عنك، ولكننا لا نجمع أو نخزن أو نشارك أي بيانات شخصية أو حساسة من خلال هذه الخدمة.\n\n
+    يسمح هذا الإذن لـ RE*start بتنفيذ هذه الإجراءات نيابةً عنك، ولكننا لا نجمع أو نخزن أو نشارك أي بيانات شخصية أو حساسة من خلال هذه الخدمة.\n\n
     يمكنك تعطيل هذا الوصول في أي وقت من إعدادات جهازك.
     </string>
     <string name="can_not_delete_system_apps">لا يمكن حذف تطبيقات النظام</string>
@@ -246,7 +246,7 @@
     <string name="text_authentication_cancel">إلغاء المصادقة.</string>
     <string name="text_authentication_error">خطأ في المصادقة: %1$s (الرمز %2$d)</string>
     <string name="text_authentication_failed">المصادقة فشلت.</string>
-    <string name="text_biometric_login">إعدادات تسجيل الدخول البيومتري لـ Panther Launcher</string>
+    <string name="text_biometric_login">إعدادات تسجيل الدخول البيومتري لـ RE*start</string>
     <string name="text_biometric_login_app">تسجيل الدخول البيومتري لـ %1$s</string>
     <string name="text_biometric_login_sub">قم بتسجيل الدخول باستخدام بيانات الاعتماد البيومترية الخاصة بك</string>
     <!-- Crash Strings -->
@@ -341,7 +341,7 @@
     <string name="widgets_not_added">لم تتم إضافة أي أدوات بعد. اضغط مطولاً لإضافة واحدة.</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">تتطلب هذه الخاصية نظام Android 15 أو أحدث.</string>
-    <string name="toast_private_space_default_home_screen">يجب أن يكون Panther Launcher هو الشاشة الرئيسية الافتراضية للوصول إلى المساحة الخاصة.</string>
+    <string name="toast_private_space_default_home_screen">يجب أن يكون RE*start هو الشاشة الرئيسية الافتراضية للوصول إلى المساحة الخاصة.</string>
     <string name="toast_private_space_locked">مساحة خاصة مغلقة</string>
     <string name="toast_private_space_unlocked">تم فتح مساحة خاصة</string>
     <string name="toast_private_space_not_available">المساحة الخاصة غير متاحة</string>

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/share_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:orientation="horizontal"
             android:padding="12dp">
 
-            <ch.smartkraft.components.views.FontAppCompatTextView
+            <ch.remaker.components.views.FontAppCompatTextView
                 android:id="@+id/share_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Horizontal Share List -->
-    <ch.smartkraft.components.views.FontRecyclerView
+    <ch.remaker.components.views.FontRecyclerView
         android:id="@+id/share_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

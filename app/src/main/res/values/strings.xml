@@ -20,13 +20,13 @@
     <string name="grant_location_permission">To continue, please grant Location permission.</string>
     <string name="reason_location_permission">This app needs Location Access to provide accurate weather updates based on your current location. We do not collect or share any personal data.</string>
     <string name="grant_accessibility_permission">To continue, please grant Accessibility permission.</string>
-    <string name="reason_accessibility_permission">Panther Launcher needs Accessibility permission to provide enhanced features, such as locking the screen and opening quick settings. These functions help improve usability. We do not collect or share any data.</string>
+    <string name="reason_accessibility_permission">RE*start needs Accessibility permission to provide enhanced features, such as locking the screen and opening quick settings. These functions help improve usability. We do not collect or share any data.</string>
     <string name="permission_granted">Permission Granted! You can continue.</string>
 
     <string name="this_can_be_disabled_later">* This permission may be disabled later.</string>
 
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Panther Launcher Settings</string>
+    <string name="settings_name">RE*start Settings</string>
 
     <string name="settings_features_title">Features</string>
     <string name="settings_features_description">Improve your productivity.</string>
@@ -57,7 +57,7 @@
     <string name="settings_expert_description">Unlock hidden options, and advanced tweaks.</string>
 
 
-    <string name="settings_exit_launcher_title">Exit Panther Launcher</string>
+    <string name="settings_exit_launcher_title">Exit RE*start</string>
     <string name="settings_exit_launcher_description">Switch to your default launcher temporarily.</string>
     <string name="settings_exit_launcher_dialog">Choose a launcher</string>
 
@@ -277,7 +277,7 @@
     <string name="advanced_settings_app_info_description">%1$s</string>
 
     <string name="advanced_settings_set_as_default_launcher">Set as Default Launcher</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Make Panther Launcher your default home app.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">Make RE*start your default home app.</string>
     <string name="advanced_settings_change_default_launcher">Change Default Launcher</string>
     <string name="advanced_settings_change_default_launcher_description">Choose a different launcher as your default.</string>
 
@@ -351,14 +351,14 @@
     <string name="confirm_remove_favorite">Are you sure you want to remove this app from favorites?</string>
 
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">Panther Launcher Action Services</string>
+    <string name="accessibility_service_name">RE*start Action Services</string>
     <string name="accessibility_service_why_we_need">Why We Need Accessibility Permission</string>
-    <string name="accessibility_service_description">This accessibility service allows Panther Launcher to do certain actions such as locking the screen or opening the quick settings. Our accessibility service does not collect or share any data.</string>
+    <string name="accessibility_service_description">This accessibility service allows RE*start to do certain actions such as locking the screen or opening the quick settings. Our accessibility service does not collect or share any data.</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher requires access to the Accessibility Service to enable features such as:\n\n
+    RE*start requires access to the Accessibility Service to enable features such as:\n\n
     • Locking the screen with a gesture or shortcut\n
     • Opening the Quick Settings panel quickly\n\n
-    This permission allows Panther Launcher to perform these actions on your behalf, but we do not collect, store, or share any personal or sensitive data through this service.\n\n
+    This permission allows RE*start to perform these actions on your behalf, but we do not collect, store, or share any personal or sensitive data through this service.\n\n
     You can disable this access anytime from your device settings.
     </string>
     <string name="can_not_delete_system_apps">Can\'t Delete System Apps</string>
@@ -375,13 +375,15 @@
     <string name="text_authentication_cancel">Authentication Cancel.</string>
     <string name="text_authentication_error">Authentication error: %1$s (code %2$d)</string>
     <string name="text_authentication_failed">Authentication failed.</string>
-    <string name="text_biometric_login">Biometric login Panther Launcher Settings</string>
+    <string name="text_biometric_login">Biometric login RE*start Settings</string>
     <string name="text_biometric_login_app">Biometric login for %1$s</string>
     <string name="text_biometric_login_sub">Log in using your biometric credentials.</string>
 
     <!-- Crash Strings -->
     <string name="acra_crash">Crash</string>
-    <string name="acra_dialog_text">We\'re sorry, but %1$s has encountered an unexpected issue and needs to close. Please help us improve by sending a crash report.\n\n%1$s values your privacy and the data collected is solely used for improving app stability. No personal information is collected. Thank you for your support!</string>
+    <string name="acra_report_hint">If you want to report it, write to %1$s and describe what you were doing. The log file %2$s stays in the app\'s private storage on this device; nothing is sent automatically.</string>
+    <string name="acra_restart">Restart</string>
+    <string name="acra_dialog_text">%1$s ran into an unexpected problem and has to close.</string>
     <string name="acra_send_report">Send Report</string>
     <string name="acra_dont_send">Don\'t Send</string>
 
@@ -481,7 +483,7 @@
 
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">This functionality requires Android 15 or later.</string>
-    <string name="toast_private_space_default_home_screen">Panther Launcher needs to be the default home screen to access private space.</string>
+    <string name="toast_private_space_default_home_screen">RE*start needs to be the default home screen to access private space.</string>
     <string name="toast_private_space_locked">Private space locked</string>
     <string name="toast_private_space_unlocked">Private space unlocked</string>
     <string name="toast_private_space_not_available">Private space is not available</string>

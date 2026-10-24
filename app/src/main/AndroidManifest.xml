@@ -36,7 +36,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".PantherLauncher"
+        android:name=".REstartApp"
         android:allowBackup="false"
         android:clearTaskOnLaunch="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -47,7 +47,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PantherLauncher"
+        android:theme="@style/Theme.REstart"
         android:windowSoftInputMode="adjustResize|stateHidden"
         tools:targetApi="36">
         <activity
@@ -65,8 +65,8 @@
         </provider>
         <!-- Init provider to run early initialization code -->
         <provider
-            android:name=".init.PantherLauncherInitProvider"
-            android:authorities="${applicationId}.pantherlauncher.initprovider"
+            android:name=".init.REstartInitProvider"
+            android:authorities="${applicationId}.initprovider"
             android:exported="false"
             android:initOrder="100" />
         <!-- MAIN LAUNCHER ACTIVITY -->
@@ -104,7 +104,7 @@
             android:excludeFromRecents="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="app.pantherlauncher.APPLY_ICONS" />
+                <action android:name="ch.remaker.restart.APPLY_ICONS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -117,7 +117,7 @@
         <activity
             android:name=".ui.shortcuts.PinShortcutActivity"
             android:excludeFromRecents="true"
-            android:theme="@style/Theme.PantherLauncher.Translucent"
+            android:theme="@style/Theme.REstart.Translucent"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />

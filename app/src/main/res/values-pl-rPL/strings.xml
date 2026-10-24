@@ -16,11 +16,11 @@
     <string name="grant_location_permission">Aby kontynuować, proszę udzielić pozwolenia na dostęp do lokalizacji.</string>
     <string name="reason_location_permission">Ta aplikacja potrzebuje dostępu do danych o lokalizacji, aby dostarczać dokładne informacje o pogodzie na podstawie Twojej aktualnej lokalizacji. Nie gromadzimy ani nie udostępniamy żadnych danych osobowych.</string>
     <string name="grant_accessibility_permission">Aby kontynuować, udziel uprawnień dostępu.</string>
-    <string name="reason_accessibility_permission">Panther Launcher potrzebuje uprawnień dostępu, aby oferować zaawansowane funkcje, takie jak blokowanie ekranu i otwieranie szybkich ustawień. Funkcje te pomagają poprawić użyteczność. Nie gromadzimy ani nie udostępniamy żadnych danych.</string>
+    <string name="reason_accessibility_permission">RE*start potrzebuje uprawnień dostępu, aby oferować zaawansowane funkcje, takie jak blokowanie ekranu i otwieranie szybkich ustawień. Funkcje te pomagają poprawić użyteczność. Nie gromadzimy ani nie udostępniamy żadnych danych.</string>
     <string name="permission_granted">Zgoda udzielona! Możesz kontynuować.</string>
     <string name="this_can_be_disabled_later">* To uprawnienie może zostać później wyłączone.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Ustawienia Panther Launchera</string>
+    <string name="settings_name">Ustawienia RE*starta</string>
     <string name="settings_features_title">Cechy</string>
     <string name="settings_features_description">Popraw swoją produktywność.</string>
     <string name="settings_look_feel_title">Wygląd &amp; Czuć</string>
@@ -40,7 +40,7 @@
     <string name="settings_advanced_description">Uzyskaj dostęp do informacji o aplikacjach, domyślnego programu uruchamiającego, narzędzi do tworzenia kopii zapasowych i nie tylko.</string>
     <string name="settings_expert_title">Ekspert</string>
     <string name="settings_expert_description">Odblokuj ukryte opcje i zaawansowane zmiany.</string>
-    <string name="settings_exit_launcher_title">Wyjdź z Panther Launchera</string>
+    <string name="settings_exit_launcher_title">Wyjdź z RE*starta</string>
     <string name="settings_exit_launcher_description">Tymczasowo przełącz się na domyślny program uruchamiający.</string>
     <string name="settings_exit_launcher_dialog">Wybierz program uruchamiający</string>
     <!-- Strings used for features settings -->
@@ -176,7 +176,7 @@
     <string name="advanced_settings_app_info_title">Informacje o aplikacji</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Ustaw jako domyślny launcher</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Ustaw Panther Launcher jako domyślną aplikację domową.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">Ustaw RE*start jako domyślną aplikację domową.</string>
     <string name="advanced_settings_change_default_launcher">Zmień domyślny launcher</string>
     <string name="advanced_settings_change_default_launcher_description">Wybierz inny program uruchamiający jako domyślny.</string>
     <string name="advanced_settings_restart_title">Uruchom ponownie program uruchamiający</string>
@@ -224,14 +224,14 @@
     <string name="empty_favorite">Nie używany</string>
     <string name="confirm_remove_favorite">Czy na pewno chcesz usunąć tę aplikację z ulubionych?</string>
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">Usługi akcji Panther Launcher</string>
+    <string name="accessibility_service_name">Usługi akcji RE*start</string>
     <string name="accessibility_service_why_we_need">Dlaczego potrzebujemy pozwolenia na dostępność</string>
-    <string name="accessibility_service_description">Ta usługa ułatwień dostępu umożliwia Panther Launcherowi wykonywanie określonych czynności, takich jak blokowanie ekranu czy otwieranie szybkich ustawień. Nasza usługa ułatwień dostępu nie gromadzi ani nie udostępnia żadnych danych.</string>
+    <string name="accessibility_service_description">Ta usługa ułatwień dostępu umożliwia RE*startowi wykonywanie określonych czynności, takich jak blokowanie ekranu czy otwieranie szybkich ustawień. Nasza usługa ułatwień dostępu nie gromadzi ani nie udostępnia żadnych danych.</string>
     <string name="accessibility_service_more_info">
-    Panther Launcher wymaga dostępu do Usługi ułatwień dostępu, aby włączyć funkcje takie jak:\n\n
+    RE*start wymaga dostępu do Usługi ułatwień dostępu, aby włączyć funkcje takie jak:\n\n
     • Blokowanie ekranu gestem lub skrótem\n
     • Szybkie otwieranie panelu Szybkie ustawienia\n\n
-    To uprawnienie pozwala Panther Launcherowi wykonywać te działania w Twoim imieniu, ale nie gromadzimy, nie przechowujemy ani nie udostępniamy żadnych danych osobowych ani poufnych za pośrednictwem tej usługi.\n\n
+    To uprawnienie pozwala RE*startowi wykonywać te działania w Twoim imieniu, ale nie gromadzimy, nie przechowujemy ani nie udostępniamy żadnych danych osobowych ani poufnych za pośrednictwem tej usługi.\n\n
     Możesz w każdej chwili wyłączyć ten dostęp w ustawieniach swojego urządzenia.
     </string>
     <string name="can_not_delete_system_apps">Nie można usunąć aplikacji systemowych</string>
@@ -247,7 +247,7 @@
     <string name="text_authentication_cancel">Anuluj uwierzytelnianie.</string>
     <string name="text_authentication_error">Błąd uwierzytelnienia:%1$s(kod %2$d)</string>
     <string name="text_authentication_failed">Uwierzytelnianie nie powiodło się.</string>
-    <string name="text_biometric_login">Ustawienia Panther Launchera logowania biometrycznego</string>
+    <string name="text_biometric_login">Ustawienia RE*starta logowania biometrycznego</string>
     <string name="text_biometric_login_app">Logowanie biometryczne dla %1$s</string>
     <string name="text_biometric_login_sub">Zaloguj się przy użyciu danych biometrycznych</string>
     <!-- Crash Strings -->
@@ -342,7 +342,7 @@
     <string name="widgets_not_added">Nie dodano jeszcze żadnych widżetów. Naciśnij i przytrzymaj, aby dodać widżet.</string>
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">Ta funkcjonalność wymaga systemu Android 15 lub nowszego.</string>
-    <string name="toast_private_space_default_home_screen">Panther Launcher musi być domyślnym ekranem głównym, aby uzyskać dostęp do przestrzeni prywatnej.</string>
+    <string name="toast_private_space_default_home_screen">RE*start musi być domyślnym ekranem głównym, aby uzyskać dostęp do przestrzeni prywatnej.</string>
     <string name="toast_private_space_locked">Prywatna przestrzeń zamknięta</string>
     <string name="toast_private_space_unlocked">Odblokowano prywatną przestrzeń</string>
     <string name="toast_private_space_not_available">Prywatna przestrzeń nie jest dostępna</string>

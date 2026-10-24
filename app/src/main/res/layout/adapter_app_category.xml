@@ -10,14 +10,14 @@
     android:paddingTop="14dp"
     android:paddingBottom="6dp">
 
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/categoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:letterSpacing="0.08"
         android:maxLines="1" />
 
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/categoryCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:alpha="0.5"
         android:maxLines="1" />
 
-    <ch.smartkraft.components.views.FontAppCompatTextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/categoryChevron"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

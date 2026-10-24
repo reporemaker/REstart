@@ -12,9 +12,9 @@ plugins {
 // =========================
 
 val major = 1
-val minor = 12
-val patch = 2
-val build = 3
+val minor = 0
+val patch = 0
+val build = 1
 
 val baseVersionName = "$major.$minor.$patch Build $build"
 
@@ -30,7 +30,7 @@ val baseVersionCode =
 
 extensions.configure<ApplicationExtension>("android") {
 
-    namespace = "ch.smartkraft.pantherlauncher"
+    namespace = "ch.remaker.restart"
 
     compileSdk = 37
 
@@ -46,35 +46,35 @@ extensions.configure<ApplicationExtension>("android") {
     productFlavors {
         create("prod") {
             dimension = "channel"
-            applicationId = "app.pantherlauncher"
-            resValue("string", "app_name", "Panther Launcher")
+            applicationId = "ch.remaker.restart"
+            resValue("string", "app_name", "RE*start")
         }
 
         create("beta") {
             dimension = "channel"
-            applicationId = "app.pantherlauncher.beta"
+            applicationId = "ch.remaker.restart.beta"
             versionNameSuffix = "-beta"
-            resValue("string", "app_name", "Panther Launcher Beta")
+            resValue("string", "app_name", "RE*start Beta")
         }
 
         create("alpha") {
             dimension = "channel"
-            applicationId = "app.pantherlauncher.alpha"
+            applicationId = "ch.remaker.restart.alpha"
             versionNameSuffix = "-alpha"
-            resValue("string", "app_name", "Panther Launcher Alpha")
+            resValue("string", "app_name", "RE*start Alpha")
         }
 
         create("nightly") {
             dimension = "channel"
-            applicationId = "app.pantherlauncher.nightly"
+            applicationId = "ch.remaker.restart.nightly"
             versionNameSuffix = "-nightly"
-            resValue("string", "app_name", "Panther Launcher Nightly")
+            resValue("string", "app_name", "RE*start Nightly")
         }
     }
 
     signingConfigs {
         create("release") {
-            val keystoreFile = rootProject.file("app/pantherlauncher.jks")
+            val keystoreFile = rootProject.file("app/restart.jks")
 
             println("Using keystore: ${keystoreFile.absolutePath} (${keystoreFile.length()} bytes)")
 
@@ -105,7 +105,7 @@ extensions.configure<ApplicationExtension>("android") {
             signingConfig = signingConfigs["debug"]
 
             resValue("string", "app_version", baseVersionName)
-            resValue("string", "app_name", "Panther Launcher Debug")
+            resValue("string", "app_name", "RE*start Debug")
             resValue("string", "empty", "")
         }
 

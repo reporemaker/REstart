@@ -22,4 +22,4 @@ dependencyResolutionManagement {
 }
 
 include(":app")
-rootProject.name = "PantherLauncher"
+rootProject.name = "REstart"
