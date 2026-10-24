@@ -13,3 +13,6 @@ app/debug
 diff.*
 *.jks
 app/keystore.properties
+
+# Araştırma ve ön çalışmalar, GitHub'a gitmez
+nogit/

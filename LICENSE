@@ -1,3 +1,26 @@
+REstart (formerly Panther Launcher) - an Android home screen launcher
+Copyright (C) 2026  SmartKraft // SEU//EmekUlas, a REMAKER project
+
+Based on, and containing code from:
+    mLauncher / Multi Launcher  Copyright (C) 2022-2026  Wayne Wesley (HeCodes2Much, DroidWorksStudio, CodeWorksCreativeHub)
+    OlauncherCF                 Copyright (C) 2021-2022  Joscha Loos
+    Olauncher                   Copyright (C) 2020-2022  Tanuj M.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License below for more details.
+
+The full history of authorship is in the git log; the people behind it are
+named in FOUNDATION.md.
+
+-----------------------------------------------------------------------
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
