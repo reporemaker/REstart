@@ -293,20 +293,14 @@ object Constants {
     enum class IconPacks : EnumOption {
         System,
         Custom,
-        CloudDots,
-        LauncherDots,
-        NiagaraDots,
-        SpinnerDots,
+        Star,
         Disabled;
 
         fun getString(target: String): String {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)
                 Custom -> getCustomIconPackName(target)
-                CloudDots -> getLocalizedString(R.string.app_icons_cloud_dots)
-                LauncherDots -> getLocalizedString(R.string.app_icons_launcher_dots)
-                NiagaraDots -> getLocalizedString(R.string.app_icons_niagara_dots)
-                SpinnerDots -> getLocalizedString(R.string.app_icons_spinner_dots)
+                Star -> getLocalizedString(R.string.app_icons_star)
                 Disabled -> getLocalizedString(R.string.disabled)
             }
         }
@@ -316,10 +310,7 @@ object Constants {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)
                 Custom -> getLocalizedString(R.string.system_custom)
-                CloudDots -> getLocalizedString(R.string.app_icons_cloud_dots)
-                LauncherDots -> getLocalizedString(R.string.app_icons_launcher_dots)
-                NiagaraDots -> getLocalizedString(R.string.app_icons_niagara_dots)
-                SpinnerDots -> getLocalizedString(R.string.app_icons_spinner_dots)
+                Star -> getLocalizedString(R.string.app_icons_star)
                 Disabled -> getLocalizedString(R.string.disabled)
             }
         }

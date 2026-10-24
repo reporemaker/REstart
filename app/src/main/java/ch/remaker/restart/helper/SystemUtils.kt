@@ -869,93 +869,19 @@ fun updateFabWidget(context: Context) {
 }
 
 
-private fun getAppListIcons(context: Context, prefs: Prefs, nonNullDrawable: Drawable): Drawable? {
-    return when (prefs.iconPackAppList) {
-        Constants.IconPacks.CloudDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.cloud_dots_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        Constants.IconPacks.LauncherDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.launcher_dot_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        Constants.IconPacks.NiagaraDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.niagara_dot_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        Constants.IconPacks.SpinnerDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.spinner_dots_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        else -> {
-            null
-        }
-    }
+/** The one icon style of REstart: the RE* star, tinted with the app icon's dominant colour. */
+private fun getStarIcon(context: Context, pack: Constants.IconPacks, nonNullDrawable: Drawable): Drawable? {
+    if (pack != Constants.IconPacks.Star) return null
+    val newIcon = ContextCompat.getDrawable(context, R.drawable.star_icon)!!
+    val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
+    return ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
 }
 
-private fun getHomeIcons(context: Context, prefs: Prefs, nonNullDrawable: Drawable): Drawable? {
-    return when (prefs.iconPackHome) {
-        Constants.IconPacks.CloudDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.cloud_dots_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
+private fun getAppListIcons(context: Context, prefs: Prefs, nonNullDrawable: Drawable): Drawable? =
+    getStarIcon(context, prefs.iconPackAppList, nonNullDrawable)
 
-        Constants.IconPacks.LauncherDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.launcher_dot_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        Constants.IconPacks.NiagaraDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.niagara_dot_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        Constants.IconPacks.SpinnerDots -> {
-            val newIcon = ContextCompat.getDrawable(
-                context,
-                R.drawable.spinner_dots_icon
-            )!!
-            val dominantColor = ColorIconsExtensions.getDominantColor(nonNullDrawable)
-            ColorIconsExtensions.recolorDrawable(newIcon, dominantColor)
-        }
-
-        else -> {
-            null
-        }
-    }
-}
+private fun getHomeIcons(context: Context, prefs: Prefs, nonNullDrawable: Drawable): Drawable? =
+    getStarIcon(context, prefs.iconPackHome, nonNullDrawable)
 
 fun setTopPadding(view: View, isSettings: Boolean = false) {
     ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
