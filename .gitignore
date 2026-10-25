@@ -16,3 +16,6 @@ app/keystore.properties
 
 # Araştırma ve ön çalışmalar, GitHub'a gitmez
 nogit/
+
+# macOS
+.DS_Store
