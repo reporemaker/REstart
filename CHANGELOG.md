@@ -6,6 +6,11 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- Settings home: the title first, the RE* mark bottom right (tap: device summary for bug
+  reports); Advanced is a ruled list of actions; the dead "Expert options" switch is gone.
+  New Help & feedback page: what the project is and where it lives, how to report a bug or an
+  idea (GitHub issue or e-mail, with the device summary), and that security problems go by
+  e-mail or private reporting, never as a public issue.
 - Translations: all 21 languages are complete again (104–115 missing strings per language
   translated, dead keys removed); strings added after the fork are marked as machine-translated
   in each file and corrections are welcome as issues or pull requests. `scripts/check-strings.py`

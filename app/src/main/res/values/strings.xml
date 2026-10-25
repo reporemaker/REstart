@@ -341,6 +341,16 @@
     <string name="one_line_alarm_below">Alarm on its own line, under the rule</string>
     <string name="no_alarm_set">No alarm is set.</string>
     <string name="clock_area_tap">Tap</string>
+    <string name="settings_actions_section">Actions</string>
+    <string name="device_summary">Device summary</string>
+    <string name="help_title">Help</string>
+    <string name="help_text">RE*start is a free, open-source launcher. The source code, the changelog and the list of changes since the fork are on GitHub; the project\'s home is remaker.ch.</string>
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_text">Found a bug or have an idea? Say what you did, what happened and what you expected, and add the RE*start and Android versions — the RE* mark at the bottom of the settings shows a device summary you can screenshot or copy. Send it as a GitHub issue or by e-mail.</string>
+    <string name="feedback_open_issue">Open an issue on GitHub</string>
+    <string name="feedback_by_mail">By e-mail</string>
+    <string name="security_title">Security</string>
+    <string name="security_text">Security problems are not reported in public. Do not open an issue: write to hallo@remaker.ch or use GitHub\'s private vulnerability reporting. You will get an answer within 7 days.</string>
     <string name="clock_display">Clock area</string>
     <string name="clock_and_date">Clock and date</string>
     <string name="clock_style">Clock style</string>

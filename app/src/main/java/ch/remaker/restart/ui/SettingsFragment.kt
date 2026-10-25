@@ -421,23 +421,14 @@ class SettingsFragment : BaseFragment() {
                         modifier = Modifier.fillMaxWidth().padding(top = 28.dp, start = 24.dp, end = 24.dp),
                         verticalAlignment = Alignment.Bottom
                     ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Image(
-                                painter = painterResource(R.drawable.branding_image),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .height(36.dp)
-                                    .clickable { dialogBuilder.showDeviceStatsBottomSheet(context = context) }
-                            )
-                            FontText(
-                                text = getLocalizedString(R.string.settings_heading),
-                                fontSize = (titleFontSize.value * 2.1f).sp,
-                                color = titleColor,
-                                fontWeight = FontWeight.Bold,
-                                style = TextStyle(letterSpacing = (-0.03).em),
-                                modifier = Modifier.padding(top = 10.dp)
-                            )
-                        }
+                        FontText(
+                            text = getLocalizedString(R.string.settings_heading),
+                            fontSize = (titleFontSize.value * 2.1f).sp,
+                            color = titleColor,
+                            fontWeight = FontWeight.Bold,
+                            style = TextStyle(letterSpacing = (-0.03).em),
+                            modifier = Modifier.weight(1f)
+                        )
                         FontText(
                             text = (getLocalizedString(R.string.about_app_title) + "\n" + BuildConfig.VERSION_NAME.replace(" Build ", " · Build ")).uppercase(),
                             fontSize = (descriptionFontSize.value * 0.8f).sp,
@@ -500,25 +491,36 @@ class SettingsFragment : BaseFragment() {
                         Entry(n, getLocalizedString(R.string.settings_advanced_title), getLocalizedString(R.string.settings_advanced_sub)) { currentScreen = "advanced" }
                     }
 
-                    // Always at the bottom: the way to the About screen and the signature, as small capitals
-                    FontText(
-                        text = (getLocalizedString(R.string.about_settings_title, getLocalizedString(R.string.about_app_title)) + " →").uppercase(),
-                        fontSize = (descriptionFontSize.value * 0.8f).sp,
-                        color = SettingsTheme.typography.title.color,
-                        fontWeight = FontWeight.Medium,
-                        style = TextStyle(letterSpacing = 0.14.em),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { currentScreen = "about" }
-                            .padding(start = 24.dp, end = 24.dp, top = 18.dp, bottom = 4.dp)
-                    )
-                    FontText(
-                        text = getLocalizedString(R.string.about_developer).uppercase(),
-                        fontSize = (descriptionFontSize.value * 0.8f).sp,
-                        color = SettingsTheme.typography.option.color,
-                        style = TextStyle(letterSpacing = 0.14.em),
-                        modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, bottom = 14.dp)
-                    )
+                    // Bottom: the way to the About screen and the signature on the left; the RE* mark on the
+                    // right opens the device summary (what to paste into a bug report).
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 18.dp, bottom = 14.dp),
+                        verticalAlignment = Alignment.Bottom
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            FontText(
+                                text = (getLocalizedString(R.string.about_settings_title, getLocalizedString(R.string.about_app_title)) + " →").uppercase(),
+                                fontSize = (descriptionFontSize.value * 0.8f).sp,
+                                color = SettingsTheme.typography.title.color,
+                                fontWeight = FontWeight.Medium,
+                                style = TextStyle(letterSpacing = 0.14.em),
+                                modifier = Modifier.clickable { currentScreen = "about" }.padding(bottom = 4.dp)
+                            )
+                            FontText(
+                                text = getLocalizedString(R.string.about_developer).uppercase(),
+                                fontSize = (descriptionFontSize.value * 0.8f).sp,
+                                color = SettingsTheme.typography.option.color,
+                                style = TextStyle(letterSpacing = 0.14.em)
+                            )
+                        }
+                        Image(
+                            painter = painterResource(R.drawable.branding_image),
+                            contentDescription = getLocalizedString(R.string.device_summary),
+                            modifier = Modifier
+                                .height(30.dp)
+                                .clickable { dialogBuilder.showDeviceStatsBottomSheet(context = context) }
+                        )
+                    }
 
                     if (isGestureNavigationEnabled(context)) {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
@@ -2834,222 +2836,183 @@ class SettingsFragment : BaseFragment() {
 
                     val versionName = getLocalizedString(R.string.app_version)
 
-                    // Actions as small tiles, like the home screen
-                    val tileFontSize = (titleFontSize.value * 0.72f).sp
-                    Column(modifier = Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(R.string.advanced_settings_app_info_title),
-                                iconRes = R.drawable.ic_app_info,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                openAppInfo(
-                                    requireContext(),
-                                    Process.myUserHandle(),
-                                    BuildConfig.APPLICATION_ID
-                                )
-                            }
-                            )
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(changeLauncherText),
-                                iconRes = R.drawable.ic_change_default_launcher,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                viewModel.resetDefaultLauncherApp(requireContext())
-                            }
-                            )
-                        }
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(R.string.advanced_settings_restart_title),
-                                iconRes = R.drawable.ic_restart,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                AppReloader.restartApp(requireContext())
-                            }
-                            )
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(R.string.settings_exit_launcher_title),
-                                iconRes = R.drawable.ic_exit,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                exitLauncher(requireContext())
-                            }
-                            )
-                        }
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(R.string.advanced_settings_backup_restore_title),
-                                iconRes = R.drawable.ic_backup_restore,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                dialogBuilder.showBackupRestoreBottomSheet()
-                            }
-                            )
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(R.string.advanced_settings_theme_title),
-                                iconRes = R.drawable.ic_theme,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                dialogBuilder.showSaveLoadThemeBottomSheet()
-                            }
-                            )
-                        }
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            SettingsTile(
-                                modifier = Modifier.weight(1f).height(92.dp),
-                                title = getLocalizedString(R.string.advanced_settings_help_feedback_title),
-                                iconRes = R.drawable.ic_help_feedback,
-                                titleFontSize = tileFontSize,
-                                iconSize = 24.dp,
-                                onClick = {
-                                helpFeedbackButton(requireContext())
-                            }
-                            )
-                        }
-                    }
-
-                    // Expert options live here: the switch shows or hides them
+                    // Actions as a ruled list
                     SettingsTitle(
-                        text = getLocalizedString(R.string.expert_settings_title),
+                        text = getLocalizedString(R.string.settings_actions_section),
                         fontSize = titleFontSize
                     )
                     SectionCard {
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.expert_options_display),
-                            fontSize = titleFontSize,
-                            defaultState = toggledExpertOptions,
-                            onCheckedChange = {
-                                toggledExpertOptions = !prefs.enableExpertOptions
-                                prefs.enableExpertOptions = toggledExpertOptions
-                            }
-                        )
-                    }
-                    if (toggledExpertOptions) {
-                        SectionCard {
-
-
-
-                        // Personalization
+                        SettingsLink(title = getLocalizedString(R.string.advanced_settings_app_info_title), fontSize = titleFontSize) {
+                            openAppInfo(requireContext(), Process.myUserHandle(), BuildConfig.APPLICATION_ID)
                         }
-                        SettingsTitle(
-                            text = getLocalizedString(R.string.settings_general_section),
-                            fontSize = titleFontSize,
-                        )
-                        SectionCard {
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.app_language),
-                            option = selectedLanguage.getString(), // assuming selectedLanguage: Constants.Language
-                            fontSize = titleFontSize,
-                            onClick = {
-                                // Generate options
-                                val languageEntries = Constants.Language.entries
+                        SettingsLink(title = getLocalizedString(changeLauncherText), fontSize = titleFontSize) {
+                            viewModel.resetDefaultLauncherApp(requireContext())
+                        }
+                        SettingsLink(title = getLocalizedString(R.string.advanced_settings_restart_title), fontSize = titleFontSize) {
+                            AppReloader.restartApp(requireContext())
+                        }
+                        SettingsLink(title = getLocalizedString(R.string.settings_exit_launcher_title), fontSize = titleFontSize) {
+                            exitLauncher(requireContext())
+                        }
+                        SettingsLink(title = getLocalizedString(R.string.advanced_settings_backup_restore_title), fontSize = titleFontSize) {
+                            dialogBuilder.showBackupRestoreBottomSheet()
+                        }
+                        SettingsLink(title = getLocalizedString(R.string.advanced_settings_theme_title), fontSize = titleFontSize) {
+                            dialogBuilder.showSaveLoadThemeBottomSheet()
+                        }
+                        SettingsLink(title = getLocalizedString(R.string.advanced_settings_help_feedback_title), fontSize = titleFontSize) {
+                            currentScreen = "help"
+                        }
+                    }
 
-                                val languageOptions =
-                                    languageEntries.map { it.getString() } // get localized names to display
+                    SectionCard {
 
-                                // Determine selected index based on current prefs value
-                                val selectedIndex =
-                                    languageEntries.indexOf(selectedLanguage).takeIf { it >= 0 } ?: 1
 
-                                dialogBuilder.showSingleChoiceBottomSheet(
-                                    context = requireContext(),
-                                    options = languageOptions.toTypedArray(),
-                                    title = getLocalizedString(R.string.app_language),
-                                    selectedIndex = selectedIndex,
-                                    onItemSelected = { newLanguageName ->
-                                        // Find the actual enum by matching its localized name
-                                        val newLanguageIndex =
-                                            languageOptions.indexOfFirst { it == newLanguageName }
-                                        if (newLanguageIndex != -1) {
-                                            val newLanguage = languageEntries[newLanguageIndex]
-                                            selectedLanguage = newLanguage // Update state
-                                            prefs.appLanguage = newLanguage // Persist in preferences
-                                            LauncherLocaleManager.updateLanguage(
-                                                requireContext(),
-                                                newLanguage
-                                            )
-                                            LocalizedResources.invalidate()
-                                            reloadLauncher() // force reload with new language
-                                        }
+
+                    // Personalization
+                    }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_general_section),
+                        fontSize = titleFontSize,
+                    )
+                    SectionCard {
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.app_language),
+                        option = selectedLanguage.getString(), // assuming selectedLanguage: Constants.Language
+                        fontSize = titleFontSize,
+                        onClick = {
+                            // Generate options
+                            val languageEntries = Constants.Language.entries
+
+                            val languageOptions =
+                                languageEntries.map { it.getString() } // get localized names to display
+
+                            // Determine selected index based on current prefs value
+                            val selectedIndex =
+                                languageEntries.indexOf(selectedLanguage).takeIf { it >= 0 } ?: 1
+
+                            dialogBuilder.showSingleChoiceBottomSheet(
+                                context = requireContext(),
+                                options = languageOptions.toTypedArray(),
+                                title = getLocalizedString(R.string.app_language),
+                                selectedIndex = selectedIndex,
+                                onItemSelected = { newLanguageName ->
+                                    // Find the actual enum by matching its localized name
+                                    val newLanguageIndex =
+                                        languageOptions.indexOfFirst { it == newLanguageName }
+                                    if (newLanguageIndex != -1) {
+                                        val newLanguage = languageEntries[newLanguageIndex]
+                                        selectedLanguage = newLanguage // Update state
+                                        prefs.appLanguage = newLanguage // Persist in preferences
+                                        LauncherLocaleManager.updateLanguage(
+                                            requireContext(),
+                                            newLanguage
+                                        )
+                                        LocalizedResources.invalidate()
+                                        reloadLauncher() // force reload with new language
                                     }
-                                )
-                            }
-                        )
-
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.settings_text_size),
-                            option = selectedSettingsSize.toString(),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                dialogBuilder.showSliderBottomSheet(
-                                    context = context,
-                                    title = getLocalizedString(R.string.settings_text_size),
-                                    minValue = Constants.MIN_TEXT_SIZE,
-                                    maxValue = Constants.MAX_TEXT_SIZE,
-                                    currentValue = prefs.settingsSize,
-                                    onValueSelected = { newSettingsSize ->
-                                        selectedSettingsSize = newSettingsSize.toInt()
-                                        prefs.settingsSize = newSettingsSize.toInt()
-                                    }
-                                )
-                            }
-                        )
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.lock_orientation),
-                            fontSize = titleFontSize,
-                            defaultState = toggledLockOrientation,
-                            onCheckedChange = {
-                                toggledLockOrientation = !prefs.lockOrientation
-                                prefs.lockOrientation = toggledLockOrientation
-
-                                val currentOrientation = resources.configuration.orientation
-                                prefs.lockOrientationPortrait =
-                                    currentOrientation == Configuration.ORIENTATION_PORTRAIT
-                                AppReloader.restartApp(requireContext())
-                            }
-                        )
-
-                        if (requireContext().isBiometricEnabled()) {
-                            SettingsSwitch(
-                                text = getLocalizedString(R.string.lock_settings),
-                                fontSize = titleFontSize,
-                                defaultState = toggledSettingsLocked,
-
-                                onCheckedChange = {
-                                    toggledSettingsLocked = !prefs.settingsLocked
-                                    prefs.settingsLocked = toggledSettingsLocked
                                 }
                             )
                         }
+                    )
 
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.settings_text_size),
+                        option = selectedSettingsSize.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = context,
+                                title = getLocalizedString(R.string.settings_text_size),
+                                minValue = Constants.MIN_TEXT_SIZE,
+                                maxValue = Constants.MAX_TEXT_SIZE,
+                                currentValue = prefs.settingsSize,
+                                onValueSelected = { newSettingsSize ->
+                                    selectedSettingsSize = newSettingsSize.toInt()
+                                    prefs.settingsSize = newSettingsSize.toInt()
+                                }
+                            )
+                        }
+                    )
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.lock_orientation),
+                        fontSize = titleFontSize,
+                        defaultState = toggledLockOrientation,
+                        onCheckedChange = {
+                            toggledLockOrientation = !prefs.lockOrientation
+                            prefs.lockOrientation = toggledLockOrientation
+
+                            val currentOrientation = resources.configuration.orientation
+                            prefs.lockOrientationPortrait =
+                                currentOrientation == Configuration.ORIENTATION_PORTRAIT
+                            AppReloader.restartApp(requireContext())
+                        }
+                    )
+
+                    if (requireContext().isBiometricEnabled()) {
                         SettingsSwitch(
-                            text = getLocalizedString(R.string.haptic_feedback),
+                            text = getLocalizedString(R.string.lock_settings),
                             fontSize = titleFontSize,
-                            defaultState = toggledHapticFeedback,
+                            defaultState = toggledSettingsLocked,
+
                             onCheckedChange = {
-                                toggledHapticFeedback = !prefs.hapticFeedback
-                                prefs.hapticFeedback = toggledHapticFeedback
+                                toggledSettingsLocked = !prefs.settingsLocked
+                                prefs.settingsLocked = toggledSettingsLocked
                             }
                         )
-
-
-                        }
                     }
 
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.haptic_feedback),
+                        fontSize = titleFontSize,
+                        defaultState = toggledHapticFeedback,
+                        onCheckedChange = {
+                            toggledHapticFeedback = !prefs.hapticFeedback
+                            prefs.hapticFeedback = toggledHapticFeedback
+                        }
+                    )
 
+
+                    }
+                
+
+                    if (isGestureNavigationEnabled(context)) {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
+                    } else {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
+                    }
+                }
+
+                "help" -> {
+                    BackHandler { currentScreen = "advanced" }
+                    PageHeader(
+                        iconRes = R.drawable.ic_back,
+                        title = getLocalizedString(R.string.advanced_settings_help_feedback_title),
+                        onClick = { currentScreen = "advanced" }
+                    )
+                    SettingsTitle(text = getLocalizedString(R.string.help_title), fontSize = titleFontSize)
+                    SectionCard {
+                        AboutRow(title = "", lines = listOf(getLocalizedString(R.string.help_text)), titleFontSize = titleFontSize, descriptionFontSize = descriptionFontSize)
+                        SettingsLink(title = getLocalizedString(R.string.about_github) + " ↗", fontSize = (titleFontSize.value * 0.85f).sp) {
+                            requireContext().openUrl(getLocalizedString(R.string.about_github_url))
+                        }
+                        SettingsLink(title = "remaker.ch ↗", fontSize = (titleFontSize.value * 0.85f).sp) {
+                            requireContext().openUrl("https://remaker.ch")
+                        }
+                    }
+                    SettingsTitle(text = getLocalizedString(R.string.feedback_title), fontSize = titleFontSize)
+                    SectionCard {
+                        AboutRow(title = "", lines = listOf(getLocalizedString(R.string.feedback_text)), titleFontSize = titleFontSize, descriptionFontSize = descriptionFontSize)
+                        SettingsLink(title = getLocalizedString(R.string.feedback_open_issue) + " ↗", fontSize = (titleFontSize.value * 0.85f).sp) {
+                            requireContext().openUrl(getLocalizedString(R.string.about_issues_url))
+                        }
+                        // The address is plain text on purpose: nothing in the app sends mail by itself
+                        AboutRow(title = getLocalizedString(R.string.feedback_by_mail), lines = listOf(getLocalizedString(R.string.acra_email)), titleFontSize = (titleFontSize.value * 0.85f).sp, descriptionFontSize = descriptionFontSize)
+                    }
+                    SettingsTitle(text = getLocalizedString(R.string.security_title), fontSize = titleFontSize)
+                    SectionCard {
+                        AboutRow(title = "", lines = listOf(getLocalizedString(R.string.security_text)), titleFontSize = titleFontSize, descriptionFontSize = descriptionFontSize)
+                    }
                     if (isGestureNavigationEnabled(context)) {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
                     } else {
