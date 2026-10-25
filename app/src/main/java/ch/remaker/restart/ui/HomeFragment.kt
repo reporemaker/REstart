@@ -426,8 +426,10 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 Constants.ClockStyle.Rings -> prefs.clockSize * 0.7f
                 Constants.ClockStyle.OneLine -> prefs.clockSize * 0.5f
             }
-            clock.setTypeface(clock.typeface, if (style == Constants.ClockStyle.Classic) android.graphics.Typeface.NORMAL else android.graphics.Typeface.BOLD)
-            clock.letterSpacing = if (style == Constants.ClockStyle.Classic) 0f else -0.04f
+            // Weight from the user's family (a fresh base each time, so Classic really is Regular again);
+            // the tight tracking only for the system sans — Doto's dots and unknown custom fonts keep their spacing
+            clock.typeface = FontManager.weighted(requireContext(), if (style == Constants.ClockStyle.Classic) 400 else 700)
+            clock.letterSpacing = if (style == Constants.ClockStyle.Classic) 0f else FontManager.tracking(requireContext(), -0.04f)
         }
     }
 

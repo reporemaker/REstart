@@ -151,7 +151,8 @@ class FontBottomSheetDialogLocked(context: Context) : AppCompatDialog(context), 
     private fun applyFontRecursively(view: View, typeface: Typeface?) {
         if (typeface == null) return
         when (view) {
-            is TextView -> view.typeface = typeface
+            // Keep each text's own weight (a bold label, a light value) and only swap the family
+            is TextView -> view.typeface = view.typeface?.let { Typeface.create(typeface, it.weight, it.isItalic) } ?: typeface
             is ViewGroup -> (0 until view.childCount).forEach {
                 applyFontRecursively(view.getChildAt(it), typeface)
             }

@@ -3399,6 +3399,8 @@ class SettingsFragment : BaseFragment() {
         val day = now.get(java.util.Calendar.DAY_OF_MONTH)
         val caps = TextStyle(letterSpacing = 0.14.em)
         val capsSize = (dateSp.value * 0.7f).sp
+        // Tight tracking only for the system sans, as on the home screen (Doto and custom fonts keep 0)
+        val tight = FontManager.tracking(LocalContext.current, -0.06f).em
         val options = listOf(
             Constants.ClockStyle.Classic to R.string.clock_style_classic_sub,
             Constants.ClockStyle.Swiss to R.string.clock_style_swiss_sub,
@@ -3432,8 +3434,8 @@ class SettingsFragment : BaseFragment() {
                             }
                             Constants.ClockStyle.Swiss -> Row(verticalAlignment = Alignment.CenterVertically) {
                                 Column {
-                                    FontText(text = h, fontSize = (clockSp.value * 1.5f).sp, fontWeight = FontWeight.Bold, color = ink, style = TextStyle(letterSpacing = (-0.06).em, lineHeight = (clockSp.value * 1.35f).sp))
-                                    FontText(text = m, fontSize = (clockSp.value * 1.5f).sp, fontWeight = FontWeight.ExtraLight, color = ink, style = TextStyle(letterSpacing = (-0.06).em, lineHeight = (clockSp.value * 1.35f).sp))
+                                    FontText(text = h, fontSize = (clockSp.value * 1.5f).sp, fontWeight = FontWeight.Bold, color = ink, style = TextStyle(letterSpacing = tight, lineHeight = (clockSp.value * 1.35f).sp))
+                                    FontText(text = m, fontSize = (clockSp.value * 1.5f).sp, fontWeight = FontWeight.Light, color = ink, style = TextStyle(letterSpacing = tight, lineHeight = (clockSp.value * 1.35f).sp))
                                 }
                                 Column(modifier = Modifier.padding(start = 18.dp)) {
                                     FontText(text = weekday.uppercase(locale), fontSize = capsSize, color = muted, style = caps)

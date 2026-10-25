@@ -7,7 +7,6 @@ import android.content.IntentFilter
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
-import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.graphics.ColorUtils
@@ -91,8 +90,8 @@ class RingClockView @JvmOverloads constructor(
 
         if (inside == ch.remaker.restart.data.Constants.RingInside.None) return
 
-        // Middle: the day of the month (light, large) or the time (bold), with a small caps line under it
-        val base = FontManager.getTypeface(context) ?: Typeface.DEFAULT
+        // Middle: the day of the month (regular, large) or the time (bold), with a small caps line under it.
+        // Weights derive from the user's family (fake-bold where it has only one); tight tracking only for the system sans.
         val weekday = now.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault())
             ?.uppercase(Locale.getDefault()) ?: ""
         val big: String
@@ -101,21 +100,21 @@ class RingClockView @JvmOverloads constructor(
             val is24 = android.text.format.DateFormat.is24HourFormat(context)
             big = android.text.format.DateFormat.format(if (is24) "HH:mm" else "h:mm", now).toString()
             small = "${now.get(Calendar.DAY_OF_MONTH)} $weekday"
-            textPaint.typeface = Typeface.create(base, Typeface.BOLD)
+            textPaint.typeface = FontManager.weighted(context, 700)
             textPaint.textSize = size * 0.19f
-            textPaint.letterSpacing = -0.03f
+            textPaint.letterSpacing = FontManager.tracking(context, -0.03f)
         } else {
             big = now.get(Calendar.DAY_OF_MONTH).toString()
             small = weekday
-            textPaint.typeface = Typeface.create(base, Typeface.NORMAL)
+            textPaint.typeface = FontManager.weighted(context, 400)
             textPaint.textSize = size * 0.30f
-            textPaint.letterSpacing = -0.04f
+            textPaint.letterSpacing = FontManager.tracking(context, -0.04f)
         }
         textPaint.color = color
         canvas.drawText(big, cx, cy + textPaint.textSize * 0.30f, textPaint)
 
         textPaint.color = ColorUtils.setAlphaComponent(color, 150)
-        textPaint.typeface = Typeface.create(base, Typeface.NORMAL)
+        textPaint.typeface = FontManager.weighted(context, 400)
         textPaint.textSize = size * 0.075f
         textPaint.letterSpacing = 0.25f
         canvas.drawText(small, cx, cy + textPaint.textSize * 0.30f + size * 0.16f, textPaint)

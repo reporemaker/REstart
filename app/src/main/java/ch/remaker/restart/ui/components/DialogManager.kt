@@ -42,6 +42,7 @@ import ch.remaker.common.AppLogger
 import ch.remaker.common.showLongToast
 import java.text.DateFormat
 import ch.remaker.restart.data.SettingsSnapshots
+import ch.remaker.restart.helper.FontManager
 import ch.remaker.restart.helper.getDeviceInfo
 import ch.remaker.restart.helper.hasContactsPermission
 import ch.remaker.restart.helper.utils.AppReloader
@@ -383,7 +384,7 @@ class DialogManager(val context: Context, val activity: Activity) {
             text = if (isFloat) currentValue.toFloat().toString() else currentValue.toInt().toString()
             textSize = 34f
             setTextColor(ink)
-            typeface = Typeface.create("sans-serif-light", Typeface.NORMAL)
+            typeface = FontManager.weighted(context, 300)   // the user's family, light where it has one
             gravity = Gravity.START
             setPadding(0, px(18), 0, px(6))
         }
