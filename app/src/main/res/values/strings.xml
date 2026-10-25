@@ -345,7 +345,9 @@
     <string name="ring_scale_12">12-hour dial</string>
     <string name="ring_scale_24">The whole day (24 h)</string>
     <string name="one_line_alarm_below">Alarm on its own line, under the rule</string>
-    <string name="clock_display">Clock display</string>
+    <string name="no_alarm_set">No alarm is set.</string>
+    <string name="clock_area_tap">Tap</string>
+    <string name="clock_display">Clock area</string>
     <string name="clock_and_date">Clock and date</string>
     <string name="clock_style">Clock style</string>
     <string name="clock_style_classic">Classic</string>

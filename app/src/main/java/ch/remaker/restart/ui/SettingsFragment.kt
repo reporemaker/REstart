@@ -1412,31 +1412,6 @@ class SettingsFragment : BaseFragment() {
                     SectionCard {
 
                     SettingsSelect(
-                        title = getLocalizedString(R.string.alarm_alignment),
-                        option = selectedAlarmAlignment.string(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            val gravityOptions = Constants.Gravity.entries.toTypedArray()
-                            val selectedIndex =
-                                gravityOptions.indexOf(selectedAlarmAlignment).takeIf { it >= 0 }
-                                    ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheetPill(
-                                context = requireContext(),
-                                options = Constants.Gravity.entries.toTypedArray(),
-                                title = getLocalizedString(R.string.alarm_alignment),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newGravity ->
-                                    selectedAlarmAlignment = newGravity // Update state
-                                    prefs.alarmAlignment =
-                                        newGravity // Persist selection in preferences
-                                    viewModel.updateAlarmAlignment(newGravity)
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
                         title = getLocalizedString(R.string.home_alignment),
                         option = selectedHomeAlignment.string(),
                         fontSize = titleFontSize,
@@ -1533,43 +1508,6 @@ class SettingsFragment : BaseFragment() {
 
                                     // --- Trigger widget update ---
                                     updateHomeWidget(context)
-                                })
-                        }
-                    )
-
-                    val hexAlarmColor = String.format("#%06X", (0xFFFFFF and selectedAlarmColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.alarm_color),
-                        option = hexAlarmColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexAlarmColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedAlarmColor,
-                                title = getLocalizedString(R.string.alarm_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedAlarmColor = selectedColor
-                                    prefs.alarmClockColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexBatteryColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBatteryColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.battery_color),
-                        option = hexBatteryColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBatteryColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedBatteryColor,
-                                title = getLocalizedString(R.string.battery_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBatteryColor = selectedColor
-                                    prefs.batteryColor = selectedColor
                                 })
                         }
                     )
@@ -1742,46 +1680,6 @@ class SettingsFragment : BaseFragment() {
                                     selectedAppSize = newAppSize.toInt() // Update state
                                     prefs.appSize =
                                         newAppSize.toInt() // Persist selection in preferences
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.alarm_text_size),
-                        option = selectedAlarmSize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.alarm_text_size),
-                                minValue = Constants.MIN_ALARM_SIZE,
-                                maxValue = Constants.MAX_ALARM_SIZE,
-                                currentValue = prefs.alarmSize,
-                                onValueSelected = { newDateSize ->
-                                    selectedAlarmSize = newDateSize.toInt() // Update state
-                                    prefs.alarmSize =
-                                        newDateSize.toInt() // Persist selection in preferences
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.battery_text_size),
-                        option = selectedBatterySize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.battery_text_size),
-                                minValue = Constants.MIN_BATTERY_SIZE,
-                                maxValue = Constants.MAX_BATTERY_SIZE,
-                                currentValue = prefs.batterySize,
-                                onValueSelected = { newBatterySize ->
-                                    selectedBatterySize = newBatterySize.toInt() // Update state
-                                    prefs.batterySize =
-                                        newBatterySize.toInt() // Persist selection in preferences
                                 }
                             )
                         }
@@ -2054,6 +1952,31 @@ class SettingsFragment : BaseFragment() {
                             }
                         )
 
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.alarm_alignment),
+                            option = selectedAlarmAlignment.string(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                val gravityOptions = Constants.Gravity.entries.toTypedArray()
+                                val selectedIndex =
+                                    gravityOptions.indexOf(selectedAlarmAlignment).takeIf { it >= 0 }
+                                        ?: 1
+
+                                dialogBuilder.showSingleChoiceBottomSheetPill(
+                                    context = requireContext(),
+                                    options = Constants.Gravity.entries.toTypedArray(),
+                                    title = getLocalizedString(R.string.alarm_alignment),
+                                    selectedIndex = selectedIndex,
+                                    onItemSelected = { newGravity ->
+                                        selectedAlarmAlignment = newGravity // Update state
+                                        prefs.alarmAlignment =
+                                            newGravity // Persist selection in preferences
+                                        viewModel.updateAlarmAlignment(newGravity)
+                                    }
+                                )
+                            }
+                        )
+
                     }
                     if (st == Constants.ClockStyle.Swiss) {
                         SettingsSwitch(
@@ -2229,6 +2152,151 @@ class SettingsFragment : BaseFragment() {
                         )
 
                     }
+                    val hexAlarmColor = String.format("#%06X", (0xFFFFFF and selectedAlarmColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.alarm_color),
+                        option = hexAlarmColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexAlarmColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedAlarmColor,
+                                title = getLocalizedString(R.string.alarm_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedAlarmColor = selectedColor
+                                    prefs.alarmClockColor = selectedColor
+                                })
+                        }
+                    )
+
+                    val hexBatteryColor =
+                        String.format("#%06X", (0xFFFFFF and selectedBatteryColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.battery_color),
+                        option = hexBatteryColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexBatteryColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedBatteryColor,
+                                title = getLocalizedString(R.string.battery_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedBatteryColor = selectedColor
+                                    prefs.batteryColor = selectedColor
+                                })
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.alarm_text_size),
+                        option = selectedAlarmSize.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.alarm_text_size),
+                                minValue = Constants.MIN_ALARM_SIZE,
+                                maxValue = Constants.MAX_ALARM_SIZE,
+                                currentValue = prefs.alarmSize,
+                                onValueSelected = { newDateSize ->
+                                    selectedAlarmSize = newDateSize.toInt() // Update state
+                                    prefs.alarmSize =
+                                        newDateSize.toInt() // Persist selection in preferences
+                                }
+                            )
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.battery_text_size),
+                        option = selectedBatterySize.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.battery_text_size),
+                                minValue = Constants.MIN_BATTERY_SIZE,
+                                maxValue = Constants.MAX_BATTERY_SIZE,
+                                currentValue = prefs.batterySize,
+                                onValueSelected = { newBatterySize ->
+                                    selectedBatterySize = newBatterySize.toInt() // Update state
+                                    prefs.batterySize =
+                                        newBatterySize.toInt() // Persist selection in preferences
+                                }
+                            )
+                        }
+                    )
+
+                    }
+                    val appLabelClickClockAction =
+                        prefs.appClickClock.activityLabel.ifEmpty { "Clock" }
+                    val appLabelClickDateAction =
+                        prefs.appClickDate.activityLabel.ifEmpty { "Calendar" }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.clock_area_tap),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.clock_click_app),
+                        option = if (selectedClickClockAction == Action.OpenApp) {
+                            "${getLocalizedString(R.string.open)} $appLabelClickClockAction"
+                        } else {
+                            selectedClickClockAction.string()
+                        },
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSingleChoiceBottomSheet(
+                                context = requireContext(),
+                                options = actionStrings,
+                                title = getLocalizedString(R.string.clock_click_app),
+                                onItemSelected = { newClickClock ->
+                                    val selectedAction =
+                                        actions.firstOrNull { it.getString() == newClickClock }
+                                    if (selectedAction != null) {
+                                        selectedClickClockAction =
+                                            selectedAction // Store the enum itself
+                                        setGesture(
+                                            AppDrawerFlag.SetClickClock,
+                                            selectedAction
+                                        ) // Persist selection in preferences
+                                    }
+                                }
+                            )
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.date_click_app),
+                        option = if (selectedClickDateAction == Action.OpenApp) {
+                            "${getLocalizedString(R.string.open)} $appLabelClickDateAction"
+                        } else {
+                            selectedClickDateAction.string()
+                        },
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSingleChoiceBottomSheet(
+                                context = requireContext(),
+                                options = actionStrings,
+                                title = getLocalizedString(R.string.date_click_app),
+                                onItemSelected = { newClickDate ->
+                                    val selectedAction =
+                                        actions.firstOrNull { it.getString() == newClickDate }
+                                    if (selectedAction != null) {
+                                        selectedClickDateAction =
+                                            selectedAction // Store the enum itself
+                                        setGesture(
+                                            AppDrawerFlag.SetClickDate,
+                                            selectedAction
+                                        ) // Persist selection in preferences
+                                    }
+                                }
+                            )
+                        }
+                    )
+
                     }
                     if (isGestureNavigationEnabled(context)) {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
@@ -2284,66 +2352,8 @@ class SettingsFragment : BaseFragment() {
 
                     val appLabelClickClockAction =
                         prefs.appClickClock.activityLabel.ifEmpty { "Clock" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.clock_click_app),
-                        option = if (selectedClickClockAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelClickClockAction"
-                        } else {
-                            selectedClickClockAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.clock_click_app),
-                                onItemSelected = { newClickClock ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newClickClock }
-                                    if (selectedAction != null) {
-                                        selectedClickClockAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetClickClock,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
                     val appLabelClickDateAction =
                         prefs.appClickDate.activityLabel.ifEmpty { "Calendar" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.date_click_app),
-                        option = if (selectedClickDateAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelClickDateAction"
-                        } else {
-                            selectedClickDateAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.date_click_app),
-                                onItemSelected = { newClickDate ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newClickDate }
-                                    if (selectedAction != null) {
-                                        selectedClickDateAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetClickDate,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
                     val appLabelClickAppUsageAction =
                         prefs.appClickUsage.activityLabel.ifEmpty { "Digital Wellbeing" }
                     SettingsSelect(

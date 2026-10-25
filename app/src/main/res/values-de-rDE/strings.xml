@@ -228,7 +228,9 @@
     <string name="ring_scale_12">12-Stunden-Zifferblatt</string>
     <string name="ring_scale_24">Der ganze Tag (24 h)</string>
     <string name="one_line_alarm_below">Wecker in eigener Zeile unter der Linie</string>
-    <string name="clock_display">Uhranzeige</string>
+    <string name="no_alarm_set">Kein Wecker gestellt.</string>
+    <string name="clock_area_tap">Tippen</string>
+    <string name="clock_display">Uhrbereich</string>
     <string name="clock_and_date">Uhr und Datum</string>
     <string name="clock_style">Uhrstil</string>
     <string name="clock_style_classic">Klassisch</string>

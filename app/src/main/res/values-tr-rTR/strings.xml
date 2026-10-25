@@ -271,7 +271,9 @@
     <string name="ring_scale_12">12 saatlik kadran</string>
     <string name="ring_scale_24">Bütün gün (24 s)</string>
     <string name="one_line_alarm_below">Alarm çizginin altında ayrı satırda</string>
-    <string name="clock_display">Saat göstergesi</string>
+    <string name="no_alarm_set">Alarm kurulu değil.</string>
+    <string name="clock_area_tap">Dokunma</string>
+    <string name="clock_display">Saat alanı</string>
     <string name="clock_and_date">Saat ve tarih</string>
     <string name="clock_style">Saat düzeni</string>
     <string name="clock_style_classic">Klasik</string>

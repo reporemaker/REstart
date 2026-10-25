@@ -141,7 +141,7 @@ fun getUserHandleFromString(context: Context, userHandleString: String): UserHan
 fun getNextAlarm(context: Context, prefs: Prefs): CharSequence {
     val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     val is24HourFormat = DateFormat.is24HourFormat(context)
-    val nextAlarmClock = alarmManager.nextAlarmClock ?: return "No alarm is set."
+    val nextAlarmClock = alarmManager.nextAlarmClock ?: return context.getString(R.string.no_alarm_set)
 
     // Filter out Sleep/Bedtime mode alarms from Samsung and Google Clock
     // Uses user-configured bedtime start/end times from settings
@@ -149,7 +149,7 @@ fun getNextAlarm(context: Context, prefs: Prefs): CharSequence {
 
     if (isSleepModeAlarm) {
         AppLogger.d("AlarmFilter", "Filtered out sleep mode alarm")
-        return "No alarm is set."
+        return context.getString(R.string.no_alarm_set)
     }
 
     val alarmTime = nextAlarmClock.triggerTime
