@@ -246,7 +246,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
             val best24 = DateFormat.getBestDateTimePattern(locale, "Hm") // 24-hour
 
-            val timePattern = if (is24HourFormat) best24 else best12
+            val timePattern = clockPattern(if (is24HourFormat) best24 else best12)
 
             clock.format12Hour = timePattern
             clock.format24Hour = timePattern
@@ -265,6 +265,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
             battery.isVisible = prefs.showBattery
             mainLayout.setBackgroundColor(getHexForOpacity(prefs))
+            applyClockStyle()
 
             date.setTextColor(prefs.dateColor)
             clock.setTextColor(prefs.clockColor)
@@ -310,7 +311,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
             val best24 = DateFormat.getBestDateTimePattern(locale, "Hm") // 24-hour
 
-            val timePattern = if (is24HourFormat) best24 else best12
+            val timePattern = clockPattern(if (is24HourFormat) best24 else best12)
 
             clock.format12Hour = timePattern
             clock.format24Hour = timePattern
@@ -328,11 +329,105 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 basePattern
             }
 
-            date.format12Hour = finalPattern
-            date.format24Hour = finalPattern
+            date.format12Hour = datePattern(finalPattern)
+            date.format24Hour = datePattern(finalPattern)
 
 
             alarm.text = getNextAlarm(requireContext(), prefs)
+            applyClockStyle()
+        }
+    }
+
+    /** "One line" can put the alarm on its own line under the rule; every other style keeps it in the date column. */
+    private fun moveAlarm(belowRule: Boolean) {
+        val alarm = binding.alarm
+        val column = binding.dateAlarmLayout
+        val page = binding.clockRule.parent as ViewGroup
+        if (belowRule && alarm.parent !== page) {
+            (alarm.parent as? ViewGroup)?.removeView(alarm)
+            page.addView(alarm, page.indexOfChild(binding.clockRule) + 1)
+            (alarm.layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin = (8 * resources.displayMetrics.density).toInt()
+        } else if (!belowRule && alarm.parent !== column) {
+            (alarm.parent as? ViewGroup)?.removeView(alarm)
+            column.addView(alarm)
+            (alarm.layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin = 0
+        }
+    }
+
+    /** The clock pattern for the chosen style: "Swiss" stacks hours over minutes. */
+    private fun clockPattern(pattern: String): String {
+        if (prefs.clockStyle != Constants.ClockStyle.Swiss) return pattern
+        // Two digits on both lines; AM/PM has no place in the stack and moves to the date line
+        val is24 = DateFormat.is24HourFormat(requireContext())
+        return if (is24) "HH\nmm" else "hh\nmm"
+    }
+
+    /** "Swiss" with a 12-hour clock: the AM/PM marker joins the date line. */
+    private fun datePattern(pattern: String): String =
+        if (prefs.clockStyle == Constants.ClockStyle.Swiss && prefs.showClockFormat && !DateFormat.is24HourFormat(requireContext())) "$pattern · a" else pattern
+
+    /** Draws the clock block the way the chosen style wants it; everything else stays as set by the preferences. */
+    private fun applyClockStyle() {
+        val style = prefs.clockStyle
+        binding.apply {
+            val capsOn = style != Constants.ClockStyle.Classic
+            val density = resources.displayMetrics.density
+            ringClock.isVisible = style == Constants.ClockStyle.Rings
+            ringClock.color = prefs.clockColor
+            val centred = style == Constants.ClockStyle.Rings && prefs.ringPlacement == Constants.RingPlacement.Centred
+            (ringClock.layoutParams as LinearLayout.LayoutParams).apply {
+                width = (prefs.ringSize * density).toInt()
+                height = width
+                marginEnd = if (centred) 0 else (18 * density).toInt()
+                bottomMargin = if (centred) (12 * density).toInt() else 0
+            }
+            clockRow.orientation = if (centred) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL
+            clockRow.gravity = if (centred) android.view.Gravity.CENTER_HORIZONTAL else android.view.Gravity.CENTER_VERTICAL
+            (timeDateLayout.layoutParams as LinearLayout.LayoutParams).apply {
+                width = if (centred) ViewGroup.LayoutParams.WRAP_CONTENT else 0
+                weight = if (centred) 0f else 1f
+            }
+            timeDateLayout.requestLayout()
+            clockRule.isVisible = style == Constants.ClockStyle.OneLine && prefs.clockRule
+            clockRule.setBackgroundColor(prefs.clockColor)
+            ringClock.inside = prefs.ringInside
+            ringClock.wholeDay = prefs.ringScale == Constants.RingScale.TwentyFour
+            clock.twoLineWeights = style == Constants.ClockStyle.Swiss && prefs.swissWeights
+            clock.setLineSpacing(0f, if (style == Constants.ClockStyle.Swiss) 0.82f else 1f)
+            // "Rings" with the time inside: the numeric clock leaves the column
+            clock.isVisible = prefs.showClock && !(style == Constants.ClockStyle.Rings && prefs.ringInside == Constants.RingInside.Time)
+
+            // Where the date/alarm column sits: beside the clock (Swiss side column, One line) or under it
+            val beside = (style == Constants.ClockStyle.Swiss && prefs.swissSideColumn) || style == Constants.ClockStyle.OneLine
+            timeDateLayout.orientation = if (beside) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
+            timeDateLayout.gravity = if (beside) android.view.Gravity.CENTER_VERTICAL else android.view.Gravity.NO_GRAVITY
+            (dateAlarmLayout.layoutParams as LinearLayout.LayoutParams).apply {
+                marginStart = if (beside) (14 * density).toInt() else 0
+            }
+            // One line: date and alarm share the row, unless the alarm goes under the rule
+            val alarmBelow = style == Constants.ClockStyle.OneLine && prefs.oneLineAlarmBelow
+            dateAlarmLayout.orientation = if (style == Constants.ClockStyle.OneLine && !alarmBelow) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
+            moveAlarm(belowRule = alarmBelow)
+
+            // Date and alarm: small spaced capitals in every style but Classic
+            listOf(date, alarm).forEach { v ->
+                v.isAllCaps = capsOn
+                v.letterSpacing = if (capsOn) 0.14f else 0f
+                v.setPadding(if (style == Constants.ClockStyle.OneLine) (12 * density).toInt() else 0, 0, 0, 0)
+            }
+            date.textSize = when (style) {
+                Constants.ClockStyle.Classic -> prefs.dateSize.toFloat()
+                else -> prefs.dateSize * 0.72f
+            }
+            alarm.textSize = if (capsOn) prefs.alarmSize * 0.72f else prefs.alarmSize.toFloat()
+            clock.textSize = when (style) {
+                Constants.ClockStyle.Classic -> prefs.clockSize.toFloat()
+                Constants.ClockStyle.Swiss -> prefs.clockSize * 1.5f
+                Constants.ClockStyle.Rings -> prefs.clockSize * 0.7f
+                Constants.ClockStyle.OneLine -> prefs.clockSize * 0.5f
+            }
+            clock.setTypeface(clock.typeface, if (style == Constants.ClockStyle.Classic) android.graphics.Typeface.NORMAL else android.graphics.Typeface.BOLD)
+            clock.letterSpacing = if (style == Constants.ClockStyle.Classic) 0f else -0.04f
         }
     }
 
@@ -818,6 +913,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
     @SuppressLint("InflateParams", "ClickableViewAccessibility")
     private fun updateAppCountWithUsageStats(newAppsNum: Int) {
+        applyHomeListStyle()
         val appUsageMonitor = AppUsageMonitor.getInstance(requireContext())
         val oldAppsNum = binding.homeAppsLayout.childCount // current number of apps
         val diff = newAppsNum - oldAppsNum
@@ -843,7 +939,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                     // Set properties of existingAppView
                     textSize = prefs.appSize.toFloat()
                     id = i
-                    text = prefs.getAppDisplayName(prefs.getHomeAppModel(i))
+                    text = indexed(i, prefs.getAppDisplayName(prefs.getHomeAppModel(i)))
                     getHomeAppsGestureListener()
                     setOnClickListener(this@HomeFragment)
                     if (!prefs.extendHomeAppsArea) {
@@ -1012,8 +1108,32 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
     }
 
 
+
+    /** Swiss list: hairlines between the home rows and under the last one. */
+    private fun applyHomeListStyle() {
+        binding.homeAppsLayout.dividerDrawable = android.graphics.drawable.GradientDrawable().apply {
+            setSize(0, (1 * resources.displayMetrics.density).toInt())
+            setColor(androidx.core.graphics.ColorUtils.setAlphaComponent(prefs.appColor, 40))
+        }
+        binding.homeAppsLayout.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE or LinearLayout.SHOW_DIVIDER_END
+    }
+
+    /** "01  Phone": a small, dimmed index in front of the label when the list is left-aligned. */
+    private fun indexed(i: Int, label: CharSequence): CharSequence {
+        if (prefs.homeAlignment != Constants.Gravity.Left) return label
+        val index = (i + 1).toString().padStart(2, '0')
+        return android.text.SpannableStringBuilder().apply {
+            append(index)
+            setSpan(android.text.style.RelativeSizeSpan(0.42f), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(android.text.style.ForegroundColorSpan(androidx.core.graphics.ColorUtils.setAlphaComponent(prefs.appColor, 140)), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            append("    ")
+            append(label)
+        }
+    }
+
     @SuppressLint("InflateParams", "DiscouragedApi", "UseCompatLoadingForDrawables", "ClickableViewAccessibility")
     private fun updateAppCount(newAppsNum: Int) {
+        applyHomeListStyle()
         val oldAppsNum = binding.homeAppsLayout.childCount // current number of apps
         val diff = newAppsNum - oldAppsNum
 
@@ -1025,11 +1145,11 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                     val homeApp = prefs.getHomeAppModel(i)
                     textSize = prefs.appSize.toFloat()
                     id = i
-                    text = if (homeApp.activityPackage.isBlank()) {
+                    text = indexed(i, if (homeApp.activityPackage.isBlank()) {
                         getLocalizedString(R.string.select_app)
                     } else {
                         prefs.getAppDisplayName(homeApp)
-                    }
+                    })
 
                     getHomeAppsGestureListener()
                     setOnClickListener(this@HomeFragment)

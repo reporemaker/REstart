@@ -35,6 +35,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
@@ -84,13 +85,8 @@ object SettingsComposable {
         fontColor: Color = SettingsTheme.typography.title.color,
         titleFontSize: TextUnit = 18.sp
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp, start = 16.dp, end = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            // Icon on the left
+        // Swiss page head: the back arrow on its own line, the title large and bold, a 2 dp rule
+        Column(modifier = Modifier.fillMaxWidth().padding(top = 12.dp, start = 24.dp, end = 24.dp)) {
             Image(
                 painter = painterResource(id = iconRes),
                 contentDescription = title,
@@ -99,17 +95,15 @@ object SettingsComposable {
                     .size(iconSize)
                     .clickable(onClick = onClick)
             )
-
-            Spacer(modifier = Modifier.width(12.dp)) // small spacing between icon and title
-
-            // Title text
             FontText(
                 text = title,
-                fontSize = titleFontSize,
+                fontSize = (titleFontSize.value * 1.7f).sp,
                 color = fontColor,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(1f) // take remaining space
+                style = TextStyle(letterSpacing = (-0.02).em),
+                modifier = Modifier.padding(top = 14.dp)
             )
+            Box(modifier = Modifier.fillMaxWidth().padding(top = 12.dp).height(2.dp).background(fontColor))
         }
     }
 
@@ -483,7 +477,7 @@ object SettingsComposable {
             fontWeight = FontWeight.Medium,
             style = TextStyle(letterSpacing = 0.08.em),
             modifier = modifier
-                .padding(start = 20.dp, end = 20.dp, top = 18.dp, bottom = 6.dp)
+                .padding(start = 24.dp, end = 24.dp, top = 26.dp, bottom = 4.dp)
                 .clickable(onClick = onClick)
                 .wrapContentSize()
         )
@@ -510,8 +504,8 @@ object SettingsComposable {
                 modifier = Modifier.weight(1f).wrapContentHeight()
             )
             FontText(
-                text = "›",
-                fontSize = (fontSize.value * 1.3f).sp,
+                text = "→",
+                fontSize = fontSize,
                 color = SettingsTheme.typography.option.color,
                 modifier = Modifier.wrapContentHeight()
             )
@@ -528,23 +522,20 @@ object SettingsComposable {
      */
     @Composable
     fun SectionCard(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-        val shape = RoundedCornerShape(16.dp)
-        val line = SettingsTheme.typography.title.color.copy(alpha = 0.07f)
-        val outline = outlineColor()
+        // Swiss list: no box, a hairline between the rows and one under the last row
+        val line = SettingsTheme.typography.title.color.copy(alpha = 0.14f)
         val rowTops = remember { mutableListOf<Int>() }
 
         Layout(
             content = content,
             modifier = modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .clip(shape)
-                .border(1.dp, outline, shape)
+                .padding(horizontal = 8.dp)
                 .drawBehind {
-                    // Separators above every row but the first
                     rowTops.drop(1).forEach { y ->
-                        drawLine(line, Offset(0f, y.toFloat()), Offset(size.width, y.toFloat()), 1.dp.toPx())
+                        drawLine(line, Offset(16.dp.toPx(), y.toFloat()), Offset(size.width - 16.dp.toPx(), y.toFloat()), 1.dp.toPx())
                     }
+                    drawLine(line, Offset(16.dp.toPx(), size.height - 0.5.dp.toPx()), Offset(size.width - 16.dp.toPx(), size.height - 0.5.dp.toPx()), 1.dp.toPx())
                 }
         ) { measurables, constraints ->
             val childConstraints = constraints.copy(minHeight = 0)
@@ -575,7 +566,7 @@ object SettingsComposable {
         iconSize: Dp = 26.dp,
         onClick: () -> Unit = {}
     ) {
-        val shape = RoundedCornerShape(16.dp)
+        val shape = RoundedCornerShape(0.dp)
         val color = SettingsTheme.typography.title.color
         Column(
             modifier = modifier
@@ -670,49 +661,31 @@ object SettingsComposable {
         checked: Boolean,
         modifier: Modifier = Modifier
     ) {
+        // Swiss switch: a rectangular track with a 1 dp line, a square thumb. On = the track fills
+        // with the text colour and the thumb inverts; nothing is coloured, nothing is rounded.
+        val ink = SettingsTheme.typography.title.color
+        val paper = if (ink.luminance() > 0.5f) Color.Black else Color.White
         val thumbSize = 14.dp
-        val trackWidth = 32.dp
-        val trackHeight = 16.dp
+        val trackWidth = 40.dp
+        val trackHeight = 22.dp
 
         val thumbOffset by animateDpAsState(
-            targetValue = if (checked) trackWidth - thumbSize - 2.dp else 2.dp,
+            targetValue = if (checked) trackWidth - thumbSize - 4.dp else 4.dp,
             label = "thumbOffset"
         )
 
         Box(
             modifier = modifier
                 .size(width = trackWidth, height = trackHeight)
-                .clip(RoundedCornerShape(trackHeight / 2))
-                .background(
-                    if (checked)
-                        Brush.verticalGradient(
-                            colors = listOf(
-                                Color(0xFF4CAF73),
-                                Color(0xFF2E8B57)
-                            )
-                        )
-                    else
-                        Brush.verticalGradient(
-                            colors = listOf(
-                                Color(0xFFD6D6D6),
-                                Color(0xFFD6D6D6)
-                            )
-                        )
-
-                )
+                .background(if (checked) ink else Color.Transparent)
+                .border(1.dp, if (checked) ink else ink.copy(alpha = 0.5f))
         ) {
             Box(
                 modifier = Modifier
                     .offset(x = thumbOffset)
                     .size(thumbSize)
                     .align(Alignment.CenterStart)
-                    .clip(CircleShape)
-                    .background(Color.White)
-                    .border(
-                        width = 1.dp,
-                        color = Color.Black.copy(alpha = 0.15f),
-                        shape = CircleShape
-                    )
+                    .background(if (checked) paper else ink)
             )
         }
     }

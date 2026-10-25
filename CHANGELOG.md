@@ -6,6 +6,15 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- Swiss style across the app: page heads with a 2 dp rule, hairline rows instead of boxes,
+  numbered settings home, square tiles and switches, caps section labels; popups square with a
+  rule, every choice a one-column list; home apps and drawer rows ruled, index numbers on a
+  left-aligned home list, the quick-action row under a rule with the RE* mark at its end.
+- Clock display: four styles (Classic, Swiss, Rings, One line) chosen on their own settings
+  page under Look & Feel, with live previews; the shown-information switches (clock, AM/PM,
+  date, day of year, alarm, battery) moved there from Features; each style brings only its own
+  layout rows (ring placement, size, what the ring shows, 12 h / 24 h; Swiss side column and
+  weights; one-line rule and alarm line); colours and sizes follow in one group.
 - About screen redesigned: the RE* mark (white tile in the light theme, dark tile in the dark
   theme, the same rule everywhere in the app), name, version, "SEU // RE*maker"; open-source
   repository and licence; the foundation line (Multi Launcher, which descends from Olauncher);

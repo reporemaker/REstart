@@ -55,10 +55,26 @@
                     android:textSize="16sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <!-- Clock block. The ring (style "Rings") sits beside the text; the rule under it belongs to "One line". -->
             <LinearLayout
-                android:id="@+id/timeDateLayout"
+                android:id="@+id/clockRow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <ch.remaker.restart.ui.components.RingClockView
+                android:id="@+id/ringClock"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginEnd="18dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/timeDateLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginVertical="1dp"
                 android:orientation="vertical"
                 tools:visibility="visible">
@@ -71,6 +87,13 @@
                     android:textSize="@dimen/time_size"
                     tools:text="02:34" />
 
+
+                <!-- Date and alarm share a column so the styles can put them beside or under the clock -->
+                <LinearLayout
+                    android:id="@+id/dateAlarmLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                 <ch.remaker.components.views.FontTextClock
                     android:id="@+id/date"
@@ -87,7 +110,16 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/alarm_size"
                     android:visibility="gone" />
+                </LinearLayout>
             </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/clockRule"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!-- First run tips -->
@@ -133,7 +165,7 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="24dp"
         android:paddingTop="100dp"
         android:paddingBottom="30dp" />
 
@@ -190,78 +222,96 @@
             android:src="@drawable/private_profile_on" />
     </LinearLayout>
 
+    <!-- Quick actions: a 2 dp rule, then the pictograms spread evenly in one row with no
+         separators or labels; the RE* mark (notes) closes the row on the right. -->
     <LinearLayout
         android:id="@+id/fabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="22dp"
         android:visibility="gone">
 
-        <ImageView
-            android:id="@+id/fabPhone"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/ic_phone" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?attr/primaryColor" />
 
-        <ImageView
-            android:id="@+id/fabMessages"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/ic_messages" />
+        <LinearLayout
+            android:id="@+id/fabRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/fabCamera"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/ic_camera" />
+            <ImageView
+                android:id="@+id/fabPhone"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_phone" />
 
-        <ImageView
-            android:id="@+id/fabPhotos"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/ic_photos" />
+            <ImageView
+                android:id="@+id/fabMessages"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_messages" />
 
-        <ImageView
-            android:id="@+id/fabBrowser"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/ic_browser" />
+            <ImageView
+                android:id="@+id/fabCamera"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_camera" />
 
-        <ImageView
-            android:id="@+id/fabSettings"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/ic_settings" />
+            <ImageView
+                android:id="@+id/fabPhotos"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_photos" />
 
-        <ImageView
-            android:id="@+id/fabAction"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/show"
-            android:elevation="6dp"
-            android:src="@drawable/app_launcher" />
+            <ImageView
+                android:id="@+id/fabBrowser"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_browser" />
+
+            <ImageView
+                android:id="@+id/fabSettings"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_settings" />
+
+            <ImageView
+                android:id="@+id/fabAction"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/show"
+                android:scaleType="fitEnd"
+                android:src="@drawable/branding_image" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

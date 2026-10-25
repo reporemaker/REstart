@@ -392,6 +392,68 @@ object Constants {
         }
     }
 
+    /** How the clock and date block on the home screen is drawn. */
+    enum class ClockStyle : EnumOption {
+        Classic,
+        Swiss,
+        Rings,
+        OneLine;
+
+        @Composable
+        override fun string(): String = getString()
+
+        fun getString(): String = when (this) {
+            Classic -> getLocalizedString(R.string.clock_style_classic)
+            Swiss -> getLocalizedString(R.string.clock_style_swiss)
+            Rings -> getLocalizedString(R.string.clock_style_rings)
+            OneLine -> getLocalizedString(R.string.clock_style_one_line)
+        }
+    }
+
+    /** Style "Rings": where the ring sits. */
+    enum class RingPlacement : EnumOption {
+        Beside,
+        Centred;
+
+        @Composable
+        override fun string(): String = getString()
+
+        fun getString(): String = when (this) {
+            Beside -> getLocalizedString(R.string.ring_beside)
+            Centred -> getLocalizedString(R.string.ring_centred)
+        }
+    }
+
+    /** Style "Rings": what the middle of the ring shows. */
+    enum class RingInside : EnumOption {
+        Day,
+        Time,
+        None;
+
+        @Composable
+        override fun string(): String = getString()
+
+        fun getString(): String = when (this) {
+            Day -> getLocalizedString(R.string.ring_inside_day)
+            Time -> getLocalizedString(R.string.ring_inside_time)
+            None -> getLocalizedString(R.string.ring_inside_none)
+        }
+    }
+
+    /** Style "Rings": the outer ring as a 12-hour dial or the whole day. */
+    enum class RingScale : EnumOption {
+        Twelve,
+        TwentyFour;
+
+        @Composable
+        override fun string(): String = getString()
+
+        fun getString(): String = when (this) {
+            Twelve -> getLocalizedString(R.string.ring_scale_12)
+            TwentyFour -> getLocalizedString(R.string.ring_scale_24)
+        }
+    }
+
     /** Where the drawer search continues when no app matches. */
     enum class SearchScope : EnumOption {
         Apps,

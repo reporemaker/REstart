@@ -25,6 +25,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.toColorInt
 import ch.remaker.common.getCpuBatteryInfo
 import ch.remaker.common.getLocalizedString
@@ -52,6 +53,37 @@ class DialogManager(val context: Context, val activity: Activity) {
 
     private lateinit var prefs: Prefs
     val selectedColor: Int = ContextCompat.getColor(context, R.color.colorSelected)
+
+    // ---- Swiss sheet vocabulary: flush left, small capitals, a 2 dp rule, hairlines, no rounding ----
+    private val ink: Int
+        get() = TypedValue().let { v ->
+            context.theme.resolveAttribute(android.R.attr.textColorPrimary, v, true)
+            ContextCompat.getColor(context, v.resourceId)
+        }
+    private val paper: Int get() = ContextCompat.getColor(context, R.color.colorPrimaryBackground)
+    private fun px(dp: Int): Int = (dp * context.resources.displayMetrics.density).toInt()
+
+    /** Sheet title: spaced capitals with a 2 dp rule under them. */
+    private fun sheetTitle(text: String): LinearLayout = LinearLayout(context).apply {
+        orientation = LinearLayout.VERTICAL
+        layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        addView(TextView(context).apply {
+            this.text = text.uppercase()
+            textSize = 12f
+            letterSpacing = 0.14f
+            setTextColor(ink)
+            setPadding(0, px(12), 0, px(10))
+        })
+        addView(View(context).apply {
+            layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, px(2))
+            setBackgroundColor(ink)
+        })
+    }
+
+    private fun hairline(): View = View(context).apply {
+        layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, px(1))
+        setBackgroundColor(ColorUtils.setAlphaComponent(ink, 36))
+    }
 
     var backupRestoreBottomSheet: FontBottomSheetDialogLocked? = null
 
@@ -141,16 +173,17 @@ class DialogManager(val context: Context, val activity: Activity) {
         // Create layout programmatically
         val layout = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(48, 24, 48, 24)
-            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding(px(24), px(8), px(24), px(20))
+            gravity = Gravity.START
         }
 
         // Utility function to create a clickable item
         fun createItem(text: String, onClick: () -> Unit): TextView {
             return TextView(context).apply {
                 this.text = text
-                textSize = 16f
-                setPadding(0, 32, 0, 32)
+                textSize = 18f
+                setTextColor(ink)
+                setPadding(0, px(14), 0, px(14))
                 isClickable = true
                 isFocusable = true
                 setOnClickListener {
@@ -224,16 +257,17 @@ class DialogManager(val context: Context, val activity: Activity) {
         // Create vertical layout
         val layout = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(48, 24, 48, 24)
-            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding(px(24), px(8), px(24), px(20))
+            gravity = Gravity.START
         }
 
         // Utility function to create clickable items
         fun createItem(text: String, onClick: () -> Unit): TextView {
             return TextView(context).apply {
                 this.text = text
-                textSize = 16f
-                setPadding(0, 32, 0, 32)
+                textSize = 18f
+                setTextColor(ink)
+                setPadding(0, px(14), 0, px(14))
                 isClickable = true
                 isFocusable = true
                 setOnClickListener {
@@ -334,7 +368,7 @@ class DialogManager(val context: Context, val activity: Activity) {
         // Outer layout
         val container = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(48, 24, 48, 24)
+            setPadding(px(24), px(8), px(24), px(20))
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
@@ -342,19 +376,16 @@ class DialogManager(val context: Context, val activity: Activity) {
         }
 
         // Title
-        val titleText = TextView(context).apply {
-            text = title
-            textSize = 18f
-            setPadding(0, 0, 0, 32)
-            gravity = Gravity.CENTER
-        }
+        val titleText = sheetTitle(title)
 
-        // Value display
+        // Value display: large and light, flush left
         val valueText = TextView(context).apply {
             text = if (isFloat) currentValue.toFloat().toString() else currentValue.toInt().toString()
-            textSize = 16f
-            gravity = Gravity.CENTER
-            setPadding(0, 0, 0, 16)
+            textSize = 34f
+            setTextColor(ink)
+            typeface = Typeface.create("sans-serif-light", Typeface.NORMAL)
+            gravity = Gravity.START
+            setPadding(0, px(18), 0, px(6))
         }
 
         fun commitValue() {
@@ -396,9 +427,9 @@ class DialogManager(val context: Context, val activity: Activity) {
             iconRes: Int
         ): AppCompatImageButton {
 
-            val sizeDp = 20
+            val sizeDp = 32
             val sizePx = (sizeDp * context.resources.displayMetrics.density).toInt()
-            val paddingDp = 2
+            val paddingDp = 7
             val paddingPx = (paddingDp * context.resources.displayMetrics.density).toInt()
 
             return AppCompatImageButton(context).apply {
@@ -410,10 +441,13 @@ class DialogManager(val context: Context, val activity: Activity) {
                     marginEnd = 4
                 }
 
+                // Square, outlined, no fill
                 background = GradientDrawable().apply {
-                    shape = GradientDrawable.OVAL
-                    setColor(ContextCompat.getColor(context, R.color.buttonTextPrimary))
+                    shape = GradientDrawable.RECTANGLE
+                    setColor(Color.TRANSPARENT)
+                    setStroke(px(1), ink)
                 }
+                imageTintList = android.content.res.ColorStateList.valueOf(ink)
 
                 // 👇 space around the icon
                 setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
@@ -494,22 +528,18 @@ class DialogManager(val context: Context, val activity: Activity) {
 
         val container = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(48, 24, 48, 24)
+            setPadding(px(24), px(8), px(24), px(20))
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
         }
 
-        val titleView = TextView(context).apply {
-            text = title
-            textSize = 20f
-            setPadding(0, 0, 0, 32)
-            gravity = Gravity.CENTER
-        }
+        val titleView = sheetTitle(title)
 
         val listView = ListView(context).apply {
-            divider = null
+            divider = android.graphics.drawable.ColorDrawable(ColorUtils.setAlphaComponent(ink, 36))
+            dividerHeight = px(1)
             isVerticalScrollBarEnabled = false
             layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -528,7 +558,7 @@ class DialogManager(val context: Context, val activity: Activity) {
         val adapter = object : ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, itemStrings) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = convertView ?: TextView(context).apply {
-                    setPadding(32, 24, 32, 24)
+                    setPadding(0, px(14), 0, px(14))
                     layoutParams = AbsListView.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
@@ -536,10 +566,10 @@ class DialogManager(val context: Context, val activity: Activity) {
                 }
 
                 (view as TextView).apply {
-                    text = itemStrings[position]
+                    text = if (position == currentSelected) "→  " + itemStrings[position] else itemStrings[position]
                     typeface = fonts?.getOrNull(position) ?: Typeface.DEFAULT
                     textSize = fontSize
-                    setTextColor(if (position == currentSelected) selectedColor else defaultColor)
+                    setTextColor(ink)
                 }
                 return view
             }
@@ -586,112 +616,11 @@ class DialogManager(val context: Context, val activity: Activity) {
         title: String,
         fonts: List<Typeface>? = null,
         fontSize: Float = 18f,
-        selectedIndex: Int = -1, // None selected
+        selectedIndex: Int = -1,
         onItemSelected: (T) -> Unit
     ) {
-        singleChoiceBottomSheetPill?.dismiss()
-
-        HapticFeedbackService.trigger(
-            context,
-            HapticFeedbackService.EffectType.CLICK
-        )
-
-        val itemStrings = options.map {
-            when (it) {
-                is Enum<*> -> it.name
-                else -> it.toString()
-            }
-        }
-
-        var selected = selectedIndex
-
-        val container = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(48, 24, 48, 24)
-            layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-        }
-
-        val titleView = TextView(context).apply {
-            text = title
-            textSize = 20f
-            setPadding(0, 0, 0, 32)
-            gravity = Gravity.CENTER
-        }
-
-        val pillGroup = LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER
-            layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,  // changed here
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-        }
-
-        val strokeColor = R.color.colorAccent
-        val textColor = Color.WHITE
-
-        val updateStyles: () -> Unit = {
-            for (i in 0 until pillGroup.childCount) {
-                val pill = pillGroup.getChildAt(i) as TextView
-                val isSelected = i == selected
-                pill.setTextColor(if (isSelected) textColor else context.resources.getColor(strokeColor, null))
-
-                val drawable = GradientDrawable().apply {
-                    shape = GradientDrawable.RECTANGLE
-                    cornerRadii = when (i) {
-                        0 -> floatArrayOf(48f, 48f, 0f, 0f, 0f, 0f, 48f, 48f)
-                        itemStrings.lastIndex -> floatArrayOf(0f, 0f, 48f, 48f, 48f, 48f, 0f, 0f)
-                        else -> floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
-                    }
-                    setColor(if (isSelected) selectedColor else Color.TRANSPARENT)
-                    setStroke(3, context.resources.getColor(strokeColor, null))
-                }
-
-                pill.background = drawable
-            }
-        }
-
-        itemStrings.forEachIndexed { index, item ->
-            val pill = TextView(context).apply {
-                text = item
-                textSize = fontSize
-                gravity = Gravity.CENTER
-                typeface = fonts?.getOrNull(index) ?: Typeface.DEFAULT
-                setPadding(48, 24, 48, 24)
-                layoutParams = LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                ).apply {
-                    if (index != 0) setMargins(-3, 0, 0, 0) // eliminate gap between borders
-                }
-
-                setOnClickListener {
-                    selected = index
-                    updateStyles()
-                    onItemSelected(options[index])
-                    HapticFeedbackService.trigger(
-                        context,
-                        HapticFeedbackService.EffectType.SELECT
-                    )
-                    singleChoiceBottomSheetPill?.dismiss()
-                }
-            }
-
-            pillGroup.addView(pill)
-        }
-
-        updateStyles() // Set initial styles
-
-        container.addView(titleView)
-        container.addView(pillGroup)
-
-        singleChoiceBottomSheetPill = FontBottomSheetDialogLocked(context).apply {
-            setContentView(container)
-            show()
-        }
+        // Segments side by side are gone: every choice is a list (Swiss, one column).
+        showSingleChoiceBottomSheet(context, options, title, fonts, fontSize, selectedIndex, onItemSelected)
     }
 
     var flagSettingsBottomSheet: FontBottomSheetDialogLocked? = null
@@ -715,7 +644,7 @@ class DialogManager(val context: Context, val activity: Activity) {
 
         val layout = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(48, 24, 48, 24)
+            setPadding(px(24), px(8), px(24), px(20))
         }
 
         // Adjust the size of currentFlags to match optionLabels
@@ -728,6 +657,8 @@ class DialogManager(val context: Context, val activity: Activity) {
         optionLabels.forEachIndexed { index, label ->
             val checkBox = CheckBox(context).apply {
                 text = label
+                textSize = 18f
+                setTextColor(ink)
                 isChecked = currentFlags[index]
                 setOnCheckedChangeListener { _, isChecked ->
                     currentFlags[index] = isChecked

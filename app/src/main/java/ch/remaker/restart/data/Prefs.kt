@@ -474,6 +474,42 @@ class Prefs(val context: Context) {
         set(value) = prefsNormal.edit { putBoolean(HAPTIC_FEEDBACK, value) }
 
     /** How the drawer lists apps. The earlier on/off setting is carried over the first time it is read. */
+    var clockStyle: Constants.ClockStyle
+        get() = getEnumSetting(CLOCK_STYLE, Constants.ClockStyle.Classic)
+        set(value) = prefsNormal.edit { putString(CLOCK_STYLE, value.name) }
+
+    var ringPlacement: Constants.RingPlacement
+        get() = getEnumSetting(RING_PLACEMENT, Constants.RingPlacement.Beside)
+        set(value) = prefsNormal.edit { putString(RING_PLACEMENT, value.name) }
+
+    var ringSize: Int
+        get() = prefsNormal.getInt(RING_SIZE, 150)
+        set(value) = prefsNormal.edit { putInt(RING_SIZE, value) }
+
+    var clockRule: Boolean
+        get() = prefsNormal.getBoolean(CLOCK_RULE, true)
+        set(value) = prefsNormal.edit { putBoolean(CLOCK_RULE, value) }
+
+    var swissSideColumn: Boolean
+        get() = prefsNormal.getBoolean(SWISS_SIDE_COLUMN, true)
+        set(value) = prefsNormal.edit { putBoolean(SWISS_SIDE_COLUMN, value) }
+
+    var swissWeights: Boolean
+        get() = prefsNormal.getBoolean(SWISS_WEIGHTS, true)
+        set(value) = prefsNormal.edit { putBoolean(SWISS_WEIGHTS, value) }
+
+    var ringInside: Constants.RingInside
+        get() = getEnumSetting(RING_INSIDE, Constants.RingInside.Day)
+        set(value) = prefsNormal.edit { putString(RING_INSIDE, value.name) }
+
+    var ringScale: Constants.RingScale
+        get() = getEnumSetting(RING_SCALE, Constants.RingScale.Twelve)
+        set(value) = prefsNormal.edit { putString(RING_SCALE, value.name) }
+
+    var oneLineAlarmBelow: Boolean
+        get() = prefsNormal.getBoolean(ONE_LINE_ALARM_BELOW, false)
+        set(value) = prefsNormal.edit { putBoolean(ONE_LINE_ALARM_BELOW, value) }
+
     var drawerView: Constants.DrawerView
         get() {
             if (!prefsNormal.contains(DRAWER_VIEW) && prefsNormal.contains(DRAWER_CATEGORIES)) {

@@ -224,7 +224,6 @@ class SettingsFragment : BaseFragment() {
         val scrollState = rememberScrollState()
 
         var currentScreen by remember { mutableStateOf("main") }
-        var creditsOpenLicences by remember { mutableStateOf(false) }
 
         // Features Settings
         var selectedTheme by remember { mutableStateOf(prefs.appTheme) }
@@ -414,85 +413,114 @@ class SettingsFragment : BaseFragment() {
         ) {
             when (currentScreen) {
                 "main" -> {
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    TopMainHeader(
-                        iconRes = R.drawable.app_launcher,
-                        title = getLocalizedString(R.string.settings_name),
-                        titleFontSize = titleFontSize,
-                        descriptionFontSize = descriptionFontSize,
-                        onIconClick = {
-                            dialogBuilder.showDeviceStatsBottomSheet(
-                                context = context,
-                            )
-                        }
-                    )
-
-                    // Eight tiles in two columns: how the launcher works, what is on the screen, system.
-                    // The grid takes 70% of the free space and sits in its middle; nothing scrolls.
-                    val tileFontSize = (titleFontSize.value * 0.72f).sp
+                    val titleColor = SettingsTheme.typography.title.color
+                    val mutedColor = SettingsTheme.typography.option.color
+                    val capsStyle = TextStyle(letterSpacing = 0.14.em)
                     val privateSpaceSetUp = PrivateSpaceManager(context).isPrivateSpaceSetUp()
 
-                    @Composable
-                    fun RowScope.Tile(title: String, iconRes: Int, subtitle: String? = null, onClick: () -> Unit) {
-                        SettingsTile(
-                            modifier = Modifier.weight(1f).fillMaxHeight(),
-                            title = title,
-                            iconRes = iconRes,
-                            subtitle = subtitle,
-                            titleFontSize = tileFontSize,
-                            onClick = onClick
+                    // Swiss head: the mark top left, the title large and bold, the app and version
+                    // as small capitals on the right, a 2 dp rule under all of it.
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(top = 28.dp, start = 24.dp, end = 24.dp),
+                        verticalAlignment = Alignment.Bottom
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Image(
+                                painter = painterResource(R.drawable.branding_image),
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .height(36.dp)
+                                    .clickable { dialogBuilder.showDeviceStatsBottomSheet(context = context) }
+                            )
+                            FontText(
+                                text = getLocalizedString(R.string.settings_heading),
+                                fontSize = (titleFontSize.value * 2.1f).sp,
+                                color = titleColor,
+                                fontWeight = FontWeight.Bold,
+                                style = TextStyle(letterSpacing = (-0.03).em),
+                                modifier = Modifier.padding(top = 10.dp)
+                            )
+                        }
+                        FontText(
+                            text = (getLocalizedString(R.string.about_app_title) + "\n" + BuildConfig.VERSION_NAME.replace(" Build ", " · Build ")).uppercase(),
+                            fontSize = (descriptionFontSize.value * 0.8f).sp,
+                            color = mutedColor,
+                            style = capsStyle,
+                            textAlign = TextAlign.End,
+                            modifier = Modifier.padding(bottom = 8.dp)
                         )
                     }
+                    Box(modifier = Modifier.fillMaxWidth().padding(top = 14.dp, start = 24.dp, end = 24.dp).height(2.dp).background(titleColor))
 
-                    Box(
-                        modifier = Modifier.fillMaxWidth().weight(1f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            modifier = Modifier.fillMaxWidth(0.7f).fillMaxHeight(0.7f),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                    // The numbered list
+                    @Composable
+                    fun Entry(index: Int, title: String, subtitle: String, onClick: () -> Unit) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable(onClick = onClick)
+                                .padding(horizontal = 24.dp, vertical = 14.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                                Tile(getLocalizedString(R.string.settings_features_title), R.drawable.ic_feature) { currentScreen = "features" }
-                                Tile(getLocalizedString(R.string.settings_look_feel_title), R.drawable.ic_look_feel) { currentScreen = "look_feel" }
+                            FontText(
+                                text = index.toString().padStart(2, '0'),
+                                fontSize = (descriptionFontSize.value * 0.8f).sp,
+                                color = mutedColor,
+                                fontWeight = FontWeight.Medium,
+                                style = capsStyle,
+                                modifier = Modifier.width(44.dp)
+                            )
+                            Column(modifier = Modifier.weight(1f)) {
+                                FontText(text = title, fontSize = titleFontSize, color = titleColor, fontWeight = FontWeight.Medium)
+                                FontText(
+                                    text = subtitle,
+                                    fontSize = (descriptionFontSize.value * 0.9f).sp,
+                                    color = mutedColor,
+                                    modifier = Modifier.padding(top = 2.dp)
+                                )
                             }
-                            Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                                Tile(getLocalizedString(R.string.settings_gestures_title), R.drawable.ic_gestures) { currentScreen = "gestures" }
-                                Tile(getLocalizedString(R.string.settings_favorite_apps_title), R.drawable.ic_favorite) { showFavoriteApps() }
-                            }
-                            Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                                Tile(getLocalizedString(R.string.settings_hidden_apps_title), R.drawable.ic_hidden) { showHiddenApps() }
-                                Tile(getLocalizedString(R.string.settings_notes_title), R.drawable.ic_notes) { currentScreen = "notes" }
-                            }
-                            Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                                if (privateSpaceSetUp) {
-                                    Tile(
-                                        getLocalizedString(R.string.private_space_title),
-                                        setPrivateSpacesIcon,
-                                        getLocalizedString(setPrivateSpacesStatus)
-                                    ) {
-                                        if (PrivateSpaceManager(context).isPrivateSpaceSetUp(showToast = false, launchSettings = false)) {
-                                            PrivateSpaceManager(context).togglePrivateSpaceLock(showToast = false, launchSettings = false)
-                                            toggledPrivateSpaces = !toggledPrivateSpaces
-                                        }
-                                    }
-                                }
-                                Tile(getLocalizedString(R.string.settings_advanced_title), R.drawable.ic_advanced) { currentScreen = "advanced" }
-                            }
+                            FontText(text = "→", fontSize = titleFontSize, color = titleColor)
                         }
+                        Box(modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp).height(1.dp).background(titleColor.copy(alpha = 0.14f)))
                     }
 
-                    // Always at the bottom: name, version and the way to the About screen
+                    Column(modifier = Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState())) {
+                        var n = 1
+                        Entry(n++, getLocalizedString(R.string.settings_features_title), getLocalizedString(R.string.settings_features_sub)) { currentScreen = "features" }
+                        Entry(n++, getLocalizedString(R.string.settings_look_feel_title), getLocalizedString(R.string.settings_look_feel_sub)) { currentScreen = "look_feel" }
+                        Entry(n++, getLocalizedString(R.string.settings_gestures_title), getLocalizedString(R.string.settings_gestures_sub)) { currentScreen = "gestures" }
+                        Entry(n++, getLocalizedString(R.string.settings_favorite_apps_title), getLocalizedString(R.string.settings_favorite_apps_sub)) { showFavoriteApps() }
+                        Entry(n++, getLocalizedString(R.string.settings_hidden_apps_title), getLocalizedString(R.string.settings_hidden_apps_sub)) { showHiddenApps() }
+                        Entry(n++, getLocalizedString(R.string.settings_notes_title), getLocalizedString(R.string.settings_notes_sub)) { currentScreen = "notes" }
+                        if (privateSpaceSetUp) {
+                            Entry(n++, getLocalizedString(R.string.private_space_title), getLocalizedString(setPrivateSpacesStatus)) {
+                                if (PrivateSpaceManager(context).isPrivateSpaceSetUp(showToast = false, launchSettings = false)) {
+                                    PrivateSpaceManager(context).togglePrivateSpaceLock(showToast = false, launchSettings = false)
+                                    toggledPrivateSpaces = !toggledPrivateSpaces
+                                }
+                            }
+                        }
+                        Entry(n, getLocalizedString(R.string.settings_advanced_title), getLocalizedString(R.string.settings_advanced_sub)) { currentScreen = "advanced" }
+                    }
+
+                    // Always at the bottom: the way to the About screen and the signature, as small capitals
                     FontText(
-                        text = getLocalizedString(R.string.app_name) + "  ·  " + BuildConfig.VERSION_NAME + "  ·  " + getLocalizedString(R.string.about_short),
-                        color = SettingsTheme.typography.option.color,
-                        fontSize = (titleFontSize.value * 0.7f).sp,
-                        textAlign = TextAlign.Center,
+                        text = (getLocalizedString(R.string.about_settings_title, getLocalizedString(R.string.about_app_title)) + " →").uppercase(),
+                        fontSize = (descriptionFontSize.value * 0.8f).sp,
+                        color = SettingsTheme.typography.title.color,
+                        fontWeight = FontWeight.Medium,
+                        style = TextStyle(letterSpacing = 0.14.em),
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable { currentScreen = "about" }
-                            .padding(vertical = 14.dp)
+                            .padding(start = 24.dp, end = 24.dp, top = 18.dp, bottom = 4.dp)
+                    )
+                    FontText(
+                        text = getLocalizedString(R.string.about_developer).uppercase(),
+                        fontSize = (descriptionFontSize.value * 0.8f).sp,
+                        color = SettingsTheme.typography.option.color,
+                        style = TextStyle(letterSpacing = 0.14.em),
+                        modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, bottom = 14.dp)
                     )
 
                     if (isGestureNavigationEnabled(context)) {
@@ -1106,152 +1134,6 @@ class SettingsFragment : BaseFragment() {
 
                     }
                     // Info Tiles
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.info_tiles),
-                        fontSize = titleFontSize,
-                    )
-                    SectionCard {
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_date),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowDate,
-                        onCheckedChange = {
-                            toggledShowDate = !prefs.showDate
-                            prefs.showDate = toggledShowDate
-                            viewModel.setShowDate(prefs.showDate)
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_day_of_year),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowDayOfYear,
-                        onCheckedChange = {
-                            toggledShowDayOfYear = !prefs.showDayOfYear
-                            prefs.showDayOfYear = toggledShowDayOfYear
-                            viewModel.setShowDayOfYear(prefs.showDayOfYear)
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_clock),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowClock,
-                        onCheckedChange = {
-                            toggledShowClock = !prefs.showClock
-                            prefs.showClock = toggledShowClock
-                            viewModel.setShowClock(prefs.showClock)
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_clock_format),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowClockFormat,
-                        onCheckedChange = {
-                            toggledShowClockFormat = !prefs.showClockFormat
-                            prefs.showClockFormat = toggledShowClockFormat
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_alarm),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowAlarm,
-                        onCheckedChange = {
-                            toggledShowAlarm = !prefs.showAlarm
-                            prefs.showAlarm = toggledShowAlarm
-                            viewModel.setShowAlarm(prefs.showAlarm)
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_battery),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowBattery,
-                        onCheckedChange = {
-                            toggledShowBattery = !prefs.showBattery
-                            prefs.showBattery = toggledShowBattery
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_battery_icon),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowBatteryIcon,
-                        onCheckedChange = {
-                            toggledShowBatteryIcon = !prefs.showBatteryIcon
-                            prefs.showBatteryIcon = toggledShowBatteryIcon
-                        }
-                    )
-
-                    if (PrivateSpaceManager(requireContext()).isPrivateSpaceSetUp()) {
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.show_private_spaces),
-                            fontSize = titleFontSize,
-                            defaultState = toggledShowPrivateSpaces,
-                            onCheckedChange = {
-                                toggledShowPrivateSpaces = !prefs.showPrivateSpaces
-                                prefs.showPrivateSpaces = toggledShowPrivateSpaces
-                            }
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-                    
-                    if (toggledShowAlarm) {
-
-                        // Alarm
-                        SettingsTitle(
-                            text = getLocalizedString(R.string.alarm_settings),
-                            fontSize = titleFontSize
-                        )
-
-
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.bedtime_start_time),
-                            option = String.format(
-                                "%02d:%02d",
-                                bedtimeStartHour,
-                                bedtimeStartMinute
-                            ),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                showBedtimeTimePicker(
-                                    bedtimeStartHour,
-                                    bedtimeStartMinute
-                                ) { hour, minute ->
-                                    bedtimeStartHour = hour
-                                    bedtimeStartMinute = minute
-                                    prefs.bedtimeStartHour = hour
-                                    prefs.bedtimeStartMinute = minute
-                                }
-                            }
-                        )
-
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.bedtime_end_time),
-                            option = String.format("%02d:%02d", bedtimeEndHour, bedtimeEndMinute),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                showBedtimeTimePicker(
-                                    bedtimeEndHour,
-                                    bedtimeEndMinute
-                                ) { hour, minute ->
-                                    bedtimeEndHour = hour
-                                    bedtimeEndMinute = minute
-                                    prefs.bedtimeEndHour = hour
-                                    prefs.bedtimeEndMinute = minute
-                                }
-                            }
-                        )
-
-                        Spacer(modifier = Modifier.height(12.dp))
-                    }
-
-
-                    }
                     // Weather
                     SettingsTitle(
                         text = getLocalizedString(R.string.weather),
@@ -1348,6 +1230,19 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
+                    // Clock and date live on their own screen; here only the way in
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.clock_and_date),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+                        SettingsLink(
+                            title = getLocalizedString(R.string.clock_display),
+                            fontSize = titleFontSize,
+                            onClick = { currentScreen = "clock" }
+                        )
+                    }
                     Spacer(modifier = Modifier.height(16.dp))
                     // Layout & Density
                     SettingsTitle(
@@ -1517,56 +1412,6 @@ class SettingsFragment : BaseFragment() {
                     SectionCard {
 
                     SettingsSelect(
-                        title = getLocalizedString(R.string.clock_alignment),
-                        option = selectedClockAlignment.string(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            val gravityOptions = Constants.Gravity.entries.toTypedArray()
-                            val selectedIndex =
-                                gravityOptions.indexOf(selectedClockAlignment).takeIf { it >= 0 }
-                                    ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheetPill(
-                                context = requireContext(),
-                                options = gravityOptions,
-                                title = getLocalizedString(R.string.clock_alignment),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newGravity ->
-                                    selectedClockAlignment = newGravity // Update state
-                                    prefs.clockAlignment =
-                                        newGravity // Persist selection in preferences
-                                    viewModel.updateClockAlignment(newGravity)
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.date_alignment),
-                        option = selectedDateAlignment.string(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            val gravityOptions = Constants.Gravity.entries.toTypedArray()
-                            val selectedIndex =
-                                gravityOptions.indexOf(selectedDateAlignment).takeIf { it >= 0 }
-                                    ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheetPill(
-                                context = requireContext(),
-                                options = gravityOptions,
-                                title = getLocalizedString(R.string.date_alignment),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newGravity ->
-                                    selectedDateAlignment = newGravity // Update state
-                                    prefs.dateAlignment =
-                                        newGravity // Persist selection in preferences
-                                    viewModel.updateDateAlignment(newGravity)
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
                         title = getLocalizedString(R.string.alarm_alignment),
                         option = selectedAlarmAlignment.string(),
                         fontSize = titleFontSize,
@@ -1688,42 +1533,6 @@ class SettingsFragment : BaseFragment() {
 
                                     // --- Trigger widget update ---
                                     updateHomeWidget(context)
-                                })
-                        }
-                    )
-
-                    val hexDateColor = String.format("#%06X", (0xFFFFFF and selectedDateColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.date_color),
-                        option = hexDateColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexDateColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedDateColor,
-                                title = getLocalizedString(R.string.date_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedDateColor = selectedColor
-                                    prefs.dateColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexClockColor = String.format("#%06X", (0xFFFFFF and selectedClockColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.clock_color),
-                        option = hexClockColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexClockColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedClockColor,
-                                title = getLocalizedString(R.string.clock_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedClockColor = selectedColor
-                                    prefs.clockColor = selectedColor
                                 })
                         }
                     )
@@ -1939,46 +1748,6 @@ class SettingsFragment : BaseFragment() {
                     )
 
                     SettingsSelect(
-                        title = getLocalizedString(R.string.date_text_size),
-                        option = selectedDateSize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.date_text_size),
-                                minValue = Constants.MIN_CLOCK_DATE_SIZE,
-                                maxValue = Constants.MAX_CLOCK_DATE_SIZE,
-                                currentValue = prefs.dateSize,
-                                onValueSelected = { newDateSize ->
-                                    selectedDateSize = newDateSize.toInt() // Update state
-                                    prefs.dateSize =
-                                        newDateSize.toInt() // Persist selection in preferences
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.clock_text_size),
-                        option = selectedClockSize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.clock_text_size),
-                                minValue = Constants.MIN_CLOCK_DATE_SIZE,
-                                maxValue = Constants.MAX_CLOCK_DATE_SIZE,
-                                currentValue = prefs.clockSize,
-                                onValueSelected = { newClockSize ->
-                                    selectedClockSize = newClockSize.toInt() // Update state
-                                    prefs.clockSize =
-                                        newClockSize.toInt() // Persist selection in preferences
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
                         title = getLocalizedString(R.string.alarm_text_size),
                         option = selectedAlarmSize.toString(),
                         fontSize = titleFontSize,
@@ -2044,6 +1813,428 @@ class SettingsFragment : BaseFragment() {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
                     }
                 
+                }
+
+                "clock" -> {
+                    BackHandler { currentScreen = "look_feel" }
+                    PageHeader(
+                        iconRes = R.drawable.ic_back,
+                        title = getLocalizedString(R.string.clock_display),
+                        onClick = { currentScreen = "look_feel" }
+                    )
+                    var selectedClockStyle by remember { mutableStateOf(prefs.clockStyle) }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.clock_style),
+                        fontSize = titleFontSize
+                    )
+                    ClockStylePicker(
+                        selected = selectedClockStyle,
+                        clockColor = selectedClockColor,
+                        dateColor = selectedDateColor,
+                        clockSize = selectedClockSize,
+                        dateSize = selectedDateSize,
+                        alignment = selectedClockAlignment,
+                        titleFontSize = titleFontSize,
+                        descriptionFontSize = descriptionFontSize
+                    ) { style ->
+                        selectedClockStyle = style
+                        prefs.clockStyle = style
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.shown_info),
+                        fontSize = titleFontSize,
+                    )
+                    SectionCard {
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_date),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowDate,
+                        onCheckedChange = {
+                            toggledShowDate = !prefs.showDate
+                            prefs.showDate = toggledShowDate
+                            viewModel.setShowDate(prefs.showDate)
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_day_of_year),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowDayOfYear,
+                        onCheckedChange = {
+                            toggledShowDayOfYear = !prefs.showDayOfYear
+                            prefs.showDayOfYear = toggledShowDayOfYear
+                            viewModel.setShowDayOfYear(prefs.showDayOfYear)
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_clock),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowClock,
+                        onCheckedChange = {
+                            toggledShowClock = !prefs.showClock
+                            prefs.showClock = toggledShowClock
+                            viewModel.setShowClock(prefs.showClock)
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_clock_format),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowClockFormat,
+                        onCheckedChange = {
+                            toggledShowClockFormat = !prefs.showClockFormat
+                            prefs.showClockFormat = toggledShowClockFormat
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_alarm),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowAlarm,
+                        onCheckedChange = {
+                            toggledShowAlarm = !prefs.showAlarm
+                            prefs.showAlarm = toggledShowAlarm
+                            viewModel.setShowAlarm(prefs.showAlarm)
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_battery),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowBattery,
+                        onCheckedChange = {
+                            toggledShowBattery = !prefs.showBattery
+                            prefs.showBattery = toggledShowBattery
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_battery_icon),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowBatteryIcon,
+                        onCheckedChange = {
+                            toggledShowBatteryIcon = !prefs.showBatteryIcon
+                            prefs.showBatteryIcon = toggledShowBatteryIcon
+                        }
+                    )
+
+                    if (PrivateSpaceManager(requireContext()).isPrivateSpaceSetUp()) {
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.show_private_spaces),
+                            fontSize = titleFontSize,
+                            defaultState = toggledShowPrivateSpaces,
+                            onCheckedChange = {
+                                toggledShowPrivateSpaces = !prefs.showPrivateSpaces
+                                prefs.showPrivateSpaces = toggledShowPrivateSpaces
+                            }
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
+                    
+                    if (toggledShowAlarm) {
+
+                        // Alarm
+                        SettingsTitle(
+                            text = getLocalizedString(R.string.alarm_settings),
+                            fontSize = titleFontSize
+                        )
+
+
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.bedtime_start_time),
+                            option = String.format(
+                                "%02d:%02d",
+                                bedtimeStartHour,
+                                bedtimeStartMinute
+                            ),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                showBedtimeTimePicker(
+                                    bedtimeStartHour,
+                                    bedtimeStartMinute
+                                ) { hour, minute ->
+                                    bedtimeStartHour = hour
+                                    bedtimeStartMinute = minute
+                                    prefs.bedtimeStartHour = hour
+                                    prefs.bedtimeStartMinute = minute
+                                }
+                            }
+                        )
+
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.bedtime_end_time),
+                            option = String.format("%02d:%02d", bedtimeEndHour, bedtimeEndMinute),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                showBedtimeTimePicker(
+                                    bedtimeEndHour,
+                                    bedtimeEndMinute
+                                ) { hour, minute ->
+                                    bedtimeEndHour = hour
+                                    bedtimeEndMinute = minute
+                                    prefs.bedtimeEndHour = hour
+                                    prefs.bedtimeEndMinute = minute
+                                }
+                            }
+                        )
+
+                        Spacer(modifier = Modifier.height(12.dp))
+                    }
+
+
+                    }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.clock_layout),
+                        fontSize = titleFontSize
+                    )
+                    val st = selectedClockStyle
+                    var selectedRingPlacement by remember { mutableStateOf(prefs.ringPlacement) }
+                    var selectedRingSize by remember { mutableStateOf(prefs.ringSize) }
+                    var selectedRingInside by remember { mutableStateOf(prefs.ringInside) }
+                    var selectedRingScale by remember { mutableStateOf(prefs.ringScale) }
+                    var toggledClockRule by remember { mutableStateOf(prefs.clockRule) }
+                    var toggledSwissSide by remember { mutableStateOf(prefs.swissSideColumn) }
+                    var toggledSwissWeights by remember { mutableStateOf(prefs.swissWeights) }
+                    var toggledAlarmBelow by remember { mutableStateOf(prefs.oneLineAlarmBelow) }
+                    SectionCard {
+                    if (st != Constants.ClockStyle.Rings) {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.clock_alignment),
+                            option = selectedClockAlignment.string(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                val gravityOptions = Constants.Gravity.entries.toTypedArray()
+                                val selectedIndex =
+                                    gravityOptions.indexOf(selectedClockAlignment).takeIf { it >= 0 }
+                                        ?: 1
+
+                                dialogBuilder.showSingleChoiceBottomSheetPill(
+                                    context = requireContext(),
+                                    options = gravityOptions,
+                                    title = getLocalizedString(R.string.clock_alignment),
+                                    selectedIndex = selectedIndex,
+                                    onItemSelected = { newGravity ->
+                                        selectedClockAlignment = newGravity // Update state
+                                        prefs.clockAlignment =
+                                            newGravity // Persist selection in preferences
+                                        viewModel.updateClockAlignment(newGravity)
+                                    }
+                                )
+                            }
+                        )
+
+                    }
+                    if (st == Constants.ClockStyle.Classic) {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.date_alignment),
+                            option = selectedDateAlignment.string(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                val gravityOptions = Constants.Gravity.entries.toTypedArray()
+                                val selectedIndex =
+                                    gravityOptions.indexOf(selectedDateAlignment).takeIf { it >= 0 }
+                                        ?: 1
+
+                                dialogBuilder.showSingleChoiceBottomSheetPill(
+                                    context = requireContext(),
+                                    options = gravityOptions,
+                                    title = getLocalizedString(R.string.date_alignment),
+                                    selectedIndex = selectedIndex,
+                                    onItemSelected = { newGravity ->
+                                        selectedDateAlignment = newGravity // Update state
+                                        prefs.dateAlignment =
+                                            newGravity // Persist selection in preferences
+                                        viewModel.updateDateAlignment(newGravity)
+                                    }
+                                )
+                            }
+                        )
+
+                    }
+                    if (st == Constants.ClockStyle.Swiss) {
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.swiss_side_column),
+                            fontSize = titleFontSize,
+                            defaultState = toggledSwissSide,
+                            onCheckedChange = { toggledSwissSide = it; prefs.swissSideColumn = it }
+                        )
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.swiss_weights),
+                            fontSize = titleFontSize,
+                            defaultState = toggledSwissWeights,
+                            onCheckedChange = { toggledSwissWeights = it; prefs.swissWeights = it }
+                        )
+                    }
+                    if (st == Constants.ClockStyle.Rings) {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.ring_placement),
+                            option = selectedRingPlacement.string(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                val options = Constants.RingPlacement.entries.toTypedArray()
+                                dialogBuilder.showSingleChoiceBottomSheet(
+                                    context = requireContext(),
+                                    options = options,
+                                    title = getLocalizedString(R.string.ring_placement),
+                                    selectedIndex = options.indexOf(selectedRingPlacement),
+                                    onItemSelected = { v -> selectedRingPlacement = v; prefs.ringPlacement = v }
+                                )
+                            }
+                        )
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.ring_size),
+                            option = selectedRingSize.toString(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                dialogBuilder.showSliderBottomSheet(
+                                    context = requireContext(),
+                                    title = getLocalizedString(R.string.ring_size),
+                                    minValue = 100,
+                                    maxValue = 240,
+                                    currentValue = prefs.ringSize,
+                                    onValueSelected = { v -> selectedRingSize = v.toInt(); prefs.ringSize = v.toInt() }
+                                )
+                            }
+                        )
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.ring_inside),
+                            option = selectedRingInside.string(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                val options = Constants.RingInside.entries.toTypedArray()
+                                dialogBuilder.showSingleChoiceBottomSheet(
+                                    context = requireContext(),
+                                    options = options,
+                                    title = getLocalizedString(R.string.ring_inside),
+                                    selectedIndex = options.indexOf(selectedRingInside),
+                                    onItemSelected = { v -> selectedRingInside = v; prefs.ringInside = v }
+                                )
+                            }
+                        )
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.ring_scale),
+                            option = selectedRingScale.string(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                val options = Constants.RingScale.entries.toTypedArray()
+                                dialogBuilder.showSingleChoiceBottomSheet(
+                                    context = requireContext(),
+                                    options = options,
+                                    title = getLocalizedString(R.string.ring_scale),
+                                    selectedIndex = options.indexOf(selectedRingScale),
+                                    onItemSelected = { v -> selectedRingScale = v; prefs.ringScale = v }
+                                )
+                            }
+                        )
+                    }
+                    if (st == Constants.ClockStyle.OneLine) {
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.clock_rule),
+                            fontSize = titleFontSize,
+                            defaultState = toggledClockRule,
+                            onCheckedChange = { toggledClockRule = it; prefs.clockRule = it }
+                        )
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.one_line_alarm_below),
+                            fontSize = titleFontSize,
+                            defaultState = toggledAlarmBelow,
+                            onCheckedChange = { toggledAlarmBelow = it; prefs.oneLineAlarmBelow = it }
+                        )
+                    }
+                    }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.colour_and_size),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+                    val hexClockColor = String.format("#%06X", (0xFFFFFF and selectedClockColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.clock_color),
+                        option = hexClockColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexClockColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedClockColor,
+                                title = getLocalizedString(R.string.clock_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedClockColor = selectedColor
+                                    prefs.clockColor = selectedColor
+                                })
+                        }
+                    )
+
+                    val hexDateColor = String.format("#%06X", (0xFFFFFF and selectedDateColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.date_color),
+                        option = hexDateColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexDateColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedDateColor,
+                                title = getLocalizedString(R.string.date_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedDateColor = selectedColor
+                                    prefs.dateColor = selectedColor
+                                })
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.clock_text_size),
+                        option = selectedClockSize.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.clock_text_size),
+                                minValue = Constants.MIN_CLOCK_DATE_SIZE,
+                                maxValue = Constants.MAX_CLOCK_DATE_SIZE,
+                                currentValue = prefs.clockSize,
+                                onValueSelected = { newClockSize ->
+                                    selectedClockSize = newClockSize.toInt() // Update state
+                                    prefs.clockSize =
+                                        newClockSize.toInt() // Persist selection in preferences
+                                }
+                            )
+                        }
+                    )
+
+                    if (st != Constants.ClockStyle.OneLine) {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.date_text_size),
+                            option = selectedDateSize.toString(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                dialogBuilder.showSliderBottomSheet(
+                                    context = requireContext(),
+                                    title = getLocalizedString(R.string.date_text_size),
+                                    minValue = Constants.MIN_CLOCK_DATE_SIZE,
+                                    maxValue = Constants.MAX_CLOCK_DATE_SIZE,
+                                    currentValue = prefs.dateSize,
+                                    onValueSelected = { newDateSize ->
+                                        selectedDateSize = newDateSize.toInt() // Update state
+                                        prefs.dateSize =
+                                            newDateSize.toInt() // Persist selection in preferences
+                                    }
+                                )
+                            }
+                        )
+
+                    }
+                    }
+                    if (isGestureNavigationEnabled(context)) {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
+                    } else {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
+                    }
                 }
 
                 "gestures" -> {
@@ -3013,7 +3204,7 @@ class SettingsFragment : BaseFragment() {
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize,
                             modifier = Modifier.weight(1f).fillMaxHeight()
-                        ) { creditsOpenLicences = false; currentScreen = "credits" }
+                        ) { currentScreen = "credits" }
                         AboutCard(
                             number = "4",
                             star = false,
@@ -3023,7 +3214,7 @@ class SettingsFragment : BaseFragment() {
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize,
                             modifier = Modifier.weight(1f).fillMaxHeight()
-                        ) { creditsOpenLicences = true; currentScreen = "credits" }
+                        ) { currentScreen = "licences" }
                     }
                     Spacer(modifier = Modifier.weight(1f))
 
@@ -3061,36 +3252,14 @@ class SettingsFragment : BaseFragment() {
                 }
 
                 "credits" -> {
-                    BackHandler {
-                        currentScreen = "about"
-                    }
-
+                    BackHandler { currentScreen = "about" }
                     PageHeader(
                         iconRes = R.drawable.ic_back,
-                        title = getLocalizedString(R.string.about_credits_link),
-                        onClick = {
-                            currentScreen = "about"
-                        }
+                        title = getLocalizedString(R.string.about_contributors),
+                        onClick = { currentScreen = "about" }
                     )
-
                     val contributors = remember { readAsset("contributors.txt").lines().filter { it.isNotBlank() } }
-                    val licences = listOf(
-                        R.string.licence_gpl to "licenses/GPL-3.0.txt",
-                        R.string.licence_ofl to "fonts/OFL-Montserrat.txt",
-                        R.string.licence_ccby to "licenses/CC-BY-4.0.txt",
-                        R.string.licence_apache to "licenses/Apache-2.0.txt"
-                    )
-                    var openLicence by remember { mutableStateOf<String?>(null) }
-                    LaunchedEffect(creditsOpenLicences) {
-                        if (creditsOpenLicences) {
-                            openLicence = "licenses/GPL-3.0.txt"
-                            kotlinx.coroutines.delay(50)
-                            scrollState.animateScrollTo(scrollState.maxValue)
-                            creditsOpenLicences = false
-                        }
-                    }
 
-                    Spacer(modifier = Modifier.height(16.dp))
                     SettingsTitle(text = "Multi Launcher", fontSize = titleFontSize)
                     SectionCard {
                         AboutRow(
@@ -3100,28 +3269,62 @@ class SettingsFragment : BaseFragment() {
                             descriptionFontSize = descriptionFontSize
                         )
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
                     SettingsTitle(text = getLocalizedString(R.string.credits_thanks), fontSize = titleFontSize)
                     SectionCard {
                         AboutRow(
                             title = "",
-                            lines = listOf(
-                                getLocalizedString(R.string.credits_thanks_intro),
-                                contributors.joinToString("  ·  "),
-                                getLocalizedString(R.string.credits_thanks_outro)
-                            ),
+                            lines = listOf(getLocalizedString(R.string.credits_thanks_intro)),
+                            titleFontSize = titleFontSize,
+                            descriptionFontSize = descriptionFontSize
+                        )
+                        // One name per row, numbered: the register of everyone up to the fork point
+                        contributors.forEachIndexed { i, name ->
+                            Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 9.dp)) {
+                                FontText(
+                                    text = (i + 1).toString().padStart(2, '0'),
+                                    fontSize = (descriptionFontSize.value * 0.8f).sp,
+                                    color = SettingsTheme.typography.option.color,
+                                    style = TextStyle(letterSpacing = 0.1.em),
+                                    modifier = Modifier.width(40.dp)
+                                )
+                                FontText(text = name, fontSize = descriptionFontSize, color = SettingsTheme.typography.title.color)
+                            }
+                        }
+                        AboutRow(
+                            title = "",
+                            lines = listOf(getLocalizedString(R.string.credits_thanks_outro)),
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize
                         )
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    SettingsTitle(text = getLocalizedString(R.string.credits_licences), fontSize = titleFontSize)
+                    if (isGestureNavigationEnabled(context)) {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
+                    } else {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
+                    }
+                }
+
+                "licences" -> {
+                    BackHandler { currentScreen = "about" }
+                    PageHeader(
+                        iconRes = R.drawable.ic_back,
+                        title = getLocalizedString(R.string.credits_licences),
+                        onClick = { currentScreen = "about" }
+                    )
+                    val licences = listOf(
+                        R.string.licence_gpl to "licenses/GPL-3.0.txt",
+                        R.string.licence_ofl to "fonts/OFL-Montserrat.txt",
+                        R.string.licence_ccby to "licenses/CC-BY-4.0.txt",
+                        R.string.licence_apache to "licenses/Apache-2.0.txt"
+                    )
+                    var openLicence by remember { mutableStateOf<String?>(null) }
+
+                    Spacer(modifier = Modifier.height(10.dp))
                     SectionCard {
                         licences.forEach { (nameRes, asset) ->
-                            val name = getLocalizedString(nameRes)
                             SettingsLink(
-                                title = name,
-                                fontSize = titleFontSize,
+                                title = getLocalizedString(nameRes),
+                                fontSize = (titleFontSize.value * 0.85f).sp,
                                 onClick = { openLicence = if (openLicence == asset) null else asset }
                             )
                             if (openLicence == asset) {
@@ -3132,9 +3335,7 @@ class SettingsFragment : BaseFragment() {
                                     text = text,
                                     fontSize = (descriptionFontSize.value * 0.85f).sp,
                                     color = SettingsTheme.typography.option.color,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)
                                 )
                             }
                         }
@@ -3147,6 +3348,122 @@ class SettingsFragment : BaseFragment() {
                 }
 
 
+            }
+        }
+    }
+
+    /** Four clock styles stacked, each drawn with the current time; the chosen one carries a 2 dp frame. */
+    @Composable
+    private fun ClockStylePicker(
+        selected: Constants.ClockStyle,
+        clockColor: Int,
+        dateColor: Int,
+        clockSize: Int,
+        dateSize: Int,
+        alignment: Constants.Gravity,
+        titleFontSize: TextUnit,
+        descriptionFontSize: TextUnit,
+        onSelect: (Constants.ClockStyle) -> Unit
+    ) {
+        // The previews follow the live settings below them: colour, size and alignment change at once
+        val ink = Color(clockColor)
+        val muted = Color(dateColor)
+        val frame = SettingsTheme.typography.title.color
+        val label = SettingsTheme.typography.title.color
+        val labelMuted = SettingsTheme.typography.option.color
+        val clockSp = (clockSize * 0.55f).sp          // the home clock scaled to the card
+        val dateSp = (dateSize * 0.55f).sp
+        val align = when (alignment) {
+            Constants.Gravity.Left -> Alignment.Start
+            Constants.Gravity.Center -> Alignment.CenterHorizontally
+            Constants.Gravity.Right -> Alignment.End
+        }
+        val now = remember { java.util.Calendar.getInstance() }
+        val h = String.format("%02d", now.get(java.util.Calendar.HOUR_OF_DAY))
+        val m = String.format("%02d", now.get(java.util.Calendar.MINUTE))
+        val locale = java.util.Locale.getDefault()
+        val weekday = now.getDisplayName(java.util.Calendar.DAY_OF_WEEK, java.util.Calendar.LONG, locale) ?: ""
+        val weekdayShort = now.getDisplayName(java.util.Calendar.DAY_OF_WEEK, java.util.Calendar.SHORT, locale) ?: ""
+        val month = now.getDisplayName(java.util.Calendar.MONTH, java.util.Calendar.LONG, locale) ?: ""
+        val monthShort = now.getDisplayName(java.util.Calendar.MONTH, java.util.Calendar.SHORT, locale) ?: ""
+        val day = now.get(java.util.Calendar.DAY_OF_MONTH)
+        val caps = TextStyle(letterSpacing = 0.14.em)
+        val capsSize = (dateSp.value * 0.7f).sp
+        val options = listOf(
+            Constants.ClockStyle.Classic to R.string.clock_style_classic_sub,
+            Constants.ClockStyle.Swiss to R.string.clock_style_swiss_sub,
+            Constants.ClockStyle.Rings to R.string.clock_style_rings_sub,
+            Constants.ClockStyle.OneLine to R.string.clock_style_one_line_sub
+        )
+        Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            options.forEachIndexed { index, (style, subRes) ->
+                val isSelected = style == selected
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .border(if (isSelected) 2.dp else 1.dp, if (isSelected) frame else outlineColor())
+                        .clickable { onSelect(style) }
+                        .padding(top = 14.dp, bottom = 12.dp, end = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    FontText(
+                        text = (index + 1).toString().padStart(2, '0') + if (isSelected) " →" else "",
+                        fontSize = capsSize,
+                        color = if (isSelected) label else labelMuted,
+                        style = caps,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.width(48.dp)
+                    )
+                    Column(modifier = Modifier.weight(1f), horizontalAlignment = align) {
+                        when (style) {
+                            Constants.ClockStyle.Classic -> Column(horizontalAlignment = align) {
+                                FontText(text = "$h:$m", fontSize = clockSp, color = ink)
+                                FontText(text = "$weekdayShort, $monthShort $day", fontSize = dateSp, color = muted, modifier = Modifier.padding(top = 2.dp))
+                            }
+                            Constants.ClockStyle.Swiss -> Row(verticalAlignment = Alignment.CenterVertically) {
+                                Column {
+                                    FontText(text = h, fontSize = (clockSp.value * 1.5f).sp, fontWeight = FontWeight.Bold, color = ink, style = TextStyle(letterSpacing = (-0.06).em, lineHeight = (clockSp.value * 1.35f).sp))
+                                    FontText(text = m, fontSize = (clockSp.value * 1.5f).sp, fontWeight = FontWeight.ExtraLight, color = ink, style = TextStyle(letterSpacing = (-0.06).em, lineHeight = (clockSp.value * 1.35f).sp))
+                                }
+                                Column(modifier = Modifier.padding(start = 18.dp)) {
+                                    FontText(text = weekday.uppercase(locale), fontSize = capsSize, color = muted, style = caps)
+                                    FontText(text = "$day ${month.uppercase(locale)}", fontSize = capsSize, color = muted, style = caps, modifier = Modifier.padding(top = 4.dp))
+                                }
+                            }
+                            Constants.ClockStyle.Rings -> Row(verticalAlignment = Alignment.CenterVertically) {
+                                val hours = now.get(java.util.Calendar.HOUR) + now.get(java.util.Calendar.MINUTE) / 60f
+                                val minuteSweep = 360f * now.get(java.util.Calendar.MINUTE) / 60f
+                                val hourSweep = 360f * hours / 12f
+                                androidx.compose.foundation.Canvas(modifier = Modifier.size(96.dp)) {
+                                    val outer = 6.dp.toPx(); val inner = 1.5.dp.toPx()
+                                    val r1 = size.minDimension / 2 - outer / 2 - 1.dp.toPx()
+                                    val r2 = r1 - outer / 2 - 8.dp.toPx()
+                                    val c = androidx.compose.ui.geometry.Offset(size.width / 2, size.height / 2)
+                                    drawCircle(ink.copy(alpha = 0.14f), r1, c, style = androidx.compose.ui.graphics.drawscope.Stroke(outer))
+                                    drawCircle(ink.copy(alpha = 0.14f), r2, c, style = androidx.compose.ui.graphics.drawscope.Stroke(inner))
+                                    drawArc(ink, -90f, hourSweep, false, topLeft = androidx.compose.ui.geometry.Offset(c.x - r1, c.y - r1), size = androidx.compose.ui.geometry.Size(r1 * 2, r1 * 2), style = androidx.compose.ui.graphics.drawscope.Stroke(outer))
+                                    drawArc(ink, -90f, minuteSweep, false, topLeft = androidx.compose.ui.geometry.Offset(c.x - r2, c.y - r2), size = androidx.compose.ui.geometry.Size(r2 * 2, r2 * 2), style = androidx.compose.ui.graphics.drawscope.Stroke(inner))
+                                }
+                                Column(modifier = Modifier.padding(start = 16.dp)) {
+                                    FontText(text = "$h:$m", fontSize = (clockSp.value * 0.7f).sp, fontWeight = FontWeight.Bold, color = ink)
+                                    FontText(text = weekday.uppercase(locale), fontSize = capsSize, color = muted, style = caps, modifier = Modifier.padding(top = 4.dp))
+                                    FontText(text = "$day ${month.uppercase(locale)}", fontSize = capsSize, color = muted, style = caps)
+                                }
+                            }
+                            Constants.ClockStyle.OneLine -> Column {
+                                Row(verticalAlignment = Alignment.Bottom) {
+                                    FontText(text = "$h:$m", fontSize = (clockSp.value * 0.5f).sp, fontWeight = FontWeight.Bold, color = ink)
+                                    FontText(text = "${weekdayShort.uppercase(locale)} $day ${monthShort.uppercase(locale)}", fontSize = capsSize, color = muted, style = caps, modifier = Modifier.padding(start = 12.dp, bottom = 3.dp))
+                                }
+                                Box(modifier = Modifier.fillMaxWidth().padding(top = 8.dp).height(2.dp).background(ink))
+                            }
+                        }
+                        Row(modifier = Modifier.padding(top = 10.dp), verticalAlignment = Alignment.Bottom) {
+                            FontText(text = style.getString(), fontSize = (descriptionFontSize.value * 0.95f).sp, fontWeight = FontWeight.Medium, color = label)
+                            FontText(text = getLocalizedString(subRes).uppercase(locale), fontSize = (capsSize.value * 0.9f).sp, color = labelMuted, style = caps, modifier = Modifier.padding(start = 8.dp, bottom = 1.dp))
+                        }
+                    }
+                }
             }
         }
     }
@@ -3164,7 +3481,7 @@ class SettingsFragment : BaseFragment() {
         modifier: Modifier = Modifier,
         onClick: () -> Unit
     ) {
-        val shape = RoundedCornerShape(20.dp)
+        val shape = RoundedCornerShape(0.dp)
         Column(
             modifier = modifier
                 .clip(shape)

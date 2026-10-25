@@ -3,18 +3,19 @@
     android:id="@+id/categoryRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
+    android:background="@drawable/swiss_hairline_bottom"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingHorizontal="24dp"
-    android:paddingTop="14dp"
-    android:paddingBottom="6dp">
+    android:paddingTop="18dp"
+    android:paddingBottom="8dp">
 
     <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/categoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:letterSpacing="0.08"
+        android:letterSpacing="0.14"
+        android:textAllCaps="true"
         android:maxLines="1" />
 
     <ch.remaker.components.views.FontAppCompatTextView

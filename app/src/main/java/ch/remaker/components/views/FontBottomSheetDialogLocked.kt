@@ -52,27 +52,23 @@ class FontBottomSheetDialogLocked(context: Context) : AppCompatDialog(context), 
                 ViewGroup.LayoutParams.WRAP_CONTENT
             ).apply { gravity = Gravity.BOTTOM }
 
-            cardElevation = 16 * density
+            // Swiss sheet: square corners, no shadow, a 2 dp rule at the top
+            cardElevation = 0f
+            radius = 0f
             setCardBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryBackground))
         }
 
         // Grab line at top
         val grabLine = View(context).apply {
-            val widthPx = (40 * density).toInt()
-            val heightPx = (4 * density).toInt()
-            val topMarginPx = (10 * density).toInt()
-            val bottomMarginPx = (8 * density).toInt()
-
-            layoutParams = FrameLayout.LayoutParams(widthPx, heightPx).apply {
-                gravity = Gravity.CENTER_HORIZONTAL
-                topMargin = topMarginPx
-                bottomMargin = bottomMarginPx
+            val heightPx = (2 * density).toInt()
+            layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, heightPx).apply {
+                gravity = Gravity.TOP
             }
-            background = GradientDrawable().apply {
-                shape = GradientDrawable.RECTANGLE
-                cornerRadius = 2 * density
-                setColor(ContextCompat.getColor(context, R.color.colorAccent))
+            val ink = android.util.TypedValue().let { v ->
+                context.theme.resolveAttribute(android.R.attr.textColorPrimary, v, true)
+                ContextCompat.getColor(context, v.resourceId)
             }
+            setBackgroundColor(ink)
         }
 
         // Content wrapper inside sheet

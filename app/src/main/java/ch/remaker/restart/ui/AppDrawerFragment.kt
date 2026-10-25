@@ -285,6 +285,15 @@ class AppDrawerFragment : BaseFragment() {
         }
 
         binding.appsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // Swiss list: a hairline between the rows, inset to the 24 dp grid
+        binding.appsRecyclerView.addItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(requireContext(), androidx.recyclerview.widget.DividerItemDecoration.VERTICAL).apply {
+                setDrawable(android.graphics.drawable.InsetDrawable(
+                    androidx.core.content.ContextCompat.getDrawable(requireContext(), R.drawable.swiss_hairline),
+                    (24 * resources.displayMetrics.density).toInt(), 0, (24 * resources.displayMetrics.density).toInt(), 0
+                ))
+            }
+        )
         binding.contactsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.appsRecyclerView.adapter = appAdapter
         binding.contactsRecyclerView.adapter = contactAdapter
