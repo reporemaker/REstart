@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">Выберите лаунчер</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Функции</string>
-    <string name="personalization">Персонализация</string>
     <string name="theme_mode">Режим темы</string>
     <string name="app_language">Язык интерфейса</string>
     <string name="font_family">Семейство шрифтов</string>
-    <string name="search_and_app_list">Поиск &amp; Список приложений</string>
     <string name="hide_search_view">Скрыть режим поиска</string>
     <string name="show_floating_button">Показать кнопки быстрого доступа</string>
     <string name="lock_orientation">Ориентация замка</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">Показать боковую панель AZ</string>
     <string name="auto_show_keyboard">Auto show keyboard</string>
     <string name="search_from_start">Поиск из начала</string>
-    <string name="home_management">Главная &amp; Управление приложениями</string>
     <string name="auto_open_apps">Автооткрытие приложений</string>
     <string name="open_apps_on_enter">Откройте приложение при нажатии клавиши Enter.</string>
     <string name="lock_home_apps">Блокировка приложений на главном экране</string>
     <string name="lock_settings">Блокировка настроек</string>
     <string name="apps_on_home_screen">Количество домашних приложений</string>
-    <string name="pages_on_home_screen">Количество страниц</string>
-    <string name="enable_home_pager">Включить главную страницу</string>
     <string name="enable_app_timer">Включить таймер приложения</string>
     <string name="force_colored_wallpaper">Обои Force Colored Wallpaper</string>
     <string name="info_tiles">Информационные плитки</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">Местоположение по GPS</string>
     <string name="temp_unit">Единица измерения температуры</string>
     <string name="manual_location">Установить местоположение вручную</string>
-    <string name="icon_packs">Наборы иконок</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Выгляди &amp; Чувствуй</string>
-    <string name="text_size_adjustments">Текст &amp; Корректировка размера</string>
     <string name="app_text_size">Размер текста приложения</string>
     <string name="date_text_size">Размер текста даты</string>
     <string name="clock_text_size">Размер текста часов</string>
     <string name="alarm_text_size">Размер текста будильника</string>
     <string name="battery_text_size">Размер текста батареи</string>
-    <string name="layout_positioning">Макет &amp; Позиционирование</string>
     <string name="app_padding_size">Размер наполнителя</string>
     <string name="extend_home_apps_area">Расширить область, доступную для клика</string>
     <string name="alignment_to_bottom">Выровнять по нижнему краю</string>
-    <string name="visibility_display">Видимость &amp; Дисплей</string>
     <string name="show_status_bar">Показать строку состояния</string>
     <string name="show_navigation_bar">Показать панель навигации</string>
     <string name="show_recent_apps">Показать последние приложения</string>
@@ -111,13 +102,11 @@
     <string name="show_background">Показать фон</string>
     <string name="background_opacity">Прозрачность фона</string>
     <string name="total_screen_time">Общее время, проведенное за экраном</string>
-    <string name="element_alignment">Выравнивание элементов</string>
     <string name="date_alignment">Дата</string>
     <string name="clock_alignment">Часы</string>
     <string name="alarm_alignment">Тревога</string>
     <string name="home_alignment">Главная Приложения</string>
     <string name="drawer_alignment">Приложения для выдвижных панелей</string>
-    <string name="element_colors">Цвета элементов</string>
     <string name="background_color">Фон</string>
     <string name="app_color">Приложения</string>
     <string name="clock_color">Часы</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Show Recents</string>
     <string name="open_power_dialog">Диалог питания</string>
     <string name="take_a_screenshot">Сделайте снимок экрана</string>
-    <string name="previous_page">Перейти на предыдущую страницу</string>
-    <string name="next_page">Перейти на следующую страницу</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Примечания</string>
     <string name="display_options">Параметры отображения</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">О %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Эксперт</string>
-    <string name="toggleable_items">Элементы, которые можно включать и выключать</string>
     <string name="threshold">Порог</string>
     <string name="expert_options_display">Показать параметры эксперта</string>
     <string name="expert_options_unlocked">Доступны экспертные опции!</string>
@@ -252,7 +238,7 @@
     <string name="text_biometric_login_sub">Войдите в систему, используя свои биометрические учетные данные</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Крушение</string>
-    <string name="acra_dialog_text">К сожалению, приложение %1$s столкнулось с непредвиденной проблемой и должно быть закрыто. Пожалуйста, помогите нам улучшить работу приложения, отправив отчет о сбое.\n\n%1$s ценит вашу конфиденциальность, и собранные данные используются исключительно для повышения стабильности приложения. Личная информация не собирается. Спасибо за вашу поддержку!</string>
+    <string name="acra_dialog_text">%1$s столкнулось с непредвиденной проблемой и должно закрыться.</string>
     <string name="acra_send_report">Отправить жалобу</string>
     <string name="acra_dont_send">Не отправлять</string>
     <!-- Share Strings -->
@@ -386,4 +372,109 @@
         <item>Путешествовать</item>
         <item>Работа</item>
     </string-array>
+    <string name="settings_search_section">Поиск</string>
+    <string name="settings_drawer_section">Панель приложений</string>
+    <string name="settings_private_space_section">Приватное пространство</string>
+    <string name="settings_appearance_section">Внешний вид</string>
+    <string name="settings_home_list_section">Список на главном экране</string>
+    <string name="settings_quick_actions_section">Быстрые действия</string>
+    <string name="settings_general_section">Общие</string>
+    <string name="app_lock_needs_screen_lock">Чтобы использовать блокировку приложений, настройте блокировку экрана на этом устройстве.</string>
+    <string name="widgets_no_space">На странице виджетов не осталось места. Сначала уменьшите или удалите какой-нибудь виджет.</string>
+    <string name="drawer_categories">Группировать приложения по категориям</string>
+    <string name="category_other">Прочее</string>
+    <string name="category_text_size">Размер текста категорий</string>
+    <string name="category_color">Категория</string>
+    <string name="category_uppercase">Названия категорий заглавными буквами</string>
+    <string name="category_show_count">Показывать количество приложений в категориях</string>
+    <string name="drawer_search_height">Высота области поиска</string>
+    <string name="drawer_search_spacing">Отступ под поиском</string>
+    <string name="advanced_settings_backup_restore_snapshot">Восстановить автоматическую резервную копию</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">Настройки версии %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Все текущие настройки будут заменены этой копией.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Не удалось прочитать эту резервную копию.</string>
+    <string name="widgets_app_not_opened_yet">%1$s ещё ни разу не открывалось. Android держит такие приложения остановленными, поэтому этот виджет может оставаться пустым или сообщать \"сначала откройте приложение\", пока вы один раз не откроете %1$s. Открыть сейчас?</string>
+    <string name="drawer_view">Вид панели приложений</string>
+    <string name="drawer_view_az">Список А–Я</string>
+    <string name="drawer_view_categories">Категории</string>
+    <string name="search_scope">Область поиска</string>
+    <string name="search_scope_apps">Только приложения</string>
+    <string name="search_scope_files">Приложения, затем файлы</string>
+    <string name="search_scope_all">Приложения, затем файлы, затем контакты</string>
+    <string name="search_not_found">Не найдено</string>
+    <string name="search_permission_files">Разрешите доступ к файлам, чтобы искать файлы</string>
+    <string name="search_permission_contacts">Разрешите доступ к контактам, чтобы искать контакты</string>
+    <string name="search_result_contact">Контакт</string>
+    <string name="search_no_app_to_open">Нет приложения, способного это открыть</string>
+    <string name="manage_categories">Управление категориями</string>
+    <string name="categories_top_apps">Приложения, показываемые над категориями</string>
+    <string name="categories_section">Категории</string>
+    <string name="categories_new">Новая категория</string>
+    <string name="categories_name_hint">Название</string>
+    <string name="categories_exists">Категория с таким названием уже существует</string>
+    <string name="categories_rename">Переименовать</string>
+    <string name="categories_choose_apps">Выбрать приложения</string>
+    <string name="categories_remove">Удалить категорию</string>
+    <string name="private_space_title">Приватное пространство</string>
+    <string name="about_short">О приложении</string>
+    <string name="categories_move_up">Переместить вверх</string>
+    <string name="categories_move_down">Переместить вниз</string>
+    <string name="categories_not_created">Приложения не выбраны, поэтому категория не создана</string>
+    <string name="categories_choose_apps_for">Приложения «%1$s»</string>
+    <string name="smart_search">Умный поиск</string>
+    <string name="about_contributors">Участники</string>
+    <string name="about_full_texts">Полные тексты</string>
+    <string name="settings_heading">Настройки</string>
+    <string name="settings_features_sub">Поиск, погода, блокировка приложений, приватное пространство</string>
+    <string name="settings_look_feel_sub">Тема, шрифт, размеры текста, значки</string>
+    <string name="settings_gestures_sub">Свайпы, нажатия, аппаратные кнопки</string>
+    <string name="settings_favorite_apps_sub">Слоты, порядок, виджеты</string>
+    <string name="settings_hidden_apps_sub">Приложения, убранные из панели приложений</string>
+    <string name="settings_notes_sub">На главном экране</string>
+    <string name="settings_advanced_sub">Резервное копирование, сброс, экспертные параметры</string>
+    <string name="ring_placement">Расположение кольца</string>
+    <string name="ring_beside">Рядом со временем</string>
+    <string name="ring_centred">По центру, время снизу</string>
+    <string name="ring_size">Размер кольца</string>
+    <string name="clock_rule">Линия под строкой</string>
+    <string name="shown_info">Отображаемая информация</string>
+    <string name="clock_layout">Компоновка</string>
+    <string name="colour_and_size">Цвет и размер</string>
+    <string name="swiss_side_column">Колонка рядом со временем</string>
+    <string name="swiss_weights">Часы жирные, минуты тонкие</string>
+    <string name="ring_inside">Внутри кольца</string>
+    <string name="ring_inside_day">День месяца</string>
+    <string name="ring_inside_time">Время</string>
+    <string name="ring_inside_none">Ничего</string>
+    <string name="ring_scale">Часовое кольцо</string>
+    <string name="ring_scale_12">12-часовой циферблат</string>
+    <string name="ring_scale_24">Весь день (24 ч)</string>
+    <string name="one_line_alarm_below">Будильник отдельной строкой под линией</string>
+    <string name="no_alarm_set">Будильник не установлен.</string>
+    <string name="clock_area_tap">Нажатие</string>
+    <string name="clock_display">Область часов</string>
+    <string name="clock_and_date">Часы и дата</string>
+    <string name="clock_style">Стиль часов</string>
+    <string name="clock_style_classic">Классический</string>
+    <string name="clock_style_swiss">Швейцарский</string>
+    <string name="clock_style_rings">Кольца</string>
+    <string name="clock_style_one_line">Одна строка</string>
+    <string name="clock_style_classic_sub">как сейчас</string>
+    <string name="clock_style_swiss_sub">две строки, колонка заглавными</string>
+    <string name="clock_style_rings_sub">часы толстые, минуты тонкие</string>
+    <string name="clock_style_one_line_sub">всё в одной строке</string>
+    <string name="about_open_source">Открытый исходный код</string>
+    <string name="about_foundation">Основа</string>
+    <string name="about_foundation_text">Построен на Multi Launcher (mLauncher), который происходит от Olauncher.</string>
+    <string name="about_credits_link">Участники и лицензии</string>
+    <string name="about_weather">Данные о погоде: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Контакт</string>
+    <string name="credits_lineage">RE*start построен на Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 на каждом шаге.</string>
+    <string name="credits_thanks">Благодарности</string>
+    <string name="credits_thanks_intro">Все, чья работа есть в коде до точки форка:</string>
+    <string name="credits_thanks_outro">Этот лаунчер стоит на их работе.</string>
+    <string name="credits_licences">Лицензии</string>
+    <string name="acra_report_hint">Если хотите сообщить об этом, напишите на %1$s и опишите, что вы делали. Файл журнала %2$s остаётся в приватном хранилище приложения на этом устройстве; ничего не отправляется автоматически.</string>
+    <string name="acra_restart">Перезапустить</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

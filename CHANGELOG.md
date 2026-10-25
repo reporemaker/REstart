@@ -6,6 +6,10 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- Translations: all 21 languages are complete again (104–115 missing strings per language
+  translated, dead keys removed); strings added after the fork are marked as machine-translated
+  in each file and corrections are welcome as issues or pull requests. `scripts/check-strings.py`
+  checks completeness, placeholders and escaping.
 - Dialogs follow the Swiss sheet as well: category name input (a rule under the text, no box),
   multi-choice lists with square boxes, the yes/no confirmations, the settings-copy picker and
   the "exit launcher" list are sheets with a caps title, a rule and caps text buttons; no

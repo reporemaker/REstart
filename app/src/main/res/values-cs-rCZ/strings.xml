@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">Vyberte spouštěč</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Funkce</string>
-    <string name="personalization">Personalizace</string>
     <string name="theme_mode">Režim motivu</string>
     <string name="app_language">Jazyk rozhraní</string>
     <string name="font_family">Rodina písem</string>
-    <string name="search_and_app_list">Hledat &amp; Seznam aplikací</string>
     <string name="hide_search_view">Skrýt zobrazení vyhledávání</string>
     <string name="show_floating_button">Zobrazit tlačítka zkratek</string>
     <string name="lock_orientation">Zamknout orientaci</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">Zobrazit postranní panel AZ</string>
     <string name="auto_show_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="search_from_start">Hledat od začátku</string>
-    <string name="home_management">Domů &amp; Správa aplikací</string>
     <string name="auto_open_apps">Automatické otevírání aplikací</string>
     <string name="open_apps_on_enter">Otevřít aplikaci při Enteru</string>
     <string name="lock_home_apps">Zamknout domácí aplikace</string>
     <string name="lock_settings">Nastavení zámku</string>
     <string name="apps_on_home_screen">Počet domácích aplikací</string>
-    <string name="pages_on_home_screen">Počet stránek</string>
-    <string name="enable_home_pager">Povolit domovský pager</string>
     <string name="enable_app_timer">Povolit časovač aplikace</string>
     <string name="force_colored_wallpaper">Vynucená barevná tapeta</string>
     <string name="info_tiles">Informační dlaždice</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">GPS poloha</string>
     <string name="temp_unit">Jednotka teploty</string>
     <string name="manual_location">Ruční nastavení polohy</string>
-    <string name="icon_packs">Balíčky ikon</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Vzhled &amp; Cítit</string>
-    <string name="text_size_adjustments">Úpravy velikosti textu &amp;</string>
     <string name="app_text_size">Velikost textu aplikace</string>
     <string name="date_text_size">Velikost textu data</string>
     <string name="clock_text_size">Velikost textu hodin</string>
     <string name="alarm_text_size">Velikost textu alarmu</string>
     <string name="battery_text_size">Velikost textu baterie</string>
-    <string name="layout_positioning">Rozvržení &amp; Umístění</string>
     <string name="app_padding_size">Velikost odsazení</string>
     <string name="extend_home_apps_area">Rozšířit klikatelnou oblast</string>
     <string name="alignment_to_bottom">Zarovnat dolů</string>
-    <string name="visibility_display">Viditelnost &amp; Displej</string>
     <string name="show_status_bar">Zobrazit stavový řádek</string>
     <string name="show_navigation_bar">Zobrazit navigační panel</string>
     <string name="show_recent_apps">Zobrazit nedávné aplikace</string>
@@ -111,13 +102,11 @@
     <string name="show_background">Zobrazit pozadí</string>
     <string name="background_opacity">Průhlednost pozadí</string>
     <string name="total_screen_time">Celkový čas u obrazovky</string>
-    <string name="element_alignment">Zarovnání prvků</string>
     <string name="date_alignment">Datum</string>
     <string name="clock_alignment">Hodiny</string>
     <string name="alarm_alignment">Poplach</string>
     <string name="home_alignment">Domácí aplikace</string>
     <string name="drawer_alignment">Zásuvkové aplikace</string>
-    <string name="element_colors">Barvy prvků</string>
     <string name="background_color">Pozadí</string>
     <string name="app_color">Aplikace</string>
     <string name="clock_color">Hodiny</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Zobrazit nedávné</string>
     <string name="open_power_dialog">Dialog napájení</string>
     <string name="take_a_screenshot">Pořiďte snímek obrazovky</string>
-    <string name="previous_page">Přejít na předchozí stránku</string>
-    <string name="next_page">Přejít na další stránku</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Poznámky</string>
     <string name="display_options">Možnosti zobrazení</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">O %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="toggleable_items">Přepínatelné položky</string>
     <string name="threshold">Práh</string>
     <string name="expert_options_display">Zobrazit možnosti pro experty</string>
     <string name="expert_options_unlocked">Možnosti pro experty odemčeny!</string>
@@ -252,7 +238,7 @@
     <string name="text_biometric_login_sub">Přihlaste se pomocí svých biometrických údajů.</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Pád</string>
-    <string name="acra_dialog_text">Je nám líto, ale aplikace %1$s narazila na neočekávaný problém a je třeba ji zavřít. Pomozte nám se zlepšit zasláním hlášení o pádu.\n\n%1$s si váží vašeho soukromí a shromážděná data slouží výhradně ke zlepšení stability aplikace. Neshromažďujeme žádné osobní údaje. Děkujeme za vaši podporu!</string>
+    <string name="acra_dialog_text">Aplikace %1$s narazila na neočekávaný problém a musí se zavřít.</string>
     <string name="acra_send_report">Odeslat zprávu</string>
     <string name="acra_dont_send">Neodesílat</string>
     <!-- Share Strings -->
@@ -386,4 +372,109 @@
         <item>Cestovat</item>
         <item>Práce</item>
     </string-array>
+    <string name="settings_search_section">Vyhledávání</string>
+    <string name="settings_drawer_section">Zásuvka</string>
+    <string name="settings_private_space_section">Soukromý prostor</string>
+    <string name="settings_appearance_section">Vzhled</string>
+    <string name="settings_home_list_section">Seznam na domovské obrazovce</string>
+    <string name="settings_quick_actions_section">Rychlé akce</string>
+    <string name="settings_general_section">Obecné</string>
+    <string name="app_lock_needs_screen_lock">Pro použití zámku aplikací nastavte na tomto zařízení zámek obrazovky.</string>
+    <string name="widgets_no_space">Na stránce widgetů už není místo. Nejprve některý widget zmenšete nebo odeberte.</string>
+    <string name="drawer_categories">Seskupit aplikace podle kategorií</string>
+    <string name="category_other">Ostatní</string>
+    <string name="category_text_size">Velikost textu kategorií</string>
+    <string name="category_color">Kategorie</string>
+    <string name="category_uppercase">Názvy kategorií velkými písmeny</string>
+    <string name="category_show_count">Zobrazit počet aplikací v kategoriích</string>
+    <string name="drawer_search_height">Výška oblasti vyhledávání</string>
+    <string name="drawer_search_spacing">Mezera pod vyhledáváním</string>
+    <string name="advanced_settings_backup_restore_snapshot">Obnovit automatickou zálohu</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">Nastavení verze %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Všechna aktuální nastavení budou nahrazena touto kopií.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Tuto zálohu se nepodařilo přečíst.</string>
+    <string name="widgets_app_not_opened_yet">Aplikace %1$s ještě nebyla otevřena. Android takové aplikace drží zastavené, takže tento widget může zůstat prázdný nebo hlásit \"nejprve otevřete aplikaci\", dokud %1$s jednou neotevřete. Otevřít nyní?</string>
+    <string name="drawer_view">Zobrazení zásuvky aplikací</string>
+    <string name="drawer_view_az">Seznam A–Z</string>
+    <string name="drawer_view_categories">Kategorie</string>
+    <string name="search_scope">Rozsah vyhledávání</string>
+    <string name="search_scope_apps">Pouze aplikace</string>
+    <string name="search_scope_files">Aplikace, poté soubory</string>
+    <string name="search_scope_all">Aplikace, poté soubory, poté kontakty</string>
+    <string name="search_not_found">Nenalezeno</string>
+    <string name="search_permission_files">Pro vyhledávání v souborech povolte přístup k souborům</string>
+    <string name="search_permission_contacts">Pro vyhledávání v kontaktech povolte přístup ke kontaktům</string>
+    <string name="search_result_contact">Kontakt</string>
+    <string name="search_no_app_to_open">Žádná aplikace to nedokáže otevřít</string>
+    <string name="manage_categories">Spravovat kategorie</string>
+    <string name="categories_top_apps">Aplikace zobrazené nad kategoriemi</string>
+    <string name="categories_section">Kategorie</string>
+    <string name="categories_new">Nová kategorie</string>
+    <string name="categories_name_hint">Název</string>
+    <string name="categories_exists">Kategorie s tímto názvem již existuje</string>
+    <string name="categories_rename">Přejmenovat</string>
+    <string name="categories_choose_apps">Vybrat aplikace</string>
+    <string name="categories_remove">Odebrat kategorii</string>
+    <string name="private_space_title">Soukromý prostor</string>
+    <string name="about_short">O aplikaci</string>
+    <string name="categories_move_up">Posunout nahoru</string>
+    <string name="categories_move_down">Posunout dolů</string>
+    <string name="categories_not_created">Nebyla vybrána žádná aplikace, kategorie proto nebyla vytvořena</string>
+    <string name="categories_choose_apps_for">Aplikace v „%1$s“</string>
+    <string name="smart_search">Chytré vyhledávání</string>
+    <string name="about_contributors">Přispěvatelé</string>
+    <string name="about_full_texts">Plné texty</string>
+    <string name="settings_heading">Nastavení</string>
+    <string name="settings_features_sub">Vyhledávání, počasí, zámek aplikací, soukromý prostor</string>
+    <string name="settings_look_feel_sub">Motiv, písmo, velikosti textu, ikony</string>
+    <string name="settings_gestures_sub">Přejetí, klepnutí, hardwarová tlačítka</string>
+    <string name="settings_favorite_apps_sub">Pozice, pořadí, widgety</string>
+    <string name="settings_hidden_apps_sub">Aplikace vynechané ze zásuvky</string>
+    <string name="settings_notes_sub">Na domovské obrazovce</string>
+    <string name="settings_advanced_sub">Záloha, reset, možnosti pro experty</string>
+    <string name="ring_placement">Umístění prstence</string>
+    <string name="ring_beside">Vedle času</string>
+    <string name="ring_centred">Uprostřed, čas pod ním</string>
+    <string name="ring_size">Velikost prstence</string>
+    <string name="clock_rule">Linka pod řádkem</string>
+    <string name="shown_info">Zobrazené informace</string>
+    <string name="clock_layout">Rozvržení</string>
+    <string name="colour_and_size">Barva a velikost</string>
+    <string name="swiss_side_column">Sloupec vedle času</string>
+    <string name="swiss_weights">Hodiny tučně, minuty tence</string>
+    <string name="ring_inside">Uvnitř prstence</string>
+    <string name="ring_inside_day">Den v měsíci</string>
+    <string name="ring_inside_time">Čas</string>
+    <string name="ring_inside_none">Nic</string>
+    <string name="ring_scale">Hodinový prstenec</string>
+    <string name="ring_scale_12">12hodinový ciferník</string>
+    <string name="ring_scale_24">Celý den (24 h)</string>
+    <string name="one_line_alarm_below">Budík na vlastním řádku pod linkou</string>
+    <string name="no_alarm_set">Není nastaven žádný budík.</string>
+    <string name="clock_area_tap">Klepnutí</string>
+    <string name="clock_display">Oblast hodin</string>
+    <string name="clock_and_date">Hodiny a datum</string>
+    <string name="clock_style">Styl hodin</string>
+    <string name="clock_style_classic">Klasický</string>
+    <string name="clock_style_swiss">Švýcarský</string>
+    <string name="clock_style_rings">Prstence</string>
+    <string name="clock_style_one_line">Jeden řádek</string>
+    <string name="clock_style_classic_sub">jako dosud</string>
+    <string name="clock_style_swiss_sub">dva řádky, sloupec verzálkami</string>
+    <string name="clock_style_rings_sub">hodiny silné, minuty tenké</string>
+    <string name="clock_style_one_line_sub">vše v jednom řádku</string>
+    <string name="about_open_source">Open source</string>
+    <string name="about_foundation">Základ</string>
+    <string name="about_foundation_text">Postaveno na Multi Launcheru (mLauncher), který vychází z Olauncheru.</string>
+    <string name="about_credits_link">Přispěvatelé a licence</string>
+    <string name="about_weather">Data o počasí: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Kontakt</string>
+    <string name="credits_lineage">RE*start je postaven na Multi Launcheru (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 v každém kroku.</string>
+    <string name="credits_thanks">Poděkování</string>
+    <string name="credits_thanks_intro">Všichni, jejichž práce je v kódu až po bod forku:</string>
+    <string name="credits_thanks_outro">Tento launcher stojí na jejich práci.</string>
+    <string name="credits_licences">Licence</string>
+    <string name="acra_report_hint">Pokud to chcete nahlásit, napište na %1$s a popište, co jste právě dělali. Soubor protokolu %2$s zůstává v soukromém úložišti aplikace na tomto zařízení; nic se neodesílá automaticky.</string>
+    <string name="acra_restart">Restartovat</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

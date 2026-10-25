@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">런처를 선택하세요</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">특징</string>
-    <string name="personalization">개인화</string>
     <string name="theme_mode">Theme mode</string>
     <string name="app_language">Interface Language</string>
     <string name="font_family">글꼴군</string>
-    <string name="search_and_app_list">&amp; 앱 목록 검색</string>
     <string name="hide_search_view">검색 보기 숨기기</string>
     <string name="show_floating_button">바로가기 버튼 표시</string>
     <string name="lock_orientation">잠금 방향</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">AZ 사이드바 표시</string>
     <string name="auto_show_keyboard">Auto show keyboard</string>
     <string name="search_from_start">시작부터 검색</string>
-    <string name="home_management">홈 &amp; 앱 관리</string>
     <string name="auto_open_apps">Auto open apps</string>
     <string name="open_apps_on_enter">입장 시 앱 열기</string>
     <string name="lock_home_apps">Lock Apps</string>
     <string name="lock_settings">잠금 설정</string>
     <string name="apps_on_home_screen">홈 앱 개수</string>
-    <string name="pages_on_home_screen">페이지 수</string>
-    <string name="enable_home_pager">홈 호출기 활성화</string>
     <string name="enable_app_timer">앱 타이머 활성화</string>
     <string name="force_colored_wallpaper">강렬한 색상의 벽지</string>
     <string name="info_tiles">정보 타일</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">GPS 위치</string>
     <string name="temp_unit">온도 단위</string>
     <string name="manual_location">수동 위치 설정</string>
-    <string name="icon_packs">아이콘 팩</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">보세요 &amp; 느껴보세요</string>
-    <string name="text_size_adjustments">텍스트 &amp; 크기 조정</string>
     <string name="app_text_size">앱 텍스트 크기</string>
     <string name="date_text_size">날짜 텍스트 크기</string>
     <string name="clock_text_size">시계 텍스트 크기</string>
     <string name="alarm_text_size">알람 텍스트 크기</string>
     <string name="battery_text_size">배터리 텍스트 크기</string>
-    <string name="layout_positioning">레이아웃 &amp; 위치 지정</string>
     <string name="app_padding_size">패딩 사이즈</string>
     <string name="extend_home_apps_area">클릭 가능 영역 확장</string>
     <string name="alignment_to_bottom">하단에 정렬</string>
-    <string name="visibility_display">가시성 &amp; 표시</string>
     <string name="show_status_bar">상태 표시줄 표시</string>
     <string name="show_navigation_bar">탐색 모음 표시</string>
     <string name="show_recent_apps">최근 사용한 앱 표시</string>
@@ -111,13 +102,11 @@
     <string name="show_background">배경 표시</string>
     <string name="background_opacity">배경 투명성</string>
     <string name="total_screen_time">총 화면 사용 시간</string>
-    <string name="element_alignment">요소 정렬</string>
     <string name="date_alignment">날짜</string>
     <string name="clock_alignment">시계</string>
     <string name="alarm_alignment">경보</string>
     <string name="home_alignment">홈 앱</string>
     <string name="drawer_alignment">서랍 앱</string>
-    <string name="element_colors">요소 색상</string>
     <string name="background_color">배경</string>
     <string name="app_color">앱</string>
     <string name="clock_color">시계</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Show Recents</string>
     <string name="open_power_dialog">전원 대화 상자</string>
     <string name="take_a_screenshot">스크린샷을 찍으세요</string>
-    <string name="previous_page">이전 페이지로 이동</string>
-    <string name="next_page">다음 페이지로 이동</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">메모</string>
     <string name="display_options">표시 옵션</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">%1$s에 대하여</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">전문가</string>
-    <string name="toggleable_items">토글 가능한 항목</string>
     <string name="threshold">한계점</string>
     <string name="expert_options_display">전문가 옵션 보기</string>
     <string name="expert_options_unlocked">전문가용 옵션이 잠금 해제되었습니다!</string>
@@ -252,7 +238,7 @@
     <string name="text_biometric_login_sub">생체 인식 자격 증명을 사용하여 로그인</string>
     <!-- Crash Strings -->
     <string name="acra_crash">충돌</string>
-    <string name="acra_dialog_text">죄송하지만 %1$s 에서 예기치 않은 문제가 발생하여 종료되었습니다. 오류 보고서를 보내주시면 앱 개선에 도움이 됩니다.\n\n%1$s 는 사용자의 개인정보를 소중히 여기며, 수집된 데이터는 앱 안정성 개선에만 사용됩니다. 어떠한 개인정보도 수집하지 않습니다. 이용해 주셔서 감사합니다!</string>
+    <string name="acra_dialog_text">%1$s에 예기치 않은 문제가 발생하여 종료해야 합니다.</string>
     <string name="acra_send_report">보고서 보내기</string>
     <string name="acra_dont_send">보내지 마세요</string>
     <!-- Share Strings -->
@@ -386,4 +372,109 @@
         <item>여행하다</item>
         <item>일하다</item>
     </string-array>
+    <string name="settings_search_section">검색</string>
+    <string name="settings_drawer_section">서랍</string>
+    <string name="settings_private_space_section">개인 공간</string>
+    <string name="settings_appearance_section">모양</string>
+    <string name="settings_home_list_section">홈 목록</string>
+    <string name="settings_quick_actions_section">빠른 작업</string>
+    <string name="settings_general_section">일반</string>
+    <string name="app_lock_needs_screen_lock">앱 잠금을 사용하려면 이 기기에 화면 잠금을 설정하세요.</string>
+    <string name="widgets_no_space">위젯 페이지에 남은 공간이 없습니다. 먼저 위젯 크기를 줄이거나 제거하세요.</string>
+    <string name="drawer_categories">앱을 카테고리별로 묶기</string>
+    <string name="category_other">기타</string>
+    <string name="category_text_size">카테고리 텍스트 크기</string>
+    <string name="category_color">카테고리</string>
+    <string name="category_uppercase">카테고리 이름 대문자로</string>
+    <string name="category_show_count">카테고리에 앱 개수 표시</string>
+    <string name="drawer_search_height">검색 영역 높이</string>
+    <string name="drawer_search_spacing">검색 아래 간격</string>
+    <string name="advanced_settings_backup_restore_snapshot">자동 백업 복원</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">%1$s 버전의 설정, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">현재 설정이 모두 이 복사본으로 바뀝니다.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">이 백업을 읽을 수 없습니다.</string>
+    <string name="widgets_app_not_opened_yet">%1$s이(가) 아직 한 번도 열리지 않았습니다. Android는 이런 앱을 중지 상태로 두기 때문에 %1$s을(를) 한 번 열기 전까지 이 위젯은 비어 있거나 \"먼저 앱을 여세요\"라고 표시될 수 있습니다. 지금 열까요?</string>
+    <string name="drawer_view">앱 서랍 보기</string>
+    <string name="drawer_view_az">A–Z 목록</string>
+    <string name="drawer_view_categories">카테고리</string>
+    <string name="search_scope">검색 범위</string>
+    <string name="search_scope_apps">앱만</string>
+    <string name="search_scope_files">앱, 그다음 파일</string>
+    <string name="search_scope_all">앱, 그다음 파일, 그다음 연락처</string>
+    <string name="search_not_found">찾을 수 없음</string>
+    <string name="search_permission_files">파일을 검색하려면 파일 접근을 허용하세요</string>
+    <string name="search_permission_contacts">연락처를 검색하려면 연락처 접근을 허용하세요</string>
+    <string name="search_result_contact">연락처</string>
+    <string name="search_no_app_to_open">이 항목을 열 수 있는 앱이 없습니다</string>
+    <string name="manage_categories">카테고리 관리</string>
+    <string name="categories_top_apps">카테고리 위에 표시되는 앱</string>
+    <string name="categories_section">카테고리</string>
+    <string name="categories_new">새 카테고리</string>
+    <string name="categories_name_hint">이름</string>
+    <string name="categories_exists">같은 이름의 카테고리가 이미 있습니다</string>
+    <string name="categories_rename">이름 바꾸기</string>
+    <string name="categories_choose_apps">앱 선택</string>
+    <string name="categories_remove">카테고리 제거</string>
+    <string name="private_space_title">개인 공간</string>
+    <string name="about_short">정보</string>
+    <string name="categories_move_up">위로 이동</string>
+    <string name="categories_move_down">아래로 이동</string>
+    <string name="categories_not_created">선택한 앱이 없어 카테고리가 만들어지지 않았습니다</string>
+    <string name="categories_choose_apps_for">“%1$s”의 앱</string>
+    <string name="smart_search">스마트 검색</string>
+    <string name="about_contributors">기여자</string>
+    <string name="about_full_texts">전문</string>
+    <string name="settings_heading">설정</string>
+    <string name="settings_features_sub">검색, 날씨, 앱 잠금, 개인 공간</string>
+    <string name="settings_look_feel_sub">테마, 글꼴, 텍스트 크기, 아이콘</string>
+    <string name="settings_gestures_sub">스와이프, 탭, 하드웨어 버튼</string>
+    <string name="settings_favorite_apps_sub">슬롯, 순서, 위젯</string>
+    <string name="settings_hidden_apps_sub">서랍에 표시되지 않는 앱</string>
+    <string name="settings_notes_sub">홈 화면에서</string>
+    <string name="settings_advanced_sub">백업, 초기화, 전문가 옵션</string>
+    <string name="ring_placement">링 위치</string>
+    <string name="ring_beside">시간 옆</string>
+    <string name="ring_centred">가운데, 시간은 아래</string>
+    <string name="ring_size">링 크기</string>
+    <string name="clock_rule">줄 아래 구분선</string>
+    <string name="shown_info">표시되는 정보</string>
+    <string name="clock_layout">배치</string>
+    <string name="colour_and_size">색상과 크기</string>
+    <string name="swiss_side_column">시간 옆 세로단</string>
+    <string name="swiss_weights">시는 굵게, 분은 가늘게</string>
+    <string name="ring_inside">링 안쪽</string>
+    <string name="ring_inside_day">날짜(일)</string>
+    <string name="ring_inside_time">시간</string>
+    <string name="ring_inside_none">없음</string>
+    <string name="ring_scale">시간 링</string>
+    <string name="ring_scale_12">12시간 눈금</string>
+    <string name="ring_scale_24">하루 전체(24시간)</string>
+    <string name="one_line_alarm_below">알람을 구분선 아래 별도 줄에</string>
+    <string name="no_alarm_set">설정된 알람이 없습니다.</string>
+    <string name="clock_area_tap">탭</string>
+    <string name="clock_display">시계 영역</string>
+    <string name="clock_and_date">시계와 날짜</string>
+    <string name="clock_style">시계 스타일</string>
+    <string name="clock_style_classic">클래식</string>
+    <string name="clock_style_swiss">스위스</string>
+    <string name="clock_style_rings">링</string>
+    <string name="clock_style_one_line">한 줄</string>
+    <string name="clock_style_classic_sub">지금 그대로</string>
+    <string name="clock_style_swiss_sub">두 줄, 대문자 세로단</string>
+    <string name="clock_style_rings_sub">시는 두껍게, 분은 가늘게</string>
+    <string name="clock_style_one_line_sub">모두 한 줄에</string>
+    <string name="about_open_source">오픈 소스</string>
+    <string name="about_foundation">기반</string>
+    <string name="about_foundation_text">Olauncher에서 이어진 Multi Launcher(mLauncher)를 기반으로 만들어졌습니다.</string>
+    <string name="about_credits_link">기여자 및 라이선스</string>
+    <string name="about_weather">날씨 데이터: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">연락처</string>
+    <string name="credits_lineage">RE*start는 Multi Launcher(mLauncher)를 기반으로 합니다: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. 모든 단계에서 GPL-3.0.</string>
+    <string name="credits_thanks">감사합니다</string>
+    <string name="credits_thanks_intro">포크 시점까지 코드에 기여한 모든 분:</string>
+    <string name="credits_thanks_outro">이 런처는 그분들의 작업 위에 서 있습니다.</string>
+    <string name="credits_licences">라이선스</string>
+    <string name="acra_report_hint">신고하려면 %1$s(으)로 무엇을 하고 있었는지 적어 보내 주세요. 로그 파일 %2$s은(는) 이 기기의 앱 전용 저장소에 남으며, 자동으로 전송되는 것은 없습니다.</string>
+    <string name="acra_restart">다시 시작</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

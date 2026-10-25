@@ -52,11 +52,9 @@
     <string name="settings_home_list_section">Ana ekran listesi</string>
     <string name="settings_quick_actions_section">Hızlı eylemler</string>
     <string name="settings_general_section">Genel</string>
-    <string name="personalization">Kişiselleştirme</string>
     <string name="theme_mode">Tema modu</string>
     <string name="app_language">Arayüz Dili</string>
     <string name="font_family">Yazı tipi</string>
-    <string name="search_and_app_list">Arama &amp; Uygulama Listesi</string>
     <string name="hide_search_view">Arama kutusunu gizle</string>
     <string name="show_floating_button">Kısayol Düğmelerini Göster</string>
     <string name="lock_orientation">Ekran yönünü kilitle</string>
@@ -65,14 +63,11 @@
     <string name="show_az_sidebar">A-Z kenar çubuğunu göster</string>
     <string name="auto_show_keyboard">Klavye\'yi otomatik göster</string>
     <string name="search_from_start">Aramayı Başlat\'tan Başlat\'a kadar yapın</string>
-    <string name="home_management">Ana Sayfa &amp; Uygulama Yönetimi</string>
     <string name="auto_open_apps">Tek sonuç kalınca uygulamayı otomatik aç</string>
     <string name="open_apps_on_enter">Enter tuşuna basıldığında uygulamayı aç</string>
     <string name="lock_home_apps">Ana ekran uygulamalarını kilitle</string>
     <string name="lock_settings">Ayarları kilitle</string>
     <string name="apps_on_home_screen">Ana ekrandaki uygulama sayısı</string>
-    <string name="pages_on_home_screen">Sayfa sayısı</string>
-    <string name="enable_home_pager">Ana ekranda sayfalamayı aç</string>
     <string name="enable_app_timer">Uygulama Zamanlayıcısını Etkinleştir</string>
     <string name="force_colored_wallpaper">Duvar kağıdını arka plan rengiyle değiştir</string>
     <string name="info_tiles">Bilgi Kutucukları</string>
@@ -92,20 +87,16 @@
     <string name="gps_location">GPS Konumu</string>
     <string name="temp_unit">Sıcaklık Birimi</string>
     <string name="manual_location">Konumu elle ayarla</string>
-    <string name="icon_packs">Simge Paketleri</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Görünüm</string>
-    <string name="text_size_adjustments">Metin &amp; Boyut Ayarlamaları</string>
     <string name="app_text_size">Uygulama Metin Boyutu</string>
     <string name="date_text_size">Tarih Metin Boyutu</string>
     <string name="clock_text_size">Saat Metin Boyutu</string>
     <string name="alarm_text_size">Alarm Metni Boyutu</string>
     <string name="battery_text_size">Pil Metin Boyutu</string>
-    <string name="layout_positioning">Yerleşim ve konum</string>
     <string name="app_padding_size">Boşluk Boyutu</string>
     <string name="extend_home_apps_area">Tıklanabilir Alanı Genişlet</string>
     <string name="alignment_to_bottom">Alt kısma hizala</string>
-    <string name="visibility_display">Görünürlük &amp; Ekran</string>
     <string name="show_status_bar">Durum çubuğunu göster</string>
     <string name="show_navigation_bar">Gezinme çubuğunu göster</string>
     <string name="show_recent_apps">Son Uygulamaları Göster</string>
@@ -161,13 +152,11 @@
     <string name="show_background">Arka planı göster</string>
     <string name="background_opacity">Arka Plan Şeffaflığı</string>
     <string name="total_screen_time">Toplam Ekran Süresi</string>
-    <string name="element_alignment">Öğe hizalaması</string>
     <string name="date_alignment">Tarih</string>
     <string name="clock_alignment">Saat</string>
     <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Ana ekran uygulamaları</string>
     <string name="drawer_alignment">Çekmece Uygulamaları</string>
-    <string name="element_colors">Öğe renkleri</string>
     <string name="background_color">Arka plan</string>
     <string name="app_color">Uygulamalar</string>
     <string name="clock_color">Saat</string>
@@ -205,8 +194,6 @@
     <string name="show_recents">Son Kullanılanları Göster</string>
     <string name="open_power_dialog">Güç Menüsü</string>
     <string name="take_a_screenshot">Ekran görüntüsü al</string>
-    <string name="previous_page">Önceki Sayfaya Git</string>
-    <string name="next_page">Sonraki Sayfaya Git</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notlar</string>
     <string name="display_options">Görüntüleme Seçenekleri</string>
@@ -304,7 +291,6 @@
     <string name="credits_licences">Lisanslar</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Uzman</string>
-    <string name="toggleable_items">Açılıp Kapanabilen Öğeler</string>
     <string name="threshold">Eşik</string>
     <string name="expert_options_display">Uzman Seçeneklerini Göster</string>
     <string name="expert_options_unlocked">Uzman Seçeneklerinin Kilidi Açıldı!</string>

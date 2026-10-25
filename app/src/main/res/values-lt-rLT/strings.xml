@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">Pasirinkite paleidimo priemonę</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Savybės</string>
-    <string name="personalization">Personalizavimas</string>
     <string name="theme_mode">Temavimo režimas</string>
     <string name="app_language">Sąsajos kalba</string>
     <string name="font_family">Šriftas</string>
-    <string name="search_and_app_list">Paieška &amp; Programėlių sąrašas</string>
     <string name="hide_search_view">Slėpti paieškos rodinį</string>
     <string name="show_floating_button">Rodyti sparčiuosius mygtukus</string>
     <string name="lock_orientation">Užrakto orientacija</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">Rodyti AZ šoninę juostą</string>
     <string name="auto_show_keyboard">Automatiškai rodyti klaviatūrą</string>
     <string name="search_from_start">Programėlių paieška nuo pradžių.</string>
-    <string name="home_management">Pagrindinis &amp; Programų valdymas</string>
     <string name="auto_open_apps">Automatiškai atidaryti programėlės</string>
     <string name="open_apps_on_enter">Atidaryti programėlę paspaudus „Enter“</string>
     <string name="lock_home_apps">Užrakinti programas</string>
     <string name="lock_settings">Užrakinimo nustatymai</string>
     <string name="apps_on_home_screen">Namų programų skaičius</string>
-    <string name="pages_on_home_screen">Puslapių skaičius</string>
-    <string name="enable_home_pager">Įjungti pradžios puslapį</string>
     <string name="enable_app_timer">Įjungti programos laikmatį</string>
     <string name="force_colored_wallpaper">Priverstinio spalvoto tapeto</string>
     <string name="info_tiles">Informacijos plytelės</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">GPS vieta</string>
     <string name="temp_unit">Temperatūros vienetas</string>
     <string name="manual_location">Rankinė vietos nustatymo parinktis</string>
-    <string name="icon_packs">Piktogramų paketai</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Pažiūrėk &amp; Jausk</string>
-    <string name="text_size_adjustments">Tekstas &amp; Dydžio koregavimas</string>
     <string name="app_text_size">Programėlės Šrifto dydis</string>
     <string name="date_text_size">Datos Šrifto dydis</string>
     <string name="clock_text_size">Laikrodžio teksto dydis</string>
     <string name="alarm_text_size">Signalo teksto dydis</string>
     <string name="battery_text_size">Baterijos Šrifto dydis</string>
-    <string name="layout_positioning">Išdėstymas &amp; Padėties nustatymas</string>
     <string name="app_padding_size">Užpildymo Dydis</string>
     <string name="extend_home_apps_area">Išplėsti spustelėjamą sritį</string>
     <string name="alignment_to_bottom">Sulygiuoti į apačią</string>
-    <string name="visibility_display">Matomumas &amp; Ekranas</string>
     <string name="show_status_bar">Rodyti būsenos juostą</string>
     <string name="show_navigation_bar">Rodyti naršymo juostą</string>
     <string name="show_recent_apps">Rodyti naujausias programas</string>
@@ -111,13 +102,11 @@
     <string name="show_background">Rodyti foną</string>
     <string name="background_opacity">Fono skaidrumas</string>
     <string name="total_screen_time">Rodyti bendrą ekrano laiką</string>
-    <string name="element_alignment">Elementų lygiavimas</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Laikrodis</string>
     <string name="alarm_alignment">Signalizacija</string>
     <string name="home_alignment">Namų programos</string>
     <string name="drawer_alignment">Stalčių programos</string>
-    <string name="element_colors">Elementų spalvos</string>
     <string name="background_color">Fonas</string>
     <string name="app_color">Programėlės</string>
     <string name="clock_color">Laikrodis</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Rodyti naujausius</string>
     <string name="open_power_dialog">Maitinimo dialogas</string>
     <string name="take_a_screenshot">Padaryti ekrano kopiją</string>
-    <string name="previous_page">Eiti į kairįjį puslapį</string>
-    <string name="next_page">Eiti į dešinįjį puslapį</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Pastabos</string>
     <string name="display_options">Ekrano parinktys</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">Apie %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Ekspertas</string>
-    <string name="toggleable_items">Perjungiami elementai</string>
     <string name="threshold">Slenkstis</string>
     <string name="expert_options_display">Rodyti eksperto parinktis</string>
     <string name="expert_options_unlocked">Ekspertų parinktys atrakintos!</string>
@@ -254,7 +240,7 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
     <string name="text_biometric_login_sub">Prisijunkite naudodami biometrinius kredencialus</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Avarija</string>
-    <string name="acra_dialog_text">Atsiprašome, bet %1$s susidūrė su netikėta problema ir turi būti uždarytas. Padėkite mums tobulėti išsiųsdami strigčių ataskaitą.\n\n%1$s vertina jūsų privatumą, o surinkti duomenys naudojami tik programos stabilumui pagerinti. Jokia asmeninė informacija nerenkama. Dėkojame už palaikymą!</string>
+    <string name="acra_dialog_text">%1$s susidūrė su netikėta problema ir turi užsidaryti.</string>
     <string name="acra_send_report">Siųsti ataskaitą</string>
     <string name="acra_dont_send">Nesiųsti</string>
     <!-- Share Strings -->
@@ -388,4 +374,109 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
         <item>Kelionės</item>
         <item>Darbas</item>
     </string-array>
+    <string name="settings_search_section">Paieška</string>
+    <string name="settings_drawer_section">Stalčius</string>
+    <string name="settings_private_space_section">Privati erdvė</string>
+    <string name="settings_appearance_section">Išvaizda</string>
+    <string name="settings_home_list_section">Pagrindinio ekrano sąrašas</string>
+    <string name="settings_quick_actions_section">Spartieji veiksmai</string>
+    <string name="settings_general_section">Bendra</string>
+    <string name="app_lock_needs_screen_lock">Kad galėtumėte naudoti programėlių užraktą, nustatykite šio įrenginio ekrano užraktą.</string>
+    <string name="widgets_no_space">Valdiklių puslapyje nebeliko vietos. Pirmiausia sumažinkite arba pašalinkite kurį nors valdiklį.</string>
+    <string name="drawer_categories">Grupuoti programėles pagal kategorijas</string>
+    <string name="category_other">Kita</string>
+    <string name="category_text_size">Kategorijų teksto dydis</string>
+    <string name="category_color">Kategorija</string>
+    <string name="category_uppercase">Kategorijų pavadinimai didžiosiomis raidėmis</string>
+    <string name="category_show_count">Rodyti programėlių skaičių kategorijose</string>
+    <string name="drawer_search_height">Paieškos srities aukštis</string>
+    <string name="drawer_search_spacing">Tarpas po paieška</string>
+    <string name="advanced_settings_backup_restore_snapshot">Atkurti automatinę atsarginę kopiją</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">%1$s versijos nustatymai, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Visi dabartiniai nustatymai bus pakeisti šia kopija.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Nepavyko perskaityti šios atsarginės kopijos.</string>
+    <string name="widgets_app_not_opened_yet">%1$s dar nebuvo atidaryta. „Android“ tokias programėles laiko sustabdytas, todėl šis valdiklis gali likti tuščias arba rodyti \"pirmiausia atidarykite programėlę\", kol vieną kartą neatidarysite %1$s. Atidaryti dabar?</string>
+    <string name="drawer_view">Programėlių stalčiaus rodinys</string>
+    <string name="drawer_view_az">A–Ž sąrašas</string>
+    <string name="drawer_view_categories">Kategorijos</string>
+    <string name="search_scope">Paieškos apimtis</string>
+    <string name="search_scope_apps">Tik programėlės</string>
+    <string name="search_scope_files">Programėlės, tada failai</string>
+    <string name="search_scope_all">Programėlės, tada failai, tada kontaktai</string>
+    <string name="search_not_found">Nerasta</string>
+    <string name="search_permission_files">Leiskite prieigą prie failų, kad galėtumėte ieškoti failų</string>
+    <string name="search_permission_contacts">Leiskite prieigą prie kontaktų, kad galėtumėte ieškoti kontaktų</string>
+    <string name="search_result_contact">Kontaktas</string>
+    <string name="search_no_app_to_open">Jokia programėlė negali to atidaryti</string>
+    <string name="manage_categories">Tvarkyti kategorijas</string>
+    <string name="categories_top_apps">Programėlės, rodomos virš kategorijų</string>
+    <string name="categories_section">Kategorijos</string>
+    <string name="categories_new">Nauja kategorija</string>
+    <string name="categories_name_hint">Pavadinimas</string>
+    <string name="categories_exists">Kategorija tokiu pavadinimu jau yra</string>
+    <string name="categories_rename">Pervadinti</string>
+    <string name="categories_choose_apps">Pasirinkti programėles</string>
+    <string name="categories_remove">Pašalinti kategoriją</string>
+    <string name="private_space_title">Privati erdvė</string>
+    <string name="about_short">Apie</string>
+    <string name="categories_move_up">Perkelti aukštyn</string>
+    <string name="categories_move_down">Perkelti žemyn</string>
+    <string name="categories_not_created">Nepasirinkta jokia programėlė, todėl kategorija nesukurta</string>
+    <string name="categories_choose_apps_for">„%1$s“ programėlės</string>
+    <string name="smart_search">Išmanioji paieška</string>
+    <string name="about_contributors">Bendraautoriai</string>
+    <string name="about_full_texts">Pilni tekstai</string>
+    <string name="settings_heading">Nustatymai</string>
+    <string name="settings_features_sub">Paieška, orai, programėlių užraktas, privati erdvė</string>
+    <string name="settings_look_feel_sub">Tema, šriftas, teksto dydžiai, piktogramos</string>
+    <string name="settings_gestures_sub">Braukimai, bakstelėjimai, fiziniai mygtukai</string>
+    <string name="settings_favorite_apps_sub">Vietos, tvarka, valdikliai</string>
+    <string name="settings_hidden_apps_sub">Programėlės, nerodomos stalčiuje</string>
+    <string name="settings_notes_sub">Pagrindiniame ekrane</string>
+    <string name="settings_advanced_sub">Atsarginė kopija, atstatymas, eksperto parinktys</string>
+    <string name="ring_placement">Žiedo vieta</string>
+    <string name="ring_beside">Šalia laiko</string>
+    <string name="ring_centred">Centre, laikas apačioje</string>
+    <string name="ring_size">Žiedo dydis</string>
+    <string name="clock_rule">Linija po eilute</string>
+    <string name="shown_info">Rodoma informacija</string>
+    <string name="clock_layout">Išdėstymas</string>
+    <string name="colour_and_size">Spalva ir dydis</string>
+    <string name="swiss_side_column">Stulpelis šalia laiko</string>
+    <string name="swiss_weights">Valandos pusjuodžiu, minutės plonu šriftu</string>
+    <string name="ring_inside">Žiedo viduje</string>
+    <string name="ring_inside_day">Mėnesio diena</string>
+    <string name="ring_inside_time">Laikas</string>
+    <string name="ring_inside_none">Nieko</string>
+    <string name="ring_scale">Valandų žiedas</string>
+    <string name="ring_scale_12">12 valandų ciferblatas</string>
+    <string name="ring_scale_24">Visa para (24 val.)</string>
+    <string name="one_line_alarm_below">Žadintuvas atskiroje eilutėje po linija</string>
+    <string name="no_alarm_set">Žadintuvas nenustatytas.</string>
+    <string name="clock_area_tap">Bakstelėjimas</string>
+    <string name="clock_display">Laikrodžio sritis</string>
+    <string name="clock_and_date">Laikrodis ir data</string>
+    <string name="clock_style">Laikrodžio stilius</string>
+    <string name="clock_style_classic">Klasikinis</string>
+    <string name="clock_style_swiss">Šveicariškas</string>
+    <string name="clock_style_rings">Žiedai</string>
+    <string name="clock_style_one_line">Viena eilutė</string>
+    <string name="clock_style_classic_sub">kaip dabar</string>
+    <string name="clock_style_swiss_sub">dvi eilutės, stulpelis didžiosiomis raidėmis</string>
+    <string name="clock_style_rings_sub">valandos storos, minutės plonos</string>
+    <string name="clock_style_one_line_sub">viskas vienoje eilutėje</string>
+    <string name="about_open_source">Atvirasis kodas</string>
+    <string name="about_foundation">Pagrindas</string>
+    <string name="about_foundation_text">Sukurta „Multi Launcher“ (mLauncher) pagrindu, kuris kilęs iš „Olauncher“.</string>
+    <string name="about_credits_link">Bendraautoriai ir licencijos</string>
+    <string name="about_weather">Orų duomenys: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Kontaktai</string>
+    <string name="credits_lineage">RE*start sukurtas „Multi Launcher“ (mLauncher) pagrindu: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 kiekviename žingsnyje.</string>
+    <string name="credits_thanks">Ačiū</string>
+    <string name="credits_thanks_intro">Visi, kurių darbas yra kode iki atšakos taško:</string>
+    <string name="credits_thanks_outro">Ši paleidimo priemonė remiasi jų darbu.</string>
+    <string name="credits_licences">Licencijos</string>
+    <string name="acra_report_hint">Jei norite apie tai pranešti, parašykite adresu %1$s ir aprašykite, ką darėte. Žurnalo failas %2$s lieka privačioje programėlės saugykloje šiame įrenginyje; niekas nesiunčiama automatiškai.</string>
+    <string name="acra_restart">Paleisti iš naujo</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

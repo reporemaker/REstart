@@ -52,11 +52,9 @@
     <string name="settings_home_list_section">Startliste</string>
     <string name="settings_quick_actions_section">Schnellaktionen</string>
     <string name="settings_general_section">Allgemein</string>
-    <string name="personalization">Personalisierung</string>
     <string name="theme_mode">Theme-Modus</string>
     <string name="app_language">Schnittstellensprache</string>
     <string name="font_family">Schriftfamilie</string>
-    <string name="search_and_app_list">App-Liste durchsuchen &amp;</string>
     <string name="hide_search_view">Suchansicht ausblenden</string>
     <string name="show_floating_button">Tastenkombinationen anzeigen</string>
     <string name="lock_orientation">Schlossausrichtung</string>
@@ -65,14 +63,11 @@
     <string name="show_az_sidebar">AZ-Seitenleiste anzeigen</string>
     <string name="auto_show_keyboard">Auto show keyboard</string>
     <string name="search_from_start">Suche von Start</string>
-    <string name="home_management">Startseite &amp; App-Verwaltung</string>
     <string name="auto_open_apps">Apps automatisch öffnen</string>
     <string name="open_apps_on_enter">App beim Einschalten öffnen</string>
     <string name="lock_home_apps">Sperren Sie Ihre Heim-Apps</string>
     <string name="lock_settings">Sperreinstellungen</string>
     <string name="apps_on_home_screen">Anzahl der Home-Apps</string>
-    <string name="pages_on_home_screen">Seitenzahl</string>
-    <string name="enable_home_pager">Aktivieren Sie den Home Pager</string>
     <string name="enable_app_timer">App-Timer aktivieren</string>
     <string name="force_colored_wallpaper">Force Colored Wallpaper</string>
     <string name="info_tiles">Infokacheln</string>
@@ -92,20 +87,16 @@
     <string name="gps_location">GPS-Standort</string>
     <string name="temp_unit">Temperatureinheit</string>
     <string name="manual_location">Manueller Einstellort</string>
-    <string name="icon_packs">Symbolpakete</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Schau &amp; Fühle</string>
-    <string name="text_size_adjustments">Text &amp; Größenanpassungen</string>
     <string name="app_text_size">App-Textgröße</string>
     <string name="date_text_size">Textgröße des Datums</string>
     <string name="clock_text_size">Uhrtextgröße</string>
     <string name="alarm_text_size">Alarmtextgröße</string>
     <string name="battery_text_size">Textgröße der Akkuanzeige</string>
-    <string name="layout_positioning">Layout &amp; Positionierung</string>
     <string name="app_padding_size">Polstergröße</string>
     <string name="extend_home_apps_area">Klickbaren Bereich erweitern</string>
     <string name="alignment_to_bottom">Am unteren Rand ausrichten</string>
-    <string name="visibility_display">Sichtbarkeit &amp; Anzeige</string>
     <string name="show_status_bar">Statusleiste anzeigen</string>
     <string name="show_navigation_bar">Navigationsleiste anzeigen</string>
     <string name="show_recent_apps">Zuletzt verwendete Apps anzeigen</string>
@@ -118,13 +109,11 @@
     <string name="show_background">Hintergrund anzeigen</string>
     <string name="background_opacity">Hintergrundtransparenz</string>
     <string name="total_screen_time">Gesamte Bildschirmzeit</string>
-    <string name="element_alignment">Elementausrichtung</string>
     <string name="date_alignment">Datum</string>
     <string name="clock_alignment">Uhr</string>
     <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Startseite Apps</string>
     <string name="drawer_alignment">Drawer-Apps</string>
-    <string name="element_colors">Elementfarben</string>
     <string name="background_color">Hintergrund</string>
     <string name="app_color">Apps</string>
     <string name="clock_color">Uhr</string>
@@ -162,8 +151,6 @@
     <string name="show_recents">Show Recents</string>
     <string name="open_power_dialog">Machtdialog</string>
     <string name="take_a_screenshot">Mache ein Bildschirmfoto</string>
-    <string name="previous_page">Zur vorherigen Seite</string>
-    <string name="next_page">Weiter zur nächsten Seite</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Anmerkungen</string>
     <string name="display_options">Anzeigeoptionen</string>
@@ -261,7 +248,6 @@
     <string name="credits_licences">Lizenzen</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Experte</string>
-    <string name="toggleable_items">Ein-/Ausschaltbare Elemente</string>
     <string name="threshold">Schwelle</string>
     <string name="expert_options_display">Expertenoptionen anzeigen</string>
     <string name="expert_options_unlocked">Expertenoptionen freigeschaltet!</string>
@@ -446,4 +432,48 @@
         <item>Reisen</item>
         <item>Arbeiten</item>
     </string-array>
+    <string name="app_lock_needs_screen_lock">Richte auf diesem Gerät eine Bildschirmsperre ein, um die App-Sperre zu nutzen.</string>
+    <string name="widgets_no_space">Kein Platz mehr auf der Widget-Seite. Verkleinere oder entferne zuerst ein Widget.</string>
+    <string name="drawer_categories">Apps nach Kategorie gruppieren</string>
+    <string name="category_other">Sonstige</string>
+    <string name="category_text_size">Textgrösse der Kategorien</string>
+    <string name="category_color">Kategorie</string>
+    <string name="category_uppercase">Kategorienamen in Grossbuchstaben</string>
+    <string name="category_show_count">App-Anzahl in Kategorien anzeigen</string>
+    <string name="drawer_search_height">Höhe des Suchbereichs</string>
+    <string name="drawer_search_spacing">Abstand unter der Suche</string>
+    <string name="advanced_settings_backup_restore_snapshot">Automatisches Backup wiederherstellen</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">Einstellungen von %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Alle aktuellen Einstellungen werden durch diese Kopie ersetzt.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Dieses Backup konnte nicht gelesen werden.</string>
+    <string name="widgets_app_not_opened_yet">%1$s wurde noch nie geöffnet. Android hält solche Apps angehalten, daher bleibt dieses Widget womöglich leer oder meldet \"zuerst die App öffnen\", bis du %1$s einmal geöffnet hast. Jetzt öffnen?</string>
+    <string name="drawer_view">Ansicht der Schublade</string>
+    <string name="drawer_view_az">A–Z-Liste</string>
+    <string name="drawer_view_categories">Kategorien</string>
+    <string name="search_scope">Suchbereich</string>
+    <string name="search_scope_apps">Nur Apps</string>
+    <string name="search_scope_files">Apps, dann Dateien</string>
+    <string name="search_scope_all">Apps, dann Dateien, dann Kontakte</string>
+    <string name="search_not_found">Nicht gefunden</string>
+    <string name="search_permission_files">Dateizugriff erlauben, um Dateien zu durchsuchen</string>
+    <string name="search_permission_contacts">Kontaktzugriff erlauben, um Kontakte zu durchsuchen</string>
+    <string name="search_result_contact">Kontakt</string>
+    <string name="search_no_app_to_open">Keine App kann das öffnen</string>
+    <string name="manage_categories">Kategorien verwalten</string>
+    <string name="categories_top_apps">Apps, die über den Kategorien angezeigt werden</string>
+    <string name="categories_section">Kategorien</string>
+    <string name="categories_new">Neue Kategorie</string>
+    <string name="categories_name_hint">Name</string>
+    <string name="categories_exists">Eine Kategorie mit diesem Namen existiert bereits</string>
+    <string name="categories_rename">Umbenennen</string>
+    <string name="categories_choose_apps">Apps auswählen</string>
+    <string name="categories_remove">Kategorie entfernen</string>
+    <string name="private_space_title">Privater Bereich</string>
+    <string name="about_short">Über</string>
+    <string name="categories_move_up">Nach oben</string>
+    <string name="categories_move_down">Nach unten</string>
+    <string name="categories_not_created">Keine App ausgewählt, daher wurde die Kategorie nicht erstellt</string>
+    <string name="categories_choose_apps_for">Apps von «%1$s»</string>
+    <string name="smart_search">Intelligente Suche</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

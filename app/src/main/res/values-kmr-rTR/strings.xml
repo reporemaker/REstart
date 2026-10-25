@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">Destpêkarekî hilbijêre</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Taybetmendî</string>
-    <string name="personalization">Kesanekirin</string>
     <string name="theme_mode">Awaya rûkarê</string>
     <string name="app_language">Zimanê navrûyê</string>
     <string name="font_family">Cûreyê nivîsê</string>
-    <string name="search_and_app_list">Lêgerîn &amp; Lîsteya sepanan</string>
     <string name="hide_search_view">Dîmena lêgerînê veşêre</string>
     <string name="show_floating_button">Bişkokên kurterê nîşan bide</string>
     <string name="lock_orientation">Arasteyê kilît bike</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">Darika kêlekê ya A-Z nîşan bide</string>
     <string name="auto_show_keyboard">Kilîtdankê xweber nîşan bide</string>
     <string name="search_from_start">Ji serî bigere</string>
-    <string name="home_management">Dîmendera sereke &amp; Rêveberiya sepanan</string>
     <string name="auto_open_apps">Sepanan xweber veke</string>
     <string name="open_apps_on_enter">Bi Enterê sepanê veke</string>
     <string name="lock_home_apps">Sepanên dîmendera sereke kilît bike</string>
     <string name="lock_settings">Sazkariyan kilît bike</string>
     <string name="apps_on_home_screen">Jimara sepanên dîmendera sereke</string>
-    <string name="pages_on_home_screen">Jimara rûpelan</string>
-    <string name="enable_home_pager">Rûpelsaziya dîmendera sereke çalak bike</string>
     <string name="enable_app_timer">Demjimêra sepanê çalak bike</string>
     <string name="force_colored_wallpaper">Wêneyê dîwarê yê rengîn neçar bike</string>
     <string name="info_tiles">Kariyên zanyariyê</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">Cihê GPS</string>
     <string name="temp_unit">Yekîneya germahîyê</string>
     <string name="manual_location">Cihê bi destan saz bike</string>
-    <string name="icon_packs">Pakêtê îkonan</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Xuyabûn &amp; Hest</string>
-    <string name="text_size_adjustments">Sazkariyên nivîs &amp; mezinahiyê</string>
     <string name="app_text_size">Mezinahiya nivîsa sepanê</string>
     <string name="date_text_size">Mezinahiya nivîsa dîrokê</string>
     <string name="clock_text_size">Mezinahiya nivîsa demjimêrê</string>
     <string name="alarm_text_size">Mezinahiya nivîsa alarmê</string>
     <string name="battery_text_size">Mezinahiya nivîsa betariyê</string>
-    <string name="layout_positioning">Awa &amp; Bicihkirin</string>
     <string name="app_padding_size">Mezinahiya valahiyê</string>
     <string name="extend_home_apps_area">Qada tikandinê berfireh bike</string>
     <string name="alignment_to_bottom">Li jêr rêz bike</string>
-    <string name="visibility_display">Xuyabûn &amp; Dîmen</string>
     <string name="show_status_bar">Darika rewşê nîşan bide</string>
     <string name="show_navigation_bar">Darika navîgasyonê nîşan bide</string>
     <string name="show_recent_apps">Sepanên dawî nîşan bide</string>
@@ -111,13 +102,11 @@
     <string name="show_background">Paşrûyê nîşan bide</string>
     <string name="background_opacity">Zelalbûna paşrûyê</string>
     <string name="total_screen_time">Tevahiya dema dîmenderê</string>
-    <string name="element_alignment">Rêzkirina hêmanan</string>
     <string name="date_alignment">Dîrok</string>
     <string name="clock_alignment">Demjimêr</string>
     <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Sepanên dîmendera sereke</string>
     <string name="drawer_alignment">Şemtokê sepanan</string>
-    <string name="element_colors">Rengên hêmanan</string>
     <string name="background_color">Paşrû</string>
     <string name="app_color">Sepan</string>
     <string name="clock_color">Demjimêr</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Sepanên dawî nîşan bide</string>
     <string name="open_power_dialog">Gotûbêja hêzê</string>
     <string name="take_a_screenshot">Wêneyê dîmenderê bigire</string>
-    <string name="previous_page">Biçe rûpela paş</string>
-    <string name="next_page">Biçe rûpela pêş</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Nîşe</string>
     <string name="display_options">Vebijêrkên nîşandanê</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">Derbarê %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Pispor</string>
-    <string name="toggleable_items">Hêmanên guherbar</string>
     <string name="threshold">Sînor</string>
     <string name="expert_options_display">Vebijêrkên pispor nîşan bide</string>
     <string name="expert_options_unlocked">Vebijêrkên pispor vebûn!</string>
@@ -251,7 +237,7 @@
     <string name="text_biometric_login_sub">Bi rastkirina xwe yên biyometrîk têkeve.</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Têkçûn</string>
-    <string name="acra_dialog_text">Bibore, %1$s rastî pirsgirêkekê hat û divê were girtin. Tika ye bi şandina raporekê alîkariya me bike ku em sepanê baştir bikin.\n\n%1$s hêzabûnê dide taybetiya te û daneyên komkirî tenê ji bo baştirkirina sepanê têne bikaranîn. Tu zanyariyên kesane nayên komkirin. Spas bo piştgiriya te!</string>
+    <string name="acra_dialog_text">%1$s rastî pirsgirêkeke nebawerkirî hat û divê were girtin.</string>
     <string name="acra_send_report">Raporê bişîne</string>
     <string name="acra_dont_send">Neşîne</string>
     <!-- Share Strings -->
@@ -385,4 +371,109 @@
         <item>Geşt</item>
         <item>Kar</item>
     </string-array>
+    <string name="settings_search_section">Lêgerîn</string>
+    <string name="settings_drawer_section">Berkêşk</string>
+    <string name="settings_private_space_section">Qada taybet</string>
+    <string name="settings_appearance_section">Xuyabûn</string>
+    <string name="settings_home_list_section">Lîsteya dîmendera sereke</string>
+    <string name="settings_quick_actions_section">Kiryarên bilez</string>
+    <string name="settings_general_section">Giştî</string>
+    <string name="app_lock_needs_screen_lock">Ji bo bikaranîna kilîta sepanan, li ser vê cîhazê kilîta dîmenderê saz bike.</string>
+    <string name="widgets_no_space">Li rûpela sepanokan cih nema. Pêşî sepanokekê biçûk bike an rake.</string>
+    <string name="drawer_categories">Sepanan li gorî kategoriyê kom bike</string>
+    <string name="category_other">Yên din</string>
+    <string name="category_text_size">Mezinahiya nivîsa kategoriyan</string>
+    <string name="category_color">Kategorî</string>
+    <string name="category_uppercase">Navên kategoriyan bi tîpên mezin</string>
+    <string name="category_show_count">Hejmara sepanan di kategoriyan de nîşan bide</string>
+    <string name="drawer_search_height">Bilindahiya qada lêgerînê</string>
+    <string name="drawer_search_spacing">Valahiya bin lêgerînê</string>
+    <string name="advanced_settings_backup_restore_snapshot">Hilanîna otomatîk vegerîne</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">Sazkariyên guhertoya %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Hemû sazkariyên niha dê bi vê kopiyê bên guhertin.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Ev hilanîn nehat xwendin.</string>
+    <string name="widgets_app_not_opened_yet">%1$s hîn nehatiye vekirin. Android sepanên wiha rawestandî dihêle; ji ber vê yekê heta ku tu carekê %1$s venekî, dibe ku ev sepanok vala bimîne an bibêje \"pêşî sepanê veke\". Niha were vekirin?</string>
+    <string name="drawer_view">Dîmena berkêşka sepanan</string>
+    <string name="drawer_view_az">Lîsteya A–Z</string>
+    <string name="drawer_view_categories">Kategorî</string>
+    <string name="search_scope">Çarçoveya lêgerînê</string>
+    <string name="search_scope_apps">Tenê sepan</string>
+    <string name="search_scope_files">Sepan, paşê pel</string>
+    <string name="search_scope_all">Sepan, paşê pel, paşê têkilî</string>
+    <string name="search_not_found">Nehat dîtin</string>
+    <string name="search_permission_files">Ji bo lêgerîna di pelan de destûra gihîştina pelan bide</string>
+    <string name="search_permission_contacts">Ji bo lêgerîna di têkiliyan de destûra gihîştina têkiliyan bide</string>
+    <string name="search_result_contact">Têkilî</string>
+    <string name="search_no_app_to_open">Tu sepan nikare vê veke</string>
+    <string name="manage_categories">Kategoriyan bi rê ve bibe</string>
+    <string name="categories_top_apps">Sepanên ku li ser kategoriyan tên nîşandan</string>
+    <string name="categories_section">Kategorî</string>
+    <string name="categories_new">Kategoriya nû</string>
+    <string name="categories_name_hint">Nav</string>
+    <string name="categories_exists">Kategoriyek bi vî navî jixwe heye</string>
+    <string name="categories_rename">Nav biguherîne</string>
+    <string name="categories_choose_apps">Sepanan hilbijêre</string>
+    <string name="categories_remove">Kategoriyê rake</string>
+    <string name="private_space_title">Qada taybet</string>
+    <string name="about_short">Derbarê</string>
+    <string name="categories_move_up">Ber bi jor bibe</string>
+    <string name="categories_move_down">Ber bi jêr bibe</string>
+    <string name="categories_not_created">Ti sepan nehat hilbijartin, ji ber vê yekê kategorî nehat çêkirin</string>
+    <string name="categories_choose_apps_for">Sepanên “%1$s”</string>
+    <string name="smart_search">Lêgerîna jîr</string>
+    <string name="about_contributors">Beşdar</string>
+    <string name="about_full_texts">Nivîsên tam</string>
+    <string name="settings_heading">Sazkarî</string>
+    <string name="settings_features_sub">Lêgerîn, rewşa bayê, kilîta sepanan, qada taybet</string>
+    <string name="settings_look_feel_sub">Rûkar, cureya nivîsê, mezinahiyên nivîsê, îkon</string>
+    <string name="settings_gestures_sub">Kişandin, tikandin, bişkokên hardware</string>
+    <string name="settings_favorite_apps_sub">Cih, rêz, sepanok</string>
+    <string name="settings_hidden_apps_sub">Sepanên ku li berkêşkê nayên nîşandan</string>
+    <string name="settings_notes_sub">Li ser dîmendera sereke</string>
+    <string name="settings_advanced_sub">Hilanîn, sifirkirin, vebijarkên pisporan</string>
+    <string name="ring_placement">Cihê xelekê</string>
+    <string name="ring_beside">Li kêleka demê</string>
+    <string name="ring_centred">Navend, dem li jêr</string>
+    <string name="ring_size">Mezinahiya xelekê</string>
+    <string name="clock_rule">Xêz di bin rêzê de</string>
+    <string name="shown_info">Agahiyên ku tên nîşandan</string>
+    <string name="clock_layout">Rêzkirin</string>
+    <string name="colour_and_size">Reng û mezinahî</string>
+    <string name="swiss_side_column">Stûn li kêleka demê</string>
+    <string name="swiss_weights">Saet stûr, deqîqe zirav</string>
+    <string name="ring_inside">Hundirê xelekê</string>
+    <string name="ring_inside_day">Roja mehê</string>
+    <string name="ring_inside_time">Dem</string>
+    <string name="ring_inside_none">Tiştek</string>
+    <string name="ring_scale">Xeleka saetan</string>
+    <string name="ring_scale_12">Rûyê 12 saetan</string>
+    <string name="ring_scale_24">Tevahiya rojê (24 s)</string>
+    <string name="one_line_alarm_below">Alarm di rêzeke cuda de, di bin xêzê de</string>
+    <string name="no_alarm_set">Alarm nehatiye sazkirin.</string>
+    <string name="clock_area_tap">Tikandin</string>
+    <string name="clock_display">Qada demjimêrê</string>
+    <string name="clock_and_date">Demjimêr û dîrok</string>
+    <string name="clock_style">Şêwaza demjimêrê</string>
+    <string name="clock_style_classic">Klasîk</string>
+    <string name="clock_style_swiss">Swîsrî</string>
+    <string name="clock_style_rings">Xelek</string>
+    <string name="clock_style_one_line">Yek rêz</string>
+    <string name="clock_style_classic_sub">wekî îro</string>
+    <string name="clock_style_swiss_sub">du rêz, stûna tîpên mezin</string>
+    <string name="clock_style_rings_sub">saet stûr, deqîqe zirav</string>
+    <string name="clock_style_one_line_sub">her tişt di yek rêzê de</string>
+    <string name="about_open_source">Çavkaniya vekirî</string>
+    <string name="about_foundation">Bingeh</string>
+    <string name="about_foundation_text">Li ser Multi Launcher (mLauncher) hatiye avakirin, ku ew jî ji Olauncher tê.</string>
+    <string name="about_credits_link">Beşdar û lîsans</string>
+    <string name="about_weather">Daneyên rewşa bayê: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Têkilî</string>
+    <string name="credits_lineage">RE*start li ser Multi Launcher (mLauncher) hatiye avakirin: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. Di her gavê de GPL-3.0.</string>
+    <string name="credits_thanks">Spas</string>
+    <string name="credits_thanks_intro">Her kesê ku keda wî/wê heta xala çiqilbûnê di kodê de ye:</string>
+    <string name="credits_thanks_outro">Ev launcher li ser keda wan radiweste.</string>
+    <string name="credits_licences">Lîsans</string>
+    <string name="acra_report_hint">Heke tu dixwazî ragihînî, ji %1$s re binivîse û bêje ku te çi dikir. Pela tomarê %2$s li ser vê cîhazê di bîra taybet a sepanê de dimîne; tu tişt bi xweber nayê şandin.</string>
+    <string name="acra_restart">Ji nû ve bide destpêkirin</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

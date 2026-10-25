@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">Choisissez un lanceur</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Fonctionnalités</string>
-    <string name="personalization">Personnalisation</string>
     <string name="theme_mode">Mode thème</string>
     <string name="app_language">Langage d\'interface</string>
     <string name="font_family">Famille de polices</string>
-    <string name="search_and_app_list">Liste d\'applications de recherche &amp;</string>
     <string name="hide_search_view">Masquer la recherche</string>
     <string name="show_floating_button">Afficher les boutons de raccourci</string>
     <string name="lock_orientation">Verrouiller l\'orientation</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">Afficher la barre latérale AZ</string>
     <string name="auto_show_keyboard">Auto show keyboard</string>
     <string name="search_from_start">Rechercher depuis le début</string>
-    <string name="home_management">Accueil &amp; Gestion des applications</string>
     <string name="auto_open_apps">Ouvrir automatiquement les applications</string>
     <string name="open_apps_on_enter">Ouvrir l\'application à l\'entrée</string>
     <string name="lock_home_apps">Applications de verrouillage à domicile</string>
     <string name="lock_settings">Paramètres de verrouillage</string>
     <string name="apps_on_home_screen">Nombre d\'applications pour la maison</string>
-    <string name="pages_on_home_screen">Nombre de pages</string>
-    <string name="enable_home_pager">Activer la page d\'accueil</string>
     <string name="enable_app_timer">Activer le minuteur de l\'application</string>
     <string name="force_colored_wallpaper">Forcer le fond d\'écran coloré</string>
     <string name="info_tiles">Tuiles d\'information</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">Localisation GPS</string>
     <string name="temp_unit">Unité de température</string>
     <string name="manual_location">Définir l\'emplacement manuel</string>
-    <string name="icon_packs">Packs d\'icônes</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Regarde &amp; Ressens</string>
-    <string name="text_size_adjustments">Texte &amp; Ajustements de taille</string>
     <string name="app_text_size">Taille du texte de l\'application</string>
     <string name="date_text_size">Taille du texte de la date</string>
     <string name="clock_text_size">Taille du texte de l\'horloge</string>
     <string name="alarm_text_size">Taille du texte d\'alarme</string>
     <string name="battery_text_size">Taille du texte de la batterie</string>
-    <string name="layout_positioning">Disposition &amp; Positionnement</string>
     <string name="app_padding_size">Taille de rembourrage</string>
     <string name="extend_home_apps_area">Étendre la zone cliquable</string>
     <string name="alignment_to_bottom">Aligner en bas</string>
-    <string name="visibility_display">Visibilité &amp; Afficher</string>
     <string name="show_status_bar">Afficher la barre d\'état</string>
     <string name="show_navigation_bar">Afficher la barre de navigation</string>
     <string name="show_recent_apps">Afficher les applications récentes</string>
@@ -111,13 +102,11 @@
     <string name="show_background">Afficher l\'arrière-plan</string>
     <string name="background_opacity">Transparence du fond</string>
     <string name="total_screen_time">Temps d\'écran total</string>
-    <string name="element_alignment">Alignement des éléments</string>
     <string name="date_alignment">Date</string>
     <string name="clock_alignment">Horloge</string>
     <string name="alarm_alignment">Alarme</string>
     <string name="home_alignment">Applications pour la maison</string>
     <string name="drawer_alignment">Applications du tiroir</string>
-    <string name="element_colors">Couleurs élémentaires</string>
     <string name="background_color">Arrière-plan</string>
     <string name="app_color">Applications</string>
     <string name="clock_color">Horloge</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Show Recents</string>
     <string name="open_power_dialog">Boîte de dialogue d\'alimentation</string>
     <string name="take_a_screenshot">Prendre une capture d\'écran</string>
-    <string name="previous_page">Aller à la page précédente</string>
-    <string name="next_page">Aller à la page suivante</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notes</string>
     <string name="display_options">Options d\'affichage</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">À propos de %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="toggleable_items">Éléments activables/désactivables</string>
     <string name="threshold">Seuil</string>
     <string name="expert_options_display">Afficher les options expertes</string>
     <string name="expert_options_unlocked">Options expertes débloquées !</string>
@@ -251,7 +237,7 @@
     <string name="text_biometric_login_sub">Connectez-vous en utilisant votre identifiant biométrique</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Erreur</string>
-    <string name="acra_dialog_text">Nous sommes désolés, mais %1$s a rencontré un problème inattendu et doit être fermé. Aidez-nous à améliorer l\'application en nous envoyant un rapport d\'incident.\n\n%1$s respecte votre vie privée et les données collectées servent uniquement à améliorer la stabilité de l\'application. Aucune information personnelle n\'est collectée. Merci de votre compréhension !</string>
+    <string name="acra_dialog_text">%1$s a rencontré un problème inattendu et doit se fermer.</string>
     <string name="acra_send_report">Envoyer un rapport</string>
     <string name="acra_dont_send">N\'envoyez pas</string>
     <!-- Share Strings -->
@@ -385,4 +371,109 @@
         <item>Voyage</item>
         <item>Travail</item>
     </string-array>
+    <string name="settings_search_section">Recherche</string>
+    <string name="settings_drawer_section">Tiroir</string>
+    <string name="settings_private_space_section">Espace privé</string>
+    <string name="settings_appearance_section">Apparence</string>
+    <string name="settings_home_list_section">Liste d\'accueil</string>
+    <string name="settings_quick_actions_section">Actions rapides</string>
+    <string name="settings_general_section">Général</string>
+    <string name="app_lock_needs_screen_lock">Définissez un verrouillage d\'écran sur cet appareil pour utiliser le verrouillage d\'applications.</string>
+    <string name="widgets_no_space">Plus de place sur la page des widgets. Redimensionnez ou supprimez d\'abord un widget.</string>
+    <string name="drawer_categories">Grouper les applications par catégorie</string>
+    <string name="category_other">Autres</string>
+    <string name="category_text_size">Taille du texte des catégories</string>
+    <string name="category_color">Catégorie</string>
+    <string name="category_uppercase">Noms de catégorie en majuscules</string>
+    <string name="category_show_count">Afficher le nombre d\'applications dans les catégories</string>
+    <string name="drawer_search_height">Hauteur de la zone de recherche</string>
+    <string name="drawer_search_spacing">Espace sous la recherche</string>
+    <string name="advanced_settings_backup_restore_snapshot">Restaurer la sauvegarde automatique</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">Paramètres de %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Tous les paramètres actuels seront remplacés par cette copie.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Cette sauvegarde n\'a pas pu être lue.</string>
+    <string name="widgets_app_not_opened_yet">%1$s n\'a pas encore été ouvert. Android garde ces applications arrêtées ; ce widget peut donc rester vide ou indiquer \"ouvrez d\'abord l\'application\" tant que vous n\'avez pas ouvert %1$s une fois. L\'ouvrir maintenant ?</string>
+    <string name="drawer_view">Affichage du tiroir</string>
+    <string name="drawer_view_az">Liste A–Z</string>
+    <string name="drawer_view_categories">Catégories</string>
+    <string name="search_scope">Portée de la recherche</string>
+    <string name="search_scope_apps">Applications seulement</string>
+    <string name="search_scope_files">Applications, puis fichiers</string>
+    <string name="search_scope_all">Applications, puis fichiers, puis contacts</string>
+    <string name="search_not_found">Introuvable</string>
+    <string name="search_permission_files">Autorisez l\'accès aux fichiers pour rechercher des fichiers</string>
+    <string name="search_permission_contacts">Autorisez l\'accès aux contacts pour rechercher des contacts</string>
+    <string name="search_result_contact">Contact</string>
+    <string name="search_no_app_to_open">Aucune application ne peut ouvrir ceci</string>
+    <string name="manage_categories">Gérer les catégories</string>
+    <string name="categories_top_apps">Applications affichées au-dessus des catégories</string>
+    <string name="categories_section">Catégories</string>
+    <string name="categories_new">Nouvelle catégorie</string>
+    <string name="categories_name_hint">Nom</string>
+    <string name="categories_exists">Une catégorie portant ce nom existe déjà</string>
+    <string name="categories_rename">Renommer</string>
+    <string name="categories_choose_apps">Choisir les applications</string>
+    <string name="categories_remove">Supprimer la catégorie</string>
+    <string name="private_space_title">Espace privé</string>
+    <string name="about_short">À propos</string>
+    <string name="categories_move_up">Monter</string>
+    <string name="categories_move_down">Descendre</string>
+    <string name="categories_not_created">Aucune application choisie, la catégorie n\'a donc pas été créée</string>
+    <string name="categories_choose_apps_for">Applications de « %1$s »</string>
+    <string name="smart_search">Recherche intelligente</string>
+    <string name="about_contributors">Contributeurs</string>
+    <string name="about_full_texts">Textes complets</string>
+    <string name="settings_heading">Paramètres</string>
+    <string name="settings_features_sub">Recherche, météo, verrouillage d\'applications, espace privé</string>
+    <string name="settings_look_feel_sub">Thème, police, tailles de texte, icônes</string>
+    <string name="settings_gestures_sub">Glissements, appuis, boutons physiques</string>
+    <string name="settings_favorite_apps_sub">Emplacements, ordre, widgets</string>
+    <string name="settings_hidden_apps_sub">Applications exclues du tiroir</string>
+    <string name="settings_notes_sub">Sur l\'écran d\'accueil</string>
+    <string name="settings_advanced_sub">Sauvegarde, réinitialisation, options expert</string>
+    <string name="ring_placement">Position de l\'anneau</string>
+    <string name="ring_beside">À côté de l\'heure</string>
+    <string name="ring_centred">Centré, heure en dessous</string>
+    <string name="ring_size">Taille de l\'anneau</string>
+    <string name="clock_rule">Filet sous la ligne</string>
+    <string name="shown_info">Informations affichées</string>
+    <string name="clock_layout">Disposition</string>
+    <string name="colour_and_size">Couleur et taille</string>
+    <string name="swiss_side_column">Colonne à côté de l\'heure</string>
+    <string name="swiss_weights">Heures en gras, minutes en fin</string>
+    <string name="ring_inside">À l\'intérieur de l\'anneau</string>
+    <string name="ring_inside_day">Jour du mois</string>
+    <string name="ring_inside_time">Heure</string>
+    <string name="ring_inside_none">Rien</string>
+    <string name="ring_scale">Anneau des heures</string>
+    <string name="ring_scale_12">Cadran 12 heures</string>
+    <string name="ring_scale_24">La journée entière (24 h)</string>
+    <string name="one_line_alarm_below">Alarme sur sa propre ligne, sous le filet</string>
+    <string name="no_alarm_set">Aucune alarme définie.</string>
+    <string name="clock_area_tap">Appui</string>
+    <string name="clock_display">Zone de l\'horloge</string>
+    <string name="clock_and_date">Horloge et date</string>
+    <string name="clock_style">Style d\'horloge</string>
+    <string name="clock_style_classic">Classique</string>
+    <string name="clock_style_swiss">Suisse</string>
+    <string name="clock_style_rings">Anneaux</string>
+    <string name="clock_style_one_line">Une ligne</string>
+    <string name="clock_style_classic_sub">comme aujourd\'hui</string>
+    <string name="clock_style_swiss_sub">deux lignes, colonne en capitales</string>
+    <string name="clock_style_rings_sub">heures épaisses, minutes fines</string>
+    <string name="clock_style_one_line_sub">tout sur une seule ligne</string>
+    <string name="about_open_source">Open source</string>
+    <string name="about_foundation">Fondation</string>
+    <string name="about_foundation_text">Construit sur Multi Launcher (mLauncher), lui-même issu d\'Olauncher.</string>
+    <string name="about_credits_link">Contributeurs et licences</string>
+    <string name="about_weather">Données météo : Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Contact</string>
+    <string name="credits_lineage">RE*start est construit sur Multi Launcher (mLauncher) : Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 à chaque étape.</string>
+    <string name="credits_thanks">Merci</string>
+    <string name="credits_thanks_intro">Toutes les personnes dont le travail figure dans le code jusqu\'au point de fork :</string>
+    <string name="credits_thanks_outro">Ce launcher repose sur leur travail.</string>
+    <string name="credits_licences">Licences</string>
+    <string name="acra_report_hint">Si vous souhaitez le signaler, écrivez à %1$s et décrivez ce que vous faisiez. Le fichier journal %2$s reste dans le stockage privé de l\'application sur cet appareil ; rien n\'est envoyé automatiquement.</string>
+    <string name="acra_restart">Redémarrer</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

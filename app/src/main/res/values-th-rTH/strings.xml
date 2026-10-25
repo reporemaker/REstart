@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">เลือกตัวเรียกใช้งาน</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">คุณสมบัติ</string>
-    <string name="personalization">การปรับแต่งส่วนบุคคล</string>
     <string name="theme_mode">โหมดธีม</string>
     <string name="app_language">ภาษาอินเทอร์เฟซ</string>
     <string name="font_family">ครอบครัวแบบอักษร</string>
-    <string name="search_and_app_list">ค้นหา &amp; รายการแอป</string>
     <string name="hide_search_view">ซ่อนมุมมองการค้นหา</string>
     <string name="show_floating_button">แสดงปุ่มทางลัด</string>
     <string name="lock_orientation">ทิศทางการล็อค</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">แสดงแถบด้านข้าง AZ</string>
     <string name="auto_show_keyboard">แป้นพิมพ์แสดงอัตโนมัติ</string>
     <string name="search_from_start">ค้นหาแอปตั้งแต่เริ่มต้น</string>
-    <string name="home_management">หน้าแรก &amp; การจัดการแอพ</string>
     <string name="auto_open_apps">เปิดแอปอัตโนมัติ</string>
     <string name="open_apps_on_enter">เปิดแอปบน Enter</string>
     <string name="lock_home_apps">ล็อคแอพ</string>
     <string name="lock_settings">ล็อคการตั้งค่า</string>
     <string name="apps_on_home_screen">จำนวนแอปพลิเคชั่นภายในบ้าน</string>
-    <string name="pages_on_home_screen">เลขหน้า</string>
-    <string name="enable_home_pager">เปิดใช้งานโฮมเพจเจอร์</string>
     <string name="enable_app_timer">เปิดใช้งานตัวจับเวลาแอป</string>
     <string name="force_colored_wallpaper">วอลเปเปอร์สีแรง</string>
     <string name="info_tiles">กระเบื้องข้อมูล</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">ตำแหน่ง GPS</string>
     <string name="temp_unit">หน่วยอุณหภูมิ</string>
     <string name="manual_location">ตั้งค่าตำแหน่งด้วยตนเอง</string>
-    <string name="icon_packs">ไอคอนแพ็ค</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">มอง &amp; รู้สึก</string>
-    <string name="text_size_adjustments">ข้อความ &amp; ปรับขนาด</string>
     <string name="app_text_size">ขนาดข้อความของแอป</string>
     <string name="date_text_size">ขนาดข้อความวันที่</string>
     <string name="clock_text_size">ขนาดข้อความนาฬิกา</string>
     <string name="alarm_text_size">ขนาดข้อความแจ้งเตือน</string>
     <string name="battery_text_size">ขนาดข้อความแบตเตอรี่</string>
-    <string name="layout_positioning">เค้าโครง &amp; การจัดตำแหน่ง</string>
     <string name="app_padding_size">ขนาดช่องว่างภายใน</string>
     <string name="extend_home_apps_area">ขยายพื้นที่ที่สามารถคลิกได้</string>
     <string name="alignment_to_bottom">จัดตำแหน่งให้ตรงกับด้านล่าง</string>
-    <string name="visibility_display">การมองเห็น &amp; การแสดงผล</string>
     <string name="show_status_bar">แสดงแถบสถานะ</string>
     <string name="show_navigation_bar">แสดงแถบนำทาง</string>
     <string name="show_recent_apps">แสดงแอปล่าสุด</string>
@@ -111,13 +102,11 @@
     <string name="show_background">แสดงพื้นหลัง</string>
     <string name="background_opacity">ความโปร่งใสของพื้นหลัง</string>
     <string name="total_screen_time">แสดงเวลาหน้าจอทั้งหมด</string>
-    <string name="element_alignment">การจัดเรียงองค์ประกอบ</string>
     <string name="date_alignment">วันที่</string>
     <string name="clock_alignment">นาฬิกา</string>
     <string name="alarm_alignment">เตือน</string>
     <string name="home_alignment">แอปพลิเคชั่นสำหรับบ้าน</string>
     <string name="drawer_alignment">แอปลิ้นชัก</string>
-    <string name="element_colors">สีธาตุ</string>
     <string name="background_color">พื้นหลัง</string>
     <string name="app_color">แอปพลิเคชั่น</string>
     <string name="clock_color">นาฬิกา</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">แสดงล่าสุด</string>
     <string name="open_power_dialog">กล่องโต้ตอบพลังงาน</string>
     <string name="take_a_screenshot">ถ่ายภาพหน้าจอ</string>
-    <string name="previous_page">ไปที่หน้าซ้าย</string>
-    <string name="next_page">ไปที่หน้าขวา</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">หมายเหตุ</string>
     <string name="display_options">ตัวเลือกการแสดงผล</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">เกี่ยวกับ %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">ผู้เชี่ยวชาญ</string>
-    <string name="toggleable_items">รายการที่สามารถสลับได้</string>
     <string name="threshold">เกณฑ์</string>
     <string name="expert_options_display">แสดงตัวเลือกผู้เชี่ยวชาญ</string>
     <string name="expert_options_unlocked">ปลดล็อคตัวเลือกผู้เชี่ยวชาญ!</string>
@@ -251,7 +237,7 @@
     <string name="text_biometric_login_sub">เข้าสู่ระบบโดยใช้ข้อมูลประจำตัวไบโอเมตริกซ์ของคุณ</string>
     <!-- Crash Strings -->
     <string name="acra_crash">ชน</string>
-    <string name="acra_dialog_text">ขออภัย %1$s พบปัญหาที่ไม่คาดคิดและจำเป็นต้องปิด โปรดช่วยเราปรับปรุงโดยการส่งรายงานข้อขัดข้อง\n\n%1$s ให้ความสำคัญกับความเป็นส่วนตัวของคุณ และข้อมูลที่รวบรวมจะถูกนำมาใช้เพื่อปรับปรุงเสถียรภาพของแอปเท่านั้น ไม่มีการเก็บรวบรวมข้อมูลส่วนบุคคล ขอบคุณสำหรับการสนับสนุนของคุณ!</string>
+    <string name="acra_dialog_text">%1$s พบปัญหาที่ไม่คาดคิดและต้องปิดลง</string>
     <string name="acra_send_report">ส่งรายงาน</string>
     <string name="acra_dont_send">อย่าส่ง</string>
     <!-- Share Strings -->
@@ -387,4 +373,109 @@
         <item>การท่องเที่ยว</item>
         <item>งาน</item>
     </string-array>
+    <string name="settings_search_section">ค้นหา</string>
+    <string name="settings_drawer_section">ลิ้นชัก</string>
+    <string name="settings_private_space_section">พื้นที่ส่วนตัว</string>
+    <string name="settings_appearance_section">ลักษณะ</string>
+    <string name="settings_home_list_section">รายการหน้าจอหลัก</string>
+    <string name="settings_quick_actions_section">การดำเนินการด่วน</string>
+    <string name="settings_general_section">ทั่วไป</string>
+    <string name="app_lock_needs_screen_lock">ตั้งค่าการล็อกหน้าจอบนอุปกรณ์นี้เพื่อใช้การล็อกแอป</string>
+    <string name="widgets_no_space">ไม่มีพื้นที่เหลือในหน้าวิดเจ็ต โปรดปรับขนาดหรือลบวิดเจ็ตออกก่อน</string>
+    <string name="drawer_categories">จัดกลุ่มแอปตามหมวดหมู่</string>
+    <string name="category_other">อื่นๆ</string>
+    <string name="category_text_size">ขนาดข้อความหมวดหมู่</string>
+    <string name="category_color">หมวดหมู่</string>
+    <string name="category_uppercase">ชื่อหมวดหมู่เป็นตัวพิมพ์ใหญ่</string>
+    <string name="category_show_count">แสดงจำนวนแอปในหมวดหมู่</string>
+    <string name="drawer_search_height">ความสูงของพื้นที่ค้นหา</string>
+    <string name="drawer_search_spacing">ระยะห่างใต้ช่องค้นหา</string>
+    <string name="advanced_settings_backup_restore_snapshot">คืนค่าข้อมูลสำรองอัตโนมัติ</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">การตั้งค่าของเวอร์ชัน %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">การตั้งค่าปัจจุบันทั้งหมดจะถูกแทนที่ด้วยสำเนานี้</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">ไม่สามารถอ่านข้อมูลสำรองนี้ได้</string>
+    <string name="widgets_app_not_opened_yet">%1$s ยังไม่เคยถูกเปิด Android จะหยุดแอปแบบนี้ไว้ วิดเจ็ตนี้จึงอาจว่างเปล่าหรือแจ้งว่า \"เปิดแอปก่อน\" จนกว่าคุณจะเปิด %1$s สักครั้ง เปิดตอนนี้เลยไหม</string>
+    <string name="drawer_view">มุมมองลิ้นชักแอป</string>
+    <string name="drawer_view_az">รายการ A–Z</string>
+    <string name="drawer_view_categories">หมวดหมู่</string>
+    <string name="search_scope">ขอบเขตการค้นหา</string>
+    <string name="search_scope_apps">เฉพาะแอป</string>
+    <string name="search_scope_files">แอป แล้วจึงไฟล์</string>
+    <string name="search_scope_all">แอป แล้วจึงไฟล์ แล้วจึงผู้ติดต่อ</string>
+    <string name="search_not_found">ไม่พบ</string>
+    <string name="search_permission_files">อนุญาตการเข้าถึงไฟล์เพื่อค้นหาไฟล์</string>
+    <string name="search_permission_contacts">อนุญาตการเข้าถึงผู้ติดต่อเพื่อค้นหาผู้ติดต่อ</string>
+    <string name="search_result_contact">ผู้ติดต่อ</string>
+    <string name="search_no_app_to_open">ไม่มีแอปที่เปิดสิ่งนี้ได้</string>
+    <string name="manage_categories">จัดการหมวดหมู่</string>
+    <string name="categories_top_apps">แอปที่แสดงเหนือหมวดหมู่</string>
+    <string name="categories_section">หมวดหมู่</string>
+    <string name="categories_new">หมวดหมู่ใหม่</string>
+    <string name="categories_name_hint">ชื่อ</string>
+    <string name="categories_exists">มีหมวดหมู่ชื่อนี้อยู่แล้ว</string>
+    <string name="categories_rename">เปลี่ยนชื่อ</string>
+    <string name="categories_choose_apps">เลือกแอป</string>
+    <string name="categories_remove">ลบหมวดหมู่</string>
+    <string name="private_space_title">พื้นที่ส่วนตัว</string>
+    <string name="about_short">เกี่ยวกับ</string>
+    <string name="categories_move_up">เลื่อนขึ้น</string>
+    <string name="categories_move_down">เลื่อนลง</string>
+    <string name="categories_not_created">ไม่ได้เลือกแอป จึงไม่ได้สร้างหมวดหมู่</string>
+    <string name="categories_choose_apps_for">แอปของ “%1$s”</string>
+    <string name="smart_search">การค้นหาอัจฉริยะ</string>
+    <string name="about_contributors">ผู้มีส่วนร่วม</string>
+    <string name="about_full_texts">ข้อความฉบับเต็ม</string>
+    <string name="settings_heading">การตั้งค่า</string>
+    <string name="settings_features_sub">ค้นหา สภาพอากาศ ล็อกแอป พื้นที่ส่วนตัว</string>
+    <string name="settings_look_feel_sub">ธีม แบบอักษร ขนาดข้อความ ไอคอน</string>
+    <string name="settings_gestures_sub">การปัด การแตะ ปุ่มฮาร์ดแวร์</string>
+    <string name="settings_favorite_apps_sub">ช่อง ลำดับ วิดเจ็ต</string>
+    <string name="settings_hidden_apps_sub">แอปที่ไม่แสดงในลิ้นชัก</string>
+    <string name="settings_notes_sub">บนหน้าจอหลัก</string>
+    <string name="settings_advanced_sub">สำรองข้อมูล รีเซ็ต ตัวเลือกขั้นสูง</string>
+    <string name="ring_placement">ตำแหน่งวงแหวน</string>
+    <string name="ring_beside">ข้างเวลา</string>
+    <string name="ring_centred">กึ่งกลาง เวลาอยู่ด้านล่าง</string>
+    <string name="ring_size">ขนาดวงแหวน</string>
+    <string name="clock_rule">เส้นใต้บรรทัด</string>
+    <string name="shown_info">ข้อมูลที่แสดง</string>
+    <string name="clock_layout">เค้าโครง</string>
+    <string name="colour_and_size">สีและขนาด</string>
+    <string name="swiss_side_column">คอลัมน์ข้างเวลา</string>
+    <string name="swiss_weights">ชั่วโมงตัวหนา นาทีตัวบาง</string>
+    <string name="ring_inside">ภายในวงแหวน</string>
+    <string name="ring_inside_day">วันที่ของเดือน</string>
+    <string name="ring_inside_time">เวลา</string>
+    <string name="ring_inside_none">ไม่มี</string>
+    <string name="ring_scale">วงแหวนชั่วโมง</string>
+    <string name="ring_scale_12">หน้าปัด 12 ชั่วโมง</string>
+    <string name="ring_scale_24">ทั้งวัน (24 ชม.)</string>
+    <string name="one_line_alarm_below">นาฬิกาปลุกอยู่บรรทัดของตัวเอง ใต้เส้น</string>
+    <string name="no_alarm_set">ไม่ได้ตั้งนาฬิกาปลุก</string>
+    <string name="clock_area_tap">แตะ</string>
+    <string name="clock_display">พื้นที่นาฬิกา</string>
+    <string name="clock_and_date">นาฬิกาและวันที่</string>
+    <string name="clock_style">รูปแบบนาฬิกา</string>
+    <string name="clock_style_classic">คลาสสิก</string>
+    <string name="clock_style_swiss">สวิส</string>
+    <string name="clock_style_rings">วงแหวน</string>
+    <string name="clock_style_one_line">บรรทัดเดียว</string>
+    <string name="clock_style_classic_sub">แบบปัจจุบัน</string>
+    <string name="clock_style_swiss_sub">สองบรรทัด คอลัมน์ตัวพิมพ์ใหญ่</string>
+    <string name="clock_style_rings_sub">ชั่วโมงหนา นาทีบาง</string>
+    <string name="clock_style_one_line_sub">ทุกอย่างในบรรทัดเดียว</string>
+    <string name="about_open_source">โอเพนซอร์ส</string>
+    <string name="about_foundation">รากฐาน</string>
+    <string name="about_foundation_text">สร้างบน Multi Launcher (mLauncher) ซึ่งสืบทอดมาจาก Olauncher</string>
+    <string name="about_credits_link">ผู้มีส่วนร่วมและสัญญาอนุญาต</string>
+    <string name="about_weather">ข้อมูลสภาพอากาศ: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">ติดต่อ</string>
+    <string name="credits_lineage">RE*start สร้างบน Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start ใช้ GPL-3.0 ทุกขั้นตอน</string>
+    <string name="credits_thanks">ขอบคุณ</string>
+    <string name="credits_thanks_intro">ทุกคนที่มีผลงานอยู่ในโค้ดจนถึงจุดที่แยกสาขา:</string>
+    <string name="credits_thanks_outro">ตัวเปิดใช้นี้ตั้งอยู่บนผลงานของพวกเขา</string>
+    <string name="credits_licences">สัญญาอนุญาต</string>
+    <string name="acra_report_hint">หากต้องการรายงาน โปรดเขียนถึง %1$s และอธิบายสิ่งที่คุณกำลังทำอยู่ ไฟล์บันทึก %2$s จะยังอยู่ในพื้นที่จัดเก็บส่วนตัวของแอปบนอุปกรณ์นี้ ไม่มีสิ่งใดถูกส่งโดยอัตโนมัติ</string>
+    <string name="acra_restart">เริ่มใหม่</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

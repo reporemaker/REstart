@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">Alegeți un lansator</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Caracteristici</string>
-    <string name="personalization">Personalizare</string>
     <string name="theme_mode">Mod temă</string>
     <string name="app_language">Limbaj de interfață</string>
     <string name="font_family">Familie de fonturi</string>
-    <string name="search_and_app_list">Căutare &amp; Listă de aplicații</string>
     <string name="hide_search_view">Ascundeți vizualizarea de căutare</string>
     <string name="show_floating_button">Afișați butoanele de comandă rapidă</string>
     <string name="lock_orientation">Orientarea blocării</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">Afișează bara laterală de la A la Z</string>
     <string name="auto_show_keyboard">Tastatură cu afișare automată</string>
     <string name="search_from_start">Căutare de la început</string>
-    <string name="home_management">Acasă &amp; Gestionare aplicații</string>
     <string name="auto_open_apps">Deschidere automată a aplicațiilor</string>
     <string name="open_apps_on_enter">Deschide aplicația cu Enter</string>
     <string name="lock_home_apps">Blocați aplicațiile de acasă</string>
     <string name="lock_settings">Setări de blocare</string>
     <string name="apps_on_home_screen">Numărul de aplicații pentru acasă</string>
-    <string name="pages_on_home_screen">Număr de pagini</string>
-    <string name="enable_home_pager">Activează pagina principală</string>
     <string name="enable_app_timer">Activează temporizatorul aplicației</string>
     <string name="force_colored_wallpaper">Tapet colorat cu forță</string>
     <string name="info_tiles">Secțiuni Rapide</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">Locație GPS</string>
     <string name="temp_unit">Unitate de temperatură</string>
     <string name="manual_location">Setați locația manuală</string>
-    <string name="icon_packs">Pachete de pictograme</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Privește &amp; Simte</string>
-    <string name="text_size_adjustments">Text &amp; Ajustări dimensiune</string>
     <string name="app_text_size">Dimensiunea textului aplicației</string>
     <string name="date_text_size">Dimensiunea textului datei</string>
     <string name="clock_text_size">Dimensiunea textului ceasului</string>
     <string name="alarm_text_size">Dimensiunea textului de alarmă</string>
     <string name="battery_text_size">Dimensiunea textului bateriei</string>
-    <string name="layout_positioning">Aspect &amp; Poziționare</string>
     <string name="app_padding_size">Dimensiunea umpluturii</string>
     <string name="extend_home_apps_area">Extindeți zona pe care se poate face clic</string>
     <string name="alignment_to_bottom">Aliniere la partea de jos</string>
-    <string name="visibility_display">Vizibilitate &amp; Afișaj</string>
     <string name="show_status_bar">Afișează bara de stare</string>
     <string name="show_navigation_bar">Afișați bara de navigare</string>
     <string name="show_recent_apps">Afișează aplicațiile recente</string>
@@ -111,13 +102,11 @@
     <string name="show_background">Afișare fundal</string>
     <string name="background_opacity">Transparență de fundal</string>
     <string name="total_screen_time">Timp total de utilizare</string>
-    <string name="element_alignment">Alinierea elementelor</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Ceas</string>
     <string name="alarm_alignment">Alarma</string>
     <string name="home_alignment">Aplicații pentru acasă</string>
     <string name="drawer_alignment">Aplicații în sertar</string>
-    <string name="element_colors">Culorile elementelor</string>
     <string name="background_color">Fundal</string>
     <string name="app_color">Aplicații</string>
     <string name="clock_color">Ceas</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">Afișează Recentele</string>
     <string name="open_power_dialog">Dialog de alimentare</string>
     <string name="take_a_screenshot">Faceți o captură de ecran</string>
-    <string name="previous_page">Mergi la pagina anterioară</string>
-    <string name="next_page">Mergi la pagina următoare</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Note</string>
     <string name="display_options">Opțiuni de afișare</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">Despre %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="toggleable_items">Elemente comutabile</string>
     <string name="threshold">Prag</string>
     <string name="expert_options_display">Afișați opțiunile expertului</string>
     <string name="expert_options_unlocked">Opțiuni pentru experți deblocate!</string>
@@ -252,7 +238,7 @@
     <string name="text_biometric_login_sub">Conectați-vă folosind acreditările biometrice.</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Accident</string>
-    <string name="acra_dialog_text">Ne pare rău, dar %1$s a întâmpinat o problemă neașteptată și trebuie să se închidă. Vă rugăm să ne ajutați să ne îmbunătățim trimițând un raport de eroare.\n\n%1$s vă prețuiește confidențialitatea, iar datele colectate sunt utilizate exclusiv pentru îmbunătățirea stabilității aplicației. Nu sunt colectate informații personale. Vă mulțumim pentru sprijin!</string>
+    <string name="acra_dialog_text">%1$s a întâmpinat o problemă neașteptată și trebuie să se închidă.</string>
     <string name="acra_send_report">Trimiteți raportul</string>
     <string name="acra_dont_send">Nu trimite</string>
     <!-- Share Strings -->
@@ -386,4 +372,109 @@
         <item>Voiaj</item>
         <item>Lucru</item>
     </string-array>
+    <string name="settings_search_section">Căutare</string>
+    <string name="settings_drawer_section">Sertar</string>
+    <string name="settings_private_space_section">Spațiu privat</string>
+    <string name="settings_appearance_section">Aspect</string>
+    <string name="settings_home_list_section">Lista ecranului principal</string>
+    <string name="settings_quick_actions_section">Acțiuni rapide</string>
+    <string name="settings_general_section">General</string>
+    <string name="app_lock_needs_screen_lock">Setați o blocare a ecranului pe acest dispozitiv pentru a folosi blocarea aplicațiilor.</string>
+    <string name="widgets_no_space">Nu mai este loc pe pagina de widgeturi. Redimensionați sau eliminați mai întâi un widget.</string>
+    <string name="drawer_categories">Grupează aplicațiile pe categorii</string>
+    <string name="category_other">Altele</string>
+    <string name="category_text_size">Dimensiunea textului categoriilor</string>
+    <string name="category_color">Categorie</string>
+    <string name="category_uppercase">Numele categoriilor cu majuscule</string>
+    <string name="category_show_count">Afișează numărul de aplicații în categorii</string>
+    <string name="drawer_search_height">Înălțimea zonei de căutare</string>
+    <string name="drawer_search_spacing">Spațiu sub căutare</string>
+    <string name="advanced_settings_backup_restore_snapshot">Restabilește copia de rezervă automată</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">Setările versiunii %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Toate setările curente vor fi înlocuite cu această copie.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">Această copie de rezervă nu a putut fi citită.</string>
+    <string name="widgets_app_not_opened_yet">%1$s nu a fost încă deschisă. Android ține astfel de aplicații oprite, așa că acest widget poate rămâne gol sau poate afișa \"deschideți mai întâi aplicația\" până când deschideți %1$s o dată. Deschideți acum?</string>
+    <string name="drawer_view">Vizualizarea sertarului de aplicații</string>
+    <string name="drawer_view_az">Listă A–Z</string>
+    <string name="drawer_view_categories">Categorii</string>
+    <string name="search_scope">Domeniul căutării</string>
+    <string name="search_scope_apps">Doar aplicații</string>
+    <string name="search_scope_files">Aplicații, apoi fișiere</string>
+    <string name="search_scope_all">Aplicații, apoi fișiere, apoi contacte</string>
+    <string name="search_not_found">Nu s-a găsit</string>
+    <string name="search_permission_files">Permiteți accesul la fișiere pentru a căuta fișiere</string>
+    <string name="search_permission_contacts">Permiteți accesul la contacte pentru a căuta contacte</string>
+    <string name="search_result_contact">Contact</string>
+    <string name="search_no_app_to_open">Nicio aplicație nu poate deschide acest element</string>
+    <string name="manage_categories">Gestionați categoriile</string>
+    <string name="categories_top_apps">Aplicații afișate deasupra categoriilor</string>
+    <string name="categories_section">Categorii</string>
+    <string name="categories_new">Categorie nouă</string>
+    <string name="categories_name_hint">Nume</string>
+    <string name="categories_exists">Există deja o categorie cu acest nume</string>
+    <string name="categories_rename">Redenumește</string>
+    <string name="categories_choose_apps">Alege aplicațiile</string>
+    <string name="categories_remove">Elimină categoria</string>
+    <string name="private_space_title">Spațiu privat</string>
+    <string name="about_short">Despre</string>
+    <string name="categories_move_up">Mută în sus</string>
+    <string name="categories_move_down">Mută în jos</string>
+    <string name="categories_not_created">Nu a fost aleasă nicio aplicație, deci categoria nu a fost creată</string>
+    <string name="categories_choose_apps_for">Aplicațiile din „%1$s”</string>
+    <string name="smart_search">Căutare inteligentă</string>
+    <string name="about_contributors">Contribuitori</string>
+    <string name="about_full_texts">Texte complete</string>
+    <string name="settings_heading">Setări</string>
+    <string name="settings_features_sub">Căutare, vreme, blocarea aplicațiilor, spațiu privat</string>
+    <string name="settings_look_feel_sub">Temă, font, dimensiuni text, pictograme</string>
+    <string name="settings_gestures_sub">Glisări, atingeri, butoane fizice</string>
+    <string name="settings_favorite_apps_sub">Poziții, ordine, widgeturi</string>
+    <string name="settings_hidden_apps_sub">Aplicații ținute în afara sertarului</string>
+    <string name="settings_notes_sub">Pe ecranul principal</string>
+    <string name="settings_advanced_sub">Copie de rezervă, resetare, opțiuni pentru experți</string>
+    <string name="ring_placement">Poziția inelului</string>
+    <string name="ring_beside">Lângă oră</string>
+    <string name="ring_centred">Centrat, ora dedesubt</string>
+    <string name="ring_size">Dimensiunea inelului</string>
+    <string name="clock_rule">Linie sub rând</string>
+    <string name="shown_info">Informații afișate</string>
+    <string name="clock_layout">Aranjament</string>
+    <string name="colour_and_size">Culoare și dimensiune</string>
+    <string name="swiss_side_column">Coloană lângă oră</string>
+    <string name="swiss_weights">Ore aldine, minute subțiri</string>
+    <string name="ring_inside">În interiorul inelului</string>
+    <string name="ring_inside_day">Ziua lunii</string>
+    <string name="ring_inside_time">Ora</string>
+    <string name="ring_inside_none">Nimic</string>
+    <string name="ring_scale">Inelul orelor</string>
+    <string name="ring_scale_12">Cadran de 12 ore</string>
+    <string name="ring_scale_24">Toată ziua (24 h)</string>
+    <string name="one_line_alarm_below">Alarma pe rândul ei, sub linie</string>
+    <string name="no_alarm_set">Nicio alarmă setată.</string>
+    <string name="clock_area_tap">Atingere</string>
+    <string name="clock_display">Zona ceasului</string>
+    <string name="clock_and_date">Ceas și dată</string>
+    <string name="clock_style">Stilul ceasului</string>
+    <string name="clock_style_classic">Clasic</string>
+    <string name="clock_style_swiss">Elvețian</string>
+    <string name="clock_style_rings">Inele</string>
+    <string name="clock_style_one_line">Un rând</string>
+    <string name="clock_style_classic_sub">așa cum este acum</string>
+    <string name="clock_style_swiss_sub">două rânduri, coloană cu majuscule</string>
+    <string name="clock_style_rings_sub">ore groase, minute subțiri</string>
+    <string name="clock_style_one_line_sub">totul pe un singur rând</string>
+    <string name="about_open_source">Sursă deschisă</string>
+    <string name="about_foundation">Fundație</string>
+    <string name="about_foundation_text">Construit pe Multi Launcher (mLauncher), care provine din Olauncher.</string>
+    <string name="about_credits_link">Contribuitori și licențe</string>
+    <string name="about_weather">Date meteo: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Contact</string>
+    <string name="credits_lineage">RE*start este construit pe Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 la fiecare pas.</string>
+    <string name="credits_thanks">Mulțumiri</string>
+    <string name="credits_thanks_intro">Toți cei a căror muncă se află în cod până la punctul de bifurcare:</string>
+    <string name="credits_thanks_outro">Acest launcher se sprijină pe munca lor.</string>
+    <string name="credits_licences">Licențe</string>
+    <string name="acra_report_hint">Dacă doriți să raportați, scrieți la %1$s și descrieți ce făceați. Fișierul jurnal %2$s rămâne în stocarea privată a aplicației pe acest dispozitiv; nimic nu este trimis automat.</string>
+    <string name="acra_restart">Repornește</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>

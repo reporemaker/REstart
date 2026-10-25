@@ -45,11 +45,9 @@
     <string name="settings_exit_launcher_dialog">בחר משגר</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">תכונות</string>
-    <string name="personalization">התאמה אישית</string>
     <string name="theme_mode">סגנון רקע</string>
     <string name="app_language">שפת ממשק</string>
     <string name="font_family">משפחת גופן</string>
-    <string name="search_and_app_list">חיפוש &amp; רשימת אפליקציות</string>
     <string name="hide_search_view">הסתר תצוגת חיפוש</string>
     <string name="show_floating_button">הצג כפתורי קיצור</string>
     <string name="lock_orientation">נעילת כיוון</string>
@@ -58,14 +56,11 @@
     <string name="show_az_sidebar">הצג סרגל צד AZ</string>
     <string name="auto_show_keyboard">הצג מקלדת בחיפוש</string>
     <string name="search_from_start">חיפוש אפליקציה מההתחלה</string>
-    <string name="home_management">דף הבית &amp; ניהול יישומים</string>
     <string name="auto_open_apps">פתיחה אוטומטית של יישומים</string>
     <string name="open_apps_on_enter">פתח את האפליקציה בכניסה</string>
     <string name="lock_home_apps">נעילת יישומי דף הבית</string>
     <string name="lock_settings">הגדרות נעילה</string>
     <string name="apps_on_home_screen">מספר יישומים בדף הבית</string>
-    <string name="pages_on_home_screen">מספר דפים</string>
-    <string name="enable_home_pager">הפעל דיפדוף בדף הבית</string>
     <string name="enable_app_timer">הפעלת טיימר אפליקציה</string>
     <string name="force_colored_wallpaper">טפט צבעוני בכוח</string>
     <string name="info_tiles">אריחי מידע</string>
@@ -85,20 +80,16 @@
     <string name="gps_location">מיקום GPS</string>
     <string name="temp_unit">יחידת טמפרטורה</string>
     <string name="manual_location">הגדרת מיקום ידנית</string>
-    <string name="icon_packs">חבילות אייקונים</string>
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">מראה &amp; תחושה</string>
-    <string name="text_size_adjustments">טקסט &amp; התאמות גודל</string>
     <string name="app_text_size">גודל הטקסט של היישום</string>
     <string name="date_text_size">גודל הטקסט של התאריך</string>
     <string name="clock_text_size">גודל טקסט שעון</string>
     <string name="alarm_text_size">גודל טקסט שעון מעורר</string>
     <string name="battery_text_size">גודל הטקסט של הסוללה</string>
-    <string name="layout_positioning">פריסה &amp; מיקום</string>
     <string name="app_padding_size">גודל ריפוד</string>
     <string name="extend_home_apps_area">הרחב את האזור הניתן ללחיצה</string>
     <string name="alignment_to_bottom">יישר לתחתית</string>
-    <string name="visibility_display">נראות &amp; תצוגה</string>
     <string name="show_status_bar">הצג שורת מצב</string>
     <string name="show_navigation_bar">הצג סרגל ניווט</string>
     <string name="show_recent_apps">הצג יישומים אחרונים</string>
@@ -111,13 +102,11 @@
     <string name="show_background">הצג רקע</string>
     <string name="background_opacity">שקיפות רקע</string>
     <string name="total_screen_time">הצג זמן מסך כולל</string>
-    <string name="element_alignment">יישור אלמנטים</string>
     <string name="date_alignment">תאריך</string>
     <string name="clock_alignment">שעון</string>
     <string name="alarm_alignment">שעון מעורר</string>
     <string name="home_alignment">יישומי דף הבית</string>
     <string name="drawer_alignment">יישומי מגירה</string>
-    <string name="element_colors">צבעי אלמנט</string>
     <string name="background_color">רקע</string>
     <string name="app_color">יישומים</string>
     <string name="clock_color">שעון</string>
@@ -155,8 +144,6 @@
     <string name="show_recents">הצגת האחרונים</string>
     <string name="open_power_dialog">תפריט הפעלה</string>
     <string name="take_a_screenshot">צלם מסך</string>
-    <string name="previous_page">מעבר לדף השמאלי</string>
-    <string name="next_page">מעבר לדף הימני</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">הערות</string>
     <string name="display_options">אפשרויות תצוגה</string>
@@ -202,7 +189,6 @@
     <string name="about_settings_title">בערך %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">מוּמחֶה</string>
-    <string name="toggleable_items">פריטים הניתנים להחלפה</string>
     <string name="threshold">סַף</string>
     <string name="expert_options_display">הצג אפשרויות מומחים</string>
     <string name="expert_options_unlocked">אפשרויות מומחים פתוחות!</string>
@@ -254,7 +240,7 @@
     <string name="text_biometric_login_sub">היכנס באמצעות האישור הביומטרי שלך</string>
     <!-- Crash Strings -->
     <string name="acra_crash">קריסה</string>
-    <string name="acra_dialog_text">אנו מצטערים, אבל %1$s נתקל בבעיה בלתי צפויה וצריך להיסגר. אנא עזור לנו להשתפר על ידי שליחת דוח קריסה.\n\n%1$s מעריך את הפרטיות שלך והנתונים שנאספים משמשים אך ורק לשיפור יציבות האפליקציה. לא נאסף מידע אישי. תודה על תמיכתך!</string>
+    <string name="acra_dialog_text">%1$s נתקל בבעיה לא צפויה ועליו להיסגר.</string>
     <string name="acra_send_report">שלח דו\"ח</string>
     <string name="acra_dont_send">אל תשלח</string>
     <!-- Share Strings -->
@@ -388,4 +374,109 @@
         <item>לִנְסוֹעַ</item>
         <item>עֲבוֹדָה</item>
     </string-array>
+    <string name="settings_search_section">חיפוש</string>
+    <string name="settings_drawer_section">מגירה</string>
+    <string name="settings_private_space_section">מרחב פרטי</string>
+    <string name="settings_appearance_section">מראה</string>
+    <string name="settings_home_list_section">רשימת מסך הבית</string>
+    <string name="settings_quick_actions_section">פעולות מהירות</string>
+    <string name="settings_general_section">כללי</string>
+    <string name="app_lock_needs_screen_lock">כדי להשתמש בנעילת יישומים, הגדר נעילת מסך במכשיר זה.</string>
+    <string name="widgets_no_space">לא נותר מקום בדף הווידג\'טים. תחילה שנה גודל של ווידג\'ט או הסר אותו.</string>
+    <string name="drawer_categories">קיבוץ יישומים לפי קטגוריה</string>
+    <string name="category_other">אחר</string>
+    <string name="category_text_size">גודל טקסט קטגוריות</string>
+    <string name="category_color">קטגוריה</string>
+    <string name="category_uppercase">שמות קטגוריות באותיות גדולות</string>
+    <string name="category_show_count">הצג מספר יישומים בקטגוריות</string>
+    <string name="drawer_search_height">גובה אזור החיפוש</string>
+    <string name="drawer_search_spacing">רווח מתחת לחיפוש</string>
+    <string name="advanced_settings_backup_restore_snapshot">שחזור גיבוי אוטומטי</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">הגדרות של גרסה %1$s, %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">כל ההגדרות הנוכחיות יוחלפו בעותק זה.</string>
+    <string name="advanced_settings_backup_restore_snapshot_failed">לא ניתן היה לקרוא גיבוי זה.</string>
+    <string name="widgets_app_not_opened_yet">%1$s עדיין לא נפתח. Android משאיר יישומים כאלה במצב עצור, ולכן הווידג\'ט הזה עשוי להישאר ריק או להציג \"פתח תחילה את היישום\" עד שתפתח את %1$s פעם אחת. לפתוח עכשיו?</string>
+    <string name="drawer_view">תצוגת מגירת היישומים</string>
+    <string name="drawer_view_az">רשימה א–ת</string>
+    <string name="drawer_view_categories">קטגוריות</string>
+    <string name="search_scope">היקף החיפוש</string>
+    <string name="search_scope_apps">יישומים בלבד</string>
+    <string name="search_scope_files">יישומים, ואז קבצים</string>
+    <string name="search_scope_all">יישומים, ואז קבצים, ואז אנשי קשר</string>
+    <string name="search_not_found">לא נמצא</string>
+    <string name="search_permission_files">אפשר גישה לקבצים כדי לחפש קבצים</string>
+    <string name="search_permission_contacts">אפשר גישה לאנשי קשר כדי לחפש אנשי קשר</string>
+    <string name="search_result_contact">איש קשר</string>
+    <string name="search_no_app_to_open">אין יישום שיכול לפתוח את זה</string>
+    <string name="manage_categories">ניהול קטגוריות</string>
+    <string name="categories_top_apps">יישומים המוצגים מעל הקטגוריות</string>
+    <string name="categories_section">קטגוריות</string>
+    <string name="categories_new">קטגוריה חדשה</string>
+    <string name="categories_name_hint">שם</string>
+    <string name="categories_exists">כבר קיימת קטגוריה בשם זה</string>
+    <string name="categories_rename">שנה שם</string>
+    <string name="categories_choose_apps">בחר יישומים</string>
+    <string name="categories_remove">הסר קטגוריה</string>
+    <string name="private_space_title">מרחב פרטי</string>
+    <string name="about_short">אודות</string>
+    <string name="categories_move_up">הזז למעלה</string>
+    <string name="categories_move_down">הזז למטה</string>
+    <string name="categories_not_created">לא נבחר יישום, ולכן הקטגוריה לא נוצרה</string>
+    <string name="categories_choose_apps_for">יישומים של ”%1$s“</string>
+    <string name="smart_search">חיפוש חכם</string>
+    <string name="about_contributors">תורמים</string>
+    <string name="about_full_texts">טקסטים מלאים</string>
+    <string name="settings_heading">הגדרות</string>
+    <string name="settings_features_sub">חיפוש, מזג אוויר, נעילת יישומים, מרחב פרטי</string>
+    <string name="settings_look_feel_sub">ערכת נושא, גופן, גדלי טקסט, סמלים</string>
+    <string name="settings_gestures_sub">החלקות, הקשות, לחצני חומרה</string>
+    <string name="settings_favorite_apps_sub">משבצות, סדר, ווידג\'טים</string>
+    <string name="settings_hidden_apps_sub">יישומים שאינם מוצגים במגירה</string>
+    <string name="settings_notes_sub">במסך הבית</string>
+    <string name="settings_advanced_sub">גיבוי, איפוס, אפשרויות מומחה</string>
+    <string name="ring_placement">מיקום הטבעת</string>
+    <string name="ring_beside">לצד השעה</string>
+    <string name="ring_centred">במרכז, השעה מתחת</string>
+    <string name="ring_size">גודל הטבעת</string>
+    <string name="clock_rule">קו מתחת לשורה</string>
+    <string name="shown_info">מידע מוצג</string>
+    <string name="clock_layout">פריסה</string>
+    <string name="colour_and_size">צבע וגודל</string>
+    <string name="swiss_side_column">עמודה לצד השעה</string>
+    <string name="swiss_weights">שעות מודגשות, דקות דקות</string>
+    <string name="ring_inside">בתוך הטבעת</string>
+    <string name="ring_inside_day">היום בחודש</string>
+    <string name="ring_inside_time">שעה</string>
+    <string name="ring_inside_none">כלום</string>
+    <string name="ring_scale">טבעת השעות</string>
+    <string name="ring_scale_12">לוח 12 שעות</string>
+    <string name="ring_scale_24">היממה כולה (24 שעות)</string>
+    <string name="one_line_alarm_below">שעון מעורר בשורה נפרדת, מתחת לקו</string>
+    <string name="no_alarm_set">לא הוגדר שעון מעורר.</string>
+    <string name="clock_area_tap">הקשה</string>
+    <string name="clock_display">אזור השעון</string>
+    <string name="clock_and_date">שעון ותאריך</string>
+    <string name="clock_style">סגנון שעון</string>
+    <string name="clock_style_classic">קלאסי</string>
+    <string name="clock_style_swiss">שווייצרי</string>
+    <string name="clock_style_rings">טבעות</string>
+    <string name="clock_style_one_line">שורה אחת</string>
+    <string name="clock_style_classic_sub">כפי שהוא היום</string>
+    <string name="clock_style_swiss_sub">שתי שורות, עמודה באותיות גדולות</string>
+    <string name="clock_style_rings_sub">שעות עבות, דקות דקות</string>
+    <string name="clock_style_one_line_sub">הכול בשורה אחת</string>
+    <string name="about_open_source">קוד פתוח</string>
+    <string name="about_foundation">בסיס</string>
+    <string name="about_foundation_text">בנוי על Multi Launcher (mLauncher), שמקורו ב-Olauncher.</string>
+    <string name="about_credits_link">תורמים ורישיונות</string>
+    <string name="about_weather">נתוני מזג אוויר: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">יצירת קשר</string>
+    <string name="credits_lineage">RE*start בנוי על Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 בכל שלב.</string>
+    <string name="credits_thanks">תודה</string>
+    <string name="credits_thanks_intro">כל מי שעבודתו נמצאת בקוד עד נקודת הפיצול:</string>
+    <string name="credits_thanks_outro">המשגר הזה עומד על עבודתם.</string>
+    <string name="credits_licences">רישיונות</string>
+    <string name="acra_report_hint">אם ברצונך לדווח על כך, כתוב אל %1$s ותאר מה עשית. קובץ היומן %2$s נשאר באחסון הפרטי של היישום במכשיר זה; שום דבר לא נשלח אוטומטית.</string>
+    <string name="acra_restart">הפעל מחדש</string>
+    <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: settings_search_section, settings_drawer_section, settings_private_space_section, settings_appearance_section, settings_home_list_section, settings_quick_actions_section, settings_general_section, app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search, about_contributors, about_full_texts, settings_heading, settings_features_sub, settings_look_feel_sub, settings_gestures_sub, settings_favorite_apps_sub, settings_hidden_apps_sub, settings_notes_sub, settings_advanced_sub, ring_placement, ring_beside, ring_centred, ring_size, clock_rule, shown_info, clock_layout, colour_and_size, swiss_side_column, swiss_weights, ring_inside, ring_inside_day, ring_inside_time, ring_inside_none, ring_scale, ring_scale_12, ring_scale_24, one_line_alarm_below, no_alarm_set, clock_area_tap, clock_display, clock_and_date, clock_style, clock_style_classic, clock_style_swiss, clock_style_rings, clock_style_one_line, clock_style_classic_sub, clock_style_swiss_sub, clock_style_rings_sub, clock_style_one_line_sub, about_open_source, about_foundation, about_foundation_text, about_credits_link, about_weather, about_contact, credits_lineage, credits_thanks, credits_thanks_intro, credits_thanks_outro, credits_licences, acra_report_hint, acra_restart. Native speakers: corrections welcome via an issue or pull request. -->
 </resources>
