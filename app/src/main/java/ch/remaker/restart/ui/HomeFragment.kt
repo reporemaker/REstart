@@ -618,6 +618,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             }
             showClock.observe(viewLifecycleOwner) {
                 binding.clock.isVisible = it
+                applyClockStyle()   // "Rings" with the time inside keeps the numeric clock hidden
             }
             showAlarm.observe(viewLifecycleOwner) {
                 binding.alarm.isVisible = it
