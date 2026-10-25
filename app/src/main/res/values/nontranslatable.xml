@@ -8,17 +8,8 @@
     <string name="forked_link" translatable="false"><![CDATA[Forked from <a href="https://github.com/tanujnotes/Olauncher">Olauncher</a> (<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0</a>)]]></string>
 
     <!-- Font Stings -->
-    <string name="settings_font_bitter" translatable="false">Bitter</string>
     <string name="settings_font_doto" translatable="false">Doto</string>
-    <string name="settings_font_firacode" translatable="false">Fira Code</string>
-    <string name="settings_font_hack" translatable="false">Hack</string>
-    <string name="settings_font_lato" translatable="false">Lato</string>
-    <string name="settings_font_merriweather" translatable="false">Merriweather</string>
     <string name="settings_font_montserrat" translatable="false">Montserrat</string>
-    <string name="settings_font_quicksand" translatable="false">Quicksand</string>
-    <string name="settings_font_raleway" translatable="false">Raleway</string>
-    <string name="settings_font_roboto" translatable="false">Roboto</string>
-    <string name="settings_font_sourcecodepro" translatable="false">Source Code Pro</string>
 
     <!-- Search Strings -->
     <string name="search_bing" translatable="false">Bing</string>

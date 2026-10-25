@@ -453,32 +453,14 @@ object Constants {
     enum class FontFamily : EnumOption {
         System,
         Custom,
-        Bitter,
         Doto,
-        FiraCode,
-        Hack,
-        Lato,
-        Merriweather,
-        Montserrat,
-        Quicksand,
-        Raleway,
-        Roboto,
-        SourceCodePro;
+        Montserrat;
 
         fun getFont(context: Context): Typeface? {
             return when (this) {
                 System -> getTrueSystemFont()
-                Bitter -> ResourcesCompat.getFont(context, R.font.bitter)
                 Doto -> ResourcesCompat.getFont(context, R.font.doto)
-                FiraCode -> ResourcesCompat.getFont(context, R.font.fira_code)
-                Hack -> ResourcesCompat.getFont(context, R.font.hack)
-                Lato -> ResourcesCompat.getFont(context, R.font.lato)
-                Merriweather -> ResourcesCompat.getFont(context, R.font.merriweather)
                 Montserrat -> ResourcesCompat.getFont(context, R.font.montserrat)
-                Quicksand -> ResourcesCompat.getFont(context, R.font.quicksand)
-                Raleway -> ResourcesCompat.getFont(context, R.font.raleway)
-                Roboto -> ResourcesCompat.getFont(context, R.font.roboto)
-                SourceCodePro -> ResourcesCompat.getFont(context, R.font.source_code_pro)
                 Custom -> {
                     val customFontFile = File(context.filesDir, "CustomFont.ttf")
                     if (customFontFile.exists()) {
@@ -496,17 +478,8 @@ object Constants {
         fun getString(): String {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)
-                Bitter -> getLocalizedString(R.string.settings_font_bitter)
                 Doto -> getLocalizedString(R.string.settings_font_doto)
-                FiraCode -> getLocalizedString(R.string.settings_font_firacode)
-                Hack -> getLocalizedString(R.string.settings_font_hack)
-                Lato -> getLocalizedString(R.string.settings_font_lato)
-                Merriweather -> getLocalizedString(R.string.settings_font_merriweather)
                 Montserrat -> getLocalizedString(R.string.settings_font_montserrat)
-                Quicksand -> getLocalizedString(R.string.settings_font_quicksand)
-                Raleway -> getLocalizedString(R.string.settings_font_raleway)
-                Roboto -> getLocalizedString(R.string.settings_font_roboto)
-                SourceCodePro -> getLocalizedString(R.string.settings_font_sourcecodepro)
                 Custom -> getLocalizedString(R.string.system_custom)
             }
         }
@@ -515,17 +488,8 @@ object Constants {
         override fun string(): String {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)
-                Bitter -> getLocalizedString(R.string.settings_font_bitter)
                 Doto -> getLocalizedString(R.string.settings_font_doto)
-                FiraCode -> getLocalizedString(R.string.settings_font_firacode)
-                Hack -> getLocalizedString(R.string.settings_font_hack)
-                Lato -> getLocalizedString(R.string.settings_font_lato)
-                Merriweather -> getLocalizedString(R.string.settings_font_merriweather)
                 Montserrat -> getLocalizedString(R.string.settings_font_montserrat)
-                Quicksand -> getLocalizedString(R.string.settings_font_quicksand)
-                Raleway -> getLocalizedString(R.string.settings_font_raleway)
-                Roboto -> getLocalizedString(R.string.settings_font_roboto)
-                SourceCodePro -> getLocalizedString(R.string.settings_font_sourcecodepro)
                 Custom -> getLocalizedString(R.string.system_custom)
             }
         }

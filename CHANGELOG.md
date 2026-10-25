@@ -4,6 +4,14 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
+## Unreleased
+
+- Fonts: Montserrat and Doto stay, nine bundled fonts are removed (Bitter, Fira Code, Hack, Lato,
+  Merriweather, Quicksand, Raleway, Roboto, Source Code Pro); the APK loses about 1.5 MB. System
+  font and your own font file (Settings → Look & Feel → Font → Custom) remain. The two fonts now
+  ship with their OFL-1.1 licence texts (`assets/fonts/`) and are recorded in `VENDORED.md`,
+  closing the licence gap the first LifeLine audit found.
+
 ## 1.0.0 — 25 October 2026
 
 - New name and identity: RE*start, package `ch.remaker.restart`, the RE* mark as app icon.
