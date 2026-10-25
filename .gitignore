@@ -14,6 +14,9 @@ diff.*
 *.jks
 app/keystore.properties
 
+# Gradle daemon JVM ölçütü (JDK indirme adresleri içerir); derleme kurulu JDK ile yapılır
+gradle/gradle-daemon-jvm.properties
+
 # Araştırma ve ön çalışmalar, GitHub'a gitmez
 nogit/
 

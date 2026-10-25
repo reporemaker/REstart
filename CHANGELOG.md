@@ -11,6 +11,10 @@ the two changes sent back upstream and every difference at the fork point are in
   9.8.0 → 9.8.1. Rule: stable releases published at least 14 days earlier, no known advisory;
   lock file and sha256 verification metadata regenerated in the same change; debug and signed
   release builds and the unit tests pass. `palette-ktx` 1.1.0 (21 Oct) waits until 4 Nov.
+- `gradle/gradle-daemon-jvm.properties` removed again (an IDE had written it back in 1.1.0)
+  and ignored by git, so the build keeps using the installed JDK and never downloads one.
+- `gradle/verification-metadata.xml` regenerated from scratch: 485 components instead of 617,
+  without the entries of the replaced versions. An offline clean build passes with it.
 
 ## 1.1.0 — 25 October 2026
 
