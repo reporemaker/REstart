@@ -31,7 +31,7 @@
     <string name="settings_notes_description">按你的风格个性化笔记。</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
-    <string name="settings_favorite_apps_title">收藏应用</string>
+    <string name="settings_favorite_apps_title">主屏幕应用</string>
     <string name="settings_favorite_apps_description">重新排序收藏应用，便于从主屏幕快速访问。</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">隐藏应用</string>
@@ -200,11 +200,11 @@
     <!-- Favorite management strings -->
     <string name="add_app">添加应用</string>
     <string name="remove_app">移除应用</string>
-    <string name="max_apps_reached">已达到最大家庭应用数量</string>
-    <string name="min_apps_reached">达到的最低家庭应用数量</string>
+    <string name="max_apps_reached">已达到主屏幕应用的最大数量</string>
+    <string name="min_apps_reached">已达到主屏幕应用的最少数量</string>
     <string name="no_apps_to_remove">没有要移除的应用</string>
     <string name="select_app_to_remove">选择要移除的应用</string>
-    <string name="empty_favorite">未使用的</string>
+    <string name="empty_favorite">未使用</string>
     <string name="confirm_remove_favorite">您确定要将此应用从收藏夹中移除吗？</string>
     <!-- Accessibility/Help Strings -->
     <string name="accessibility_service_name">RE*start 操作服务</string>

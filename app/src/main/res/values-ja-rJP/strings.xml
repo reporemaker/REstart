@@ -2,7 +2,7 @@
 <resources>
     <!-- Base Settings -->
     <string name="select_app">アプリを選択</string>
-    <string name="show_apps">検索アプリ</string>
+    <string name="show_apps">アプリを検索</string>
     <string name="show_private_apps">プライベートアプリを検索</string>
     <string name="show_work_apps">仕事のアプリを探す</string>
     <string name="show_contacts">連絡先を検索</string>
@@ -20,54 +20,54 @@
     <string name="permission_granted">許可されました！続行してください。</string>
     <string name="this_can_be_disabled_later">※この権限は後で無効にされる可能性があります。</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">マルチランチャー設定</string>
-    <string name="settings_features_title">特徴</string>
+    <string name="settings_name">RE*start 設定</string>
+    <string name="settings_features_title">機能</string>
     <string name="settings_features_description">生産性を向上させましょう。</string>
-    <string name="settings_look_feel_title">見て &amp; 感じて</string>
+    <string name="settings_look_feel_title">外観</string>
     <string name="settings_look_feel_description">ホーム画面に自分らしさを加えましょう。</string>
     <string name="settings_gestures_title">ジェスチャー</string>
     <string name="settings_gestures_description">ジェスチャーをカスタマイズして、素早く簡単に操作できます。</string>
-    <string name="settings_notes_title">注記</string>
+    <string name="settings_notes_title">メモ</string>
     <string name="settings_notes_description">自分のスタイルに合わせてメモをカスタマイズしましょう。</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
-    <string name="settings_favorite_apps_title">お気に入りのアプリ</string>
+    <string name="settings_favorite_apps_title">ホーム画面のアプリ</string>
     <string name="settings_favorite_apps_description">お気に入りのアプリを並べ替えて、ホーム画面からすぐにアクセスできるようにしましょう。</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">隠しアプリ</string>
     <string name="settings_hidden_apps_description">非表示アプリを管理する — 必要に応じて、このリストから任意のアプリを表示できます。</string>
     <string name="settings_advanced_title">詳細設定</string>
     <string name="settings_advanced_description">アプリ情報、デフォルトランチャー、バックアップツールなどにアクセスできます。</string>
-    <string name="settings_expert_title">専門家</string>
+    <string name="settings_expert_title">エキスパート</string>
     <string name="settings_expert_description">隠されたオプションや高度な設定をアンロックします。</string>
-    <string name="settings_exit_launcher_title">マルチランチャーを終了する</string>
+    <string name="settings_exit_launcher_title">RE*start を終了</string>
     <string name="settings_exit_launcher_description">一時的にデフォルトのランチャーに切り替えてください。</string>
     <string name="settings_exit_launcher_dialog">ランチャーを選択してください</string>
     <!-- Strings used for features settings -->
-    <string name="features_settings_title">特徴</string>
+    <string name="features_settings_title">機能</string>
     <string name="theme_mode">テーマモード</string>
     <string name="app_language">インターフェース言語</string>
     <string name="font_family">フォントファミリー</string>
     <string name="hide_search_view">検索ビューを非表示にする</string>
     <string name="show_floating_button">ショートカットボタンを表示する</string>
-    <string name="lock_orientation">ロックの向き</string>
+    <string name="lock_orientation">画面の向きをロック</string>
     <string name="haptic_feedback">触覚フィードバック</string>
     <string name="search">検索</string>
     <string name="show_az_sidebar">AZサイドバーを表示</string>
-    <string name="auto_show_keyboard">Auto show keyboard</string>
-    <string name="search_from_start">スタート地点から検索</string>
+    <string name="auto_show_keyboard">キーボードを自動表示</string>
+    <string name="search_from_start">先頭から検索</string>
     <string name="auto_open_apps">アプリを自動的に開く</string>
     <string name="open_apps_on_enter">エンターでアプリを開く</string>
     <string name="lock_home_apps">ホームアプリをロックする</string>
-    <string name="lock_settings">ロック設定</string>
+    <string name="lock_settings">設定をロック</string>
     <string name="apps_on_home_screen">ホームアプリの数</string>
     <string name="enable_app_timer">アプリタイマーを有効にする</string>
-    <string name="force_colored_wallpaper">強制カラー壁紙</string>
+    <string name="force_colored_wallpaper">単色の壁紙を強制</string>
     <string name="info_tiles">情報タイル</string>
     <string name="show_clock">時計を表示</string>
-    <string name="show_clock_format">番組形式（午前／午後）</string>
+    <string name="show_clock_format">午前/午後を表示</string>
     <string name="show_date">日付を表示</string>
-    <string name="show_day_of_year">年間ショー開催日</string>
+    <string name="show_day_of_year">年間通算日を表示</string>
     <string name="show_alarm">アラームを表示</string>
     <string name="show_battery">バッテリーを表示</string>
     <string name="show_battery_icon">バッテリーアイコンを表示</string>
@@ -76,15 +76,15 @@
     <string name="show_weather">天気予報を表示</string>
     <string name="gps_location">GPS位置情報</string>
     <string name="temp_unit">温度単位</string>
-    <string name="manual_location">手動設定場所</string>
+    <string name="manual_location">場所を手動で設定</string>
     <!-- Strings used for look & feel settings -->
-    <string name="look_feel_settings_title">見て &amp; 感じて</string>
+    <string name="look_feel_settings_title">外観</string>
     <string name="app_text_size">アプリのテキストサイズ</string>
     <string name="date_text_size">日付のテキストサイズ</string>
     <string name="clock_text_size">時計の文字サイズ</string>
     <string name="alarm_text_size">アラームのテキストサイズ</string>
     <string name="battery_text_size">バッテリーのテキストサイズ</string>
-    <string name="app_padding_size">パッドサイズ</string>
+    <string name="app_padding_size">余白サイズ</string>
     <string name="extend_home_apps_area">クリック可能な領域を拡張する</string>
     <string name="alignment_to_bottom">下揃え</string>
     <string name="show_status_bar">ステータスバーを表示する</string>
@@ -100,13 +100,13 @@
     <string name="background_opacity">背景の透明性</string>
     <string name="total_screen_time">総画面時間</string>
     <string name="date_alignment">日付</string>
-    <string name="clock_alignment">クロック</string>
+    <string name="clock_alignment">時計</string>
     <string name="alarm_alignment">アラーム</string>
     <string name="home_alignment">ホーム アプリ</string>
     <string name="drawer_alignment">ドロワーアプリ</string>
     <string name="background_color">背景</string>
     <string name="app_color">アプリ</string>
-    <string name="clock_color">クロック</string>
+    <string name="clock_color">時計</string>
     <string name="date_color">日付</string>
     <string name="alarm_color">アラーム</string>
     <string name="battery_color">バッテリー</string>
@@ -116,38 +116,38 @@
     <string name="gestures_settings_title">ジェスチャー</string>
     <string name="tap_click_actions">タップ/クリック操作</string>
     <string name="double_tap">ダブルタップ</string>
-    <string name="clock_click_app">時計をクリックしてください</string>
-    <string name="date_click_app">日付をクリックしてください</string>
-    <string name="usage_click_app">「合計使用量」をクリックしてください。</string>
-    <string name="floating_click_app">ロゴをクリック</string>
+    <string name="clock_click_app">時計をタップ</string>
+    <string name="date_click_app">日付をタップ</string>
+    <string name="usage_click_app">合計使用時間をタップ</string>
+    <string name="floating_click_app">ロゴをタップ</string>
     <string name="swipe_movement">スワイプ操作</string>
-    <string name="short_swipe_up_app">上にスワイプ</string>
-    <string name="short_swipe_down_app">下にスワイプ</string>
-    <string name="short_swipe_left_app">左にスワイプ</string>
-    <string name="short_swipe_right_app">右にスワイプ</string>
-    <string name="long_swipe_up_app">長押し 上にスワイプ</string>
-    <string name="long_swipe_down_app">長押し 下にスワイプ</string>
-    <string name="long_swipe_left_app">長押し 左にスワイプ</string>
-    <string name="long_swipe_right_app">長押し 右にスワイプ</string>
+    <string name="short_swipe_up_app">短く上にスワイプ</string>
+    <string name="short_swipe_down_app">短く下にスワイプ</string>
+    <string name="short_swipe_left_app">短く左にスワイプ</string>
+    <string name="short_swipe_right_app">短く右にスワイプ</string>
+    <string name="long_swipe_up_app">長く上にスワイプ</string>
+    <string name="long_swipe_down_app">長く下にスワイプ</string>
+    <string name="long_swipe_left_app">長く左にスワイプ</string>
+    <string name="long_swipe_right_app">長く右にスワイプ</string>
     <string name="open_app">アプリを開く</string>
-    <string name="lock_screen">ロック画面</string>
+    <string name="lock_screen">画面をロック</string>
     <string name="private_space">プライベートスペース（%1$s）</string>
     <string name="show_notifications">通知を表示</string>
     <string name="show_app_list">アプリ一覧を表示</string>
     <string name="show_widget_page">ウィジェットページを表示</string>
-    <string name="show_notes_manager">ショーノートマネージャー</string>
+    <string name="show_notes_manager">メモを表示</string>
     <string name="show_digital_wellbeing">デジタルウェルビーイングを表示</string>
     <string name="open_quick_settings">クイック設定</string>
-    <string name="show_recents">Show Recents</string>
+    <string name="show_recents">最近使用したアプリを表示</string>
     <string name="open_power_dialog">電源ダイアログ</string>
     <string name="take_a_screenshot">スクリーンショットを撮る</string>
     <!-- Strings used for notes settings -->
-    <string name="notes_settings_title">注記</string>
+    <string name="notes_settings_title">メモ</string>
     <string name="display_options">表示オプション</string>
-    <string name="auto_expand_notes">自動展開ノート</string>
+    <string name="auto_expand_notes">メモを自動的に展開</string>
     <string name="click_to_edit_delete">クリックして編集/削除</string>
-    <string name="notes_colors">ノートの色</string>
-    <string name="notes_background_color">注釈の背景</string>
+    <string name="notes_colors">メモの色</string>
+    <string name="notes_background_color">メモの背景</string>
     <string name="bubble_background_color">バブル背景</string>
     <string name="bubble_message_color">バブルメッセージ</string>
     <string name="bubble_date_time_color">バブルの日時</string>
@@ -156,14 +156,14 @@
     <string name="message_input_color">メッセージ入力</string>
     <string name="message_input_hint_color">メッセージ入力のヒント</string>
     <!-- Strings used for advanced settings -->
-    <string name="advanced_settings_title">高度な</string>
+    <string name="advanced_settings_title">詳細設定</string>
     <string name="advanced_settings_app_info_title">アプリ情報</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">デフォルトランチャーとして設定</string>
     <string name="advanced_settings_set_as_default_launcher_description">RE*startをデフォルトのホームアプリに設定しましょう。</string>
     <string name="advanced_settings_change_default_launcher">デフォルトランチャーを変更する</string>
     <string name="advanced_settings_change_default_launcher_description">デフォルトのランチャーを別のものに変更してください。</string>
-    <string name="advanced_settings_restart_title">ランチャーを再起動してください</string>
+    <string name="advanced_settings_restart_title">ランチャーを再起動</string>
     <string name="advanced_settings_restart_description">電源をオンオフしてみましたか？</string>
     <string name="advanced_settings_backup_restore_title">バックアップ/復元</string>
     <string name="advanced_settings_backup_restore_description">願い事には気をつけた方がいいですよ。</string>
@@ -174,8 +174,8 @@
     <string name="advanced_settings_backup_restore_clear_description">本当にこれをやりたいのですか？</string>
     <string name="advanced_settings_theme_title">テーマ作成</string>
     <string name="advanced_settings_theme_description">自分好みにテーマをカスタマイズしましょう。</string>
-    <string name="advanced_settings_theme_export">輸出</string>
-    <string name="advanced_settings_theme_import">輸入</string>
+    <string name="advanced_settings_theme_export">エクスポート</string>
+    <string name="advanced_settings_theme_import">インポート</string>
     <string name="advanced_settings_theme_clear">クリア</string>
     <string name="advanced_settings_theme_clear_title">テーマをリセット</string>
     <string name="advanced_settings_theme_clear_description">テーマ設定をすべてリセットしてもよろしいですか？</string>
@@ -183,20 +183,20 @@
     <string name="advanced_settings_clear_no">いいえ</string>
     <string name="advanced_settings_help_feedback_title">ヘルプ &amp; フィードバック</string>
     <!-- Strings used for about settings -->
-    <string name="about_settings_title">概要 %1$s</string>
+    <string name="about_settings_title">%1$s について</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">専門家</string>
+    <string name="expert_settings_title">エキスパート</string>
     <string name="threshold">しきい値</string>
     <string name="expert_options_display">エキスパートオプションを表示</string>
     <string name="expert_options_unlocked">エキスパート向けオプションが解放されました！</string>
-    <string name="expert_options_tap_hint">%1$d ロックを解除するには、さらにタップしてください</string>
-    <string name="settings_text_size">設定文字サイズ</string>
+    <string name="expert_options_tap_hint">あと %1$d 回タップでロック解除</string>
+    <string name="settings_text_size">設定の文字サイズ</string>
     <string name="settings_short_threshold">短いスワイプの閾値</string>
     <string name="settings_long_threshold">ロングスワイプしきい値</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">隠しアプリ</string>
     <string name="favorite_apps">お気に入りのアプリ</string>
-    <string name="clear_home_app">Clear Homeアプリ</string>
+    <string name="clear_home_app">ホームの枠を空にする</string>
     <!-- Favorite management strings -->
     <string name="add_app">アプリを追加</string>
     <string name="remove_app">アプリを削除</string>
@@ -207,7 +207,7 @@
     <string name="empty_favorite">未使用</string>
     <string name="confirm_remove_favorite">このアプリをお気に入りから削除してもよろしいですか？</string>
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">マルチランチャーアクションサービス</string>
+    <string name="accessibility_service_name">RE*start アクションサービス</string>
     <string name="accessibility_service_why_we_need">アクセシビリティ許可が必要な理由</string>
     <string name="accessibility_service_description">このアクセシビリティサービスにより、RE*startは画面のロックやクイック設定の起動などの特定のアクションを実行できます。当社のアクセシビリティサービスは、いかなるデータも収集または共有しません。</string>
     <string name="accessibility_service_more_info">
@@ -220,33 +220,33 @@
     <string name="can_not_delete_system_apps">システムアプリを削除できません</string>
     <string name="please_select_app">アプリを選択してください</string>
     <string name="drawer_list_empty_hint">アプリが見つかりません</string>
-    <string name="long_press_for_settings">設定用に長押ししてください</string>
+    <string name="long_press_for_settings">どこでも長押しで設定</string>
     <string name="long_press_to_select_app">アプリを選択するには長押ししてください</string>
     <string name="long_press_to_select_app_locked">ホームアプリのロックを解除してアプリを選択</string>
     <string name="tap_button_for_notes">メモを表示するにはランチャーのロゴをタップしてください</string>
-    <string name="swipe_up_for_apps">すべてのアプリで上にスワイプ</string>
+    <string name="swipe_up_for_apps">上にスワイプしてすべてのアプリを表示</string>
     <string name="app_drawer_tips">ヒント: 下にスワイプして解除します。スクロールしてキーボードを非表示にします。</string>
     <!-- PinCode Strings -->
-    <string name="text_authentication_cancel">認証キャンセル。</string>
+    <string name="text_authentication_cancel">認証がキャンセルされました。</string>
     <string name="text_authentication_error">認証エラー: %1$s (コード %2$d)</string>
     <string name="text_authentication_failed">認証に失敗しました。</string>
-    <string name="text_biometric_login">生体認証ログイン マルチランチャー設定</string>
+    <string name="text_biometric_login">RE*start 設定の生体認証ログイン</string>
     <string name="text_biometric_login_app">%1$s の生体認証ログイン</string>
     <string name="text_biometric_login_sub">生体認証資格情報を使用してログインします</string>
     <!-- Crash Strings -->
     <string name="acra_crash">クラッシュ</string>
     <string name="acra_dialog_text">%1$s で予期しない問題が発生したため、終了する必要があります。</string>
     <string name="acra_send_report">レポートを送信</string>
-    <string name="acra_dont_send">送信しないでください</string>
+    <string name="acra_dont_send">送信しない</string>
     <!-- Share Strings -->
-    <string name="share_note">シェアノート</string>
+    <string name="share_note">メモを共有</string>
     <!-- Icon Pack Strings -->
     <string name="choose_icon_pack">アイコンパックを選択</string>
     <string name="apply_icon_pack">アイコンパックを適用する</string>
-    <string name="applying_icon_pack">アイコンに新鮮な外観を与えましょう…</string>
+    <string name="applying_icon_pack">アイコンを新しくしています…</string>
     <string name="apply_icon_pack_are_you_sure">このアイコンパックを適用してもよろしいですか？\n\n%1$s</string>
-    <string name="apply_to_home">ホームに応募する</string>
-    <string name="apply_to_app_list">アプリ一覧に申し込む</string>
+    <string name="apply_to_home">ホームに適用</string>
+    <string name="apply_to_app_list">アプリ一覧に適用</string>
     <string name="default_icon_not_found">デフォルトのアプリアイコンのドローアブルが見つかりません</string>
     <!-- Settings Strings -->
     <string name="left">左</string>
@@ -257,7 +257,7 @@
     <string name="system_default">システム</string>
     <string name="system_custom">カスタム</string>
     <string name="system_custom_plus">カスタム (%1$s)</string>
-    <string name="restart_launcher">ランチャーを再起動してください</string>
+    <string name="restart_launcher">ランチャーを再起動</string>
     <string name="delete">消去</string>
     <string name="hide">非表示</string>
     <string name="show">表示</string>
@@ -265,21 +265,21 @@
     <string name="unlock">ロック解除</string>
     <string name="locked">ロック済み</string>
     <string name="unlocked">ロック解除済み</string>
-    <string name="pin">ピン</string>
+    <string name="pin">ピン留め</string>
     <string name="unpin">ピン留めを解除</string>
     <string name="rename">名前の変更</string>
     <string name="tag">タグ</string>
     <string name="info">情報</string>
     <string name="okay">OK</string>
     <string name="apply">適用する</string>
-    <string name="reset">Reset</string>
+    <string name="reset">リセット</string>
     <string name="cancel">キャンセル</string>
     <string name="save">保存</string>
     <string name="disabled">無効</string>
-    <string name="open">開ける</string>
+    <string name="open">開く</string>
     <string name="close">閉じる</string>
-    <string name="next">次</string>
-    <string name="start">始める</string>
+    <string name="next">次へ</string>
+    <string name="start">開始</string>
     <string name="copy">コピー</string>
     <string name="none">なし</string>
     <string name="celsius">摂氏</string>
@@ -305,11 +305,11 @@
     <string name="widgets_select_widget">ウィジェットを選択してください</string>
     <string name="widgets_add_widget">ウィジェットを追加する</string>
     <string name="widgets_edit_widget">ウィジェットを編集する</string>
-    <string name="widgets_stop_editing_widget">ウィジェットの編集を停止してください</string>
+    <string name="widgets_stop_editing_widget">ウィジェットの編集を終了</string>
     <string name="widgets_reset_widget">すべてのウィジェットをリセットする</string>
     <string name="widgets_remove_widget">すべてのウィジェットを削除する</string>
     <string name="widgets_resize">サイズ変更</string>
-    <string name="widgets_exit_resize">終了 サイズ変更</string>
+    <string name="widgets_exit_resize">サイズ変更を終了</string>
     <string name="widgets_remove">ウィジェットを削除</string>
     <string name="widgets_open">アプリを開く</string>
     <string name="widgets_view_in_store">アプリストアでアプリを見る</string>
@@ -318,13 +318,13 @@
     <!-- Private Spaces Strings -->
     <string name="alert_requires_android_v">この機能を利用するには、Android 15以降が必要です。</string>
     <string name="toast_private_space_default_home_screen">プライベートスペースにアクセスするには、RE*startをデフォルトのホーム画面に設定する必要があります。</string>
-    <string name="toast_private_space_locked">プライベート空間は施錠されています</string>
-    <string name="toast_private_space_unlocked">プライベート空間のロックを解除</string>
-    <string name="toast_private_space_not_available">個室は利用できません</string>
+    <string name="toast_private_space_locked">プライベートスペースをロックしました</string>
+    <string name="toast_private_space_unlocked">プライベートスペースのロックを解除しました</string>
+    <string name="toast_private_space_not_available">プライベートスペースは利用できません</string>
     <string name="notes_list_empty_hint">最初のメモを以下に書き始めてください。</string>
     <string name="confirm_delete_title">メモを削除</string>
     <string name="confirm_delete_message">このメモを削除してもよろしいですか？</string>
-    <string name="edit_note">編集メモ</string>
+    <string name="edit_note">メモを編集</string>
     <string name="category">カテゴリ</string>
     <string name="priority">優先度</string>
     <string name="settings_context_menu_title">コンテキストメニュー</string>

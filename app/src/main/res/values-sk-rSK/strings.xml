@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base Settings -->
-    <string name="select_app">Vyberte App</string>
+    <string name="select_app">Vybrať aplikáciu</string>
     <string name="show_apps">Vyhľadávanie aplikácií</string>
     <string name="show_private_apps">Vyhľadávanie súkromných aplikácií</string>
     <string name="show_work_apps">Vyhľadávanie pracovných aplikácií</string>
@@ -21,9 +21,9 @@
     <string name="this_can_be_disabled_later">* Toto povolenie môže byť neskôr zakázané.</string>
     <!-- Strings used for settings menus -->
     <string name="settings_name">Nastavenia RE*start</string>
-    <string name="settings_features_title">Vlastnosti</string>
+    <string name="settings_features_title">Funkcie</string>
     <string name="settings_features_description">Zlepšite svoju produktivitu.</string>
-    <string name="settings_look_feel_title">Pozrite sa &amp; Cítite</string>
+    <string name="settings_look_feel_title">Vzhľad</string>
     <string name="settings_look_feel_description">Dodajte svojej domovskej obrazovke osobný nádych.</string>
     <string name="settings_gestures_title">Gestá</string>
     <string name="settings_gestures_description">Prispôsobte si gestá pre rýchlu a jednoduchú navigáciu.</string>
@@ -31,7 +31,7 @@
     <string name="settings_notes_description">Prispôsobte si poznámky tak, aby zodpovedali vášmu štýlu.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
-    <string name="settings_favorite_apps_title">Obľúbené aplikácie</string>
+    <string name="settings_favorite_apps_title">Aplikácie domovskej obrazovky</string>
     <string name="settings_favorite_apps_description">Zmeňte poradie svojich obľúbených aplikácií pre rýchly prístup z domovskej obrazovky.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Skryté aplikácie</string>
@@ -40,11 +40,11 @@
     <string name="settings_advanced_description">Prístup k informáciám o aplikácii, predvolenému spúšťaču, nástrojom na zálohovanie a ďalším funkciám.</string>
     <string name="settings_expert_title">Expert</string>
     <string name="settings_expert_description">Odomknite skryté možnosti a pokročilé vylepšenia.</string>
-    <string name="settings_exit_launcher_title">Ukončite RE*start</string>
+    <string name="settings_exit_launcher_title">Ukončiť RE*start</string>
     <string name="settings_exit_launcher_description">Dočasne prepnite na predvolený spúšťač.</string>
     <string name="settings_exit_launcher_dialog">Vyberte spúšťač</string>
     <!-- Strings used for features settings -->
-    <string name="features_settings_title">Vlastnosti</string>
+    <string name="features_settings_title">Funkcie</string>
     <string name="theme_mode">Režim témy</string>
     <string name="app_language">Jazyk rozhrania</string>
     <string name="font_family">Rodina písiem</string>
@@ -55,12 +55,12 @@
     <string name="search">Hľadať</string>
     <string name="show_az_sidebar">Zobraziť bočný panel AZ</string>
     <string name="auto_show_keyboard">Automaticky zobraziť klávesnicu</string>
-    <string name="search_from_start">Vyhľadávanie aplikácií od začiatku.</string>
+    <string name="search_from_start">Hľadať od začiatku názvu</string>
     <string name="auto_open_apps">Automatické otváranie aplikácií</string>
-    <string name="open_apps_on_enter">Otvoriť aplikáciu pri zadávaní textu Enter</string>
-    <string name="lock_home_apps">Zámok aplikácií</string>
+    <string name="open_apps_on_enter">Otvoriť aplikáciu klávesom Enter</string>
+    <string name="lock_home_apps">Zamknúť aplikácie domovskej obrazovky</string>
     <string name="lock_settings">Uzamknúť nastavenia</string>
-    <string name="apps_on_home_screen">Počet domácich aplikácií</string>
+    <string name="apps_on_home_screen">Počet aplikácií na domovskej obrazovke</string>
     <string name="enable_app_timer">Povoliť časovač aplikácie</string>
     <string name="force_colored_wallpaper">Vynútiť farebnú tapetu</string>
     <string name="info_tiles">Informačné dlaždice</string>
@@ -74,14 +74,14 @@
     <string name="bedtime_end_time">Čas ukončenia večerky</string>
     <string name="show_battery">Zobraziť batériu</string>
     <string name="show_battery_icon">Zobraziť ikonu batérie</string>
-    <string name="show_private_spaces">Ikona Zobraziť súkromné priestory</string>
+    <string name="show_private_spaces">Zobraziť ikonu súkromných priestorov</string>
     <string name="weather">Počasie</string>
     <string name="show_weather">Zobraziť Počasie</string>
     <string name="gps_location">GPS poloha</string>
     <string name="temp_unit">Jednotka teploty</string>
     <string name="manual_location">Nastaviť manuálne umiestnenie</string>
     <!-- Strings used for look & feel settings -->
-    <string name="look_feel_settings_title">Pozrite sa &amp; Cítite</string>
+    <string name="look_feel_settings_title">Vzhľad</string>
     <string name="app_text_size">Veľkosť textu aplikácie</string>
     <string name="date_text_size">Veľkosť textu dátumu</string>
     <string name="clock_text_size">Veľkosť textu hodín</string>
@@ -101,12 +101,12 @@
     <string name="filter_strength">Sila fuzzy vyhľadávača</string>
     <string name="show_background">Zobraziť pozadie</string>
     <string name="background_opacity">Priehľadnosť pozadia</string>
-    <string name="total_screen_time">Zobraziť celkový čas obrazovky</string>
+    <string name="total_screen_time">Celkový čas pri obrazovke</string>
     <string name="date_alignment">Dátum</string>
     <string name="clock_alignment">Hodiny</string>
     <string name="alarm_alignment">Budík</string>
-    <string name="home_alignment">Domáce aplikácie</string>
-    <string name="drawer_alignment">Zásuvkové aplikácie</string>
+    <string name="home_alignment">Aplikácie domovskej obrazovky</string>
+    <string name="drawer_alignment">Aplikácie v zozname</string>
     <string name="background_color">Pozadie</string>
     <string name="app_color">Aplikácie</string>
     <string name="clock_color">Hodiny</string>
@@ -117,7 +117,7 @@
     <string name="shortcuts_color">Skratky</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestá</string>
-    <string name="tap_click_actions">Klepnite/kliknite na Akcie</string>
+    <string name="tap_click_actions">Akcie klepnutia/kliknutia</string>
     <string name="double_tap">Dvojité poklepanie</string>
     <string name="clock_click_app">Kliknúť na Hodiny</string>
     <string name="date_click_app">Kliknúť na Dátum</string>
@@ -133,16 +133,16 @@
     <string name="long_swipe_left_app">Dlhé potiahnutie prstom doľava</string>
     <string name="long_swipe_right_app">Dlhé potiahnutie prstom doprava</string>
     <string name="open_app">Otvoriť aplikáciu</string>
-    <string name="lock_screen">Zamykacia obrazovka</string>
+    <string name="lock_screen">Zamknúť obrazovku</string>
     <string name="private_space">Súkromné priestory (%1$s)</string>
     <string name="show_notifications">Zobraziť notifikácie</string>
     <string name="show_app_list">Zobraziť zoznam aplikácií</string>
     <string name="show_widget_page">Zobraziť stránku s widgetmi</string>
     <string name="show_notes_manager">Zobraziť správcu poznámok</string>
-    <string name="show_digital_wellbeing">Ukážte digitálnu pohodu</string>
+    <string name="show_digital_wellbeing">Zobraziť Digitálnu rovnováhu</string>
     <string name="open_quick_settings">Rýchle nastavenia</string>
     <string name="show_recents">Zobraziť Nedávne</string>
-    <string name="open_power_dialog">Dialógové okno napájania</string>
+    <string name="open_power_dialog">Ponuka napájania</string>
     <string name="take_a_screenshot">Vytvoriť snímku obrazovky</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Poznámky</string>
@@ -166,7 +166,7 @@
     <string name="advanced_settings_set_as_default_launcher_description">Nastavte si RE*start ako predvolenú domovskú aplikáciu.</string>
     <string name="advanced_settings_change_default_launcher">Zmeniť predvolený spúšťač</string>
     <string name="advanced_settings_change_default_launcher_description">Vyberte iný spúšťač ako predvolený.</string>
-    <string name="advanced_settings_restart_title">Reštartujte spúšťač</string>
+    <string name="advanced_settings_restart_title">Reštartovať spúšťač</string>
     <string name="advanced_settings_restart_description">Skúšali ste to zapnúť a vypnúť?</string>
     <string name="advanced_settings_backup_restore_title">Zálohovanie/obnovenie</string>
     <string name="advanced_settings_backup_restore_description">Dávajte si prosím pozor na to, čo si želáte?</string>
@@ -179,32 +179,32 @@
     <string name="advanced_settings_theme_description">Prispôsobte si témy tak, aby vám vyhovovali.</string>
     <string name="advanced_settings_theme_export">Exportovať</string>
     <string name="advanced_settings_theme_import">Importovať</string>
-    <string name="advanced_settings_theme_clear">Jasné</string>
+    <string name="advanced_settings_theme_clear">Vymazať</string>
     <string name="advanced_settings_theme_clear_title">Obnoviť tému</string>
     <string name="advanced_settings_theme_clear_description">Naozaj chcete obnoviť všetky nastavenia témy?</string>
     <string name="advanced_settings_clear_yes">Áno</string>
     <string name="advanced_settings_clear_no">Nie</string>
     <string name="advanced_settings_help_feedback_title">Pomoc &amp; Spätná väzba</string>
     <!-- Strings used for about settings -->
-    <string name="about_settings_title">Približne %1$s</string>
+    <string name="about_settings_title">O aplikácii %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
     <string name="threshold">Prahová hodnota</string>
     <string name="expert_options_display">Zobraziť možnosti pre expertov</string>
     <string name="expert_options_unlocked">Možnosti pre expertov sú odomknuté!</string>
     <string name="expert_options_tap_hint">%1$d viac klepnutí na odomknutie</string>
-    <string name="settings_text_size">Nastavenia Veľkosť textu</string>
+    <string name="settings_text_size">Veľkosť textu nastavení</string>
     <string name="settings_short_threshold">Prah krátkeho potiahnutia</string>
     <string name="settings_long_threshold">Prah dlhého potiahnutia</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Skryté aplikácie</string>
     <string name="favorite_apps">Obľúbené aplikácie</string>
-    <string name="clear_home_app">Vymazať domovskú aplikáciu</string>
+    <string name="clear_home_app">Uvoľniť pozíciu</string>
     <!-- Favorite management strings -->
     <string name="add_app">Pridať aplikáciu</string>
     <string name="remove_app">Odstrániť aplikáciu</string>
-    <string name="max_apps_reached">Dosiahol sa maximálny počet domácich aplikácií</string>
-    <string name="min_apps_reached">Dosiahnutý minimálny počet domácich aplikácií</string>
+    <string name="max_apps_reached">Dosiahol sa maximálny počet aplikácií na domovskej obrazovke</string>
+    <string name="min_apps_reached">Dosiahol sa minimálny počet aplikácií na domovskej obrazovke</string>
     <string name="no_apps_to_remove">Žiadne aplikácie na odstránenie</string>
     <string name="select_app_to_remove">Vyberte aplikáciu, ktorú chcete odstrániť</string>
     <string name="empty_favorite">Nepoužité</string>
@@ -213,36 +213,28 @@
     <string name="accessibility_service_name">Služby akcií RE*start</string>
     <string name="accessibility_service_why_we_need">Prečo potrebujeme povolenie na prístupnosť</string>
     <string name="accessibility_service_description">Táto služba prístupnosti umožňuje programu RE*start vykonávať určité akcie, ako je uzamknutie obrazovky alebo otvorenie rýchlych nastavení. Naša služba dostupnosti nezhromažďuje ani nezdieľa žiadne údaje.</string>
-    <string name="accessibility_service_more_info">RE*start vyžaduje prístup k Službe prístupnosti, aby mohol povoliť funkcie ako:
-
-• Zamknutie obrazovky gestom alebo skratkou  
-• Rýchle otvorenie panela rýchlych nastavení  
-
-Toto povolenie umožňuje aplikácii RE*start vykonávať tieto akcie vo vašom mene, ale nezhromažďujeme, neukladáme ani nezdieľame žiadne osobné ani citlivé údaje prostredníctvom tejto služby.  
-
-Tento prístup môžete kedykoľvek vypnúť v nastaveniach zariadenia.
-</string>
+    <string name="accessibility_service_more_info">RE*start vyžaduje prístup k Službe prístupnosti, aby mohol povoliť funkcie ako:\n\n• Zamknutie obrazovky gestom alebo skratkou\n• Rýchle otvorenie panela rýchlych nastavení\n\nToto povolenie umožňuje aplikácii RE*start vykonávať tieto akcie vo vašom mene, ale nezhromažďujeme, neukladáme ani nezdieľame žiadne osobné ani citlivé údaje prostredníctvom tejto služby.\n\nTento prístup môžete kedykoľvek vypnúť v nastaveniach zariadenia.</string>
     <string name="can_not_delete_system_apps">Systémové aplikácie sa nedajú odstrániť</string>
     <string name="please_select_app">Vyberte aplikáciu</string>
     <string name="drawer_list_empty_hint">Nenašli sa žiadne aplikácie</string>
     <string name="long_press_for_settings">Dlho podržte pre nastavenia</string>
     <string name="long_press_to_select_app">Dlhým stlačením vyberte aplikáciu</string>
-    <string name="long_press_to_select_app_locked">Odomknite aplikácie na domovskej stránke a vyberte ich</string>
+    <string name="long_press_to_select_app_locked">Ak chcete vybrať aplikáciu, odomknite aplikácie domovskej obrazovky</string>
     <string name="tap_button_for_notes">Klepnutím na logo spúšťača zobrazíte poznámky</string>
     <string name="swipe_up_for_apps">Potiahnutím nahor zobrazíte všetky aplikácie</string>
     <string name="app_drawer_tips">Tip: Potiahnutím nadol zatvoríte. Posunutím skryjete klávesnicu.</string>
     <!-- PinCode Strings -->
     <string name="text_authentication_cancel">Zrušiť overenie.</string>
-    <string name="text_authentication_error">Chyba overenia:%1$s(kód %2$d)</string>
+    <string name="text_authentication_error">Chyba overenia: %1$s (kód %2$d)</string>
     <string name="text_authentication_failed">Overenie zlyhalo</string>
-    <string name="text_biometric_login">Biometrické prihlásenie Nastavenia RE*start</string>
+    <string name="text_biometric_login">Biometrické prihlásenie do nastavení RE*start</string>
     <string name="text_biometric_login_app">Biometrické prihlásenie pre %1$s</string>
     <string name="text_biometric_login_sub">Prihláste sa pomocou svojich biometrických údajov.</string>
     <!-- Crash Strings -->
-    <string name="acra_crash">Zrútiť sa</string>
+    <string name="acra_crash">Zlyhanie</string>
     <string name="acra_dialog_text">Aplikácia %1$s narazila na neočakávaný problém a musí sa zavrieť.</string>
     <string name="acra_send_report">Odoslať správu</string>
-    <string name="acra_dont_send">Neposielajte</string>
+    <string name="acra_dont_send">Neodoslať</string>
     <!-- Share Strings -->
     <string name="share_note">Zdieľať poznámku</string>
     <!-- Icon Pack Strings -->
@@ -262,11 +254,11 @@ Tento prístup môžete kedykoľvek vypnúť v nastaveniach zariadenia.
     <string name="system_default">Systém</string>
     <string name="system_custom">Vlastné</string>
     <string name="system_custom_plus">Vlastné (%1$s)</string>
-    <string name="restart_launcher">Reštartujte spúšťač</string>
+    <string name="restart_launcher">Reštartovať spúšťač</string>
     <string name="delete">Odstrániť</string>
     <string name="hide">Skryť</string>
     <string name="show">Zobraziť</string>
-    <string name="lock">Zámok</string>
+    <string name="lock">Zamknúť</string>
     <string name="unlock">Odomknúť</string>
     <string name="locked">Zamknuté</string>
     <string name="unlocked">Odomknuté</string>
@@ -282,7 +274,7 @@ Tento prístup môžete kedykoľvek vypnúť v nastaveniach zariadenia.
     <string name="save">Uložiť</string>
     <string name="shortcut_add_title">Pridať skratku</string>
     <string name="shortcut_add">Pridať</string>
-    <string name="shortcut_name">Meno</string>
+    <string name="shortcut_name">Názov</string>
     <string name="shortcut_added">Skratka bola pridaná</string>
     <string name="shortcut_removed">Skratka odstránená</string>
     <string name="shortcut_launch_failed">Nepodarilo sa spustiť skratku</string>
@@ -344,7 +336,7 @@ Tento prístup môžete kedykoľvek vypnúť v nastaveniach zariadenia.
     <string name="settings_home_buttons_title">Tlačidlá Domov</string>
     <string name="settings_applist_buttons_title">Tlačidlá zoznamu aplikácií</string>
     <string name="settings_source_code">Zdrojový kód</string>
-    <string name="settings_credits">Kredity</string>
+    <string name="settings_credits">Poďakovanie</string>
     <string-array name="priorities">
         <item>Nízka</item>
         <item>Stredná</item>

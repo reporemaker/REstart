@@ -2,7 +2,7 @@
 <resources>
     <!-- Base Settings -->
     <string name="select_app">Selecione a aplicação</string>
-    <string name="show_apps">Aplicativos de busca</string>
+    <string name="show_apps">Pesquisar aplicações</string>
     <string name="show_private_apps">Pesquisar aplicações privadas</string>
     <string name="show_work_apps">Pesquisar aplicações de trabalho</string>
     <string name="show_contacts">Pesquisar contactos</string>
@@ -12,7 +12,7 @@
     <string name="accessibility_access_permission">Permissões de acessibilidade</string>
     <string name="grant_permission">Conceder permissão</string>
     <string name="grant_usage_permission">Para continuar, conceda a permissão de Acesso de Utilização.</string>
-    <string name="reason_usage_permission">Esta aplicação precisa de acesso à sua conta para mostrar as aplicações que mais utiliza, monitorizar o tempo de utilização do ecrã e melhorar a sua experiência. Não recolhemos nem partilhamos quaisquer dados pessoais.</string>
+    <string name="reason_usage_permission">Esta aplicação precisa de acesso aos dados de utilização para mostrar as aplicações que mais utiliza, monitorizar o tempo de utilização do ecrã e melhorar a sua experiência. Não recolhemos nem partilhamos quaisquer dados pessoais.</string>
     <string name="grant_location_permission">Para continuar, conceda permissão de localização.</string>
     <string name="reason_location_permission">Esta aplicação necessita de acesso à localização para fornecer atualizações meteorológicas precisas com base na sua localização atual. Não recolhemos nem partilhamos quaisquer dados pessoais.</string>
     <string name="grant_accessibility_permission">Para continuar, conceda a permissão de Acessibilidade.</string>
@@ -23,7 +23,7 @@
     <string name="settings_name">Configurações do RE*start</string>
     <string name="settings_features_title">Funcionalidades</string>
     <string name="settings_features_description">Aumente a sua produtividade.</string>
-    <string name="settings_look_feel_title">Parecer &amp; Sentir</string>
+    <string name="settings_look_feel_title">Aspeto</string>
     <string name="settings_look_feel_description">Dê um toque pessoal ao seu ecrã inicial.</string>
     <string name="settings_gestures_title">Gestos</string>
     <string name="settings_gestures_description">Personalize os gestos para uma navegação rápida e fácil.</string>
@@ -31,7 +31,7 @@
     <string name="settings_notes_description">Personalize as suas anotações para que combinem com o seu estilo.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
-    <string name="settings_favorite_apps_title">Aplicativos favoritos</string>
+    <string name="settings_favorite_apps_title">Aplicações do ecrã inicial</string>
     <string name="settings_favorite_apps_description">Reorganize as suas aplicações favoritas para acesso rápido na tela inicial.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Aplicações ocultas</string>
@@ -50,38 +50,38 @@
     <string name="font_family">Família de fontes</string>
     <string name="hide_search_view">Ocultar visualização de pesquisa</string>
     <string name="show_floating_button">Mostrar botões de atalho</string>
-    <string name="lock_orientation">Orientação da trava</string>
+    <string name="lock_orientation">Bloquear orientação</string>
     <string name="haptic_feedback">Feedback háptico</string>
     <string name="search">Pesquisa</string>
     <string name="show_az_sidebar">Mostrar barra lateral AZ</string>
-    <string name="auto_show_keyboard">Teclado de exposição automática</string>
+    <string name="auto_show_keyboard">Mostrar teclado automaticamente</string>
     <string name="search_from_start">Pesquisar a partir do início</string>
-    <string name="auto_open_apps">Aplicações abertas automaticamente</string>
-    <string name="open_apps_on_enter">Abrir aplicação ao entrar</string>
-    <string name="lock_home_apps">Aplicações de bloqueio residencial</string>
-    <string name="lock_settings">Configurações de bloqueio</string>
-    <string name="apps_on_home_screen">Número de aplicações domésticas</string>
+    <string name="auto_open_apps">Abrir aplicações automaticamente</string>
+    <string name="open_apps_on_enter">Abrir aplicação com Enter</string>
+    <string name="lock_home_apps">Bloquear aplicações do ecrã inicial</string>
+    <string name="lock_settings">Bloquear definições</string>
+    <string name="apps_on_home_screen">Número de aplicações do ecrã inicial</string>
     <string name="enable_app_timer">Ativar temporizador da aplicação</string>
-    <string name="force_colored_wallpaper">Papel de parede colorido Força</string>
+    <string name="force_colored_wallpaper">Forçar fundo de ecrã colorido</string>
     <string name="info_tiles">Blocos de Informação</string>
     <string name="show_clock">Mostrar relógio</string>
-    <string name="show_clock_format">Formato de visualização (AM/PM)</string>
+    <string name="show_clock_format">Mostrar formato (AM/PM)</string>
     <string name="show_date">Mostrar data</string>
-    <string name="show_day_of_year">Dia de exibição do ano</string>
+    <string name="show_day_of_year">Mostrar dia do ano</string>
     <string name="show_alarm">Mostrar alarme</string>
     <string name="alarm_settings">Alarme</string>
-    <string name="bedtime_start_time">Hora de começar a dormir</string>
-    <string name="bedtime_end_time">Hora de dormir</string>
+    <string name="bedtime_start_time">Hora de início do descanso</string>
+    <string name="bedtime_end_time">Hora de fim do descanso</string>
     <string name="show_battery">Mostrar bateria</string>
     <string name="show_battery_icon">Mostrar ícone da bateria</string>
-    <string name="show_private_spaces">Ícone Mostrar Espaços Privados</string>
+    <string name="show_private_spaces">Mostrar ícone de espaços privados</string>
     <string name="weather">Tempo</string>
     <string name="show_weather">Mostrar previsão do tempo</string>
     <string name="gps_location">Localização GPS</string>
     <string name="temp_unit">Unidade de temperatura</string>
     <string name="manual_location">Definir localização manual</string>
     <!-- Strings used for look & feel settings -->
-    <string name="look_feel_settings_title">Parecer &amp; Sentir</string>
+    <string name="look_feel_settings_title">Aspeto</string>
     <string name="app_text_size">Tamanho do texto da aplicação</string>
     <string name="date_text_size">Tamanho do texto da data</string>
     <string name="clock_text_size">Tamanho do texto do relógio</string>
@@ -106,9 +106,9 @@
     <string name="clock_alignment">Relógio</string>
     <string name="alarm_alignment">Alarme</string>
     <string name="home_alignment">Aplicações da página inicial</string>
-    <string name="drawer_alignment">Aplicativos de gaveta</string>
+    <string name="drawer_alignment">Aplicações da gaveta</string>
     <string name="background_color">Fundo</string>
-    <string name="app_color">Aplicativos</string>
+    <string name="app_color">Aplicações</string>
     <string name="clock_color">Relógio</string>
     <string name="date_color">Data</string>
     <string name="alarm_color">Alarme</string>
@@ -118,39 +118,39 @@
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestos</string>
     <string name="tap_click_actions">Ações de toque/clique</string>
-    <string name="double_tap">Torneira dupla</string>
+    <string name="double_tap">Toque duplo</string>
     <string name="clock_click_app">Clique em Relógio</string>
-    <string name="date_click_app">Clique na data.</string>
+    <string name="date_click_app">Clique na data</string>
     <string name="usage_click_app">Clique em Uso total</string>
     <string name="floating_click_app">Clique no logótipo</string>
     <string name="swipe_movement">Movimento de deslizar</string>
-    <string name="short_swipe_up_app">Deslizar</string>
-    <string name="short_swipe_down_app">Descer</string>
-    <string name="short_swipe_left_app">Desviar para a esquerda</string>
-    <string name="short_swipe_right_app">Desviar para a direita</string>
-    <string name="long_swipe_up_app">Pressione longamente e deslize para cima</string>
-    <string name="long_swipe_down_app">Pressione longamente e deslize para baixo</string>
-    <string name="long_swipe_left_app">Pressione e deslize para a esquerda</string>
-    <string name="long_swipe_right_app">Pressione longamente e deslize para a direita</string>
-    <string name="open_app">Aplicação aberta</string>
-    <string name="lock_screen">Ecrã de bloqueio</string>
+    <string name="short_swipe_up_app">Deslize curto para cima</string>
+    <string name="short_swipe_down_app">Deslize curto para baixo</string>
+    <string name="short_swipe_left_app">Deslize curto para a esquerda</string>
+    <string name="short_swipe_right_app">Deslize curto para a direita</string>
+    <string name="long_swipe_up_app">Deslize longo para cima</string>
+    <string name="long_swipe_down_app">Deslize longo para baixo</string>
+    <string name="long_swipe_left_app">Deslize longo para a esquerda</string>
+    <string name="long_swipe_right_app">Deslize longo para a direita</string>
+    <string name="open_app">Abrir aplicação</string>
+    <string name="lock_screen">Bloquear ecrã</string>
     <string name="private_space">Espaços privados (%1$s)</string>
     <string name="show_notifications">Mostrar Notificação</string>
     <string name="show_app_list">Mostrar lista de aplicações</string>
     <string name="show_widget_page">Exibir página do widget</string>
-    <string name="show_notes_manager">Gestor de notas do programa</string>
+    <string name="show_notes_manager">Mostrar notas</string>
     <string name="show_digital_wellbeing">Mostrar bem-estar digital</string>
     <string name="open_quick_settings">Definições rápidas</string>
     <string name="show_recents">Mostrar recentes</string>
-    <string name="open_power_dialog">Diálogo de poder</string>
-    <string name="take_a_screenshot">Faça uma captura de ecrã.</string>
+    <string name="open_power_dialog">Menu de energia</string>
+    <string name="take_a_screenshot">Fazer captura de ecrã</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notas</string>
     <string name="display_options">Opções de visualização</string>
-    <string name="auto_expand_notes">Notas com expansão automática</string>
+    <string name="auto_expand_notes">Expandir notas automaticamente</string>
     <string name="click_to_edit_delete">Clique para editar/apagar</string>
     <string name="notes_colors">Cores das notas</string>
-    <string name="notes_background_color">Notas de fundo</string>
+    <string name="notes_background_color">Fundo das notas</string>
     <string name="bubble_background_color">Fundo de bolhas</string>
     <string name="bubble_message_color">Mensagem em forma de balão</string>
     <string name="bubble_date_time_color">Data/Hora da bolha</string>
@@ -160,13 +160,13 @@
     <string name="message_input_hint_color">Dica de entrada de mensagens</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Configurações avançadas</string>
-    <string name="advanced_settings_app_info_title">Informações do aplicativo</string>
+    <string name="advanced_settings_app_info_title">Informações da aplicação</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Definir como iniciador predefinido</string>
     <string name="advanced_settings_set_as_default_launcher_description">Defina o RE*start como a sua aplicação inicial predefinida.</string>
-    <string name="advanced_settings_change_default_launcher">Alterar lançador padrão</string>
+    <string name="advanced_settings_change_default_launcher">Alterar iniciador predefinido</string>
     <string name="advanced_settings_change_default_launcher_description">Escolha um iniciador diferente como padrão.</string>
-    <string name="advanced_settings_restart_title">Reinicie o Launcher</string>
+    <string name="advanced_settings_restart_title">Reiniciar o iniciador</string>
     <string name="advanced_settings_restart_description">Já tentou ligar e desligar?</string>
     <string name="advanced_settings_backup_restore_title">Backup/Restauração</string>
     <string name="advanced_settings_backup_restore_description">Por favor, tenha cuidado com o que deseja.</string>
@@ -178,8 +178,8 @@
     <string name="advanced_settings_theme_title">Criações de temas</string>
     <string name="advanced_settings_theme_description">Personalize os temas de acordo com as suas preferências.</string>
     <string name="advanced_settings_theme_export">Exportar</string>
-    <string name="advanced_settings_theme_import">Importação</string>
-    <string name="advanced_settings_theme_clear">Claro</string>
+    <string name="advanced_settings_theme_import">Importar</string>
+    <string name="advanced_settings_theme_clear">Limpar</string>
     <string name="advanced_settings_theme_clear_title">Redefinir tema</string>
     <string name="advanced_settings_theme_clear_description">Tem a certeza de que pretende repor todas as definições do tema?</string>
     <string name="advanced_settings_clear_yes">Sim</string>
@@ -198,13 +198,13 @@
     <string name="settings_long_threshold">Limiar de deslize longo</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Aplicações ocultas</string>
-    <string name="favorite_apps">Aplicativos favoritos</string>
-    <string name="clear_home_app">Aplicação Clear Home</string>
+    <string name="favorite_apps">Aplicações favoritas</string>
+    <string name="clear_home_app">Esvaziar posição</string>
     <!-- Favorite management strings -->
     <string name="add_app">Adicionar aplicação</string>
     <string name="remove_app">Remover aplicação</string>
-    <string name="max_apps_reached">Número máximo de aplicações domésticas atingido</string>
-    <string name="min_apps_reached">Número mínimo de aplicações domésticas atingido</string>
+    <string name="max_apps_reached">Número máximo de aplicações do ecrã inicial atingido</string>
+    <string name="min_apps_reached">Número mínimo de aplicações do ecrã inicial atingido</string>
     <string name="no_apps_to_remove">Não há aplicações para remover.</string>
     <string name="select_app_to_remove">Selecione a aplicação que deseja remover.</string>
     <string name="empty_favorite">Não utilizado</string>
@@ -220,27 +220,27 @@
     Esta permissão permite ao RE*start executar estas ações em seu nome, mas não recolhemos, armazenamos ou partilhamos quaisquer dados pessoais ou confidenciais através deste serviço.\n\n
     Pode desativar este acesso a qualquer momento nas definições do seu dispositivo.
     </string>
-    <string name="can_not_delete_system_apps">Não consigo eliminar aplicações do sistema.</string>
+    <string name="can_not_delete_system_apps">Não é possível eliminar aplicações do sistema</string>
     <string name="please_select_app">Por favor, selecione uma aplicação.</string>
     <string name="drawer_list_empty_hint">Nenhuma aplicação encontrada</string>
-    <string name="long_press_for_settings">Prensa longa em qualquer lugar para configurações</string>
+    <string name="long_press_for_settings">Prima longamente em qualquer lugar para as definições</string>
     <string name="long_press_to_select_app">Prima e mantenha premido para selecionar o aplicativo.</string>
     <string name="long_press_to_select_app_locked">Desbloqueie as aplicações da tela inicial para selecionar a aplicação.</string>
     <string name="tap_button_for_notes">Toque no logótipo do iniciador para ver as anotações.</string>
-    <string name="swipe_up_for_apps">Descarregar para todas as aplicações</string>
-    <string name="app_drawer_tips">Dica: Descer para despedir. Deslizar para esconder o teclado.</string>
+    <string name="swipe_up_for_apps">Deslize para cima para todas as aplicações</string>
+    <string name="app_drawer_tips">Dica: deslize para baixo para fechar. Desloque para ocultar o teclado.</string>
     <!-- PinCode Strings -->
-    <string name="text_authentication_cancel">Cancelamento de autenticação.</string>
-    <string name="text_authentication_error">Erro de autenticação:%1$s(código %2$d)</string>
+    <string name="text_authentication_cancel">Autenticação cancelada.</string>
+    <string name="text_authentication_error">Erro de autenticação: %1$s (código %2$d)</string>
     <string name="text_authentication_failed">A autenticação falhou.</string>
-    <string name="text_biometric_login">Login biométrico Configurações do RE*start</string>
+    <string name="text_biometric_login">Início de sessão biométrico nas definições do RE*start</string>
     <string name="text_biometric_login_app">Login biométrico para %1$s</string>
     <string name="text_biometric_login_sub">Faça login usando sua credencial biométrica</string>
     <!-- Crash Strings -->
-    <string name="acra_crash">Queda</string>
+    <string name="acra_crash">Falha</string>
     <string name="acra_dialog_text">%1$s encontrou um problema inesperado e tem de fechar.</string>
     <string name="acra_send_report">Enviar relatório</string>
-    <string name="acra_dont_send">Não envie</string>
+    <string name="acra_dont_send">Não enviar</string>
     <!-- Share Strings -->
     <string name="share_note">Partilhar nota</string>
     <!-- Icon Pack Strings -->
@@ -248,34 +248,34 @@
     <string name="apply_icon_pack">Aplicar pacote de ícones</string>
     <string name="applying_icon_pack">Dê um novo visual aos seus ícones…</string>
     <string name="apply_icon_pack_are_you_sure">Tem a certeza de que pretende aplicar este pacote de ícones?\n\n%1$s</string>
-    <string name="apply_to_home">Candidatar-se à página inicial</string>
-    <string name="apply_to_app_list">Candidatar-se à lista de aplicações</string>
+    <string name="apply_to_home">Aplicar ao ecrã inicial</string>
+    <string name="apply_to_app_list">Aplicar à lista de aplicações</string>
     <string name="default_icon_not_found">Não foi encontrado o ícone padrão da aplicação.</string>
     <!-- Settings Strings -->
     <string name="left">Esquerda</string>
-    <string name="right">Certo</string>
+    <string name="right">Direita</string>
     <string name="center">Centro</string>
     <string name="dark">Escuro</string>
-    <string name="light">Luz</string>
+    <string name="light">Claro</string>
     <string name="system_default">Sistema</string>
     <string name="system_custom">Personalizado</string>
     <string name="system_custom_plus">Personalizado (%1$s)</string>
-    <string name="restart_launcher">Reinicie o Launcher</string>
+    <string name="restart_launcher">Reiniciar o iniciador</string>
     <string name="delete">Eliminar</string>
     <string name="hide">Ocultar</string>
-    <string name="show">Espetáculo</string>
+    <string name="show">Mostrar</string>
     <string name="lock">Bloquear</string>
     <string name="unlock">Desbloquear</string>
     <string name="locked">Trancado</string>
     <string name="unlocked">Desbloqueado</string>
-    <string name="pin">Pino</string>
+    <string name="pin">Fixar</string>
     <string name="unpin">Desafixar</string>
     <string name="rename">Renomear</string>
     <string name="tag">Etiqueta</string>
     <string name="info">Informações</string>
-    <string name="okay">Está bem</string>
-    <string name="apply">Candidatar-se</string>
-    <string name="reset">Reinicialização</string>
+    <string name="okay">OK</string>
+    <string name="apply">Aplicar</string>
+    <string name="reset">Repor</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="shortcut_add_title">Adicionar atalho</string>
@@ -286,41 +286,41 @@
     <string name="shortcut_launch_failed">Não foi possível iniciar o atalho.</string>
     <string name="shortcut_type_web">Atalho Web · %1$s</string>
     <string name="shortcut_type_app">Atalho · %1$s</string>
-    <string name="disabled">Deficientes</string>
-    <string name="open">Aberto</string>
-    <string name="close">Perto</string>
+    <string name="disabled">Desativado</string>
+    <string name="open">Abrir</string>
+    <string name="close">Fechar</string>
     <string name="next">Seguinte</string>
     <string name="start">Iniciar</string>
-    <string name="copy">Cópia</string>
+    <string name="copy">Copiar</string>
     <string name="none">Nenhum</string>
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
     <string name="home_button_phone">Telefone</string>
     <string name="home_button_messages">Mensagens</string>
-    <string name="home_button_camera">Câmera</string>
+    <string name="home_button_camera">Câmara</string>
     <string name="home_button_photos">Fotos</string>
     <string name="home_button_web">Web</string>
     <string name="home_button_settings">Configurações</string>
     <string name="home_button_logo">Logotipo</string>
-    <string name="applist_button_contacts">Contatos</string>
+    <string name="applist_button_contacts">Contactos</string>
     <string name="allow">Permitir</string>
     <string name="deny">Negar</string>
     <string name="send">Enviar</string>
     <string name="message_hint">Introduza uma mensagem…</string>
     <string name="message_category">Categoria: %1$s</string>
     <!-- Permissions Strings -->
-    <string name="permission_required">É necessária autorização.</string>
+    <string name="permission_required">Permissão necessária</string>
     <string name="access_usage_data_permission">Para prosseguir, ative a permissão de acesso aos dados de utilização nas definições do seu dispositivo.</string>
-    <string name="goto_settings">Aceda às Configurações.</string>
+    <string name="goto_settings">Ir para as definições</string>
     <!-- Widget Stings -->
     <string name="widgets_select_widget">Selecione um widget</string>
     <string name="widgets_add_widget">Adicionar um widget</string>
     <string name="widgets_edit_widget">Editar widgets</string>
-    <string name="widgets_stop_editing_widget">Pare de editar widgets</string>
+    <string name="widgets_stop_editing_widget">Parar de editar widgets</string>
     <string name="widgets_reset_widget">Repor todos os widgets</string>
     <string name="widgets_remove_widget">Remover todos os widgets</string>
     <string name="widgets_resize">Redimensionar</string>
-    <string name="widgets_exit_resize">Sair Redimensionar</string>
+    <string name="widgets_exit_resize">Sair do redimensionamento</string>
     <string name="widgets_remove">Remover widget</string>
     <string name="widgets_open">Abrir aplicação</string>
     <string name="widgets_view_in_store">Ver aplicação na loja</string>

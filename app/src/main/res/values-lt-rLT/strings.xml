@@ -21,7 +21,7 @@
     <string name="this_can_be_disabled_later">* Šis leidimas vėliau gali būti išjungtas.</string>
     <!-- Strings used for settings menus -->
     <string name="settings_name">RE*start nustatymai</string>
-    <string name="settings_features_title">Ypatybės</string>
+    <string name="settings_features_title">Funkcijos</string>
     <string name="settings_features_description">Pagerinkite savo produktyvumą.</string>
     <string name="settings_look_feel_title">Išvaizda</string>
     <string name="settings_look_feel_description">Suteikite savo pagrindiniam ekranui asmeniškumo.</string>
@@ -31,7 +31,7 @@
     <string name="settings_notes_description">Suasmeninkite savo užrašus, kad jie atitiktų jūsų stilių.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
-    <string name="settings_favorite_apps_title">Mėgstamiausios programėlės</string>
+    <string name="settings_favorite_apps_title">Pagrindinio ekrano programėlės</string>
     <string name="settings_favorite_apps_description">Pertvarkykite mėgstamiausias programas, kad galėtumėte jas greitai pasiekti iš pagrindinio ekrano.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Paslėptos programėlės</string>
@@ -44,25 +44,25 @@
     <string name="settings_exit_launcher_description">Laikinai perjunkite į numatytąją paleidimo priemonę.</string>
     <string name="settings_exit_launcher_dialog">Pasirinkite paleidimo priemonę</string>
     <!-- Strings used for features settings -->
-    <string name="features_settings_title">Savybės</string>
+    <string name="features_settings_title">Funkcijos</string>
     <string name="theme_mode">Temavimo režimas</string>
     <string name="app_language">Sąsajos kalba</string>
     <string name="font_family">Šriftas</string>
     <string name="hide_search_view">Slėpti paieškos rodinį</string>
-    <string name="show_floating_button">Rodyti sparčiuosius mygtukus</string>
-    <string name="lock_orientation">Užrakto orientacija</string>
+    <string name="show_floating_button">Rodyti nuorodų mygtukus</string>
+    <string name="lock_orientation">Užrakinti orientaciją</string>
     <string name="haptic_feedback">Haptinis grįžtamasis ryšys</string>
     <string name="search">Ieškoti</string>
     <string name="show_az_sidebar">Rodyti AZ šoninę juostą</string>
     <string name="auto_show_keyboard">Automatiškai rodyti klaviatūrą</string>
     <string name="search_from_start">Programėlių paieška nuo pradžių.</string>
-    <string name="auto_open_apps">Automatiškai atidaryti programėlės</string>
+    <string name="auto_open_apps">Automatiškai atidaryti programėles</string>
     <string name="open_apps_on_enter">Atidaryti programėlę paspaudus „Enter“</string>
-    <string name="lock_home_apps">Užrakinti programas</string>
-    <string name="lock_settings">Užrakinimo nustatymai</string>
-    <string name="apps_on_home_screen">Namų programų skaičius</string>
+    <string name="lock_home_apps">Užrakinti pagrindinio ekrano programėles</string>
+    <string name="lock_settings">Užrakinti nustatymus</string>
+    <string name="apps_on_home_screen">Pagrindinio ekrano programėlių skaičius</string>
     <string name="enable_app_timer">Įjungti programos laikmatį</string>
-    <string name="force_colored_wallpaper">Priverstinio spalvoto tapeto</string>
+    <string name="force_colored_wallpaper">Priverstinai naudoti spalvotą foną</string>
     <string name="info_tiles">Informacijos plytelės</string>
     <string name="show_clock">Rodyti laikrodį</string>
     <string name="show_clock_format">Rodyti formatą (AM/PM)</string>
@@ -79,15 +79,15 @@
     <string name="show_weather">Rodyti orą</string>
     <string name="gps_location">GPS vieta</string>
     <string name="temp_unit">Temperatūros vienetas</string>
-    <string name="manual_location">Rankinė vietos nustatymo parinktis</string>
+    <string name="manual_location">Nustatyti vietą rankiniu būdu</string>
     <!-- Strings used for look & feel settings -->
-    <string name="look_feel_settings_title">Pažiūrėk &amp; Jausk</string>
-    <string name="app_text_size">Programėlės Šrifto dydis</string>
-    <string name="date_text_size">Datos Šrifto dydis</string>
+    <string name="look_feel_settings_title">Išvaizda</string>
+    <string name="app_text_size">Programėlių teksto dydis</string>
+    <string name="date_text_size">Datos teksto dydis</string>
     <string name="clock_text_size">Laikrodžio teksto dydis</string>
     <string name="alarm_text_size">Signalo teksto dydis</string>
-    <string name="battery_text_size">Baterijos Šrifto dydis</string>
-    <string name="app_padding_size">Užpildymo Dydis</string>
+    <string name="battery_text_size">Baterijos teksto dydis</string>
+    <string name="app_padding_size">Tarpų dydis</string>
     <string name="extend_home_apps_area">Išplėsti spustelėjamą sritį</string>
     <string name="alignment_to_bottom">Sulygiuoti į apačią</string>
     <string name="show_status_bar">Rodyti būsenos juostą</string>
@@ -98,14 +98,14 @@
     <string name="select_home_icons">Pasirinkite „Pagrindinis“ piktogramų paketą</string>
     <string name="select_app_list_icons">Pasirinkti programų sąrašo piktogramų paketą</string>
     <string name="enable_filter_strength">Įjungti neapibrėžtąją paiešką</string>
-    <string name="filter_strength">Apytikslio ieškiklio stiprumas</string>
+    <string name="filter_strength">Neapibrėžtosios paieškos stiprumas</string>
     <string name="show_background">Rodyti foną</string>
     <string name="background_opacity">Fono skaidrumas</string>
-    <string name="total_screen_time">Rodyti bendrą ekrano laiką</string>
+    <string name="total_screen_time">Bendras ekrano laikas</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Laikrodis</string>
     <string name="alarm_alignment">Signalizacija</string>
-    <string name="home_alignment">Namų programos</string>
+    <string name="home_alignment">Pagrindinio ekrano programėlės</string>
     <string name="drawer_alignment">Stalčių programos</string>
     <string name="background_color">Fonas</string>
     <string name="app_color">Programėlės</string>
@@ -113,12 +113,12 @@
     <string name="date_color">Data</string>
     <string name="alarm_color">Signalizacija</string>
     <string name="battery_color">Baterija</string>
-    <string name="rainbow_shortcuts">Vaivorykštės spartieji klavišai</string>
-    <string name="shortcuts_color">Spartieji klavišai</string>
+    <string name="rainbow_shortcuts">Vaivorykštės nuorodos</string>
+    <string name="shortcuts_color">Nuorodos</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestai</string>
-    <string name="tap_click_actions">Bakstelėkite / spustelėkite Veiksmai</string>
-    <string name="double_tap">Dukart paspauskite</string>
+    <string name="tap_click_actions">Bakstelėjimo / spustelėjimo veiksmai</string>
+    <string name="double_tap">Dvigubas bakstelėjimas</string>
     <string name="clock_click_app">Spustelėkite ant laikrodžio</string>
     <string name="date_click_app">Spustelėkite ant datos</string>
     <string name="usage_click_app">Spustelėkite Bendras naudojimas</string>
@@ -163,7 +163,7 @@
     <string name="advanced_settings_app_info_title">Programos informacija</string>
     <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Nustatyti kaip numatytajį darbalaukį</string>
-    <string name="advanced_settings_set_as_default_launcher_description">Padarykite „RE*start“ numatytąja namų programėle.</string>
+    <string name="advanced_settings_set_as_default_launcher_description">Padarykite „RE*start“ numatytąja pagrindinio ekrano programėle.</string>
     <string name="advanced_settings_change_default_launcher">Pakeisti numatytajį darbalaukį</string>
     <string name="advanced_settings_change_default_launcher_description">Pasirinkite kitą paleidimo priemonę kaip numatytąją.</string>
     <string name="advanced_settings_restart_title">Iš naujo paleiskite paleidimo priemonę</string>
@@ -192,19 +192,19 @@
     <string name="threshold">Slenkstis</string>
     <string name="expert_options_display">Rodyti eksperto parinktis</string>
     <string name="expert_options_unlocked">Ekspertų parinktys atrakintos!</string>
-    <string name="expert_options_tap_hint">%1$d dar bakstelėjimai, kad atrakintumėte</string>
-    <string name="settings_text_size">Nustatymai Teksto dydis</string>
+    <string name="expert_options_tap_hint">Liko %1$d bakstelėjimų iki atrakinimo</string>
+    <string name="settings_text_size">Nustatymų teksto dydis</string>
     <string name="settings_short_threshold">Trumpas braukimo slenkstis</string>
     <string name="settings_long_threshold">Ilgo braukimo slenkstis</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Paslėptos programėlės</string>
     <string name="favorite_apps">Mėgstamiausios programos</string>
-    <string name="clear_home_app">Išvalyti namų programėlę</string>
+    <string name="clear_home_app">Išvalyti vietą</string>
     <!-- Favorite management strings -->
     <string name="add_app">Pridėti programėlę</string>
     <string name="remove_app">Pašalinti programėlę</string>
-    <string name="max_apps_reached">Pasiektas maksimalus namų programėlių skaičius</string>
-    <string name="min_apps_reached">Pasiektas minimalus namų programėlių skaičius</string>
+    <string name="max_apps_reached">Pasiektas didžiausias pagrindinio ekrano programėlių skaičius</string>
+    <string name="min_apps_reached">Pasiektas mažiausias pagrindinio ekrano programėlių skaičius</string>
     <string name="no_apps_to_remove">Nėra programų, kurias būtų galima pašalinti</string>
     <string name="select_app_to_remove">Pasirinkite norimą pašalinti programą</string>
     <string name="empty_favorite">Nenaudotas</string>
@@ -213,30 +213,22 @@
     <string name="accessibility_service_name">„RE*start“ veiksmų paslaugos</string>
     <string name="accessibility_service_why_we_need">Kodėl mums reikia prieigos leidimo</string>
     <string name="accessibility_service_description">Ši pritaikymo neįgaliesiems paslauga leidžia RE*start atlikti tam tikrus veiksmus, pvz., užrakinti ekraną arba atidaryti sparčiuosius nustatymus. Mūsų prieinamumo paslauga nerenka ir nebendrina jokių duomenų.</string>
-    <string name="accessibility_service_more_info">RE*start reikalinga prieiga prie Prieinamumo paslaugos, kad galėtų įjungti tokias funkcijas kaip:
-
-• Ekrano užrakinimas gestu arba sparčiuoju klavišu
-• Greitas greitųjų nustatymų skydelio atidarymas
-
-Šis leidimas leidžia RE*start atlikti šiuos veiksmus jūsų vardu, tačiau mes nerenkame, nesaugome ir nesidalijame jokiais asmeniniais ar jautriais duomenimis per šią paslaugą.
-
-Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
-</string>
+    <string name="accessibility_service_more_info">RE*start reikalinga prieiga prie Prieinamumo paslaugos, kad galėtų įjungti tokias funkcijas kaip:\n\n• Ekrano užrakinimas gestu arba sparčiuoju klavišu\n• Greitas greitųjų nustatymų skydelio atidarymas\n\nŠis leidimas leidžia RE*start atlikti šiuos veiksmus jūsų vardu, tačiau mes nerenkame, nesaugome ir nesidalijame jokiais asmeniniais ar jautriais duomenimis per šią paslaugą.\n\nJūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.</string>
     <string name="can_not_delete_system_apps">Nepavyksta ištrinti sistemos programų</string>
     <string name="please_select_app">Pasirinkite programėlę</string>
     <string name="drawer_list_empty_hint">Nerasta jokių programėlių</string>
     <string name="long_press_for_settings">Ilgai paspauskite bet kur, kad pamatytumėte nustatymus</string>
     <string name="long_press_to_select_app">Ilgai paspauskite, kad pasirinktumėte programą</string>
-    <string name="long_press_to_select_app_locked">Atrakinkite namų programas, kad galėtumėte pasirinkti programą</string>
+    <string name="long_press_to_select_app_locked">Atrakinkite pagrindinio ekrano programėles, kad galėtumėte pasirinkti programėlę</string>
     <string name="tap_button_for_notes">Norėdami gauti pastabų, bakstelėkite paleidimo priemonės logotipą</string>
-    <string name="swipe_up_for_apps">Braukite aukštyn, kad pamatytumėte visas programėlės</string>
+    <string name="swipe_up_for_apps">Braukite aukštyn, kad pamatytumėte visas programėles</string>
     <string name="app_drawer_tips">Patarimas: perbraukite žemyn, kad atsisakytumėte. Slinkite, kad paslėptumėte klaviatūrą.</string>
     <!-- PinCode Strings -->
     <string name="text_authentication_cancel">Autentifikavimo atšaukimas.</string>
-    <string name="text_authentication_error">Autentifikavimo klaida:%1$s(kodas %2$d)</string>
+    <string name="text_authentication_error">Autentifikavimo klaida: %1$s (kodas %2$d)</string>
     <string name="text_authentication_failed">Autentifikavimas nepavyko.</string>
     <string name="text_biometric_login">Biometrinio prisijungimo RE*start nustatymai</string>
-    <string name="text_biometric_login_app">Biometrinis prisijungimas %1$s</string>
+    <string name="text_biometric_login_app">Biometrinis prisijungimas prie %1$s</string>
     <string name="text_biometric_login_sub">Prisijunkite naudodami biometrinius kredencialus</string>
     <!-- Crash Strings -->
     <string name="acra_crash">Avarija</string>
@@ -255,8 +247,8 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
     <string name="default_icon_not_found">Numatytoji programėlės piktograma, kuria galima piešti, nerasta</string>
     <!-- Settings Strings -->
     <string name="left">Kairė</string>
-    <string name="right">Dešnė</string>
-    <string name="center">Centras</string>
+    <string name="right">Dešinė</string>
+    <string name="center">Centre</string>
     <string name="dark">Tamsi</string>
     <string name="light">Šviesi</string>
     <string name="system_default">Sistema</string>
@@ -266,7 +258,7 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
     <string name="delete">Ištrinti</string>
     <string name="hide">Slėpti</string>
     <string name="show">Rodyti</string>
-    <string name="lock">Užraktas</string>
+    <string name="lock">Užrakinti</string>
     <string name="unlock">Atrakinti</string>
     <string name="locked">Užrakinta</string>
     <string name="unlocked">Atrakinta</string>
@@ -280,14 +272,14 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
     <string name="reset">Atstatyti</string>
     <string name="cancel">Atšaukti</string>
     <string name="save">Išsaugoti</string>
-    <string name="shortcut_add_title">Pridėti spartųjį klavišą</string>
+    <string name="shortcut_add_title">Pridėti nuorodą</string>
     <string name="shortcut_add">Pridėti</string>
-    <string name="shortcut_name">Vardas</string>
-    <string name="shortcut_added">Pridėtas spartusis klavišas</string>
-    <string name="shortcut_removed">Spartusis klavišas pašalintas</string>
-    <string name="shortcut_launch_failed">Nepavyko paleisti sparčiojo klavišo</string>
-    <string name="shortcut_type_web">Žiniatinklio spartusis klavišas · %1$s</string>
-    <string name="shortcut_type_app">Spartusis klavišas · %1$s</string>
+    <string name="shortcut_name">Pavadinimas</string>
+    <string name="shortcut_added">Nuoroda pridėta</string>
+    <string name="shortcut_removed">Nuoroda pašalinta</string>
+    <string name="shortcut_launch_failed">Nepavyko paleisti nuorodos</string>
+    <string name="shortcut_type_web">Žiniatinklio nuoroda · %1$s</string>
+    <string name="shortcut_type_app">Nuoroda · %1$s</string>
     <string name="disabled">Išjungtas</string>
     <string name="open">Atidaryti</string>
     <string name="close">Uždaryti</string>
@@ -306,7 +298,7 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
     <string name="home_button_logo">Logotipas</string>
     <string name="applist_button_contacts">Kontaktai</string>
     <string name="allow">Leisti</string>
-    <string name="deny">Neigti</string>
+    <string name="deny">Atmesti</string>
     <string name="send">Siųsti</string>
     <string name="message_hint">Įveskite žinutę…</string>
     <string name="message_category">Kategorija: %1$s</string>
@@ -341,10 +333,10 @@ Jūs bet kada galite išjungti šią prieigą savo įrenginio nustatymuose.
     <string name="category">Kategorija</string>
     <string name="priority">Pirmenybė</string>
     <string name="settings_context_menu_title">Kontekstinis meniu</string>
-    <string name="settings_home_buttons_title">Namų mygtukai</string>
+    <string name="settings_home_buttons_title">Pagrindinio ekrano mygtukai</string>
     <string name="settings_applist_buttons_title">Programų sąrašo mygtukai</string>
     <string name="settings_source_code">Šaltinio kodas</string>
-    <string name="settings_credits">Kreditai</string>
+    <string name="settings_credits">Padėkos</string>
     <string-array name="priorities">
         <item>Žemas</item>
         <item>Vidutinis</item>

@@ -10,6 +10,10 @@ the two changes sent back upstream and every difference at the fork point are in
   translated, dead keys removed); strings added after the fork are marked as machine-translated
   in each file and corrections are welcome as issues or pull requests. `scripts/check-strings.py`
   checks completeness, placeholders and escaping.
+  The inherited translations were reviewed in context and 1,099 strings corrected in 19
+  languages (dictionary mistranslations such as "Save" as rescue, "Pin" as a sewing pin,
+  long swipes rendered as long presses, "home" as a house, leftover "Multi Launcher" names,
+  untranslated English in Korean and Kurmanji, broken line breaks).
 - Dialogs follow the Swiss sheet as well: category name input (a rule under the text, no box),
   multi-choice lists with square boxes, the yes/no confirmations, the settings-copy picker and
   the "exit launcher" list are sheets with a caps title, a rule and caps text buttons; no

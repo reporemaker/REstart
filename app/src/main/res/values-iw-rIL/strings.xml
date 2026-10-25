@@ -31,7 +31,7 @@
     <string name="settings_notes_description">התאם אישית את ההערות שלך כך שיתאימו לסגנון שלך.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
-    <string name="settings_favorite_apps_title">יישומים מועדפים</string>
+    <string name="settings_favorite_apps_title">אפליקציות מסך הבית</string>
     <string name="settings_favorite_apps_description">סדרו מחדש את האפליקציות המועדפות עליכם לגישה מהירה ממסך הבית.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">יישומים מוסתרים</string>
@@ -45,7 +45,7 @@
     <string name="settings_exit_launcher_dialog">בחר משגר</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">תכונות</string>
-    <string name="theme_mode">סגנון רקע</string>
+    <string name="theme_mode">מצב ערכת נושא</string>
     <string name="app_language">שפת ממשק</string>
     <string name="font_family">משפחת גופן</string>
     <string name="hide_search_view">הסתר תצוגת חיפוש</string>
@@ -54,15 +54,15 @@
     <string name="haptic_feedback">משוב האפטי</string>
     <string name="search">חיפוש</string>
     <string name="show_az_sidebar">הצג סרגל צד AZ</string>
-    <string name="auto_show_keyboard">הצג מקלדת בחיפוש</string>
+    <string name="auto_show_keyboard">הצג מקלדת אוטומטית</string>
     <string name="search_from_start">חיפוש אפליקציה מההתחלה</string>
     <string name="auto_open_apps">פתיחה אוטומטית של יישומים</string>
-    <string name="open_apps_on_enter">פתח את האפליקציה בכניסה</string>
+    <string name="open_apps_on_enter">פתח אפליקציה בלחיצה על Enter</string>
     <string name="lock_home_apps">נעילת יישומי דף הבית</string>
     <string name="lock_settings">הגדרות נעילה</string>
     <string name="apps_on_home_screen">מספר יישומים בדף הבית</string>
     <string name="enable_app_timer">הפעלת טיימר אפליקציה</string>
-    <string name="force_colored_wallpaper">טפט צבעוני בכוח</string>
+    <string name="force_colored_wallpaper">כפה טפט צבעוני</string>
     <string name="info_tiles">אריחי מידע</string>
     <string name="show_clock">הצג שעון</string>
     <string name="show_clock_format">תצוגת זמן (AM/PM)</string>
@@ -74,7 +74,7 @@
     <string name="bedtime_end_time">שעת סיום שעת השינה</string>
     <string name="show_battery">הצג סוללה</string>
     <string name="show_battery_icon">הצגת סמליל סוללה</string>
-    <string name="show_private_spaces">סמל הצג מרחבים פרטיים</string>
+    <string name="show_private_spaces">הצג סמל מרחבים פרטיים</string>
     <string name="weather">מֶזֶג אֲוִיר</string>
     <string name="show_weather">הצג מזג אוויר</string>
     <string name="gps_location">מיקום GPS</string>
@@ -101,7 +101,7 @@
     <string name="filter_strength">עוצמת מאתר מטושטש</string>
     <string name="show_background">הצג רקע</string>
     <string name="background_opacity">שקיפות רקע</string>
-    <string name="total_screen_time">הצג זמן מסך כולל</string>
+    <string name="total_screen_time">זמן מסך כולל</string>
     <string name="date_alignment">תאריך</string>
     <string name="clock_alignment">שעון</string>
     <string name="alarm_alignment">שעון מעורר</string>
@@ -124,14 +124,14 @@
     <string name="usage_click_app">לחיצה על סך שימוש</string>
     <string name="floating_click_app">לחיצה על הלוגו</string>
     <string name="swipe_movement">תנועת החלקה</string>
-    <string name="short_swipe_up_app">החלקה למעלה</string>
-    <string name="short_swipe_down_app">החלקה למטה</string>
-    <string name="short_swipe_left_app">החלקה שמאלה</string>
-    <string name="short_swipe_right_app">החלקה ימינה</string>
-    <string name="long_swipe_up_app">לחץ לחיצה ארוכה החלק למעלה</string>
-    <string name="long_swipe_down_app">לחץ לחיצה ארוכה החלק מטה</string>
-    <string name="long_swipe_left_app">לחיצה ארוכה החלק שמאלה</string>
-    <string name="long_swipe_right_app">לחץ לחיצה ארוכה החלק ימינה</string>
+    <string name="short_swipe_up_app">החלקה קצרה למעלה</string>
+    <string name="short_swipe_down_app">החלקה קצרה למטה</string>
+    <string name="short_swipe_left_app">החלקה קצרה שמאלה</string>
+    <string name="short_swipe_right_app">החלקה קצרה ימינה</string>
+    <string name="long_swipe_up_app">החלקה ארוכה למעלה</string>
+    <string name="long_swipe_down_app">החלקה ארוכה למטה</string>
+    <string name="long_swipe_left_app">החלקה ארוכה שמאלה</string>
+    <string name="long_swipe_right_app">החלקה ארוכה ימינה</string>
     <string name="open_app">הפעלת יישום</string>
     <string name="lock_screen">נעילת מסך</string>
     <string name="private_space">מרחבים פרטיים (%1$s)</string>
@@ -179,14 +179,14 @@
     <string name="advanced_settings_theme_description">התאם אישית ערכות נושא שיתאימו לך.</string>
     <string name="advanced_settings_theme_export">ייצוא</string>
     <string name="advanced_settings_theme_import">ייבוא</string>
-    <string name="advanced_settings_theme_clear">בָּרוּר</string>
+    <string name="advanced_settings_theme_clear">נקה</string>
     <string name="advanced_settings_theme_clear_title">איפוס ערכת נושא</string>
     <string name="advanced_settings_theme_clear_description">האם אתה בטוח שברצונך לאפס את כל הגדרות העיצוב?</string>
     <string name="advanced_settings_clear_yes">כֵּן</string>
     <string name="advanced_settings_clear_no">לֹא</string>
     <string name="advanced_settings_help_feedback_title">עזרה &amp; משוב</string>
     <!-- Strings used for about settings -->
-    <string name="about_settings_title">בערך %1$s</string>
+    <string name="about_settings_title">אודות %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">מוּמחֶה</string>
     <string name="threshold">סַף</string>
@@ -199,7 +199,7 @@
     <!-- App Page Strings -->
     <string name="hidden_apps">יישומים מוסתרים</string>
     <string name="favorite_apps">יישומים מועדפים</string>
-    <string name="clear_home_app">נקה את אפליקציית הבית</string>
+    <string name="clear_home_app">פנה את המשבצת</string>
     <!-- Favorite management strings -->
     <string name="add_app">הוסף אפליקציה</string>
     <string name="remove_app">הסר אפליקציה</string>
@@ -210,18 +210,10 @@
     <string name="empty_favorite">לא בשימוש</string>
     <string name="confirm_remove_favorite">האם אתה בטוח שברצונך להסיר את האפליקציה הזו מהמועדפים?</string>
     <!-- Accessibility/Help Strings -->
-    <string name="accessibility_service_name">שירותי פעולה של משגרים מרובים</string>
+    <string name="accessibility_service_name">שירותי פעולה של RE*start</string>
     <string name="accessibility_service_why_we_need">למה אנחנו צריכים אישור נגישות</string>
     <string name="accessibility_service_description">שירות נגישות זה מאפשר ל-RE*start לבצע פעולות מסוימות כמו נעילת המסך או פתיחת ההגדרות המהירות. שירות הנגישות שלנו אינו אוסף או משתף נתונים כלשהם.</string>
-    <string name="accessibility_service_more_info">RE*start דורשת גישה לשירות הנגישות כדי לאפשר תכונות כגון:
-
-• נעילת המסך באמצעות מחווה או קיצור דרך
-• פתיחה מהירה של לוח ההגדרות המהירות
-
-הרשאה זו מאפשרת ל-RE*start לבצע את הפעולות האלו עבורך, אך איננו אוספים, שומרים או משתפים מידע אישי או רגיש דרך שירות זה.
-
-תוכל להשבית גישה זו בכל עת מהגדרות המכשיר שלך.
-</string>
+    <string name="accessibility_service_more_info">RE*start דורשת גישה לשירות הנגישות כדי לאפשר תכונות כגון:\n\n• נעילת המסך באמצעות מחווה או קיצור דרך\n• פתיחה מהירה של לוח ההגדרות המהירות\n\nהרשאה זו מאפשרת ל-RE*start לבצע את הפעולות האלו עבורך, אך איננו אוספים, שומרים או משתפים מידע אישי או רגיש דרך שירות זה.\n\nתוכל להשבית גישה זו בכל עת מהגדרות המכשיר שלך.</string>
     <string name="can_not_delete_system_apps">לא ניתן למחוק יישומי מערכת</string>
     <string name="please_select_app">אנא בחר יישום</string>
     <string name="drawer_list_empty_hint">לא נמצאו יישומים</string>
@@ -233,7 +225,7 @@
     <string name="app_drawer_tips">טיפ: החלק למטה בכדי לבטל. החלק להסתרת המקלדת.</string>
     <!-- PinCode Strings -->
     <string name="text_authentication_cancel">ביטול האימות.</string>
-    <string name="text_authentication_error">שגיאת אימות:%1$s(קוד %2$d)</string>
+    <string name="text_authentication_error">שגיאת אימות: %1$s (קוד %2$d)</string>
     <string name="text_authentication_failed">אימות נכשל.</string>
     <string name="text_biometric_login">התחברות ביומטרית הגדרות RE*start</string>
     <string name="text_biometric_login_app">התחברות ביומטרית עבור %1$s</string>
@@ -260,28 +252,28 @@
     <string name="dark">כהה</string>
     <string name="light">בהיר</string>
     <string name="system_default">מערכת</string>
-    <string name="system_custom">מִנְהָג</string>
+    <string name="system_custom">מותאם אישית</string>
     <string name="system_custom_plus">מותאם אישית (%1$s)</string>
     <string name="restart_launcher">הפעל מחדש את המשגר</string>
-    <string name="delete">למחוק</string>
+    <string name="delete">מחק</string>
     <string name="hide">הסתרה</string>
     <string name="show">הצג</string>
     <string name="lock">נעל</string>
     <string name="unlock">ביטול נעילה</string>
     <string name="locked">נָעוּל</string>
     <string name="unlocked">לא נעול</string>
-    <string name="pin">פִּין</string>
-    <string name="unpin">לְהוֹצִיא סִיכָּה</string>
+    <string name="pin">הצמד</string>
+    <string name="unpin">בטל הצמדה</string>
     <string name="rename">שינוי שם</string>
     <string name="tag">תָג</string>
     <string name="info">מידע</string>
-    <string name="okay">אוקיי</string>
-    <string name="apply">לִפְנוֹת</string>
+    <string name="okay">אישור</string>
+    <string name="apply">החל</string>
     <string name="reset">אפס</string>
     <string name="cancel">בטל</string>
-    <string name="save">לְהַצִיל</string>
+    <string name="save">שמור</string>
     <string name="shortcut_add_title">הוסף קיצור דרך</string>
-    <string name="shortcut_add">לְהוֹסִיף</string>
+    <string name="shortcut_add">הוסף</string>
     <string name="shortcut_name">שֵׁם</string>
     <string name="shortcut_added">קיצור דרך נוסף</string>
     <string name="shortcut_removed">קיצור הדרך הוסר</string>
@@ -293,8 +285,8 @@
     <string name="close">סגור</string>
     <string name="next">הבא</string>
     <string name="start">התחל</string>
-    <string name="copy">לְהַעְתִיק</string>
-    <string name="none">אַף לֹא אֶחָד</string>
+    <string name="copy">העתק</string>
+    <string name="none">ללא</string>
     <string name="celsius">צֶלסִיוּס</string>
     <string name="fahrenheit">פרנהייט</string>
     <string name="home_button_phone">טֵלֵפוֹן</string>
@@ -305,9 +297,9 @@
     <string name="home_button_settings">הגדרות</string>
     <string name="home_button_logo">סֵמֶל</string>
     <string name="applist_button_contacts">אנשי קשר</string>
-    <string name="allow">לְהַתִיר</string>
-    <string name="deny">לְהַכּחִישׁ</string>
-    <string name="send">לִשְׁלוֹחַ</string>
+    <string name="allow">אפשר</string>
+    <string name="deny">דחה</string>
+    <string name="send">שלח</string>
     <string name="message_hint">הזן הודעה…</string>
     <string name="message_category">קטגוריה: %1$s</string>
     <!-- Permissions Strings -->
