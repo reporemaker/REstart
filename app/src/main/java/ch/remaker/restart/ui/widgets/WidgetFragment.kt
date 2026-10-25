@@ -29,6 +29,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import ch.remaker.components.views.FontBottomSheetDialogLocked
+import ch.remaker.restart.ui.components.DialogManager
 import ch.remaker.common.AppLogger
 import ch.remaker.common.appWidgetManager
 import ch.remaker.common.getLocalizedString
@@ -245,48 +246,27 @@ class WidgetFragment : Fragment() {
     }
 
 
-    /** Grid menu for adding/resetting widgets */
+    /** Grid menu for adding/resetting widgets: the Swiss chooser sheet, like every other menu. */
     private fun showGridMenu() {
         activeGridDialog?.dismiss()
-        val bottomSheetDialog = FontBottomSheetDialogLocked(requireContext())
-        activeGridDialog = bottomSheetDialog
         AppLogger.d(TAG, "🎛️ Showing widget grid menu")
 
-        val container = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(16, 16, 16, 16)
-        }
-
-        fun addOption(title: String, action: () -> Unit) {
-            val option = TextView(requireContext()).apply {
-                text = title
-                textSize = 16f
-                typeface = FontManager.getTypeface(requireContext())
-                setPadding(16, 16, 16, 16)
-                setOnClickListener { action(); bottomSheetDialog.dismiss() }
-            }
-            container.addView(option)
-        }
-
-        addOption(getLocalizedString(R.string.widgets_add_widget)) { showCustomWidgetPicker() }
-
+        val options = mutableListOf<Pair<String, () -> Unit>>()
+        options += getLocalizedString(R.string.widgets_add_widget) to { showCustomWidgetPicker() }
         if (isEditingWidgets) {
-            addOption(getLocalizedString(R.string.widgets_reset_widget)) { resetAllWidgets() }
-            addOption(getLocalizedString(R.string.widgets_remove_widget)) { removeAllWidgets() }
+            options += getLocalizedString(R.string.widgets_reset_widget) to { resetAllWidgets() }
+            options += getLocalizedString(R.string.widgets_remove_widget) to { removeAllWidgets() }
         }
-
         // Toggleable edit mode option
         val editTitle = if (isEditingWidgets) getLocalizedString(R.string.widgets_stop_editing_widget) else getLocalizedString(R.string.widgets_edit_widget)
-        addOption(editTitle) {
-            // Toggle edit mode
+        options += editTitle to {
             isEditingWidgets = !isEditingWidgets
-
             // Edit mode shows the grid as faint dots instead of a frame
             binding.widgetGrid.background = if (isEditingWidgets) GridDotsDrawable(grid(), requireContext()) else null
         }
 
-        bottomSheetDialog.setContentView(container)
-        bottomSheetDialog.show()
+        DialogManager(requireContext(), requireActivity())
+            .chooser(getLocalizedString(R.string.widgets_title), options.map { it.first }) { options[it].second() }
     }
 
     private fun removeAllWidgets() {
@@ -386,97 +366,20 @@ class WidgetFragment : Fragment() {
 
         AppLogger.d(TAG, "🧩 Showing custom widget picker with ${grouped.size} apps")
 
-        val container = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(16, 16, 16, 16)
-        }
-        val scrollView = ScrollView(requireContext()).apply { addView(container) }
-
         activeGridDialog?.dismiss()
-        val bottomSheetDialog = FontBottomSheetDialogLocked(requireContext())
-        activeGridDialog = bottomSheetDialog
-        bottomSheetDialog.setContentView(scrollView)
-        bottomSheetDialog.setTitle(getLocalizedString(R.string.widgets_select_widget))
-        bottomSheetDialog.show()
-
-        grouped.forEach { group ->
-            val appRow = LinearLayout(requireContext()).apply {
-                orientation = LinearLayout.HORIZONTAL
-                setPadding(8, 16, 8, 16)
-                gravity = Gravity.CENTER_VERTICAL
-            }
-            val iconView = ImageView(requireContext()).apply {
-                group.appIcon?.let { setImageDrawable(it) }
-                layoutParams = LinearLayout.LayoutParams(64, 64)
-            }
-            val labelView = TextView(requireContext()).apply {
-                text = group.appName
-                textSize = 16f
-                typeface = FontManager.weighted(requireContext(), 700)
-                setPadding(16, 0, 0, 0)
-            }
-            val expandIcon = TextView(requireContext()).apply { text = "▼"; textSize = 16f; typeface = FontManager.getTypeface(requireContext()) }
-            appRow.addView(iconView)
-            appRow.addView(labelView, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            appRow.addView(expandIcon)
-
-            val widgetContainer = LinearLayout(requireContext()).apply {
-                orientation = LinearLayout.VERTICAL
-                visibility = View.GONE
-            }
-
-            group.widgets.forEach { widgetInfo ->
-                val widgetLabel = widgetInfo.loadLabel(requireContext().packageManager)
-
-                val (defaultCellsW, defaultCellsH) = defaultCells(widgetInfo)
-                val widgetSize = "${defaultCellsW}x${defaultCellsH}"
-
-                val widgetRow = LinearLayout(requireContext()).apply {
-                    orientation = LinearLayout.HORIZONTAL
-                    setPadding(32, 12, 12, 12)
-                    gravity = Gravity.CENTER_VERTICAL
-                }
-
-                val labelView = TextView(requireContext()).apply {
-                    text = getLocalizedString(R.string.pass_a_string, widgetLabel)
-                    textSize = 14f
-                    typeface = FontManager.getTypeface(requireContext())
-                    layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                }
-
-                val sizeView = TextView(requireContext()).apply {
-                    text = widgetSize
-                    textSize = 14f
-                    gravity = Gravity.END
-                    typeface = FontManager.weighted(requireContext(), 400, italic = true)
-                }
-
-                widgetRow.addView(labelView)
-                widgetRow.addView(sizeView)
-
-                widgetRow.setOnClickListener {
-                    AppLogger.i(TAG, "➕ Selected widget $widgetLabel to add")
-                    addWidget(widgetInfo)
-                    bottomSheetDialog.dismiss()
-                }
-
-                widgetContainer.addView(widgetRow)
-            }
-
-
-            appRow.setOnClickListener {
-                if (widgetContainer.isVisible) {
-                    widgetContainer.visibility = View.GONE
-                    expandIcon.text = "▼"
-                } else {
-                    widgetContainer.visibility = View.VISIBLE
-                    expandIcon.text = "▲"
-                }
-            }
-
-            container.addView(appRow)
-            container.addView(widgetContainer)
+        // Swiss sheet: apps open to their widgets, the default size in cells on the right
+        val groups = grouped.map { group ->
+            DialogManager.ChooserGroup(group.appName, group.appIcon, group.widgets.map { info ->
+                val (cellsW, cellsH) = defaultCells(info)
+                info.loadLabel(pm).toString() to "${cellsW}\u00d7${cellsH}"
+            })
         }
+        DialogManager(requireContext(), requireActivity())
+            .groupedChooser(getLocalizedString(R.string.widgets_select_widget), groups) { g, i ->
+                val widgetInfo = grouped[g].widgets[i]
+                AppLogger.i(TAG, "➕ Selected widget ${widgetInfo.loadLabel(pm)} to add")
+                addWidget(widgetInfo)
+            }
     }
 
     /** Public entry point: add a widget */

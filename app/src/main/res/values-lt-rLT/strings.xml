@@ -300,6 +300,7 @@
     <string name="access_usage_data_permission">Norėdami tęsti, įrenginio nustatymuose įgalinkite leidimą pasiekti naudojimo duomenis.</string>
     <string name="goto_settings">Eikite į nustatymus</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Valdikliai</string>
     <string name="widgets_select_widget">Pasirinkite valdiklį</string>
     <string name="widgets_add_widget">Pridėti valdiklį</string>
     <string name="widgets_edit_widget">Redaguoti valdiklius</string>

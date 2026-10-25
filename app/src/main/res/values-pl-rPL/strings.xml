@@ -306,6 +306,7 @@
     <string name="access_usage_data_permission">Aby kontynuować, włącz uprawnienia dostępu do danych o użytkowaniu w ustawieniach urządzenia.</string>
     <string name="goto_settings">Przejdź do Ustawień</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widżety</string>
     <string name="widgets_select_widget">Wybierz widżet</string>
     <string name="widgets_add_widget">Dodaj widżet</string>
     <string name="widgets_edit_widget">Edytuj widżety</string>

@@ -29,6 +29,7 @@ import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Migration
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.ActivityMainBinding
+import ch.remaker.restart.helper.getHexForOpacity
 import ch.remaker.restart.helper.IconCacheTarget
 import ch.remaker.restart.helper.IconPackHelper
 import ch.remaker.restart.helper.emptyString
@@ -174,6 +175,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        // The page background lives on the container (see applyPageBackground): set it before the
+        // first frame, so a cold start does not show the bare wallpaper for a moment
+        binding.mainActivityLayout.setBackgroundColor(getHexForOpacity(prefs))
 
         migration()
 

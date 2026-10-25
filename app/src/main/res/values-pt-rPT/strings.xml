@@ -306,6 +306,7 @@
     <string name="access_usage_data_permission">Para prosseguir, ative a permissão de acesso aos dados de utilização nas definições do seu dispositivo.</string>
     <string name="goto_settings">Ir para as definições</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgets</string>
     <string name="widgets_select_widget">Selecione um widget</string>
     <string name="widgets_add_widget">Adicionar um widget</string>
     <string name="widgets_edit_widget">Editar widgets</string>

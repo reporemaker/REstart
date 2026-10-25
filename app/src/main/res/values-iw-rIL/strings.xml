@@ -300,6 +300,7 @@
     <string name="access_usage_data_permission">כדי להמשיך, אפשר הרשאת גישה לנתוני שימוש בהגדרות המכשיר שלך.</string>
     <string name="goto_settings">עבור אל הגדרות</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">ווידג\'טים</string>
     <string name="widgets_select_widget">בחר ווידג\'ט</string>
     <string name="widgets_add_widget">הוסף ווידג\'ט</string>
     <string name="widgets_edit_widget">עריכת ווידג\'טים</string>

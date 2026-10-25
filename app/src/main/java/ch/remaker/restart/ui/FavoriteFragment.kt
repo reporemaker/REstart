@@ -26,6 +26,7 @@ import ch.remaker.restart.data.Constants.AppDrawerFlag
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.FragmentFavoriteBinding
 import ch.remaker.restart.helper.emptyString
+import ch.remaker.restart.helper.applyPageBackground
 import ch.remaker.restart.helper.getHexForOpacity
 import ch.remaker.restart.ui.adapter.FavoriteAdapter
 import android.content.res.ColorStateList
@@ -54,8 +55,7 @@ class FavoriteFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val backgroundColor = getHexForOpacity(prefs)
-        binding.mainLayout.setBackgroundColor(backgroundColor)
+        applyPageBackground(binding.mainLayout, prefs)
         viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
 
         deviceManager = requireContext().getSystemService(DevicePolicyManager::class.java)
@@ -167,8 +167,7 @@ class FavoriteFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        val backgroundColor = getHexForOpacity(prefs)
-        binding.mainLayout.setBackgroundColor(backgroundColor)
+        applyPageBackground(binding.mainLayout, prefs)
         // Reload the saved order in case the user selected a new app from the app drawer
         viewModel.loadAppOrder()
     }

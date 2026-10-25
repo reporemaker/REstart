@@ -516,6 +516,7 @@
     <string name="goto_settings">Go to Settings</string>
 
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgets</string>
     <string name="widgets_select_widget">Select a Widget</string>
     <string name="widgets_add_widget">Add a Widget</string>
     <string name="widgets_edit_widget">Edit Widgets</string>

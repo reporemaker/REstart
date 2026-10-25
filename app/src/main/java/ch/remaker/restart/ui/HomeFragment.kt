@@ -65,6 +65,7 @@ import ch.remaker.restart.helper.ShortcutHelper
 import ch.remaker.restart.helper.WeatherHelper
 import ch.remaker.restart.helper.analytics.AppUsageMonitor
 import ch.remaker.restart.helper.formatMillisToHMS
+import ch.remaker.restart.helper.applyPageBackground
 import ch.remaker.restart.helper.getHexForOpacity
 import ch.remaker.restart.helper.getNextAlarm
 import ch.remaker.restart.helper.getSystemIcons
@@ -259,7 +260,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             battery.textSize = prefs.batterySize.toFloat()
 
             battery.isVisible = prefs.showBattery
-            mainLayout.setBackgroundColor(getHexForOpacity(prefs))
+            applyPageBackground(mainLayout, prefs)
             applyClockStyle()
 
             date.setTextColor(prefs.dateColor)

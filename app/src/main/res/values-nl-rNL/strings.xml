@@ -306,6 +306,7 @@
     <string name="access_usage_data_permission">Om verder te gaan, moet u toestemming voor toegang tot gebruiksgegevens inschakelen in de instellingen van uw apparaat.</string>
     <string name="goto_settings">Ga naar Instellingen</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgets</string>
     <string name="widgets_select_widget">Selecteer een widget</string>
     <string name="widgets_add_widget">Een widget toevoegen</string>
     <string name="widgets_edit_widget">Widgets bewerken</string>

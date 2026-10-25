@@ -306,6 +306,7 @@
     <string name="access_usage_data_permission">Для продолжения, пожалуйста, разрешите доступ к данным об использовании в настройках вашего устройства.</string>
     <string name="goto_settings">Перейти в настройки</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Виджеты</string>
     <string name="widgets_select_widget">Выберите виджет</string>
     <string name="widgets_add_widget">Добавить виджет</string>
     <string name="widgets_edit_widget">Редактировать виджеты</string>

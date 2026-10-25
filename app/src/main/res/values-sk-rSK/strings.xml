@@ -300,6 +300,7 @@
     <string name="access_usage_data_permission">Ak chcete pokračovať, povoľte v nastaveniach zariadenia povolenie na prístup k údajom o používaní.</string>
     <string name="goto_settings">Prejdite do časti Nastavenia</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgety</string>
     <string name="widgets_select_widget">Vyberte miniaplikáciu</string>
     <string name="widgets_add_widget">Pridať widget</string>
     <string name="widgets_edit_widget">Upraviť widgety</string>

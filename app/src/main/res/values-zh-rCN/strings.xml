@@ -294,6 +294,7 @@
     <string name="access_usage_data_permission">要继续，请在设备设置中启用使用情况数据访问权限。</string>
     <string name="goto_settings">前往设置</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">小部件</string>
     <string name="widgets_select_widget">选择小部件</string>
     <string name="widgets_add_widget">添加小部件</string>
     <string name="widgets_edit_widget">编辑小部件</string>

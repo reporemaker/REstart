@@ -305,6 +305,7 @@
     <string name="access_usage_data_permission">للمتابعة، يرجى تفعيل الإذن بالوصول إلى بيانات الاستخدام في إعدادات جهازك.</string>
     <string name="goto_settings">انتقل إلى الإعدادات</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">الأدوات</string>
     <string name="widgets_select_widget">اختر أداة</string>
     <string name="widgets_add_widget">أضف أداة</string>
     <string name="widgets_edit_widget">تعديل الأدوات</string>

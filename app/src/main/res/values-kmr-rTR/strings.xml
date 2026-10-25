@@ -300,6 +300,7 @@
     <string name="access_usage_data_permission">Ji bo domandinê, Tika ye di sazkariyên amûrê xwe de mafê gihîştina daneyên bikaranînê çalak bike.</string>
     <string name="goto_settings">Biçe sazkariyan</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Sepanok</string>
     <string name="widgets_select_widget">Sepanokê hilbijêre</string>
     <string name="widgets_add_widget">Sepanokê tevlî bike</string>
     <string name="widgets_edit_widget">Sepanokê biguherîne</string>

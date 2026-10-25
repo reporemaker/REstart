@@ -53,6 +53,7 @@ import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.FragmentAppDrawerBinding
 import ch.remaker.restart.helper.ChineseSortHelper
 import ch.remaker.restart.helper.emptyString
+import ch.remaker.restart.helper.applyPageBackground
 import ch.remaker.restart.helper.getHexForOpacity
 import ch.remaker.restart.helper.hasContactsPermission
 import ch.remaker.restart.helper.isREstartAppDefault
@@ -161,8 +162,7 @@ class AppDrawerFragment : BaseFragment() {
             searchTextView.text = letterToChar.toString()
         }
 
-        val backgroundColor = getHexForOpacity(prefs)
-        binding.mainLayout.setBackgroundColor(backgroundColor)
+        applyPageBackground(binding.mainLayout, prefs)
 
         val flagString = arguments?.getString("flag", AppDrawerFlag.LaunchApp.toString())
             ?: AppDrawerFlag.LaunchApp.toString()

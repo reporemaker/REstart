@@ -169,6 +169,59 @@ class DialogManager(val context: Context, val activity: Activity) {
         sheet = swissSheet(title, list, null, null)
     }
 
+    /** One group of [groupedChooser]: a row with an icon and a name that opens to its [items] (label, note). */
+    data class ChooserGroup(val label: String, val icon: android.graphics.drawable.Drawable?, val items: List<Pair<String, String>>)
+
+    /**
+     * A Swiss list of groups that open on tap, e.g. apps and their widgets: icon and name per
+     * group with a thin + / − on the right, the items indented under it with a small note (a size)
+     * in spaced capitals. Tapping an item closes the sheet and reports (group, item).
+     */
+    fun groupedChooser(title: String, groups: List<ChooserGroup>, onChosen: (Int, Int) -> Unit) {
+        val list = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; setPadding(0, px(6), 0, 0) }
+        var sheet: FontBottomSheetDialogLocked? = null
+        groups.forEachIndexed { g, group ->
+            val sign = TextView(context).apply { text = "+"; textSize = 20f; setTextColor(ink) }
+            val items = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
+            list.addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                setPadding(0, px(12), 0, px(12))
+                addView(android.widget.ImageView(context).apply {
+                    group.icon?.let { setImageDrawable(it) }
+                    layoutParams = LinearLayout.LayoutParams(px(24), px(24)).apply { marginEnd = px(14) }
+                })
+                addView(TextView(context).apply { text = group.label; textSize = 18f; setTextColor(ink) },
+                    LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                addView(sign)
+                setOnClickListener {
+                    val open = items.visibility != View.VISIBLE
+                    items.visibility = if (open) View.VISIBLE else View.GONE
+                    sign.text = if (open) "\u2212" else "+"
+                }
+            })
+            group.items.forEachIndexed { i, (label, note) ->
+                items.addView(LinearLayout(context).apply {
+                    orientation = LinearLayout.HORIZONTAL
+                    gravity = Gravity.CENTER_VERTICAL
+                    setPadding(px(38), px(10), 0, px(10))
+                    addView(TextView(context).apply { text = label; textSize = 16f; setTextColor(ink) },
+                        LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
+                    addView(TextView(context).apply {
+                        text = note.uppercase(java.util.Locale.ROOT)
+                        textSize = 12f
+                        letterSpacing = 0.14f
+                        setTextColor(ColorUtils.setAlphaComponent(ink, 170))
+                    })
+                    setOnClickListener { sheet?.dismiss(); onChosen(g, i) }
+                })
+            }
+            list.addView(items)
+            if (g < groups.lastIndex) list.addView(hairline())
+        }
+        sheet = swissSheet(title, list, null, null)
+    }
+
     var backupRestoreBottomSheet: FontBottomSheetDialogLocked? = null
 
     /** Lists the automatic settings copies, newest first, and restores the chosen one after confirmation. */

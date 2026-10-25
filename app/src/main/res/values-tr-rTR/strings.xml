@@ -421,6 +421,7 @@
     <string name="access_usage_data_permission">Devam etmek için lütfen cihaz ayarlarınızda kullanım verilerine erişim iznini etkinleştirin.</string>
     <string name="goto_settings">Ayarlara gidin</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widget\'lar</string>
     <string name="widgets_select_widget">Bir Widget Seçin</string>
     <string name="widgets_add_widget">Widget Ekle</string>
     <string name="widgets_edit_widget">Widget\'ları Düzenle</string>

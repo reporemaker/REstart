@@ -306,6 +306,7 @@
     <string name="access_usage_data_permission">Chcete-li pokračovat, povolte prosím přístup k údajům o používání v nastavení zařízení.</string>
     <string name="goto_settings">Přejděte do Nastavení</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgety</string>
     <string name="widgets_select_widget">Vyberte widget</string>
     <string name="widgets_add_widget">Přidat widget</string>
     <string name="widgets_edit_widget">Upravit widgety</string>

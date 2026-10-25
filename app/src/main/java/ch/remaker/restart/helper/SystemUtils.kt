@@ -409,6 +409,19 @@ fun sp2px(resources: Resources, sp: Float): Float {
 }
 
 
+/**
+ * Puts the page background (colour + opacity) on the activity's container instead of on the
+ * page itself. The pages cross-fade when they change; with the background on each page, both
+ * were half transparent mid-fade and the wallpaper showed through: a dark wallpaper made the
+ * light theme blink black. The container stays put, so the screen looks the same at rest and
+ * no longer darkens during the fade.
+ */
+fun applyPageBackground(page: View, prefs: Prefs) {
+    page.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+    (page.context as? android.app.Activity)?.findViewById<View>(R.id.mainActivityLayout)
+        ?.setBackgroundColor(getHexForOpacity(prefs))
+}
+
 fun getHexForOpacity(prefs: Prefs): Int {
     // Convert the opacity percentage (0-100) to a reversed decimal (0.0-1.0)
     val setOpacity = ((100 - prefs.opacityNum.coerceIn(

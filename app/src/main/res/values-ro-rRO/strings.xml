@@ -306,6 +306,7 @@
     <string name="access_usage_data_permission">Pentru a continua, vă rugăm să activați permisiunea de accesare a datelor de utilizare în setările dispozitivului.</string>
     <string name="goto_settings">Accesați Setări</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgeturi</string>
     <string name="widgets_select_widget">Selectați un widget</string>
     <string name="widgets_add_widget">Adăugați un widget</string>
     <string name="widgets_edit_widget">Editați widget-urile</string>

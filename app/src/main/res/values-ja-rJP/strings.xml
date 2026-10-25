@@ -295,6 +295,7 @@
     <string name="access_usage_data_permission">続行するには、デバイスの設定で使用状況データへのアクセス許可を有効にしてください。</string>
     <string name="goto_settings">設定に移動</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">ウィジェット</string>
     <string name="widgets_select_widget">ウィジェットを選択してください</string>
     <string name="widgets_add_widget">ウィジェットを追加する</string>
     <string name="widgets_edit_widget">ウィジェットを編集する</string>

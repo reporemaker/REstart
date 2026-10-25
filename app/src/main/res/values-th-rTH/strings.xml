@@ -307,6 +307,7 @@
     <string name="access_usage_data_permission">หากต้องการดำเนินการต่อ โปรดเปิดสิทธิ์การเข้าถึงข้อมูลการใช้งานในการตั้งค่าอุปกรณ์ของคุณ</string>
     <string name="goto_settings">ไปที่การตั้งค่า</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">วิดเจ็ต</string>
     <string name="widgets_select_widget">เลือกวิดเจ็ต</string>
     <string name="widgets_add_widget">เพิ่มวิดเจ็ต</string>
     <string name="widgets_edit_widget">แก้ไขวิดเจ็ต</string>

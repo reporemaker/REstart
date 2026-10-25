@@ -377,6 +377,7 @@
     <string name="access_usage_data_permission">Um fortzufahren, aktiviere bitte die Berechtigung zum Zugriff auf Nutzungsdaten in deinen Geräteeinstellungen.</string>
     <string name="goto_settings">Zu den Einstellungen</string>
     <!-- Widget Stings -->
+    <string name="widgets_title">Widgets</string>
     <string name="widgets_select_widget">Wähle ein Widget aus</string>
     <string name="widgets_add_widget">Widget hinzufügen</string>
     <string name="widgets_edit_widget">Widgets bearbeiten</string>
