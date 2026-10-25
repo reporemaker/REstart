@@ -71,4 +71,4 @@ problems through [SECURITY.md](SECURITY.md). Changes are listed in [CHANGELOG.md
 → OlauncherCF → [mLauncher](https://github.com/CodeWorksCreativeHub/mLauncher); the 47 people
 behind that code are named in [FOUNDATION.md](FOUNDATION.md).
 
-[RE\*maker](https://remaker.ch) // SEU//EmekUlas
+[RE\*maker](https://remaker.ch) // SEU-Emekulas
