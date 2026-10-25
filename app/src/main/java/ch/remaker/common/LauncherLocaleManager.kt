@@ -16,7 +16,9 @@ object LauncherLocaleManager {
         }
 
         val locale = prefs.appLanguage.locale()
-        Locale.setDefault(locale)
+        // Dates and times format with the default locale; it differs from the resource locale
+        // only for Kurmanji (strings "kmr", date data "ku")
+        Locale.setDefault(prefs.appLanguage.formatLocale())
 
         val config = base.resources.configuration
         config.setLocale(locale)

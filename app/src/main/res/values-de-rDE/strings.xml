@@ -196,7 +196,7 @@
     <string name="settings_favorite_apps_sub">Plätze, Reihenfolge, Widgets</string>
     <string name="settings_hidden_apps_sub">Nicht in der Schublade</string>
     <string name="settings_notes_sub">Auf dem Startbildschirm</string>
-    <string name="settings_advanced_sub">Sicherung, Zurücksetzen, Expertenoptionen</string>
+    <string name="settings_advanced_sub">Sicherung, Zurücksetzen, Sprache, Neustart</string>
     <string name="ring_placement">Ringposition</string>
     <string name="ring_beside">Neben der Zeit</string>
     <string name="ring_centred">Zentriert, Zeit darunter</string>

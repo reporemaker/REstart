@@ -130,6 +130,7 @@ object Constants {
         Italian,
         Japanese,
         Korean,
+        Kurdish,
         Lithuanian,
         Polish,
         Portuguese,
@@ -155,6 +156,7 @@ object Constants {
                 Italian -> getLocalizedString(R.string.lang_italian)
                 Japanese -> getLocalizedString(R.string.lang_japanese)
                 Korean -> getLocalizedString(R.string.lang_korean)
+                Kurdish -> getLocalizedString(R.string.lang_kurdish)
                 Lithuanian -> getLocalizedString(R.string.lang_lithuanian)
                 Polish -> getLocalizedString(R.string.lang_polish)
                 Portuguese -> getLocalizedString(R.string.lang_portuguese)
@@ -174,6 +176,13 @@ object Constants {
             return Locale.forLanguageTag(zone())
         }
 
+        /**
+         * Locale for dates and times. Kurmanji's strings live under "kmr", but the platform's
+         * date data (ICU/CLDR) knows the language as "ku": with "kmr" months came out as "M10".
+         */
+        fun formatLocale(): Locale =
+            if (this == Kurdish) Locale.forLanguageTag("ku-TR") else locale()
+
         private fun zone(): String {
             return when (this) {
                 System -> Locale.getDefault().toLanguageTag()
@@ -188,6 +197,7 @@ object Constants {
                 Italian -> "it-IT"
                 Japanese -> "ja-JP"
                 Korean -> "ko-KR"
+                Kurdish -> "kmr-TR"
                 Lithuanian -> "lt-LT"
                 Polish -> "pl-PL"
                 Portuguese -> "pt-PT"

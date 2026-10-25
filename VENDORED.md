@@ -1,4 +1,4 @@
-# VENDORED.md — Vendored Code Ledger
+# VENDORED.md: Vendored Code Ledger
 
 Files copied into this repo from outside. Every entry is checked for upstream updates by the
 LifeLine skill (Step 4). Do not remove entries whose files still exist.

@@ -424,7 +424,7 @@
     <string name="settings_favorite_apps_sub">Miejsca, kolejność, widżety</string>
     <string name="settings_hidden_apps_sub">Aplikacje wyłączone z szuflady</string>
     <string name="settings_notes_sub">Na ekranie głównym</string>
-    <string name="settings_advanced_sub">Kopia zapasowa, reset, opcje eksperckie</string>
+    <string name="settings_advanced_sub">Kopia zapasowa, reset, język, ponowne uruchomienie</string>
     <string name="ring_placement">Położenie pierścienia</string>
     <string name="ring_beside">Obok godziny</string>
     <string name="ring_centred">Wyśrodkowany, godzina poniżej</string>

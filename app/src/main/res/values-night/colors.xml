@@ -38,8 +38,8 @@
     <color name="blackInverseTrans90">#E6FFFFFF</color>
 
     <color name="background_light">#FFFFFFFF</color>
-    <color name="background_dark">#FF121212</color>
-    <color name="background_bubble">#FF181818</color>
+    <color name="background_dark">#FF000000</color>
+    <color name="background_bubble">#FF000000</color>
 
     <color name="fab_background">#FF282A36</color>
     <color name="fab_border">#FFBD93F9</color>

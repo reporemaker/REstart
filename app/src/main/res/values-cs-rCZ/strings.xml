@@ -424,7 +424,7 @@
     <string name="settings_favorite_apps_sub">Pozice, pořadí, widgety</string>
     <string name="settings_hidden_apps_sub">Aplikace vynechané ze zásuvky</string>
     <string name="settings_notes_sub">Na domovské obrazovce</string>
-    <string name="settings_advanced_sub">Záloha, reset, možnosti pro experty</string>
+    <string name="settings_advanced_sub">Záloha, reset, jazyk, restart</string>
     <string name="ring_placement">Umístění prstence</string>
     <string name="ring_beside">Vedle času</string>
     <string name="ring_centred">Uprostřed, čas pod ním</string>

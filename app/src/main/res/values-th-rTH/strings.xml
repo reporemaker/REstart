@@ -425,7 +425,7 @@
     <string name="settings_favorite_apps_sub">ช่อง ลำดับ วิดเจ็ต</string>
     <string name="settings_hidden_apps_sub">แอปที่ไม่แสดงในลิ้นชัก</string>
     <string name="settings_notes_sub">บนหน้าจอหลัก</string>
-    <string name="settings_advanced_sub">สำรองข้อมูล รีเซ็ต ตัวเลือกขั้นสูง</string>
+    <string name="settings_advanced_sub">สำรองข้อมูล รีเซ็ต ภาษา รีสตาร์ท</string>
     <string name="ring_placement">ตำแหน่งวงแหวน</string>
     <string name="ring_beside">ข้างเวลา</string>
     <string name="ring_centred">กึ่งกลาง เวลาอยู่ด้านล่าง</string>

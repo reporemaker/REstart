@@ -415,7 +415,7 @@
     <string name="settings_favorite_apps_sub">位置、顺序、小部件</string>
     <string name="settings_hidden_apps_sub">不在抽屉中显示的应用</string>
     <string name="settings_notes_sub">在主屏幕上</string>
-    <string name="settings_advanced_sub">备份、重置、专家选项</string>
+    <string name="settings_advanced_sub">备份、重置、语言、重启</string>
     <string name="ring_placement">圆环位置</string>
     <string name="ring_beside">时间旁边</string>
     <string name="ring_centred">居中，时间在下方</string>

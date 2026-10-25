@@ -239,7 +239,7 @@
     <string name="settings_favorite_apps_sub">Yuvalar, sıra, widget\'lar</string>
     <string name="settings_hidden_apps_sub">Çekmecede görünmeyen uygulamalar</string>
     <string name="settings_notes_sub">Ana ekranda</string>
-    <string name="settings_advanced_sub">Yedekleme, sıfırlama, uzman seçenekleri</string>
+    <string name="settings_advanced_sub">Yedekleme, sıfırlama, dil, yeniden başlatma</string>
     <string name="ring_placement">Halka yerleşimi</string>
     <string name="ring_beside">Saatin yanında</string>
     <string name="ring_centred">Ortada, saat altında</string>

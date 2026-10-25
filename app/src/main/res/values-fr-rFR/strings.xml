@@ -423,7 +423,7 @@
     <string name="settings_favorite_apps_sub">Emplacements, ordre, widgets</string>
     <string name="settings_hidden_apps_sub">Applications exclues du tiroir</string>
     <string name="settings_notes_sub">Sur l\'écran d\'accueil</string>
-    <string name="settings_advanced_sub">Sauvegarde, réinitialisation, options expert</string>
+    <string name="settings_advanced_sub">Sauvegarde, réinitialisation, langue, redémarrage</string>
     <string name="ring_placement">Position de l\'anneau</string>
     <string name="ring_beside">À côté de l\'heure</string>
     <string name="ring_centred">Centré, heure en dessous</string>

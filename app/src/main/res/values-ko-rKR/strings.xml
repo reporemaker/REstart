@@ -424,7 +424,7 @@
     <string name="settings_favorite_apps_sub">슬롯, 순서, 위젯</string>
     <string name="settings_hidden_apps_sub">서랍에 표시되지 않는 앱</string>
     <string name="settings_notes_sub">홈 화면에서</string>
-    <string name="settings_advanced_sub">백업, 초기화, 전문가 옵션</string>
+    <string name="settings_advanced_sub">백업, 초기화, 언어, 재시작</string>
     <string name="ring_placement">링 위치</string>
     <string name="ring_beside">시간 옆</string>
     <string name="ring_centred">가운데, 시간은 아래</string>

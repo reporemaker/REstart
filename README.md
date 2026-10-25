@@ -10,7 +10,7 @@
 <!-- Button and version sit inside the heading, so GitHub's h1 underline falls below the version -->
 <h1>RE*start<br><br>
 <a href="https://github.com/reporemaker/REstart/releases/latest"><img src="https://img.shields.io/badge/%E2%AC%87%20Download-APK%20%C2%B7%20Android%209%2B-f2f2f2?style=for-the-badge&amp;labelColor=0b0e14" alt="⬇ Download: APK · Android 9+" height="68"></a><br>
-<sub><sub>Version 1.1.0 · APK only for now, app stores soon</sub></sub>
+<sub><sub>Version 1.1.1 · APK only for now, app stores soon</sub></sub>
 </h1>
 
 <p><b>Start again, with less.</b><br>A calm Android home screen that turns your phone from a habit back into a tool.</p>

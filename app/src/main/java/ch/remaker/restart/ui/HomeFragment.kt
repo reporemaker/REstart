@@ -229,7 +229,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
 
     private fun updateUIFromPreferences() {
-        val locale = prefs.appLanguage.locale()
+        val locale = prefs.appLanguage.formatLocale()
         val is24HourFormat = DateFormat.is24HourFormat(requireContext())
 
         binding.apply {
@@ -297,7 +297,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
     }
 
     private fun updateTimeAndInfo() {
-        val locale = prefs.appLanguage.locale()
+        val locale = prefs.appLanguage.formatLocale()
         val is24HourFormat = DateFormat.is24HourFormat(requireContext())
 
         binding.apply {

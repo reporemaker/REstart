@@ -424,7 +424,7 @@
     <string name="settings_favorite_apps_sub">Слоты, порядок, виджеты</string>
     <string name="settings_hidden_apps_sub">Приложения, убранные из панели приложений</string>
     <string name="settings_notes_sub">На главном экране</string>
-    <string name="settings_advanced_sub">Резервное копирование, сброс, экспертные параметры</string>
+    <string name="settings_advanced_sub">Резервное копирование, сброс, язык, перезапуск</string>
     <string name="ring_placement">Расположение кольца</string>
     <string name="ring_beside">Рядом со временем</string>
     <string name="ring_centred">По центру, время снизу</string>

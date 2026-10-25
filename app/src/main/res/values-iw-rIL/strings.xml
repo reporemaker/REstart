@@ -418,7 +418,7 @@
     <string name="settings_favorite_apps_sub">משבצות, סדר, ווידג\'טים</string>
     <string name="settings_hidden_apps_sub">יישומים שאינם מוצגים במגירה</string>
     <string name="settings_notes_sub">במסך הבית</string>
-    <string name="settings_advanced_sub">גיבוי, איפוס, אפשרויות מומחה</string>
+    <string name="settings_advanced_sub">גיבוי, איפוס, שפה, הפעלה מחדש</string>
     <string name="ring_placement">מיקום הטבעת</string>
     <string name="ring_beside">לצד השעה</string>
     <string name="ring_centred">במרכז, השעה מתחת</string>

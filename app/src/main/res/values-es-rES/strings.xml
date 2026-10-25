@@ -424,7 +424,7 @@
     <string name="settings_favorite_apps_sub">Posiciones, orden, widgets</string>
     <string name="settings_hidden_apps_sub">Aplicaciones excluidas del cajón</string>
     <string name="settings_notes_sub">En la pantalla de inicio</string>
-    <string name="settings_advanced_sub">Copia de seguridad, restablecimiento, opciones de experto</string>
+    <string name="settings_advanced_sub">Copia de seguridad, restablecimiento, idioma, reinicio</string>
     <string name="ring_placement">Posición del anillo</string>
     <string name="ring_beside">Junto a la hora</string>
     <string name="ring_centred">Centrado, hora debajo</string>

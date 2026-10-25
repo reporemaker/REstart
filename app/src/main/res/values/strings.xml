@@ -313,7 +313,7 @@
     <string name="settings_favorite_apps_sub">Slots, order, widgets</string>
     <string name="settings_hidden_apps_sub">Apps kept out of the drawer</string>
     <string name="settings_notes_sub">On the home screen</string>
-    <string name="settings_advanced_sub">Backup, reset, expert options</string>
+    <string name="settings_advanced_sub">Backup, reset, language, restart</string>
     <string name="ring_placement">Ring placement</string>
     <string name="ring_beside">Beside the time</string>
     <string name="ring_centred">Centred, time below</string>

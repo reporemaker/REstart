@@ -71,7 +71,9 @@ class FontBottomSheetDialogLocked(context: Context) : AppCompatDialog(context), 
             radius = 0f
             // Taps on the sheet's empty parts are not taps outside it
             isClickable = true
-            setCardBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryBackground))
+            // The colour goes on the content, not the card: a card the colour of the theme's surface
+            // gets Material's elevation overlay in the dark theme (black came out as #262626)
+            setCardBackgroundColor(android.graphics.Color.TRANSPARENT)
         }
 
         // Grab line at top
@@ -93,6 +95,7 @@ class FontBottomSheetDialogLocked(context: Context) : AppCompatDialog(context), 
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
+            setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryBackground))
             addView(grabLine) // always at index 0
         }
 
