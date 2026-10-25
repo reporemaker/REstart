@@ -4,63 +4,61 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
-## Unreleased
+## 1.1.0 — 25 October 2026
 
-- Theme import/export removed: the full backup already carries every colour (and font, sizes,
-  categories…), so the second file format and the bundled theme files are gone. Advanced keeps
-  Backup / Restore only.
-- Help & feedback: "Report a translation error" opens the Translation issue template;
-  CONTRIBUTING explains how translations work.
-- Settings home: the title first, the RE* mark bottom right (tap: device summary for bug
-  reports); Advanced is a ruled list of actions; the dead "Expert options" switch is gone.
-  New Help & feedback page: what the project is and where it lives, how to report a bug or an
-  idea (GitHub issue or e-mail, with the device summary), and that security problems go by
-  e-mail or private reporting, never as a public issue.
-- Translations: all 21 languages are complete again (104–115 missing strings per language
-  translated, dead keys removed); strings added after the fork are marked as machine-translated
-  in each file and corrections are welcome as issues or pull requests. `scripts/check-strings.py`
-  checks completeness, placeholders and escaping.
-  The inherited translations were reviewed in context and 1,099 strings corrected in 19
-  languages (dictionary mistranslations such as "Save" as rescue, "Pin" as a sewing pin,
-  long swipes rendered as long presses, "home" as a house, leftover "Multi Launcher" names,
-  untranslated English in Korean and Kurmanji, broken line breaks).
-- Dialogs follow the Swiss sheet as well: category name input (a rule under the text, no box),
-  multi-choice lists with square boxes, the yes/no confirmations, the settings-copy picker and
-  the "exit launcher" list are sheets with a caps title, a rule and caps text buttons; no
-  Material alert dialogs remain outside the crash screen.
-- Settings reorganised by surface: Features = behaviour (Search, Drawer, Weather, Private
-  space); Look & Feel = appearance (Appearance, Clock area, Home list, Quick actions, Drawer);
-  Advanced = Expert and General (language, settings text size, orientation, lock, haptics).
-  Nothing was renamed or removed except the home-screen pages: the pager and its "Number of
-  pages" / "Home pager" settings are gone, the home list holds up to 8 apps, and long swipes
-  left/right no longer switch pages (their default action is now Disabled).
-- Clock area: one settings page under Look & Feel holds everything about the block at the top
-  of the home screen — the four styles with live previews, what is shown (clock, AM/PM, date,
-  day of year, alarm, battery), the chosen style's own layout rows, colours and sizes, and the
-  tap actions for the clock and the date. "No alarm is set." is now translated.
-- Fonts: the clock keeps the user's font family in every style — weights are derived from it
-  instead of swapping in the system light face, negative letter-spacing is applied only to the
-  system font (so Doto's dots never collide), and the bottom sheets keep each label's weight.
-- Swiss style across the app: page heads with a 2 dp rule, hairline rows instead of boxes,
-  numbered settings home, square tiles and switches, caps section labels; popups square with a
-  rule, every choice a one-column list; home apps and drawer rows ruled, index numbers on a
-  left-aligned home list, the quick-action row under a rule with the RE* mark at its end.
-- Clock display: four styles (Classic, Swiss, Rings, One line) chosen on their own settings
-  page under Look & Feel, with live previews; the shown-information switches (clock, AM/PM,
-  date, day of year, alarm, battery) moved there from Features; each style brings only its own
-  layout rows (ring placement, size, what the ring shows, 12 h / 24 h; Swiss side column and
-  weights; one-line rule and alarm line); colours and sizes follow in one group.
-- About screen redesigned: the RE* mark (white tile in the light theme, dark tile in the dark
-  theme, the same rule everywhere in the app), name, version, "SEU // RE*maker"; open-source
-  repository and licence; the foundation line (Multi Launcher, which descends from Olauncher);
-  weather data credit; contact address as plain text. A second page, "Contributors and
-  licences", names everyone whose work is in the code up to the fork point and shows the full
-  texts of GPL-3.0, OFL-1.1, CC BY 4.0 and Apache-2.0 from the APK's assets.
-- Fonts: Montserrat and Doto stay, nine bundled fonts are removed (Bitter, Fira Code, Hack, Lato,
-  Merriweather, Quicksand, Raleway, Roboto, Source Code Pro); the APK loses about 1.5 MB. System
-  font and your own font file (Settings → Look & Feel → Font → Custom) remain. The two fonts now
-  ship with their OFL-1.1 licence texts (`assets/fonts/`) and are recorded in `VENDORED.md`,
-  closing the licence gap the first LifeLine audit found.
+A design release: the whole app now speaks one visual language, the clock became a choice,
+settings were reorganised by what they affect, and every language is complete again.
+
+### Swiss style throughout
+- Settings: page heads with a bold title and a 2 dp rule, hairline rows instead of boxed cards, a
+  numbered settings home, square tiles and switches, section labels in spaced capitals.
+- Popups: square sheets with a rule on top, every choice as a one-column list (no segmented
+  buttons), outlined square buttons, square check boxes, caps text buttons.
+- Home screen and drawer: ruled rows, an index in front of a left-aligned home list, the search
+  field as a ruled line, category heads in capitals, the quick-action row under a rule with the
+  RE* mark closing it on the right.
+- Dialogs: category name input, multi-choice lists, confirmations, the settings-copy picker and
+  the "exit launcher" list all use the same sheet.
+
+### Clock area — four styles
+- Classic, Swiss (hours over minutes), Rings (a thick hour ring and a thin minute ring, both
+  flowing from 12 o'clock, with the day or the time inside) and One line.
+- One settings page under Look & Feel holds everything about the block: the style with live
+  previews, what is shown, the chosen style's own layout rows, colours and sizes, tap actions.
+
+### Settings reorganised
+- Features = behaviour (Search, Drawer, Weather, Private space); Look & Feel = appearance
+  (Appearance, Clock area, Home list, Quick actions, Drawer); Advanced = Actions and General.
+- Home-screen pages and the pager are gone; the home list holds up to 8 apps.
+- Theme import/export removed — the full backup already carries every colour; the dead
+  "Expert options" switch removed; Help & feedback is a page of its own (help, how to report a
+  bug, a translation error, or a security problem).
+- A back arrow and a page head on every inner page, including the favourites and hidden-apps
+  screens.
+
+### About
+- The RE* mark, name, version and signature; number cards for Contributors (47 names, the
+  lineage Olauncher → OlauncherCF → mLauncher → RE*start) and Licences (full texts of GPL-3.0,
+  OFL-1.1, CC BY 4.0 and Apache-2.0 from the APK).
+
+### Fonts
+- Montserrat and Doto stay with their OFL-1.1 texts in the APK and a `VENDORED.md` record;
+  nine bundled fonts removed (about 1.5 MB less).
+- The user's font is applied everywhere — onboarding, dialogs, pickers, labels — and the clock
+  keeps the font family in every style (weights derived from it, no system face swapped in, no
+  negative tracking on dot-matrix or custom fonts).
+
+### Translations
+- All 21 languages complete; 1,099 inherited strings corrected in context (dictionary
+  mistranslations, leftover "Multi Launcher" names, untranslated English, broken line breaks).
+- German in Swiss spelling and informal address, Spanish informal, Portuguese European.
+- Machine-translated strings are marked in each file; corrections come as issues (Translation
+  template) or pull requests. `scripts/check-strings.py` checks completeness.
+
+### Dependencies (after the LifeLine audit)
+- Unused packages removed, coroutines declared, biometric on a stable release, Gradle
+  dependency locking and sha256 verification, no JDK download at build time, Actions pinned to
+  commit SHAs.
 
 ## 1.0.0 — 25 October 2026
 

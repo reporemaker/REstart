@@ -12,7 +12,7 @@ plugins {
 // =========================
 
 val major = 1
-val minor = 0
+val minor = 1
 val patch = 0
 val build = 1
 
