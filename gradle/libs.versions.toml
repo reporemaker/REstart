@@ -2,10 +2,10 @@
 
 [versions]
 agp = "9.4.1"
-kotlin = "2.4.20"
+kotlin = "2.4.21"
 viewpager2 = "1.1.0"
 junit = "4.13.2"
-kotlinx-coroutines = "1.9.0"
+kotlinx-coroutines = "1.11.0"
 
 # AndroidX Core and AppCompat
 core-ktx = "1.19.1"
@@ -28,12 +28,12 @@ constraintlayout = "2.2.2"
 
 # Compose Versions
 activity-compose = "1.13.0"
-compose-android = "1.11.4"
-compose-material = "1.11.4"
-compose-animation = "1.11.4"
-compose-ui = "1.11.4"
-compose-foundation = "1.11.4"
-compose-ui-tooling = "1.11.4"
+compose-android = "1.12.1"
+compose-material = "1.12.1"
+compose-animation = "1.12.1"
+compose-ui = "1.12.1"
+compose-foundation = "1.12.1"
+compose-ui-tooling = "1.12.1"
 
 # Other Libraries
 biometric = "1.1.0"
@@ -44,8 +44,8 @@ test-core-ktx = "1.7.0"
 test-runner = "1.7.0"
 test-rules = "1.7.0"
 fragment-testing = "1.9.1"
-ui-test-junit4 = "1.11.4"
-ui-test-manifest = "1.11.4"
+ui-test-junit4 = "1.12.1"
+ui-test-manifest = "1.12.1"
 activity = "1.13.0"
 
 # Database

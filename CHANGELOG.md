@@ -4,6 +4,14 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
+## Unreleased
+
+### Dependencies (third LifeLine run, 25 Oct 2026)
+- Compose 1.11.4 → 1.12.1, kotlinx-coroutines 1.9.0 → 1.11.0, Kotlin 2.4.20 → 2.4.21, Gradle
+  9.8.0 → 9.8.1. Rule: stable releases published at least 14 days earlier, no known advisory;
+  lock file and sha256 verification metadata regenerated in the same change; debug and signed
+  release builds and the unit tests pass. `palette-ktx` 1.1.0 (21 Oct) waits until 4 Nov.
+
 ## 1.1.0 — 25 October 2026
 
 A design release: the whole app now speaks one visual language, the clock became a choice,
