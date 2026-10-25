@@ -243,6 +243,8 @@
     <string name="advanced_settings_help_feedback_title">Yardım &amp; Geri Bildirim</string>
     <!-- Strings used for about settings -->
     <string name="about_settings_title">%1$s Hakkında</string>
+    <string name="about_contributors">Katkıda bulunanlar</string>
+    <string name="about_full_texts">Tam metinler</string>
     <string name="about_open_source">Açık kaynak</string>
     <string name="about_foundation">Temeli</string>
     <string name="about_foundation_text">Multi Launcher (mLauncher) üzerine kurulu; o da Olauncher\'ın torunu.</string>

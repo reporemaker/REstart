@@ -200,6 +200,8 @@
     <string name="advanced_settings_help_feedback_title">Hilfe &amp; Feedback</string>
     <!-- Strings used for about settings -->
     <string name="about_settings_title">Über %1$s</string>
+    <string name="about_contributors">Mitwirkende</string>
+    <string name="about_full_texts">Volltexte</string>
     <string name="about_open_source">Open Source</string>
     <string name="about_foundation">Grundlage</string>
     <string name="about_foundation_text">Baut auf Multi Launcher (mLauncher) auf, das von Olauncher abstammt.</string>

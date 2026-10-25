@@ -317,6 +317,8 @@
 
     <!-- Strings used for about settings -->
     <string name="about_settings_title">About %1$s</string>
+    <string name="about_contributors">Contributors</string>
+    <string name="about_full_texts">Full texts</string>
     <string name="about_open_source">Open source</string>
     <string name="about_foundation">Foundation</string>
     <string name="about_foundation_text">Built on Multi Launcher (mLauncher), which descends from Olauncher.</string>

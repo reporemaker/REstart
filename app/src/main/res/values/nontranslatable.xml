@@ -1,11 +1,13 @@
 <resources>
     <string name="acra_email" translatable="false">hallo@remaker.ch</string>
 
+    <string name="about_app_title" translatable="false">RE*start</string>
     <string name="about_developer" translatable="false">SEU // RE*maker</string>
     <string name="about_github" translatable="false">github.com/reporemaker/REstart</string>
     <string name="about_github_url" translatable="false">https://github.com/reporemaker/REstart</string>
     <string name="about_licence" translatable="false">GPL-3.0</string>
     <string name="about_weather_url" translatable="false">https://open-meteo.com/</string>
+    <string name="about_licence_list" translatable="false">GPL-3.0 · OFL-1.1 · CC BY 4.0 · Apache-2.0</string>
     <string name="licence_gpl" translatable="false">GNU GPL-3.0 — RE*start, mLauncher, OlauncherCF, Olauncher</string>
     <string name="licence_ofl" translatable="false">SIL OFL-1.1 — Montserrat, Doto</string>
     <string name="licence_ccby" translatable="false">CC BY 4.0 — Open-Meteo weather data</string>

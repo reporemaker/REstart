@@ -34,6 +34,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -48,8 +49,24 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.em
+import ch.remaker.restart.ui.compose.SettingsComposable.outlineColor
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -207,6 +224,7 @@ class SettingsFragment : BaseFragment() {
         val scrollState = rememberScrollState()
 
         var currentScreen by remember { mutableStateOf("main") }
+        var creditsOpenLicences by remember { mutableStateOf(false) }
 
         // Features Settings
         var selectedTheme by remember { mutableStateOf(prefs.appTheme) }
@@ -392,7 +410,7 @@ class SettingsFragment : BaseFragment() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .then(if (currentScreen == "main") Modifier else Modifier.verticalScroll(scrollState))
+                .then(if (currentScreen == "main" || currentScreen == "about") Modifier else Modifier.verticalScroll(scrollState))
         ) {
             when (currentScreen) {
                 "main" -> {
@@ -2917,61 +2935,124 @@ class SettingsFragment : BaseFragment() {
 
                     PageHeader(
                         iconRes = R.drawable.ic_back,
-                        title = getLocalizedString(
-                            R.string.about_settings_title,
-                            getLocalizedString(R.string.app_name)
-                        ),
+                        title = getLocalizedString(R.string.about_short),
                         onClick = {
                             currentScreen = "main"
                         }
                     )
 
+                    val titleColor = SettingsTheme.typography.title.color
+                    val mutedColor = SettingsTheme.typography.option.color
+                    val capsStyle = TextStyle(letterSpacing = 0.16.em)
+                    val versionLine = BuildConfig.VERSION_NAME.replace(" Build ", " · Build ") + if (BuildConfig.DEBUG) " · debug" else ""
+                    val contributorCount = remember { readAsset("contributors.txt").lines().count { it.isNotBlank() } }
+
                     // Logo rule: the RE* mark on a white tile in the light theme, on a dark tile in
                     // the dark theme (drawable / drawable-night), the same everywhere in the app.
-                    Spacer(modifier = Modifier.height(26.dp))
-                    TopMainHeader(
-                        iconRes = R.drawable.app_launcher,
-                        title = getLocalizedString(R.string.app_name),
-                        description = BuildConfig.VERSION_NAME + "<br>" + getLocalizedString(R.string.about_developer),
-                        titleFontSize = titleFontSize,
-                        descriptionFontSize = descriptionFontSize
-                    )
                     Spacer(modifier = Modifier.height(20.dp))
-                    SectionCard {
-                        AboutRow(
-                            title = getLocalizedString(R.string.about_open_source),
-                            lines = listOf(getLocalizedString(R.string.about_github) + " ↗", getLocalizedString(R.string.about_licence)),
+                    Image(
+                        painter = painterResource(R.drawable.app_launcher),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(160.dp)
+                            .align(Alignment.CenterHorizontally)
+                    )
+                    // Name: light "RE", red star, medium "start" — the largest text on the page
+                    FontText(
+                        text = buildAnnotatedString {
+                            withStyle(SpanStyle(fontWeight = FontWeight.Light)) { append("RE") }
+                            withStyle(SpanStyle(fontWeight = FontWeight.Light, color = Color(0xFFE2001A))) { append("*") }
+                            withStyle(SpanStyle(fontWeight = FontWeight.Medium)) { append("start") }
+                        },
+                        fontSize = (titleFontSize.value * 1.7f).sp,
+                        color = titleColor,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth().padding(top = 14.dp)
+                    )
+                    FontText(
+                        text = getLocalizedString(R.string.about_developer),
+                        fontSize = (descriptionFontSize.value * 0.9f).sp,
+                        color = titleColor,
+                        fontWeight = FontWeight.Medium,
+                        style = capsStyle,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+                    )
+                    FontText(
+                        text = versionLine.uppercase(),
+                        fontSize = (descriptionFontSize.value * 0.8f).sp,
+                        color = mutedColor,
+                        style = capsStyle,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth().padding(top = 4.dp)
+                    )
+
+                    // Centred between the version line and the colophon at the bottom
+                    Spacer(modifier = Modifier.weight(1f))
+                    FontText(
+                        text = getLocalizedString(R.string.about_foundation_text),
+                        fontSize = descriptionFontSize,
+                        color = mutedColor,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp, vertical = 0.dp)
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 24.dp)
+                            .height(IntrinsicSize.Min),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        AboutCard(
+                            number = contributorCount.toString(),
+                            star = true,
+                            label = getLocalizedString(R.string.about_contributors),
+                            sub = "Olauncher → OlauncherCF → mLauncher → RE*start",
+                            go = getLocalizedString(R.string.credits_thanks),
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize,
-                            onClick = { requireContext().openUrl(getLocalizedString(R.string.about_github_url)) }
-                        )
-                        AboutRow(
-                            title = getLocalizedString(R.string.about_foundation),
-                            lines = listOf(getLocalizedString(R.string.about_foundation_text)),
-                            titleFontSize = titleFontSize,
-                            descriptionFontSize = descriptionFontSize
-                        )
-                        SettingsLink(
-                            title = getLocalizedString(R.string.about_credits_link),
-                            fontSize = titleFontSize,
-                            onClick = { currentScreen = "credits" }
-                        )
-                        AboutRow(
-                            title = getLocalizedString(R.string.about_weather) + " ↗",
-                            lines = emptyList(),
+                            modifier = Modifier.weight(1f).fillMaxHeight()
+                        ) { creditsOpenLicences = false; currentScreen = "credits" }
+                        AboutCard(
+                            number = "4",
+                            star = false,
+                            label = getLocalizedString(R.string.credits_licences),
+                            sub = getLocalizedString(R.string.about_licence_list),
+                            go = getLocalizedString(R.string.about_full_texts),
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize,
-                            onClick = { requireContext().openUrl(getLocalizedString(R.string.about_weather_url)) }
-                        )
-                        // The address is plain text on purpose: nothing in the app sends mail by itself.
-                        AboutRow(
-                            title = getLocalizedString(R.string.about_contact),
-                            lines = listOf(getLocalizedString(R.string.acra_email)),
-                            titleFontSize = titleFontSize,
-                            descriptionFontSize = descriptionFontSize
-                        )
+                            modifier = Modifier.weight(1f).fillMaxHeight()
+                        ) { creditsOpenLicences = true; currentScreen = "credits" }
                     }
                     Spacer(modifier = Modifier.weight(1f))
+
+                    // Colophon: a short rule, the repository (opens the browser), the address as plain text.
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .width(40.dp)
+                            .height(1.dp)
+                            .background(outlineColor())
+                    )
+                    FontText(
+                        text = getLocalizedString(R.string.about_github) + " ↗",
+                        fontSize = titleFontSize,
+                        color = titleColor,
+                        fontWeight = FontWeight.Medium,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { requireContext().openUrl(getLocalizedString(R.string.about_github_url)) }
+                            .padding(top = 14.dp, bottom = 6.dp)
+                    )
+                    FontText(
+                        text = getLocalizedString(R.string.acra_email),
+                        fontSize = (titleFontSize.value * 0.9f).sp,
+                        color = titleColor,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth().padding(bottom = 18.dp)
+                    )
                     if (isGestureNavigationEnabled(context)) {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
                     } else {
@@ -3000,6 +3081,14 @@ class SettingsFragment : BaseFragment() {
                         R.string.licence_apache to "licenses/Apache-2.0.txt"
                     )
                     var openLicence by remember { mutableStateOf<String?>(null) }
+                    LaunchedEffect(creditsOpenLicences) {
+                        if (creditsOpenLicences) {
+                            openLicence = "licenses/GPL-3.0.txt"
+                            kotlinx.coroutines.delay(50)
+                            scrollState.animateScrollTo(scrollState.maxValue)
+                            creditsOpenLicences = false
+                        }
+                    }
 
                     Spacer(modifier = Modifier.height(16.dp))
                     SettingsTitle(text = "Multi Launcher", fontSize = titleFontSize)
@@ -3059,6 +3148,62 @@ class SettingsFragment : BaseFragment() {
 
 
             }
+        }
+    }
+
+    /** About page card: a large number (with the red star for the contributors), a label, one line of detail and a small direction at the bottom. */
+    @Composable
+    private fun AboutCard(
+        number: String,
+        star: Boolean,
+        label: String,
+        sub: String,
+        go: String,
+        titleFontSize: TextUnit,
+        descriptionFontSize: TextUnit,
+        modifier: Modifier = Modifier,
+        onClick: () -> Unit
+    ) {
+        val shape = RoundedCornerShape(20.dp)
+        Column(
+            modifier = modifier
+                .clip(shape)
+                .border(1.dp, outlineColor(), shape)
+                .clickable(onClick = onClick)
+                .padding(horizontal = 16.dp, vertical = 16.dp),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column {
+                FontText(
+                    text = buildAnnotatedString {
+                        append(number)
+                        if (star) withStyle(SpanStyle(color = Color(0xFFE2001A))) { append("*") }
+                    },
+                    fontSize = (titleFontSize.value * 2f).sp,
+                    fontWeight = FontWeight.Light,
+                    color = SettingsTheme.typography.title.color
+                )
+                FontText(
+                    text = label,
+                    fontSize = (titleFontSize.value * 0.8f).sp,
+                    fontWeight = FontWeight.Medium,
+                    color = SettingsTheme.typography.title.color,
+                    modifier = Modifier.padding(top = 6.dp)
+                )
+                FontText(
+                    text = sub,
+                    fontSize = (descriptionFontSize.value * 0.85f).sp,
+                    color = SettingsTheme.typography.option.color,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
+            FontText(
+                text = go.uppercase() + " →",
+                fontSize = (descriptionFontSize.value * 0.75f).sp,
+                color = SettingsTheme.typography.option.color,
+                style = TextStyle(letterSpacing = 0.14.em),
+                modifier = Modifier.padding(top = 14.dp)
+            )
         }
     }
 
