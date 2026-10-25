@@ -1,17 +1,27 @@
-<p align="center"><img src="docs/re-mark.svg" width="96" alt="RE* mark"></p>
+<div align="center">
 
-# RE*start
+<a href="https://remaker.ch">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://remaker.ch/brand/remaker-logo-beyaz.png">
+    <img src="https://remaker.ch/brand/remaker-logo.png" alt="RE*maker" height="44">
+  </picture>
+</a>
 
-**Start again, with less.**
+<!-- Button and version sit inside the heading, so GitHub's h1 underline falls below the version -->
+<h1>RE*start<br><br>
+<a href="https://github.com/reporemaker/REstart/releases/latest"><img src="https://img.shields.io/badge/%E2%AC%87%20Download-APK%20%C2%B7%20Android%209%2B-f2f2f2?style=for-the-badge&amp;labelColor=0b0e14" alt="⬇ Download: APK · Android 9+" height="68"></a><br>
+<sub><sub>Version 1.1.0 · APK only for now, app stores soon</sub></sub>
+</h1>
 
-A calm Android home screen that turns your phone from a habit back into a tool.
+<p><b>Start again, with less.</b><br>A calm Android home screen that turns your phone from a habit back into a tool.</p>
 
-**[Download APK](https://github.com/reporemaker/REstart/releases/latest)** · Android 9+ · free · GPL-3.0 · app stores soon
-
-<p align="center">
-  <img src="docs/screenshots/drawer-categories.png" width="24%" alt="Drawer with categories">&nbsp;
-  <img src="docs/screenshots/widget-resize.png" width="24%" alt="Widget resizing">
+<p>
+  <img src="docs/screenshots/drawer-categories.png" alt="Drawer with categories" width="180">
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/widget-resize.png" alt="Widget resizing" width="180">
 </p>
+
+</div>
 
 ## Why
 
