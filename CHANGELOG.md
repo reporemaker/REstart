@@ -6,6 +6,10 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- Dialogs follow the Swiss sheet as well: category name input (a rule under the text, no box),
+  multi-choice lists with square boxes, the yes/no confirmations, the settings-copy picker and
+  the "exit launcher" list are sheets with a caps title, a rule and caps text buttons; no
+  Material alert dialogs remain outside the crash screen.
 - Settings reorganised by surface: Features = behaviour (Search, Drawer, Weather, Private
   space); Look & Feel = appearance (Appearance, Clock area, Home list, Quick actions, Drawer);
   Advanced = Expert and General (language, settings text size, orientation, lock, haptics).

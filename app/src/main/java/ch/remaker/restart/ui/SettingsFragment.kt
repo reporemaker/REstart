@@ -134,7 +134,6 @@ import ch.remaker.restart.ui.compose.SettingsComposable.SettingsTitle
 import ch.remaker.restart.ui.compose.SettingsComposable.TitleWithHtmlLinks
 import ch.remaker.restart.ui.compose.SettingsComposable.TopMainHeader
 import ch.remaker.restart.ui.iconpack.CustomIconSelectionActivity
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 
@@ -3612,62 +3611,17 @@ class SettingsFragment : BaseFragment() {
         }
 
         val labels = resolveInfos.map { it.loadLabel(pm).toString() }
-        val icons = resolveInfos.map { it.loadIcon(pm) }
-        val iconSizePx = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, 24f, context.resources.displayMetrics
-        ).toInt()
 
-        val font = FontManager.getTypeface(context)
-
-        val adapter =
-            object : ArrayAdapter<String>(context, android.R.layout.select_dialog_item, labels) {
-                override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                    val view = super.getView(position, convertView, parent)
-                    val tv = view.findViewById<TextView>(android.R.id.text1)
-                    font?.let { tv.typeface = it }
-
-                    val origDrawable = icons[position]
-                    val bmp = drawableToBitmap(origDrawable, iconSizePx)
-                    val drw = bmp.toDrawable(context.resources)
-
-                    tv.setCompoundDrawablesWithIntrinsicBounds(drw, null, null, null)
-                    tv.compoundDrawablePadding = 16
-                    return view
-                }
+        // Swiss sheet: a plain list of the installed home apps
+        dialogBuilder.chooser(getLocalizedString(R.string.settings_exit_launcher_dialog), labels) { which ->
+            val info = resolveInfos[which]
+            val launchIntent = Intent(Intent.ACTION_MAIN).apply {
+                addCategory(Intent.CATEGORY_HOME)
+                component = ComponentName(info.activityInfo.packageName, info.activityInfo.name)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
-
-        val titleView = TextView(context).apply {
-            text = getLocalizedString(R.string.settings_exit_launcher_dialog)
-            setTypeface(FontManager.getTypeface(context))
-            textSize = 20f
-            setPadding(32, 32, 32, 16)
+            context.startActivity(launchIntent)
         }
-
-        val dialog = MaterialAlertDialogBuilder(context)
-            .setCustomTitle(titleView)
-            .setTitle(getLocalizedString(R.string.settings_exit_launcher_dialog))
-            .setAdapter(adapter) { _, which ->
-                val info = resolveInfos[which]
-                val launchIntent = Intent(Intent.ACTION_MAIN).apply {
-                    addCategory(Intent.CATEGORY_HOME)
-                    component = ComponentName(info.activityInfo.packageName, info.activityInfo.name)
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                }
-                context.startActivity(launchIntent)
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .create()
-
-        dialog.setOnShowListener {
-            font?.let { tf ->
-                // Buttons
-                dialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.typeface = tf
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE)?.typeface = tf
-                dialog.getButton(AlertDialog.BUTTON_NEUTRAL)?.typeface = tf
-            }
-        }
-
-        dialog.show()
     }
 
     fun drawableToBitmap(drawable: Drawable, size: Int): Bitmap {

@@ -48,7 +48,6 @@ import ch.remaker.restart.helper.hasContactsPermission
 import ch.remaker.restart.helper.utils.AppReloader
 import ch.remaker.restart.services.HapticFeedbackService
 import ch.remaker.components.views.FontBottomSheetDialogLocked
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class DialogManager(val context: Context, val activity: Activity) {
 
@@ -86,6 +85,81 @@ class DialogManager(val context: Context, val activity: Activity) {
         setBackgroundColor(ColorUtils.setAlphaComponent(ink, 36))
     }
 
+    /** A caps text button for the sheet's action row. */
+    private fun sheetButton(text: String, strong: Boolean, onClick: () -> Unit): TextView = TextView(context).apply {
+        this.text = text.uppercase()
+        textSize = 13f
+        letterSpacing = 0.14f
+        typeface = FontManager.weighted(context, if (strong) 700 else 400)
+        setTextColor(if (strong) ink else ColorUtils.setAlphaComponent(ink, 170))
+        setPadding(px(18), px(14), 0, px(6))
+        setOnClickListener { onClick() }
+    }
+
+    /**
+     * Swiss dialog: a sheet with a caps title and a 2 dp rule, [content] under it, and the actions
+     * as caps text buttons on the right. Replaces the Material alert dialogs.
+     */
+    private fun swissSheet(
+        title: String,
+        content: View?,
+        positive: String?,
+        onPositive: (() -> Unit)?,
+        negative: String? = getLocalizedString(R.string.cancel),
+        cancelable: Boolean = true
+    ): FontBottomSheetDialogLocked {
+        val layout = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(px(24), px(8), px(24), px(20))
+        }
+        layout.addView(sheetTitle(title))
+        content?.let { layout.addView(it) }
+        val sheet = FontBottomSheetDialogLocked(context)
+        sheet.setCancelable(cancelable)
+        if (positive != null || negative != null) {
+            layout.addView(hairline().apply { (layoutParams as LinearLayout.LayoutParams).topMargin = px(16) })
+            layout.addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.END
+                negative?.let { addView(sheetButton(it, false) { sheet.dismiss() }) }
+                positive?.let { addView(sheetButton(it, true) { sheet.dismiss(); onPositive?.invoke() }) }
+            })
+        }
+        sheet.setContentView(layout)
+        sheet.show()
+        return sheet
+    }
+
+    /** Message under the title, as a paragraph. */
+    private fun sheetMessage(text: String): TextView = TextView(context).apply {
+        this.text = text
+        textSize = 16f
+        setTextColor(ColorUtils.setAlphaComponent(ink, 200))
+        setPadding(0, px(16), 0, 0)
+    }
+
+    /** Yes/no question in the Swiss sheet. */
+    fun confirm(title: String, message: String, positive: String, negative: String = getLocalizedString(R.string.cancel), onPositive: () -> Unit) {
+        swissSheet(title, sheetMessage(message), positive, onPositive, negative)
+    }
+
+    /** A plain list of choices in the Swiss sheet; tapping a row closes the sheet. */
+    fun chooser(title: String, labels: List<String>, onChosen: (Int) -> Unit) {
+        val list = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; setPadding(0, px(6), 0, 0) }
+        var sheet: FontBottomSheetDialogLocked? = null
+        labels.forEachIndexed { index, label ->
+            list.addView(TextView(context).apply {
+                text = label
+                textSize = 18f
+                setTextColor(ink)
+                setPadding(0, px(14), 0, px(14))
+                setOnClickListener { sheet?.dismiss(); onChosen(index) }
+            })
+            if (index < labels.lastIndex) list.addView(hairline())
+        }
+        sheet = swissSheet(title, list, null, null)
+    }
+
     var backupRestoreBottomSheet: FontBottomSheetDialogLocked? = null
 
     /** Lists the automatic settings copies, newest first, and restores the chosen one after confirmation. */
@@ -96,66 +170,78 @@ class DialogManager(val context: Context, val activity: Activity) {
         val labels = snapshots.map { snapshot ->
             getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_item, versionNameOf(snapshot.versionCode), dateFormat.format(snapshot.takenAt))
         }
-        MaterialAlertDialogBuilder(context)
-            .setTitle(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot))
-            .setItems(labels.toTypedArray()) { _, index ->
-                val snapshot = snapshots[index]
-                MaterialAlertDialogBuilder(context)
-                    .setTitle(labels[index])
-                    .setMessage(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_confirm))
-                    .setPositiveButton(getLocalizedString(R.string.advanced_settings_backup_restore_restore)) { _, _ ->
-                        val restored = try {
-                            Prefs(context).loadFromString(snapshot.file.readText())
-                        } catch (e: Exception) {
-                            AppLogger.e("SettingsSnapshots", "Could not read ${snapshot.file.name}", e)
-                            false
-                        }
-                        if (restored) {
-                            // The copy carries the old version number; the update it came from is already done
-                            Prefs(context).appVersion = BuildConfig.VERSION_CODE
-                            AppReloader.restartApp(context)
-                        } else {
-                            context.showLongToast(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_failed))
-                        }
-                    }
-                    .setNegativeButton(getLocalizedString(R.string.cancel), null)
-                    .show()
+        chooser(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot), labels) { index ->
+            val snapshot = snapshots[index]
+            confirm(
+                labels[index],
+                getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_confirm),
+                getLocalizedString(R.string.advanced_settings_backup_restore_restore)
+            ) {
+                val restored = try {
+                    Prefs(context).loadFromString(snapshot.file.readText())
+                } catch (e: Exception) {
+                    AppLogger.e("SettingsSnapshots", "Could not read ${snapshot.file.name}", e)
+                    false
+                }
+                if (restored) {
+                    // The copy carries the old version number; the update it came from is already done
+                    Prefs(context).appVersion = BuildConfig.VERSION_CODE
+                    AppReloader.restartApp(context)
+                } else {
+                    context.showLongToast(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_failed))
+                }
             }
-            .setNegativeButton(getLocalizedString(R.string.cancel), null)
-            .show()
+        }
     }
 
     /** Asks for one line of text; [onDone] gets the trimmed text, also when it is empty. */
     fun showTextInputDialog(context: Context, title: String, current: String, hint: String = "", onDone: (String) -> Unit) {
+        // Swiss input: no box, a 2 dp rule under the text
         val input = EditText(context).apply {
             setText(current)
             this.hint = hint
             setSelection(text.length)
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
+            textSize = 22f
+            setTextColor(ink)
+            setHintTextColor(ColorUtils.setAlphaComponent(ink, 90))
+            background = ContextCompat.getDrawable(context, R.drawable.swiss_rule_bottom)
+            typeface = FontManager.weighted(context, 400)
+            setPadding(0, px(18), 0, px(10))
         }
-        val padding = (24 * context.resources.displayMetrics.density).toInt()
-        val frame = FrameLayout(context).apply {
-            setPadding(padding, 0, padding, 0)
-            addView(input)
-        }
-        MaterialAlertDialogBuilder(context)
-            .setTitle(title)
-            .setView(frame)
-            .setPositiveButton(getLocalizedString(R.string.okay)) { _, _ -> onDone(input.text.toString().trim()) }
-            .setNegativeButton(getLocalizedString(R.string.cancel), null)
-            .show()
+        val sheet = swissSheet(title, input, getLocalizedString(R.string.okay), { onDone(input.text.toString().trim()) })
+        sheet.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         input.requestFocus()
     }
 
     /** Lets the user tick any number of [labels]; [onDone] gets the indices that ended up ticked. */
     fun showMultiChoiceDialog(context: Context, title: String, labels: List<String>, checked: Set<Int>, onDone: (Set<Int>) -> Unit) {
         val state = BooleanArray(labels.size) { it in checked }
-        MaterialAlertDialogBuilder(context)
-            .setTitle(title)
-            .setMultiChoiceItems(labels.toTypedArray(), state) { _, index, isChecked -> state[index] = isChecked }
-            .setPositiveButton(getLocalizedString(R.string.okay)) { _, _ -> onDone(state.indices.filter { state[it] }.toSet()) }
-            .setNegativeButton(getLocalizedString(R.string.cancel), null)
-            .show()
+        val list = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; setPadding(0, px(6), 0, 0) }
+        labels.forEachIndexed { index, label ->
+            // Square box, 1 dp outline, filled with the text colour when ticked
+            val box = View(context).apply {
+                layoutParams = LinearLayout.LayoutParams(px(18), px(18)).apply { marginEnd = px(16) }
+            }
+            fun paint() {
+                box.background = GradientDrawable().apply {
+                    shape = GradientDrawable.RECTANGLE
+                    setColor(if (state[index]) ink else Color.TRANSPARENT)
+                    setStroke(px(1), ink)
+                }
+            }
+            paint()
+            list.addView(LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                setPadding(0, px(13), 0, px(13))
+                addView(box)
+                addView(TextView(context).apply { text = label; textSize = 18f; setTextColor(ink) })
+                setOnClickListener { state[index] = !state[index]; paint() }
+            })
+            if (index < labels.lastIndex) list.addView(hairline())
+        }
+        swissSheet(title, list, getLocalizedString(R.string.okay), { onDone(state.indices.filter { state[it] }.toSet()) })
     }
 
     /** "1.12.2.0" for a version code of the form MMmmppbb. */
@@ -227,14 +313,12 @@ class DialogManager(val context: Context, val activity: Activity) {
 
     // Function to handle the Clear Data action, with a confirmation dialog
     private fun confirmClearData() {
-        MaterialAlertDialogBuilder(context)
-            .setTitle(getLocalizedString(R.string.advanced_settings_backup_restore_clear_title))
-            .setMessage(getLocalizedString(R.string.advanced_settings_backup_restore_clear_description))
-            .setPositiveButton(getLocalizedString(R.string.advanced_settings_clear_yes)) { _, _ ->
-                clearData()
-            }
-            .setNegativeButton(getLocalizedString(R.string.advanced_settings_clear_no), null)
-            .show()
+        confirm(
+            getLocalizedString(R.string.advanced_settings_backup_restore_clear_title),
+            getLocalizedString(R.string.advanced_settings_backup_restore_clear_description),
+            getLocalizedString(R.string.advanced_settings_clear_yes),
+            getLocalizedString(R.string.advanced_settings_clear_no)
+        ) { clearData() }
     }
 
     private fun clearData() {
@@ -304,14 +388,12 @@ class DialogManager(val context: Context, val activity: Activity) {
     }
 
     private fun confirmClearTheme() {
-        MaterialAlertDialogBuilder(context)
-            .setTitle(getLocalizedString(R.string.advanced_settings_theme_clear_title))
-            .setMessage(getLocalizedString(R.string.advanced_settings_theme_clear_description))
-            .setPositiveButton(getLocalizedString(R.string.advanced_settings_clear_yes)) { _, _ ->
-                clearTheme()
-            }
-            .setNegativeButton(getLocalizedString(R.string.advanced_settings_clear_no), null)
-            .show()
+        confirm(
+            getLocalizedString(R.string.advanced_settings_theme_clear_title),
+            getLocalizedString(R.string.advanced_settings_theme_clear_description),
+            getLocalizedString(R.string.advanced_settings_clear_yes),
+            getLocalizedString(R.string.advanced_settings_clear_no)
+        ) { clearTheme() }
     }
 
     fun clearTheme() {
