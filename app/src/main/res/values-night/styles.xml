@@ -26,9 +26,11 @@
         <item name="colorAccent">@color/white</item>
         <item name="colorSurface">@color/background_dark</item>
         <item name="colorOnSurface">@color/background_light</item>
+        <!-- Body text in full contrast (Material 3 uses an off-white / off-black) -->
+        <item name="android:textColorPrimary">@color/white</item>
         <item name="primaryColor">@color/white</item>
         <item name="primaryInverseColor">@color/whiteInverse</item>
-        <item name="primaryTextShadowColor">@color/whiteInverseTrans50</item>
+        <item name="primaryTextShadowColor">@android:color/transparent</item>
         <item name="primaryColorTrans50">@color/whiteTrans50</item>
         <item name="primaryColorTrans80">@color/whiteTrans80</item>
         <item name="primaryColorInverseTrans50">@color/whiteInverseTrans50</item>
@@ -62,7 +64,7 @@
         <item name="android:shadowColor">?attr/primaryTextShadowColor</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
-        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowRadius">0</item>
     </style>
 
     <style name="TextLarge" parent="TextDefault">
@@ -108,6 +110,6 @@
         <item name="android:shadowColor">?attr/primaryTextShadowColor</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
-        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowRadius">0</item>
     </style>
 </resources>

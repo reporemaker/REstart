@@ -628,7 +628,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "★"
             } else {
                 ChineseSortHelper.sectionKey(label, prefs.appLanguage)
-                    ?: label.firstOrNull()?.uppercaseChar()?.toString()
+                    ?: label.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault())
                     ?: "#"
             }
             scrollMap.putIfAbsent(key, index)

@@ -339,7 +339,7 @@ object SettingsComposable {
 
             FontText(
                 text = "›",
-                color = optionColor.copy(alpha = 0.7f),
+                color = optionColor.copy(alpha = 0.82f),
                 fontSize = if (titleFontSize != TextUnit.Unspecified) titleFontSize * 1.2f else 22.sp,
                 modifier = Modifier.wrapContentHeight()
             )
@@ -468,10 +468,10 @@ object SettingsComposable {
     ) {
         // Section label above a card: small, spaced capitals in a dimmed text colour
         val base = if (fontSize != TextUnit.Unspecified) fontSize.value else 18f
-        val fontColor = SettingsTheme.typography.title.color.copy(alpha = 0.6f)
+        val fontColor = SettingsTheme.typography.title.color.copy(alpha = 0.75f)
 
         FontText(
-            text = text.uppercase(),
+            text = text.uppercase(java.util.Locale.getDefault()),
             fontSize = (base * 0.68f).sp,
             color = fontColor,
             fontWeight = FontWeight.Medium,

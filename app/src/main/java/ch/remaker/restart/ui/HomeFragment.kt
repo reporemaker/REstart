@@ -57,6 +57,7 @@ import ch.remaker.restart.data.Constants.Action
 import ch.remaker.restart.data.Constants.AppDrawerFlag
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.FragmentHomeBinding
+import ch.remaker.restart.helper.reMarkFor
 import ch.remaker.restart.helper.FontManager
 import ch.remaker.restart.helper.IconCacheTarget
 import ch.remaker.restart.helper.IconPackHelper.getSafeAppIcon
@@ -267,6 +268,9 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             battery.setTextColor(prefs.batteryColor)
             totalScreenTime.setTextColor(prefs.appColor)
             setDefaultLauncher.setTextColor(prefs.appColor)
+            // The rule over the quick actions follows the text colour (a theme change does not
+            // recreate the view, so the theme attribute alone kept the old colour)
+            quickActionsRule.setBackgroundColor(prefs.appColor)
 
             val fabList = listOf(fabPhone, fabMessages, fabCamera, fabPhotos, fabBrowser, fabSettings, fabAction)
             val fabFlags = prefs.getMenuFlags("HOME_BUTTON_FLAGS", "0000011") // Might return list of wrong size
@@ -280,6 +284,8 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
                 fab.isVisible = isVisible
 
+                // The RE* mark keeps its red star; its "RE" is black or white for the background
+                if (fab == fabAction) fabAction.setImageResource(reMarkFor(prefs.backgroundColor))
                 // Skip recoloring for fabAction
                 if (fab != fabAction) {
                     fab.setColorFilter(
@@ -1115,7 +1121,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
         return android.text.SpannableStringBuilder().apply {
             append(index)
             setSpan(android.text.style.RelativeSizeSpan(0.42f), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            setSpan(android.text.style.ForegroundColorSpan(androidx.core.graphics.ColorUtils.setAlphaComponent(prefs.appColor, 140)), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(android.text.style.ForegroundColorSpan(androidx.core.graphics.ColorUtils.setAlphaComponent(prefs.appColor, 190)), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             append("    ")
             append(label)
         }

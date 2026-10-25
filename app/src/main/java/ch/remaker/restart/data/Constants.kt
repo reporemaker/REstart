@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager.NameNotFoundException
 import android.graphics.Typeface
-import androidx.compose.runtime.Composable
 import androidx.core.content.res.ResourcesCompat
 import ch.remaker.common.AppLogger
 import ch.remaker.common.getLocalizedString
@@ -16,7 +15,7 @@ import java.io.File
 import java.util.Locale
 
 interface EnumOption {
-    @Composable
+    /** The option's name in the app's language (plain call: also used outside Compose, in sheets). */
     fun string(): String
 }
 
@@ -168,7 +167,6 @@ object Constants {
             }
         }
 
-        @Composable
         override fun string(): String = getString()
 
 
@@ -208,7 +206,6 @@ object Constants {
         Center,
         Right;
 
-        @Composable
         override fun string(): String {
             return when (this) {
                 Left -> getLocalizedString(R.string.left)
@@ -278,7 +275,6 @@ object Constants {
             }
         }
 
-        @Composable
         override fun string(): String {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)
@@ -324,7 +320,6 @@ object Constants {
             }
         }
 
-        @Composable
         override fun string(): String {
             return when (this) {
                 OpenApp -> getLocalizedString(R.string.open_app)
@@ -350,7 +345,6 @@ object Constants {
         AZ,
         Categories;
 
-        @Composable
         override fun string(): String = getString()
 
         fun getString(): String = when (this) {
@@ -366,7 +360,6 @@ object Constants {
         Rings,
         OneLine;
 
-        @Composable
         override fun string(): String = getString()
 
         fun getString(): String = when (this) {
@@ -382,7 +375,6 @@ object Constants {
         Beside,
         Centred;
 
-        @Composable
         override fun string(): String = getString()
 
         fun getString(): String = when (this) {
@@ -397,7 +389,6 @@ object Constants {
         Time,
         None;
 
-        @Composable
         override fun string(): String = getString()
 
         fun getString(): String = when (this) {
@@ -412,7 +403,6 @@ object Constants {
         Twelve,
         TwentyFour;
 
-        @Composable
         override fun string(): String = getString()
 
         fun getString(): String = when (this) {
@@ -430,7 +420,6 @@ object Constants {
         val files: Boolean get() = this != Apps
         val contacts: Boolean get() = this == AppsFilesContacts
 
-        @Composable
         override fun string(): String = getString()
 
         fun getString(): String = when (this) {
@@ -454,7 +443,6 @@ object Constants {
         }
 
         // Keep this for Composable usage
-        @Composable
         override fun string(): String {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)
@@ -469,7 +457,6 @@ object Constants {
         Fahrenheit;
 
         // Keep this for Composable usage
-        @Composable
         override fun string(): String {
             return when (this) {
                 Celsius -> getLocalizedString(R.string.celsius)
@@ -513,7 +500,6 @@ object Constants {
             }
         }
 
-        @Composable
         override fun string(): String {
             return when (this) {
                 System -> getLocalizedString(R.string.system_default)

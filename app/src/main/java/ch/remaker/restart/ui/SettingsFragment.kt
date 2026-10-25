@@ -430,7 +430,9 @@ class SettingsFragment : BaseFragment() {
                             modifier = Modifier.weight(1f)
                         )
                         FontText(
-                            text = (getLocalizedString(R.string.about_app_title) + "\n" + BuildConfig.VERSION_NAME.replace(" Build ", " · Build ")).uppercase(),
+                            // The name follows the language's capitals; the version line is technical ("BUILD", not "BUİLD")
+                            text = getLocalizedString(R.string.about_app_title).uppercase(java.util.Locale.getDefault()) + "\n" +
+                                BuildConfig.VERSION_NAME.replace(" Build ", " · Build ").uppercase(java.util.Locale.ROOT),
                             fontSize = (descriptionFontSize.value * 0.8f).sp,
                             color = mutedColor,
                             style = capsStyle,
@@ -499,7 +501,7 @@ class SettingsFragment : BaseFragment() {
                     ) {
                         Column(modifier = Modifier.weight(1f)) {
                             FontText(
-                                text = (getLocalizedString(R.string.about_settings_title, getLocalizedString(R.string.about_app_title)) + " →").uppercase(),
+                                text = (getLocalizedString(R.string.about_settings_title, getLocalizedString(R.string.about_app_title)) + " →").uppercase(java.util.Locale.getDefault()),
                                 fontSize = (descriptionFontSize.value * 0.8f).sp,
                                 color = SettingsTheme.typography.title.color,
                                 fontWeight = FontWeight.Medium,
@@ -507,14 +509,21 @@ class SettingsFragment : BaseFragment() {
                                 modifier = Modifier.clickable { currentScreen = "about" }.padding(bottom = 4.dp)
                             )
                             FontText(
-                                text = getLocalizedString(R.string.about_developer).uppercase(),
+                                text = getLocalizedString(R.string.about_developer).uppercase(java.util.Locale.getDefault()),
                                 fontSize = (descriptionFontSize.value * 0.8f).sp,
                                 color = SettingsTheme.typography.option.color,
                                 style = TextStyle(letterSpacing = 0.14.em)
                             )
                         }
                         Image(
-                            painter = painterResource(R.drawable.branding_image),
+                            // The settings page follows the theme: white "RE" on dark, black on light
+                            painter = painterResource(
+                                if (when (prefs.appTheme) {
+                                        Constants.Theme.Light -> false
+                                        Constants.Theme.Dark -> true
+                                        Constants.Theme.System -> isSystemInDarkMode(context)
+                                    }) R.drawable.re_mark_on_dark else R.drawable.re_mark_on_light
+                            ),
                             contentDescription = getLocalizedString(R.string.device_summary),
                             modifier = Modifier
                                 .height(30.dp)
@@ -946,8 +955,11 @@ class SettingsFragment : BaseFragment() {
                                         themeOptions.indexOfFirst { it == newThemeName }
                                     if (newThemeIndex != -1) {
                                         val newTheme = themeEntries[newThemeIndex]
+                                        val oldTheme = prefs.appTheme
                                         selectedTheme = newTheme
                                         prefs.appTheme = newTheme
+                                        // Colours left at the old theme's defaults follow the new one
+                                        prefs.adaptColorsToTheme(oldTheme)
                                         resetThemeColors()
                                     }
                                 }
@@ -1798,8 +1810,13 @@ class SettingsFragment : BaseFragment() {
                     var toggledSwissSide by remember { mutableStateOf(prefs.swissSideColumn) }
                     var toggledSwissWeights by remember { mutableStateOf(prefs.swissWeights) }
                     var toggledAlarmBelow by remember { mutableStateOf(prefs.oneLineAlarmBelow) }
+                    // Alignment rows wherever they move something: the clock whenever the numbers are
+                    // on screen, date and alarm whenever they stand under the clock (not beside it)
+                    val clockShown = !(st == Constants.ClockStyle.Rings && selectedRingInside == Constants.RingInside.Time)
+                    val dateUnder = st == Constants.ClockStyle.Classic || st == Constants.ClockStyle.Rings ||
+                        (st == Constants.ClockStyle.Swiss && !toggledSwissSide)
                     SectionCard {
-                    if (st != Constants.ClockStyle.Rings) {
+                    if (clockShown) {
                         SettingsSelect(
                             title = getLocalizedString(R.string.clock_alignment),
                             option = selectedClockAlignment.string(),
@@ -1826,7 +1843,7 @@ class SettingsFragment : BaseFragment() {
                         )
 
                     }
-                    if (st == Constants.ClockStyle.Classic) {
+                    if (dateUnder) {
                         SettingsSelect(
                             title = getLocalizedString(R.string.date_alignment),
                             option = selectedDateAlignment.string(),
@@ -3071,7 +3088,7 @@ class SettingsFragment : BaseFragment() {
                         modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
                     )
                     FontText(
-                        text = versionLine.uppercase(),
+                        text = versionLine.uppercase(java.util.Locale.ROOT),
                         fontSize = (descriptionFontSize.value * 0.8f).sp,
                         color = mutedColor,
                         style = capsStyle,
@@ -3418,7 +3435,7 @@ class SettingsFragment : BaseFragment() {
                 )
             }
             FontText(
-                text = go.uppercase() + " →",
+                text = go.uppercase(java.util.Locale.getDefault()) + " →",
                 fontSize = (descriptionFontSize.value * 0.75f).sp,
                 color = SettingsTheme.typography.option.color,
                 style = TextStyle(letterSpacing = 0.14.em),

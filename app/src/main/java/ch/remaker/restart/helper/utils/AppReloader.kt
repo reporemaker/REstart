@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import ch.remaker.common.AppLogger
+import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.helper.updateAllWidgets
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +24,7 @@ object AppReloader {
 
         appScope.launch(Dispatchers.Main) {
             delay(100)
+            Prefs(context).flush()
             context.startActivity(mainIntent)
             Runtime.getRuntime().exit(0) // Forcefully terminates the current process
         }

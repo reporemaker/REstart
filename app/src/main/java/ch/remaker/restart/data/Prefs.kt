@@ -7,6 +7,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.content.edit
+import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.toColorInt
 import ch.remaker.common.AppLogger
 import ch.remaker.common.showLongToast
@@ -619,7 +620,52 @@ class Prefs(val context: Context) {
         get() {
             return getEnumSetting(APP_LANGUAGE, Constants.Language.System)
         }
-        set(value) = prefsNormal.edit { putString(APP_LANGUAGE, value.name) }
+        // Written at once: the launcher restarts right after a language change
+        set(value) = prefsNormal.edit(commit = true) { putString(APP_LANGUAGE, value.name) }
+
+    /**
+     * After the theme changed from [old] to the current one: a colour still at the old theme's
+     * default (never picked by hand) is removed, so it follows the new theme. A background
+     * picked by hand that the new theme's text cannot be read on goes back to the theme's
+     * default; a text colour picked by hand stays unless it falls under 3:1 contrast on the
+     * background. Without this a dark background stayed under the light theme's black text.
+     */
+    fun adaptColorsToTheme(old: Constants.Theme) {
+        val themed = listOf(
+            BACKGROUND_COLOR to "bg", APP_COLOR to "txt", DATE_COLOR to "txt", CLOCK_COLOR to "txt",
+            BATTERY_COLOR to "txt", SHORTCUT_ICONS_COLOR to "txt", ALARM_CLOCK_COLOR to "txt",
+            CATEGORY_COLOR to "txt", NOTES_BACKGROUND_COLOR to "bg_notes", BUBBLE_BACKGROUND_COLOR to "bg_bubble",
+            BUBBLE_MESSAGE_COLOR to "bg_bubble_message", BUBBLE_TIMEDATE_COLOR to "bg_bubble_time_date",
+            BUBBLE_CATEGORY_COLOR to "bg_bubble_category", INPUT_MESSAGE_COLOR to "input_text",
+            INPUT_MESSAGEHINT_COLOR to "input_text_hint",
+        )
+        fun opaque(c: Int) = ColorUtils.setAlphaComponent(c, 255)
+        prefsNormal.edit(commit = true) {
+            themed.forEach { (key, type) ->
+                if (prefsNormal.contains(key) && opaque(prefsNormal.getInt(key, 0)) == opaque(getColor(context, getColorInt(type, old)))) remove(key)
+            }
+        }
+        val text = getColor(context, getColorInt("txt"))
+        if (prefsNormal.contains(BACKGROUND_COLOR) && ColorUtils.calculateContrast(text, opaque(backgroundColor)) < 3.0) {
+            prefsNormal.edit(commit = true) { remove(BACKGROUND_COLOR) }
+        }
+        val background = opaque(backgroundColor)
+        prefsNormal.edit(commit = true) {
+            themed.filter { it.second == "txt" }.forEach { (key, _) ->
+                if (prefsNormal.contains(key) && ColorUtils.calculateContrast(opaque(prefsNormal.getInt(key, 0)), background) < 3.0) remove(key)
+            }
+        }
+    }
+
+    /**
+     * Writes every pending change to disk before the process ends. `apply()` writes in the
+     * background; a process killed mid-write leaves the `.bak` copy, and Android then restores
+     * the old values on the next start. Call before every restart.
+     */
+    fun flush() {
+        prefsNormal.edit().commit()
+        prefsOnboarding.edit().commit()
+    }
 
     var fontFamily: Constants.FontFamily
         get() {
@@ -862,7 +908,7 @@ class Prefs(val context: Context) {
         return flagString.map { it == '1' }
     }
 
-    private fun getColorInt(type: String): Int {
+    private fun getColorInt(type: String, theme: Constants.Theme = appTheme): Int {
         val isDarkMode = isSystemInDarkMode(context)
 
         val lightModeColors = mapOf(
@@ -890,7 +936,7 @@ class Prefs(val context: Context) {
         val defaultLight = R.color.black
         val defaultDark = R.color.white
 
-        return when (appTheme) {
+        return when (theme) {
             Constants.Theme.System -> {
                 if (isDarkMode) darkModeColors[type] ?: defaultDark
                 else lightModeColors[type] ?: defaultLight

@@ -331,7 +331,7 @@ class AppDrawerFragment : BaseFragment() {
                     AppCategory.PINNED -> "★"
                     else -> {
                         ChineseSortHelper.sectionKey(item.activityLabel, prefs.appLanguage)
-                            ?: item.activityLabel.firstOrNull()?.uppercaseChar()?.toString()
+                            ?: item.activityLabel.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault())
                             ?: return
                     }
                 }
@@ -401,7 +401,7 @@ class AppDrawerFragment : BaseFragment() {
                 val item = contactAdapter?.getItemAt(position) ?: return
 
                 val sectionLetter =
-                    item.displayName.firstOrNull()?.uppercaseChar()?.toString() ?: return
+                    item.displayName.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault()) ?: return
 
                 // Skip redundant updates
                 if (sectionLetter == lastSectionLetter) return
@@ -988,7 +988,7 @@ class AppDrawerFragment : BaseFragment() {
                 else -> {
                     val sectionLetter =
                         ChineseSortHelper.sectionKey(item.activityLabel, prefs.appLanguage)
-                            ?: item.activityLabel.firstOrNull()?.uppercaseChar()?.toString()
+                            ?: item.activityLabel.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault())
                     sectionLetter?.let { letters.add(it) }
                 }
             }
@@ -999,7 +999,7 @@ class AppDrawerFragment : BaseFragment() {
 
     private fun updateAZSidebarForContacts(contacts: List<ContactListItem>) {
         val letters = contacts.mapNotNull {
-            it.displayName.firstOrNull()?.uppercaseChar()?.toString()
+            it.displayName.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault())
         }.toSet()
 
         binding.azSidebar.setAvailableLetters(letters)
@@ -1074,7 +1074,7 @@ class AppDrawerFragment : BaseFragment() {
                     else -> {
                         val sectionLetter =
                             ChineseSortHelper.sectionKey(item.activityLabel, prefs.appLanguage)
-                                ?: item.activityLabel.firstOrNull()?.uppercaseChar()?.toString()
+                                ?: item.activityLabel.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault())
                         sectionLetter == section
                     }
                 }
@@ -1108,7 +1108,7 @@ class AppDrawerFragment : BaseFragment() {
         val oldList = contactsAdapter.contactFilteredList.toList()
         val fullList = contactsAdapter.contactsList
         val filteredList = fullList.filter { item ->
-            val sectionLetter = item.displayName.firstOrNull()?.uppercaseChar()?.toString()
+            val sectionLetter = item.displayName.firstOrNull()?.toString()?.uppercase(java.util.Locale.getDefault())
             sectionLetter == section
         }
 

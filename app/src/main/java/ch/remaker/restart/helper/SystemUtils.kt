@@ -23,7 +23,6 @@ import android.graphics.PorterDuffColorFilter
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.os.Looper
 import android.os.Process
 import android.os.UserHandle
 import android.os.UserManager
@@ -51,6 +50,8 @@ import ch.remaker.common.requestUsagePermission
 import ch.remaker.common.showLongToast
 import ch.remaker.restart.BuildConfig
 import ch.remaker.restart.R
+import ch.remaker.restart.REstartApp
+import ch.remaker.restart.helper.utils.AppReloader
 import ch.remaker.restart.helper.receivers.coarseCoordinate
 import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Message
@@ -67,7 +68,6 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import java.util.TimeZone
-import kotlin.system.exitProcess
 import ch.remaker.restart.helper.FontManager
 
 
@@ -276,10 +276,9 @@ fun isREstartAppDefault(context: Context): Boolean {
     }
 }
 
+/** Restarts the launcher so a change that needs a fresh start (language) takes effect. */
 fun reloadLauncher() {
-    android.os.Handler(Looper.getMainLooper()).postDelayed({
-        exitProcess(0)
-    }, 100)
+    AppReloader.restartApp(REstartApp.getContext())
 }
 
 fun helpFeedbackButton(context: Context) {
@@ -440,6 +439,12 @@ fun isSystemInDarkMode(context: Context): Boolean {
     val uiMode = context.applicationContext.resources.configuration.uiMode
     return uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 }
+
+/** The RE* mark whose "RE" reads on [background]: white on a dark colour, black on a light one. */
+@androidx.annotation.DrawableRes
+fun reMarkFor(background: Int): Int =
+    if (androidx.core.graphics.ColorUtils.calculateLuminance(androidx.core.graphics.ColorUtils.setAlphaComponent(background, 255)) < 0.5)
+        R.drawable.re_mark_on_dark else R.drawable.re_mark_on_light
 
 fun setThemeMode(context: Context, isDark: Boolean, view: View) {
     // Retrieve background color based on the theme

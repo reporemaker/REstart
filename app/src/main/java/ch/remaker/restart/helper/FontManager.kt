@@ -55,6 +55,10 @@ object FontManager {
                     if (file.exists()) Typeface.createFromFile(file) else null
                 }
 
+                // Doto's regular dots are 2-3 px at body sizes and wash out to grey, worst as dark
+                // text on a light background: body text uses the emboldened cut, so the dots grow
+                Constants.FontFamily.Doto -> fontFamily.getFont(context)?.let { Typeface.create(it, 600, false) }
+
                 else -> fontFamily.getFont(context)
             }
 
@@ -77,7 +81,11 @@ object FontManager {
      * italic note stays italic, only the family changes. With no current face the plain family is used.
      */
     fun keepingWeight(typeface: Typeface, current: Typeface?): Typeface =
-        current?.let { Typeface.create(typeface, it.weight, it.isItalic) } ?: typeface
+        current?.let { Typeface.create(typeface, bodyWeight(it.weight), it.isItalic) } ?: typeface
+
+    /** Doto body text never goes under the emboldened cut (see [getTypeface]); other fonts keep [weight]. */
+    private fun bodyWeight(weight: Int): Int =
+        if (cachedFamily == Constants.FontFamily.Doto) maxOf(weight, 600) else weight
 
     /**
      * Puts the user's font on every TextView under [root] (labels, buttons, check boxes, inputs),

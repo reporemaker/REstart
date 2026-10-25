@@ -27,6 +27,8 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.toColorInt
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import ch.remaker.common.getCpuBatteryInfo
 import ch.remaker.common.getLocalizedString
 import ch.remaker.common.getRamInfo
@@ -47,6 +49,8 @@ import ch.remaker.restart.helper.getDeviceInfo
 import ch.remaker.restart.helper.hasContactsPermission
 import ch.remaker.restart.helper.utils.AppReloader
 import ch.remaker.restart.services.HapticFeedbackService
+import ch.remaker.components.views.CappedScrollView
+import ch.remaker.restart.data.EnumOption
 import ch.remaker.components.views.FontBottomSheetDialogLocked
 
 class DialogManager(val context: Context, val activity: Activity) {
@@ -68,7 +72,7 @@ class DialogManager(val context: Context, val activity: Activity) {
         orientation = LinearLayout.VERTICAL
         layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         addView(TextView(context).apply {
-            this.text = text.uppercase()
+            this.text = text.uppercase(java.util.Locale.getDefault())
             textSize = 12f
             letterSpacing = 0.14f
             setTextColor(ink)
@@ -87,7 +91,7 @@ class DialogManager(val context: Context, val activity: Activity) {
 
     /** A caps text button for the sheet's action row. */
     private fun sheetButton(text: String, strong: Boolean, onClick: () -> Unit): TextView = TextView(context).apply {
-        this.text = text.uppercase()
+        this.text = text.uppercase(java.util.Locale.getDefault())
         textSize = 13f
         letterSpacing = 0.14f
         typeface = FontManager.weighted(context, if (strong) 700 else 400)
@@ -113,7 +117,12 @@ class DialogManager(val context: Context, val activity: Activity) {
             setPadding(px(24), px(8), px(24), px(20))
         }
         layout.addView(sheetTitle(title))
-        content?.let { layout.addView(it) }
+        // Only the content scrolls; the title and the action row stay in view
+        content?.let {
+            layout.addView(CappedScrollView(context, reservePx = px(if (positive != null || negative != null) 190 else 110)).apply {
+                addView(it, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+            })
+        }
         val sheet = FontBottomSheetDialogLocked(context)
         sheet.setCancelable(cancelable)
         if (positive != null || negative != null) {
@@ -125,7 +134,7 @@ class DialogManager(val context: Context, val activity: Activity) {
                 positive?.let { addView(sheetButton(it, true) { sheet.dismiss(); onPositive?.invoke() }) }
             })
         }
-        sheet.setContentView(layout)
+        sheet.setContentView(layout, scrollable = false)
         sheet.show()
         return sheet
     }
@@ -210,8 +219,14 @@ class DialogManager(val context: Context, val activity: Activity) {
             setPadding(0, px(18), 0, px(10))
         }
         val sheet = swissSheet(title, input, getLocalizedString(R.string.okay), { onDone(input.text.toString().trim()) })
-        sheet.window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+        sheet.window?.setSoftInputMode(
+            android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+        )
         input.requestFocus()
+        // The state flag alone does not open the keyboard once the sheet is showing: ask for it
+        input.postDelayed({
+            sheet.window?.let { WindowCompat.getInsetsController(it, input).show(WindowInsetsCompat.Type.ime()) }
+        }, 120)
     }
 
     /** Lets the user tick any number of [labels]; [onDone] gets the indices that ended up ticked. */
@@ -512,6 +527,8 @@ class DialogManager(val context: Context, val activity: Activity) {
 
         val itemStrings = options.map {
             when (it) {
+                // The translated name; Enum.name is the code identifier ("Left", "Beside")
+                is EnumOption -> it.string()
                 is Enum<*> -> it.name
                 else -> it.toString()
             }
