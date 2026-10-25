@@ -102,7 +102,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     /** Fires when home apps changed in the background, e.g. a removed shortcut was cleared. */
     val homeAppsChanged = MutableLiveData<Long>()
-    val homePagesNum = MutableLiveData(prefs.homePagesNum)
     val opacityNum = MutableLiveData(prefs.opacityNum)
     val filterStrength = MutableLiveData(prefs.filterStrength)
     val recentCounter = MutableLiveData(prefs.recentCounter)

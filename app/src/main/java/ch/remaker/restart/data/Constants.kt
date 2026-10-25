@@ -23,8 +23,7 @@ interface EnumOption {
 
 object Constants {
     const val MIN_HOME_APPS = 0
-
-    const val MIN_HOME_PAGES = 1
+    const val MAX_HOME_APPS = 8
 
     const val MIN_TEXT_SIZE = 10
     const val MAX_TEXT_SIZE = 100
@@ -71,34 +70,8 @@ object Constants {
     var USR_DPIX = 0f
     var USR_DPIY = 0f
 
-
-    // Update MAX_HOME_PAGES dynamically based on MAX_HOME_APPS
-    var MAX_HOME_APPS = 20
-    var MAX_HOME_PAGES = 10
-
     const val ACCESS_FINE_LOCATION = 666
     const val READ_CONTACTS = 777
-
-    fun updateMaxHomePages(context: Context) {
-        val prefs = Prefs(context)
-
-        MAX_HOME_PAGES = if (prefs.homeAppsNum < MAX_HOME_PAGES) {
-            prefs.homeAppsNum
-        } else {
-            MAX_HOME_PAGES
-        }
-    }
-
-    fun updateMaxAppsBasedOnPages(context: Context) {
-        val prefs = Prefs(context)
-
-        // Define maximum apps per page
-        val maxAppsPerPage = 20
-
-        // Set MAX_HOME_APPS to the number of apps based on pages and apps per page
-        MAX_HOME_APPS = maxAppsPerPage * prefs.homePagesNum
-    }
-
 
     fun updateSwipeDistanceThreshold(context: Context, direction: String) {
         val prefs = Prefs(context)
@@ -329,8 +302,6 @@ object Constants {
         ShowRecents,
         OpenPowerDialog,
         TakeScreenShot,
-        PreviousPage,
-        NextPage,
         RestartApp,
         Disabled;
 
@@ -348,8 +319,6 @@ object Constants {
                 ShowRecents -> getLocalizedString(R.string.show_recents)
                 OpenPowerDialog -> getLocalizedString(R.string.open_power_dialog)
                 TakeScreenShot -> getLocalizedString(R.string.take_a_screenshot)
-                PreviousPage -> getLocalizedString(R.string.previous_page)
-                NextPage -> getLocalizedString(R.string.next_page)
                 RestartApp -> getLocalizedString(R.string.restart_launcher)
                 Disabled -> getLocalizedString(R.string.disabled)
             }
@@ -370,8 +339,6 @@ object Constants {
                 ShowRecents -> getLocalizedString(R.string.show_recents)
                 OpenPowerDialog -> getLocalizedString(R.string.open_power_dialog)
                 TakeScreenShot -> getLocalizedString(R.string.take_a_screenshot)
-                PreviousPage -> getLocalizedString(R.string.previous_page)
-                NextPage -> getLocalizedString(R.string.next_page)
                 RestartApp -> getLocalizedString(R.string.restart_launcher)
                 Disabled -> getLocalizedString(R.string.disabled)
             }

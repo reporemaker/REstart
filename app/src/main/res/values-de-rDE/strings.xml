@@ -45,6 +45,13 @@
     <string name="settings_exit_launcher_dialog">Wähle einen Launcher</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Merkmale</string>
+    <string name="settings_search_section">Suche</string>
+    <string name="settings_drawer_section">Schublade</string>
+    <string name="settings_private_space_section">Privater Bereich</string>
+    <string name="settings_appearance_section">Erscheinungsbild</string>
+    <string name="settings_home_list_section">Startliste</string>
+    <string name="settings_quick_actions_section">Schnellaktionen</string>
+    <string name="settings_general_section">Allgemein</string>
     <string name="personalization">Personalisierung</string>
     <string name="theme_mode">Theme-Modus</string>
     <string name="app_language">Schnittstellensprache</string>

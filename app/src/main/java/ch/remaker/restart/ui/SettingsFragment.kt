@@ -251,8 +251,6 @@ class SettingsFragment : BaseFragment() {
         var toggledOpenAppOnEnter by remember { mutableStateOf(prefs.openAppOnEnter) }
         var toggledAppsLocked by remember { mutableStateOf(prefs.homeLocked) }
         var selectedHomeAppsNum by remember { mutableIntStateOf(prefs.homeAppsNum) }
-        var selectedHomePagesNum by remember { mutableIntStateOf(prefs.homePagesNum) }
-        var toggledHomePager by remember { mutableStateOf(prefs.homePager) }
 
         var toggledShowDate by remember { mutableStateOf(prefs.showDate) }
         var toggledShowDayOfYear by remember { mutableStateOf(prefs.showDayOfYear) }
@@ -550,134 +548,12 @@ class SettingsFragment : BaseFragment() {
                         onClick = { currentScreen = "main" }
                     )
                     Spacer(modifier = Modifier.height(16.dp))
-                    // Personalization
                     SettingsTitle(
-                        text = getLocalizedString(R.string.personalization),
+                        text = getLocalizedString(R.string.settings_search_section),
                         fontSize = titleFontSize
                     )
                     SectionCard {
 
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.theme_mode),
-                        option = selectedTheme.getString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            val themeEntries = Constants.Theme.entries
-
-                            val themeOptions = themeEntries.map { it.getString() }
-
-                            val selectedIndex =
-                                themeEntries.indexOf(selectedTheme).takeIf { it >= 0 } ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheetPill(
-                                context = requireContext(),
-                                options = themeOptions.toTypedArray(),
-                                title = getLocalizedString(R.string.theme_mode),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newThemeName ->
-                                    val newThemeIndex =
-                                        themeOptions.indexOfFirst { it == newThemeName }
-                                    if (newThemeIndex != -1) {
-                                        val newTheme = themeEntries[newThemeIndex]
-                                        selectedTheme = newTheme
-                                        prefs.appTheme = newTheme
-                                        resetThemeColors()
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.app_language),
-                        option = selectedLanguage.getString(), // assuming selectedLanguage: Constants.Language
-                        fontSize = titleFontSize,
-                        onClick = {
-                            // Generate options
-                            val languageEntries = Constants.Language.entries
-
-                            val languageOptions =
-                                languageEntries.map { it.getString() } // get localized names to display
-
-                            // Determine selected index based on current prefs value
-                            val selectedIndex =
-                                languageEntries.indexOf(selectedLanguage).takeIf { it >= 0 } ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = languageOptions.toTypedArray(),
-                                title = getLocalizedString(R.string.app_language),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newLanguageName ->
-                                    // Find the actual enum by matching its localized name
-                                    val newLanguageIndex =
-                                        languageOptions.indexOfFirst { it == newLanguageName }
-                                    if (newLanguageIndex != -1) {
-                                        val newLanguage = languageEntries[newLanguageIndex]
-                                        selectedLanguage = newLanguage // Update state
-                                        prefs.appLanguage = newLanguage // Persist in preferences
-                                        LauncherLocaleManager.updateLanguage(
-                                            requireContext(),
-                                            newLanguage
-                                        )
-                                        LocalizedResources.invalidate()
-                                        reloadLauncher() // force reload with new language
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.font_family),
-                        option = selectedFontFamily.string(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            // Generate options and fonts
-                            val fontFamilyEntries = Constants.FontFamily.entries
-
-                            val fontFamilyOptions = fontFamilyEntries.map { it.getString() }
-                            val fontFamilyFonts = fontFamilyEntries.map {
-                                it.getFont(requireContext()) ?: getTrueSystemFont()
-                            }
-
-                            // Determine selected index based on current prefs value
-                            val selectedIndex =
-                                fontFamilyEntries.indexOf(selectedFontFamily).takeIf { it >= 0 }
-                                    ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = fontFamilyOptions.toTypedArray(),
-                                fonts = fontFamilyFonts,
-                                title = getLocalizedString(R.string.font_family),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newFontFamilyName ->
-                                    val newFontFamilyIndex =
-                                        fontFamilyOptions.indexOfFirst { it == newFontFamilyName }
-                                    if (newFontFamilyIndex != -1) {
-                                        val newFontFamily = fontFamilyEntries[newFontFamilyIndex]
-                                        if (newFontFamily == Constants.FontFamily.Custom) {
-                                            // Show file picker and handle upload
-                                            launchFontPicker()
-                                        } else {
-                                            selectedFontFamily = newFontFamily
-                                            prefs.fontFamily = newFontFamily
-                                            AppReloader.restartApp(requireContext())
-                                        }
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    }
-                    // App List & Search
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.search_and_app_list),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
                     SettingsSwitch(
                         text = getLocalizedString(R.string.hide_search_view),
                         fontSize = titleFontSize,
@@ -693,15 +569,17 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_floating_button),
-                        fontSize = titleFontSize,
-                        defaultState = toggledFloating,
-                        onCheckedChange = {
-                            toggledFloating = !prefs.showFloating
-                            prefs.showFloating = toggledFloating
-                        }
-                    )
+                    if (!toggledHideSearchView) {
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.auto_show_keyboard),
+                            fontSize = titleFontSize,
+                            defaultState = toggledAutoShowKeyboard,
+                            onCheckedChange = {
+                                toggledAutoShowKeyboard = !prefs.autoShowKeyboard
+                                prefs.autoShowKeyboard = toggledAutoShowKeyboard
+                            }
+                        )
+                    }
 
                     SettingsSelect(
                         title = getLocalizedString(R.string.search_scope),
@@ -726,26 +604,90 @@ class SettingsFragment : BaseFragment() {
                     )
 
                     SettingsSwitch(
-                        text = getLocalizedString(R.string.show_az_sidebar),
+                        text = getLocalizedString(R.string.smart_search),
                         fontSize = titleFontSize,
-                        defaultState = toggledShowAZSidebar,
+                        defaultState = toggledSmartSearch,
                         onCheckedChange = {
-                            toggledShowAZSidebar = !prefs.showAZSidebar
-                            prefs.showAZSidebar = toggledShowAZSidebar
+                            toggledSmartSearch = !prefs.smartSearch
+                            prefs.smartSearch = toggledSmartSearch
                         }
                     )
 
-                    if (!toggledHideSearchView) {
+                    // The fuzzy finder options only apply to the classic search.
+                    if (!toggledSmartSearch) {
                         SettingsSwitch(
-                            text = getLocalizedString(R.string.auto_show_keyboard),
+                            text = getLocalizedString(R.string.enable_filter_strength),
                             fontSize = titleFontSize,
-                            defaultState = toggledAutoShowKeyboard,
+                            defaultState = toggledEnableFilterStrength,
                             onCheckedChange = {
-                                toggledAutoShowKeyboard = !prefs.autoShowKeyboard
-                                prefs.autoShowKeyboard = toggledAutoShowKeyboard
+                                toggledEnableFilterStrength = !prefs.enableFilterStrength
+                                prefs.enableFilterStrength = toggledEnableFilterStrength
                             }
                         )
+
+                        if (toggledEnableFilterStrength) {
+                            SettingsSelect(
+                                title = getLocalizedString(R.string.filter_strength),
+                                option = selectedFilterStrength.toString(),
+                                fontSize = titleFontSize,
+                                onClick = {
+                                    dialogBuilder.showSliderBottomSheet(
+                                        context = requireContext(),
+                                        title = getLocalizedString(R.string.filter_strength),
+                                        minValue = Constants.MIN_FILTER_STRENGTH,
+                                        maxValue = Constants.MAX_FILTER_STRENGTH,
+                                        currentValue = prefs.filterStrength,
+                                        onValueSelected = { newFilterStrength ->
+                                            selectedFilterStrength =
+                                                newFilterStrength.toInt() // Update state
+                                            prefs.filterStrength =
+                                                newFilterStrength.toInt() // Persist selection in preferences
+                                            viewModel.filterStrength.value = newFilterStrength.toInt()
+                                        }
+                                    )
+                                }
+                            )
+                        }
+
+                        if (toggledEnableFilterStrength) {
+                            SettingsSwitch(
+                                text = getLocalizedString(R.string.search_from_start),
+                                fontSize = titleFontSize,
+                                defaultState = toggledSearchFromStart,
+                                onCheckedChange = {
+                                    toggledSearchFromStart = !prefs.searchFromStart
+                                    prefs.searchFromStart = toggledSearchFromStart
+                                }
+                            )
+                        }
                     }
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.auto_open_apps),
+                        fontSize = titleFontSize,
+                        defaultState = toggledAutoOpenApp,
+                        onCheckedChange = {
+                            toggledAutoOpenApp = !prefs.autoOpenApp
+                            prefs.autoOpenApp = toggledAutoOpenApp
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.open_apps_on_enter),
+                        fontSize = titleFontSize,
+                        defaultState = toggledOpenAppOnEnter,
+                        onCheckedChange = {
+                            toggledOpenAppOnEnter = !prefs.openAppOnEnter
+                            prefs.openAppOnEnter = toggledOpenAppOnEnter
+                        }
+                    )
+
+                    }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_drawer_section),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
 
                     SettingsSelect(
                         title = getLocalizedString(R.string.drawer_view),
@@ -779,257 +721,17 @@ class SettingsFragment : BaseFragment() {
                                 currentScreen = "categories"
                             }
                         )
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.category_uppercase),
-                            fontSize = titleFontSize,
-                            defaultState = toggledCategoryUppercase,
-                            onCheckedChange = {
-                                toggledCategoryUppercase = !prefs.categoryUppercase
-                                prefs.categoryUppercase = toggledCategoryUppercase
-                            }
-                        )
-
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.category_show_count),
-                            fontSize = titleFontSize,
-                            defaultState = toggledCategoryShowCount,
-                            onCheckedChange = {
-                                toggledCategoryShowCount = !prefs.categoryShowCount
-                                prefs.categoryShowCount = toggledCategoryShowCount
-                            }
-                        )
                     }
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.drawer_search_height),
-                        option = selectedSearchHeight.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.drawer_search_height),
-                                minValue = Constants.MIN_SEARCH_HEIGHT,
-                                maxValue = Constants.MAX_SEARCH_HEIGHT,
-                                currentValue = prefs.searchHeight,
-                                onValueSelected = { newValue ->
-                                    selectedSearchHeight = newValue.toInt()
-                                    prefs.searchHeight = newValue.toInt()
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.drawer_search_spacing),
-                        option = selectedSearchSpacing.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.drawer_search_spacing),
-                                minValue = Constants.MIN_SEARCH_SPACING,
-                                maxValue = Constants.MAX_SEARCH_SPACING,
-                                currentValue = prefs.searchSpacing,
-                                onValueSelected = { newValue ->
-                                    selectedSearchSpacing = newValue.toInt()
-                                    prefs.searchSpacing = newValue.toInt()
-                                }
-                            )
-                        }
-                    )
 
                     SettingsSwitch(
-                        text = getLocalizedString(R.string.smart_search),
+                        text = getLocalizedString(R.string.show_az_sidebar),
                         fontSize = titleFontSize,
-                        defaultState = toggledSmartSearch,
+                        defaultState = toggledShowAZSidebar,
                         onCheckedChange = {
-                            toggledSmartSearch = !prefs.smartSearch
-                            prefs.smartSearch = toggledSmartSearch
+                            toggledShowAZSidebar = !prefs.showAZSidebar
+                            prefs.showAZSidebar = toggledShowAZSidebar
                         }
                     )
-
-                    // The fuzzy finder options only apply to the classic search.
-                    if (!toggledSmartSearch) {
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.enable_filter_strength),
-                            fontSize = titleFontSize,
-                            defaultState = toggledEnableFilterStrength,
-                            onCheckedChange = {
-                                toggledEnableFilterStrength = !prefs.enableFilterStrength
-                                prefs.enableFilterStrength = toggledEnableFilterStrength
-                            }
-                        )
-
-                        if (toggledEnableFilterStrength) {
-                            SettingsSwitch(
-                                text = getLocalizedString(R.string.search_from_start),
-                                fontSize = titleFontSize,
-                                defaultState = toggledSearchFromStart,
-                                onCheckedChange = {
-                                    toggledSearchFromStart = !prefs.searchFromStart
-                                    prefs.searchFromStart = toggledSearchFromStart
-                                }
-                            )
-                        }
-
-                        if (toggledEnableFilterStrength) {
-                            SettingsSelect(
-                                title = getLocalizedString(R.string.filter_strength),
-                                option = selectedFilterStrength.toString(),
-                                fontSize = titleFontSize,
-                                onClick = {
-                                    dialogBuilder.showSliderBottomSheet(
-                                        context = requireContext(),
-                                        title = getLocalizedString(R.string.filter_strength),
-                                        minValue = Constants.MIN_FILTER_STRENGTH,
-                                        maxValue = Constants.MAX_FILTER_STRENGTH,
-                                        currentValue = prefs.filterStrength,
-                                        onValueSelected = { newFilterStrength ->
-                                            selectedFilterStrength =
-                                                newFilterStrength.toInt() // Update state
-                                            prefs.filterStrength =
-                                                newFilterStrength.toInt() // Persist selection in preferences
-                                            viewModel.filterStrength.value = newFilterStrength.toInt()
-                                        }
-                                    )
-                                }
-                            )
-                        }
-                    }
-
-                    }
-                    // Home Management
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.home_management),
-                        fontSize = titleFontSize,
-                    )
-                    SectionCard {
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.auto_open_apps),
-                        fontSize = titleFontSize,
-                        defaultState = toggledAutoOpenApp,
-                        onCheckedChange = {
-                            toggledAutoOpenApp = !prefs.autoOpenApp
-                            prefs.autoOpenApp = toggledAutoOpenApp
-                        }
-                    )
-
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.open_apps_on_enter),
-                        fontSize = titleFontSize,
-                        defaultState = toggledOpenAppOnEnter,
-                        onCheckedChange = {
-                            toggledOpenAppOnEnter = !prefs.openAppOnEnter
-                            prefs.openAppOnEnter = toggledOpenAppOnEnter
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.lock_home_apps),
-                        fontSize = titleFontSize,
-                        defaultState = toggledAppsLocked,
-                        onCheckedChange = {
-                            toggledAppsLocked = !prefs.homeLocked
-                            prefs.homeLocked = toggledAppsLocked
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.apps_on_home_screen),
-                        option = selectedHomeAppsNum.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            Constants.updateMaxAppsBasedOnPages(requireContext())
-                            val oldHomeAppsNum = selectedHomeAppsNum + 1
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.apps_on_home_screen),
-                                minValue = Constants.MIN_HOME_APPS,
-                                maxValue = Constants.MAX_HOME_APPS,
-                                currentValue = prefs.homeAppsNum,
-                                onValueSelected = { newHomeAppsNum ->
-                                    selectedHomeAppsNum = newHomeAppsNum.toInt() // Update state
-                                    prefs.homeAppsNum =
-                                        newHomeAppsNum.toInt() // Persist selection in preferences
-                                    viewModel.homeAppsNum.value = newHomeAppsNum.toInt()
-
-                                    // Check if homeAppsNum is less than homePagesNum and update homePagesNum accordingly
-                                    if (newHomeAppsNum in 1..<selectedHomePagesNum) {
-                                        selectedHomePagesNum = newHomeAppsNum.toInt()
-                                        prefs.homePagesNum =
-                                            newHomeAppsNum.toInt() // Persist the new homePagesNum
-                                        viewModel.homePagesNum.value = newHomeAppsNum.toInt()
-                                    }
-
-                                    val userManager =
-                                        requireContext().getSystemService(Context.USER_SERVICE) as UserManager
-
-                                    val clearApp = AppListItem(
-                                        activityLabel = "Clear",
-                                        activityPackage = emptyString(),
-                                        activityClass = emptyString(),
-                                        user = userManager.userProfiles[0], // or use Process.myUserHandle() if it makes more sense
-                                        profileType = "SYSTEM",
-                                        customTag = emptyString(),
-                                        category = AppCategory.REGULAR
-                                    )
-
-                                    for (n in newHomeAppsNum.toInt()..oldHomeAppsNum) {
-                                        // n is outside the range between oldHomeAppsNum and newHomeAppsNum
-                                        // Do something with n
-                                        prefs.setHomeAppModel(n, clearApp)
-                                    }
-
-                                    // --- Trigger widget update ---
-                                    updateHomeWidget(context)
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.pages_on_home_screen),
-                        option = selectedHomePagesNum.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            Constants.updateMaxHomePages(requireContext())
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.pages_on_home_screen),
-                                minValue = Constants.MIN_HOME_PAGES,
-                                maxValue = Constants.MAX_HOME_PAGES,
-                                currentValue = prefs.homePagesNum,
-                                onValueSelected = { newHomePagesNum ->
-                                    selectedHomePagesNum = newHomePagesNum.toInt() // Update state
-                                    prefs.homePagesNum =
-                                        newHomePagesNum.toInt() // Persist selection in preferences
-                                    viewModel.homePagesNum.value = newHomePagesNum.toInt()
-                                }
-                            )
-                        }
-                    )
-
-                    if (selectedHomePagesNum > 1) {
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.enable_home_pager),
-                            fontSize = titleFontSize,
-                            defaultState = toggledHomePager,
-                            onCheckedChange = {
-                                toggledHomePager = !prefs.homePager
-                                prefs.homePager = toggledHomePager
-                            }
-                        )
-                    }
-
-                    }
-                    // Toggles
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.toggleable_items),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
 
                     val currentContextMenuFlags = remember {
                         mutableStateListOf<Boolean>().apply {
@@ -1099,42 +801,7 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
-                    val currentHomeButtonFlags = remember {
-                        mutableStateListOf<Boolean>().apply {
-                            addAll(prefs.getMenuFlags("HOME_BUTTON_FLAGS", "0000011"))
-                        }
                     }
-
-                    val enabledHomeButtonOptions by remember {
-                        derivedStateOf {
-                            homeButtonOptionLabels
-                                .take(currentHomeButtonFlags.size)
-                                .zip(currentHomeButtonFlags)
-                                .filter { it.second }
-                                .joinToString(", ") { it.first }
-                                .ifEmpty { getLocalizedString(R.string.none) }
-                        }
-                    }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.settings_home_buttons_title),
-                        option = enabledHomeButtonOptions,
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showFlagSettingsBottomSheet(
-                                context,
-                                homeButtonOptionLabels,
-                                "HOME_BUTTON_FLAGS",
-                                "0000011"
-                            ) { updatedFlags: List<Boolean> ->
-                                currentHomeButtonFlags.clear()
-                                currentHomeButtonFlags.addAll(updatedFlags)
-                            }
-                        }
-                    )
-
-                    }
-                    // Info Tiles
-                    // Weather
                     SettingsTitle(
                         text = getLocalizedString(R.string.weather),
                         fontSize = titleFontSize,
@@ -1209,6 +876,25 @@ class SettingsFragment : BaseFragment() {
                     }
 
                     }
+                    if (PrivateSpaceManager(requireContext()).isPrivateSpaceSetUp()) {
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_private_space_section),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.show_private_spaces),
+                            fontSize = titleFontSize,
+                            defaultState = toggledShowPrivateSpaces,
+                            onCheckedChange = {
+                                toggledShowPrivateSpaces = !prefs.showPrivateSpaces
+                                prefs.showPrivateSpaces = toggledShowPrivateSpaces
+                            }
+                        )
+
+                    }
+                    }
                     if (isGestureNavigationEnabled(context)) {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
                     } else {
@@ -1230,77 +916,139 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
-                    // Clock and date live on their own screen; here only the way in
                     Spacer(modifier = Modifier.height(16.dp))
                     SettingsTitle(
-                        text = getLocalizedString(R.string.clock_and_date),
+                        text = getLocalizedString(R.string.settings_appearance_section),
                         fontSize = titleFontSize
                     )
                     SectionCard {
-                        SettingsLink(
-                            title = getLocalizedString(R.string.clock_display),
-                            fontSize = titleFontSize,
-                            onClick = { currentScreen = "clock" }
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    // Layout & Density
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.layout_positioning),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
+
                     SettingsSelect(
-                        title = getLocalizedString(R.string.app_padding_size),
-                        option = selectedPaddingSize.toString(),
+                        title = getLocalizedString(R.string.theme_mode),
+                        option = selectedTheme.getString(),
                         fontSize = titleFontSize,
                         onClick = {
-                            dialogBuilder.showSliderBottomSheet(
+                            val themeEntries = Constants.Theme.entries
+
+                            val themeOptions = themeEntries.map { it.getString() }
+
+                            val selectedIndex =
+                                themeEntries.indexOf(selectedTheme).takeIf { it >= 0 } ?: 1
+
+                            dialogBuilder.showSingleChoiceBottomSheetPill(
                                 context = requireContext(),
-                                title = getLocalizedString(R.string.app_padding_size),
-                                minValue = Constants.MIN_TEXT_PADDING,
-                                maxValue = Constants.MAX_TEXT_PADDING,
-                                currentValue = prefs.textPaddingSize,
-                                onValueSelected = { newPaddingSize ->
-                                    selectedPaddingSize = newPaddingSize.toInt() // Update state
-                                    prefs.textPaddingSize =
-                                        newPaddingSize.toInt() // Persist selection in preferences
+                                options = themeOptions.toTypedArray(),
+                                title = getLocalizedString(R.string.theme_mode),
+                                selectedIndex = selectedIndex,
+                                onItemSelected = { newThemeName ->
+                                    val newThemeIndex =
+                                        themeOptions.indexOfFirst { it == newThemeName }
+                                    if (newThemeIndex != -1) {
+                                        val newTheme = themeEntries[newThemeIndex]
+                                        selectedTheme = newTheme
+                                        prefs.appTheme = newTheme
+                                        resetThemeColors()
+                                    }
                                 }
                             )
                         }
                     )
 
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.extend_home_apps_area),
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.font_family),
+                        option = selectedFontFamily.string(),
                         fontSize = titleFontSize,
-                        defaultState = toggledExtendHomeAppsArea,
-                        onCheckedChange = {
-                            toggledExtendHomeAppsArea = !prefs.extendHomeAppsArea
-                            prefs.extendHomeAppsArea = toggledExtendHomeAppsArea
-                        }
-                    )
+                        onClick = {
+                            // Generate options and fonts
+                            val fontFamilyEntries = Constants.FontFamily.entries
 
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.alignment_to_bottom),
-                        fontSize = titleFontSize,
-                        defaultState = toggledHomeAlignmentBottom,
-                        onCheckedChange = {
-                            toggledHomeAlignmentBottom = !prefs.homeAlignmentBottom
-                            prefs.homeAlignmentBottom = toggledHomeAlignmentBottom
-                            viewModel.updateHomeAppsAlignment(
-                                prefs.homeAlignment,
-                                prefs.homeAlignmentBottom
+                            val fontFamilyOptions = fontFamilyEntries.map { it.getString() }
+                            val fontFamilyFonts = fontFamilyEntries.map {
+                                it.getFont(requireContext()) ?: getTrueSystemFont()
+                            }
+
+                            // Determine selected index based on current prefs value
+                            val selectedIndex =
+                                fontFamilyEntries.indexOf(selectedFontFamily).takeIf { it >= 0 }
+                                    ?: 1
+
+                            dialogBuilder.showSingleChoiceBottomSheet(
+                                context = requireContext(),
+                                options = fontFamilyOptions.toTypedArray(),
+                                fonts = fontFamilyFonts,
+                                title = getLocalizedString(R.string.font_family),
+                                selectedIndex = selectedIndex,
+                                onItemSelected = { newFontFamilyName ->
+                                    val newFontFamilyIndex =
+                                        fontFamilyOptions.indexOfFirst { it == newFontFamilyName }
+                                    if (newFontFamilyIndex != -1) {
+                                        val newFontFamily = fontFamilyEntries[newFontFamilyIndex]
+                                        if (newFontFamily == Constants.FontFamily.Custom) {
+                                            // Show file picker and handle upload
+                                            launchFontPicker()
+                                        } else {
+                                            selectedFontFamily = newFontFamily
+                                            prefs.fontFamily = newFontFamily
+                                            AppReloader.restartApp(requireContext())
+                                        }
+                                    }
+                                }
                             )
                         }
                     )
 
-                    }
-                    // Visibility & Display
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.visibility_display),
+                    val hexBackgroundColor =
+                        String.format("#%06X", (0xFFFFFF and selectedBackgroundColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.background_color),
+                        option = hexBackgroundColor,
                         fontSize = titleFontSize,
+                        optionColor = Color(selectedBackgroundColor),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedBackgroundColor,
+                                title = getLocalizedString(R.string.background_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedBackgroundColor = selectedColor
+                                    prefs.backgroundColor = selectedColor
+                                })
+                        }
                     )
-                    SectionCard {
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_background),
+                        fontSize = titleFontSize,
+                        defaultState = toggledShowBackground,
+                        onCheckedChange = {
+                            toggledShowBackground = !prefs.showBackground
+                            prefs.showBackground = toggledShowBackground
+                        }
+                    )
+
+                    if (!toggledShowBackground) {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.background_opacity),
+                            option = selectedBackgroundOpacity.toString(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                dialogBuilder.showSliderBottomSheet(
+                                    context = requireContext(),
+                                    title = getLocalizedString(R.string.background_opacity),
+                                    minValue = Constants.MIN_OPACITY,
+                                    maxValue = Constants.MAX_OPACITY,
+                                    currentValue = prefs.opacityNum,
+                                    onValueSelected = { newBackgroundOpacity ->
+                                        selectedBackgroundOpacity =
+                                            newBackgroundOpacity.toInt() // Update state
+                                        prefs.opacityNum =
+                                            newBackgroundOpacity.toInt() // Persist selection in preferences
+                                        viewModel.opacityNum.value = newBackgroundOpacity.toInt()
+                                    }
+                                )
+                            }
+                        )
+                    }
 
                     SettingsSwitch(
                         text = getLocalizedString(R.string.show_status_bar),
@@ -1327,86 +1075,32 @@ class SettingsFragment : BaseFragment() {
                     )
 
                     SettingsSwitch(
-                        text = getLocalizedString(R.string.show_recent_apps),
+                        text = getLocalizedString(R.string.force_colored_wallpaper),
                         fontSize = titleFontSize,
-                        defaultState = toggledRecentAppsDisplayed,
+                        defaultState = toggledForceWallpaper,
+
                         onCheckedChange = {
-                            toggledRecentAppsDisplayed = !prefs.recentAppsDisplayed
-                            prefs.recentAppsDisplayed = toggledRecentAppsDisplayed
+                            toggledForceWallpaper = !prefs.forceWallpaper
+                            prefs.forceWallpaper = toggledForceWallpaper
                         }
                     )
 
-                    if (toggledRecentAppsDisplayed) {
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.number_of_recents),
-                            option = selectedRecentCounter.toString(),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                dialogBuilder.showSliderBottomSheet(
-                                    context = requireContext(),
-                                    title = getLocalizedString(R.string.number_of_recents),
-                                    minValue = Constants.MIN_RECENT_COUNTER,
-                                    maxValue = Constants.MAX_RECENT_COUNTER,
-                                    currentValue = prefs.recentCounter,
-                                    onValueSelected = { newRecentCounter ->
-                                        selectedRecentCounter =
-                                            newRecentCounter.toInt() // Update state
-                                        prefs.recentCounter =
-                                            newRecentCounter.toInt() // Persist selection in preferences
-                                        viewModel.recentCounter.value = newRecentCounter.toInt()
-                                    }
-                                )
-                            }
-                        )
                     }
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_app_usage_stats),
-                        fontSize = titleFontSize,
-                        defaultState = toggledRecentAppUsageStats,
-                        onCheckedChange = {
-                            toggledRecentAppUsageStats = !prefs.appUsageStats
-                            prefs.appUsageStats = toggledRecentAppUsageStats
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.show_background),
-                        fontSize = titleFontSize,
-                        defaultState = toggledShowBackground,
-                        onCheckedChange = {
-                            toggledShowBackground = !prefs.showBackground
-                            prefs.showBackground = toggledShowBackground
-                        }
-                    )
-                    if (!toggledShowBackground) {
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.background_opacity),
-                            option = selectedBackgroundOpacity.toString(),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                dialogBuilder.showSliderBottomSheet(
-                                    context = requireContext(),
-                                    title = getLocalizedString(R.string.background_opacity),
-                                    minValue = Constants.MIN_OPACITY,
-                                    maxValue = Constants.MAX_OPACITY,
-                                    currentValue = prefs.opacityNum,
-                                    onValueSelected = { newBackgroundOpacity ->
-                                        selectedBackgroundOpacity =
-                                            newBackgroundOpacity.toInt() // Update state
-                                        prefs.opacityNum =
-                                            newBackgroundOpacity.toInt() // Persist selection in preferences
-                                        viewModel.opacityNum.value = newBackgroundOpacity.toInt()
-                                    }
-                                )
-                            }
-                        )
-                    }
-
-                    }
-                    // Alignment
+                    // Clock and date live on their own screen; here only the way in
                     SettingsTitle(
-                        text = getLocalizedString(R.string.element_alignment),
+                        text = getLocalizedString(R.string.clock_and_date),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+                        SettingsLink(
+                            title = getLocalizedString(R.string.clock_display),
+                            fontSize = titleFontSize,
+                            onClick = { currentScreen = "clock" }
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_home_list_section),
                         fontSize = titleFontSize
                     )
                     SectionCard {
@@ -1439,55 +1133,131 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.alignment_to_bottom),
+                        fontSize = titleFontSize,
+                        defaultState = toggledHomeAlignmentBottom,
+                        onCheckedChange = {
+                            toggledHomeAlignmentBottom = !prefs.homeAlignmentBottom
+                            prefs.homeAlignmentBottom = toggledHomeAlignmentBottom
+                            viewModel.updateHomeAppsAlignment(
+                                prefs.homeAlignment,
+                                prefs.homeAlignmentBottom
+                            )
+                        }
+                    )
+
                     SettingsSelect(
-                        title = getLocalizedString(R.string.drawer_alignment),
-                        option = selectedDrawAlignment.string(),
+                        title = getLocalizedString(R.string.app_padding_size),
+                        option = selectedPaddingSize.toString(),
                         fontSize = titleFontSize,
                         onClick = {
-                            val gravityOptions = Constants.Gravity.entries.toTypedArray()
-                            val selectedIndex =
-                                gravityOptions.indexOf(selectedDrawAlignment).takeIf { it >= 0 }
-                                    ?: 1
-
-                            dialogBuilder.showSingleChoiceBottomSheetPill(
+                            dialogBuilder.showSliderBottomSheet(
                                 context = requireContext(),
-                                options = Constants.Gravity.entries.toTypedArray(),
-                                title = getLocalizedString(R.string.drawer_alignment),
-                                selectedIndex = selectedIndex,
-                                onItemSelected = { newGravity ->
-                                    selectedDrawAlignment = newGravity // Update state
-                                    prefs.drawerAlignment =
-                                        newGravity // Persist selection in preferences
-                                    viewModel.updateDrawerAlignment(newGravity)
+                                title = getLocalizedString(R.string.app_padding_size),
+                                minValue = Constants.MIN_TEXT_PADDING,
+                                maxValue = Constants.MAX_TEXT_PADDING,
+                                currentValue = prefs.textPaddingSize,
+                                onValueSelected = { newPaddingSize ->
+                                    selectedPaddingSize = newPaddingSize.toInt() // Update state
+                                    prefs.textPaddingSize =
+                                        newPaddingSize.toInt() // Persist selection in preferences
                                 }
                             )
                         }
                     )
 
-                    }
-                    // Colors
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.element_colors),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
-
-                    val hexBackgroundColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBackgroundColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.background_color),
-                        option = hexBackgroundColor,
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.extend_home_apps_area),
                         fontSize = titleFontSize,
-                        optionColor = Color(selectedBackgroundColor),
+                        defaultState = toggledExtendHomeAppsArea,
+                        onCheckedChange = {
+                            toggledExtendHomeAppsArea = !prefs.extendHomeAppsArea
+                            prefs.extendHomeAppsArea = toggledExtendHomeAppsArea
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_app_usage_stats),
+                        fontSize = titleFontSize,
+                        defaultState = toggledRecentAppUsageStats,
+                        onCheckedChange = {
+                            toggledRecentAppUsageStats = !prefs.appUsageStats
+                            prefs.appUsageStats = toggledRecentAppUsageStats
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.apps_on_home_screen),
+                        option = selectedHomeAppsNum.toString(),
+                        fontSize = titleFontSize,
                         onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
+                            val oldHomeAppsNum = selectedHomeAppsNum + 1
+                            dialogBuilder.showSliderBottomSheet(
                                 context = requireContext(),
-                                color = selectedBackgroundColor,
-                                title = getLocalizedString(R.string.background_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBackgroundColor = selectedColor
-                                    prefs.backgroundColor = selectedColor
-                                })
+                                title = getLocalizedString(R.string.apps_on_home_screen),
+                                minValue = Constants.MIN_HOME_APPS,
+                                maxValue = Constants.MAX_HOME_APPS,
+                                currentValue = prefs.homeAppsNum,
+                                onValueSelected = { newHomeAppsNum ->
+                                    selectedHomeAppsNum = newHomeAppsNum.toInt() // Update state
+                                    prefs.homeAppsNum =
+                                        newHomeAppsNum.toInt() // Persist selection in preferences
+                                    viewModel.homeAppsNum.value = newHomeAppsNum.toInt()
+
+                                    val userManager =
+                                        requireContext().getSystemService(Context.USER_SERVICE) as UserManager
+
+                                    val clearApp = AppListItem(
+                                        activityLabel = "Clear",
+                                        activityPackage = emptyString(),
+                                        activityClass = emptyString(),
+                                        user = userManager.userProfiles[0], // or use Process.myUserHandle() if it makes more sense
+                                        profileType = "SYSTEM",
+                                        customTag = emptyString(),
+                                        category = AppCategory.REGULAR
+                                    )
+
+                                    for (n in newHomeAppsNum.toInt()..oldHomeAppsNum) {
+                                        // n is outside the range between oldHomeAppsNum and newHomeAppsNum
+                                        // Do something with n
+                                        prefs.setHomeAppModel(n, clearApp)
+                                    }
+
+                                    // --- Trigger widget update ---
+                                    updateHomeWidget(context)
+                                }
+                            )
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.lock_home_apps),
+                        fontSize = titleFontSize,
+                        defaultState = toggledAppsLocked,
+                        onCheckedChange = {
+                            toggledAppsLocked = !prefs.homeLocked
+                            prefs.homeLocked = toggledAppsLocked
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.app_text_size),
+                        option = selectedAppSize.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.app_text_size),
+                                minValue = Constants.MIN_TEXT_SIZE,
+                                maxValue = Constants.MAX_TEXT_SIZE,
+                                currentValue = prefs.appSize,
+                                onValueSelected = { newAppSize ->
+                                    selectedAppSize = newAppSize.toInt() // Update state
+                                    prefs.appSize =
+                                        newAppSize.toInt() // Persist selection in preferences
+                                }
+                            )
                         }
                     )
 
@@ -1511,64 +1281,6 @@ class SettingsFragment : BaseFragment() {
                                 })
                         }
                     )
-
-                    val hexCategoryColor =
-                        String.format("#%06X", (0xFFFFFF and selectedCategoryColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.category_color),
-                        option = hexCategoryColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexCategoryColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedCategoryColor,
-                                title = getLocalizedString(R.string.category_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedCategoryColor = selectedColor
-                                    prefs.categoryColor = selectedColor
-                                })
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.rainbow_shortcuts),
-                        fontSize = titleFontSize,
-                        defaultState = toggledIconRainbowColors,
-                        onCheckedChange = {
-                            toggledIconRainbowColors = !prefs.iconRainbowColors
-                            prefs.iconRainbowColors = toggledIconRainbowColors
-                        }
-                    )
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.shortcuts_color),
-                        option = String.format("#%06X", (0xFFFFFF and selectedShortcutIconsColor)),
-                        fontSize = titleFontSize,
-                        optionColor = Color(
-                            String.format(
-                                "#%06X",
-                                (0xFFFFFF and selectedShortcutIconsColor)
-                            ).toColorInt()
-                        ),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedShortcutIconsColor,
-                                title = getLocalizedString(R.string.shortcuts_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedShortcutIconsColor = selectedColor
-                                    prefs.shortcutIconsColor = selectedColor
-                                })
-                        }
-                    )
-
-                    }
-                    // Icon Packs
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.icon_packs),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
 
                     SettingsSelect(
                         title = getLocalizedString(R.string.select_home_icons),
@@ -1615,6 +1327,252 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
+                    }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_quick_actions_section),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_floating_button),
+                        fontSize = titleFontSize,
+                        defaultState = toggledFloating,
+                        onCheckedChange = {
+                            toggledFloating = !prefs.showFloating
+                            prefs.showFloating = toggledFloating
+                        }
+                    )
+
+                    val currentHomeButtonFlags = remember {
+                        mutableStateListOf<Boolean>().apply {
+                            addAll(prefs.getMenuFlags("HOME_BUTTON_FLAGS", "0000011"))
+                        }
+                    }
+
+                    val enabledHomeButtonOptions by remember {
+                        derivedStateOf {
+                            homeButtonOptionLabels
+                                .take(currentHomeButtonFlags.size)
+                                .zip(currentHomeButtonFlags)
+                                .filter { it.second }
+                                .joinToString(", ") { it.first }
+                                .ifEmpty { getLocalizedString(R.string.none) }
+                        }
+                    }
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.settings_home_buttons_title),
+                        option = enabledHomeButtonOptions,
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showFlagSettingsBottomSheet(
+                                context,
+                                homeButtonOptionLabels,
+                                "HOME_BUTTON_FLAGS",
+                                "0000011"
+                            ) { updatedFlags: List<Boolean> ->
+                                currentHomeButtonFlags.clear()
+                                currentHomeButtonFlags.addAll(updatedFlags)
+                            }
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.shortcuts_color),
+                        option = String.format("#%06X", (0xFFFFFF and selectedShortcutIconsColor)),
+                        fontSize = titleFontSize,
+                        optionColor = Color(
+                            String.format(
+                                "#%06X",
+                                (0xFFFFFF and selectedShortcutIconsColor)
+                            ).toColorInt()
+                        ),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedShortcutIconsColor,
+                                title = getLocalizedString(R.string.shortcuts_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedShortcutIconsColor = selectedColor
+                                    prefs.shortcutIconsColor = selectedColor
+                                })
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.rainbow_shortcuts),
+                        fontSize = titleFontSize,
+                        defaultState = toggledIconRainbowColors,
+                        onCheckedChange = {
+                            toggledIconRainbowColors = !prefs.iconRainbowColors
+                            prefs.iconRainbowColors = toggledIconRainbowColors
+                        }
+                    )
+
+                    }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_drawer_section),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.drawer_alignment),
+                        option = selectedDrawAlignment.string(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            val gravityOptions = Constants.Gravity.entries.toTypedArray()
+                            val selectedIndex =
+                                gravityOptions.indexOf(selectedDrawAlignment).takeIf { it >= 0 }
+                                    ?: 1
+
+                            dialogBuilder.showSingleChoiceBottomSheetPill(
+                                context = requireContext(),
+                                options = Constants.Gravity.entries.toTypedArray(),
+                                title = getLocalizedString(R.string.drawer_alignment),
+                                selectedIndex = selectedIndex,
+                                onItemSelected = { newGravity ->
+                                    selectedDrawAlignment = newGravity // Update state
+                                    prefs.drawerAlignment =
+                                        newGravity // Persist selection in preferences
+                                    viewModel.updateDrawerAlignment(newGravity)
+                                }
+                            )
+                        }
+                    )
+
+                    SettingsSwitch(
+                        text = getLocalizedString(R.string.show_recent_apps),
+                        fontSize = titleFontSize,
+                        defaultState = toggledRecentAppsDisplayed,
+                        onCheckedChange = {
+                            toggledRecentAppsDisplayed = !prefs.recentAppsDisplayed
+                            prefs.recentAppsDisplayed = toggledRecentAppsDisplayed
+                        }
+                    )
+
+                    if (toggledRecentAppsDisplayed) {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.number_of_recents),
+                            option = selectedRecentCounter.toString(),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                dialogBuilder.showSliderBottomSheet(
+                                    context = requireContext(),
+                                    title = getLocalizedString(R.string.number_of_recents),
+                                    minValue = Constants.MIN_RECENT_COUNTER,
+                                    maxValue = Constants.MAX_RECENT_COUNTER,
+                                    currentValue = prefs.recentCounter,
+                                    onValueSelected = { newRecentCounter ->
+                                        selectedRecentCounter =
+                                            newRecentCounter.toInt() // Update state
+                                        prefs.recentCounter =
+                                            newRecentCounter.toInt() // Persist selection in preferences
+                                        viewModel.recentCounter.value = newRecentCounter.toInt()
+                                    }
+                                )
+                            }
+                        )
+                    }
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.drawer_search_height),
+                        option = selectedSearchHeight.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.drawer_search_height),
+                                minValue = Constants.MIN_SEARCH_HEIGHT,
+                                maxValue = Constants.MAX_SEARCH_HEIGHT,
+                                currentValue = prefs.searchHeight,
+                                onValueSelected = { newValue ->
+                                    selectedSearchHeight = newValue.toInt()
+                                    prefs.searchHeight = newValue.toInt()
+                                }
+                            )
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.drawer_search_spacing),
+                        option = selectedSearchSpacing.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.drawer_search_spacing),
+                                minValue = Constants.MIN_SEARCH_SPACING,
+                                maxValue = Constants.MAX_SEARCH_SPACING,
+                                currentValue = prefs.searchSpacing,
+                                onValueSelected = { newValue ->
+                                    selectedSearchSpacing = newValue.toInt()
+                                    prefs.searchSpacing = newValue.toInt()
+                                }
+                            )
+                        }
+                    )
+
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.category_text_size),
+                        option = selectedCategorySize.toString(),
+                        fontSize = titleFontSize,
+                        onClick = {
+                            dialogBuilder.showSliderBottomSheet(
+                                context = requireContext(),
+                                title = getLocalizedString(R.string.category_text_size),
+                                minValue = Constants.MIN_CATEGORY_SIZE,
+                                maxValue = Constants.MAX_CATEGORY_SIZE,
+                                currentValue = prefs.categorySize,
+                                onValueSelected = { newValue ->
+                                    selectedCategorySize = newValue.toInt()
+                                    prefs.categorySize = newValue.toInt()
+                                }
+                            )
+                        }
+                    )
+
+                    val hexCategoryColor =
+                        String.format("#%06X", (0xFFFFFF and selectedCategoryColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.category_color),
+                        option = hexCategoryColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexCategoryColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedCategoryColor,
+                                title = getLocalizedString(R.string.category_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedCategoryColor = selectedColor
+                                    prefs.categoryColor = selectedColor
+                                })
+                        }
+                    )
+
+                    if (selectedDrawerView == Constants.DrawerView.Categories) {
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.category_uppercase),
+                            fontSize = titleFontSize,
+                            defaultState = toggledCategoryUppercase,
+                            onCheckedChange = {
+                                toggledCategoryUppercase = !prefs.categoryUppercase
+                                prefs.categoryUppercase = toggledCategoryUppercase
+                            }
+                        )
+
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.category_show_count),
+                            fontSize = titleFontSize,
+                            defaultState = toggledCategoryShowCount,
+                            onCheckedChange = {
+                                toggledCategoryShowCount = !prefs.categoryShowCount
+                                prefs.categoryShowCount = toggledCategoryShowCount
+                            }
+                        )
+                    }
+
                     SettingsSelect(
                         title = getLocalizedString(R.string.select_app_list_icons),
                         option = selectedIconPackAppList.getString(IconCacheTarget.APP_LIST.name),
@@ -1652,53 +1610,6 @@ class SettingsFragment : BaseFragment() {
                                             viewModel.iconPackAppList.value = newAppIcons
                                         }
                                     }
-                                }
-                            )
-                        }
-                    )
-
-                    }
-                    // Text Size (moved to bottom for advanced users)
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.text_size_adjustments),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.app_text_size),
-                        option = selectedAppSize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.app_text_size),
-                                minValue = Constants.MIN_TEXT_SIZE,
-                                maxValue = Constants.MAX_TEXT_SIZE,
-                                currentValue = prefs.appSize,
-                                onValueSelected = { newAppSize ->
-                                    selectedAppSize = newAppSize.toInt() // Update state
-                                    prefs.appSize =
-                                        newAppSize.toInt() // Persist selection in preferences
-                                }
-                            )
-                        }
-                    )
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.category_text_size),
-                        option = selectedCategorySize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.category_text_size),
-                                minValue = Constants.MIN_CATEGORY_SIZE,
-                                maxValue = Constants.MAX_CATEGORY_SIZE,
-                                currentValue = prefs.categorySize,
-                                onValueSelected = { newValue ->
-                                    selectedCategorySize = newValue.toInt()
-                                    prefs.categorySize = newValue.toInt()
                                 }
                             )
                         }
@@ -1818,18 +1729,6 @@ class SettingsFragment : BaseFragment() {
                             prefs.showBatteryIcon = toggledShowBatteryIcon
                         }
                     )
-
-                    if (PrivateSpaceManager(requireContext()).isPrivateSpaceSetUp()) {
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.show_private_spaces),
-                            fontSize = titleFontSize,
-                            defaultState = toggledShowPrivateSpaces,
-                            onCheckedChange = {
-                                toggledShowPrivateSpaces = !prefs.showPrivateSpaces
-                                prefs.showPrivateSpaces = toggledShowPrivateSpaces
-                            }
-                        )
-                    }
 
                     Spacer(modifier = Modifier.height(12.dp))
                     
@@ -2110,6 +2009,43 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
+                    val hexAlarmColor = String.format("#%06X", (0xFFFFFF and selectedAlarmColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.alarm_color),
+                        option = hexAlarmColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexAlarmColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedAlarmColor,
+                                title = getLocalizedString(R.string.alarm_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedAlarmColor = selectedColor
+                                    prefs.alarmClockColor = selectedColor
+                                })
+                        }
+                    )
+
+                    val hexBatteryColor =
+                        String.format("#%06X", (0xFFFFFF and selectedBatteryColor))
+                    SettingsSelect(
+                        title = getLocalizedString(R.string.battery_color),
+                        option = hexBatteryColor,
+                        fontSize = titleFontSize,
+                        optionColor = Color(hexBatteryColor.toColorInt()),
+                        onClick = {
+                            dialogBuilder.showColorPickerBottomSheet(
+                                context = requireContext(),
+                                color = selectedBatteryColor,
+                                title = getLocalizedString(R.string.battery_color),
+                                onItemSelected = { selectedColor ->
+                                    selectedBatteryColor = selectedColor
+                                    prefs.batteryColor = selectedColor
+                                })
+                        }
+                    )
+
                     SettingsSelect(
                         title = getLocalizedString(R.string.clock_text_size),
                         option = selectedClockSize.toString(),
@@ -2152,42 +2088,6 @@ class SettingsFragment : BaseFragment() {
                         )
 
                     }
-                    val hexAlarmColor = String.format("#%06X", (0xFFFFFF and selectedAlarmColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.alarm_color),
-                        option = hexAlarmColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexAlarmColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedAlarmColor,
-                                title = getLocalizedString(R.string.alarm_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedAlarmColor = selectedColor
-                                    prefs.alarmClockColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexBatteryColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBatteryColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.battery_color),
-                        option = hexBatteryColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBatteryColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedBatteryColor,
-                                title = getLocalizedString(R.string.battery_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBatteryColor = selectedColor
-                                    prefs.batteryColor = selectedColor
-                                })
-                        }
-                    )
 
                     SettingsSelect(
                         title = getLocalizedString(R.string.alarm_text_size),
@@ -3046,10 +2946,50 @@ class SettingsFragment : BaseFragment() {
                         // Personalization
                         }
                         SettingsTitle(
-                            text = getLocalizedString(R.string.personalization),
+                            text = getLocalizedString(R.string.settings_general_section),
                             fontSize = titleFontSize,
                         )
                         SectionCard {
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.app_language),
+                            option = selectedLanguage.getString(), // assuming selectedLanguage: Constants.Language
+                            fontSize = titleFontSize,
+                            onClick = {
+                                // Generate options
+                                val languageEntries = Constants.Language.entries
+
+                                val languageOptions =
+                                    languageEntries.map { it.getString() } // get localized names to display
+
+                                // Determine selected index based on current prefs value
+                                val selectedIndex =
+                                    languageEntries.indexOf(selectedLanguage).takeIf { it >= 0 } ?: 1
+
+                                dialogBuilder.showSingleChoiceBottomSheet(
+                                    context = requireContext(),
+                                    options = languageOptions.toTypedArray(),
+                                    title = getLocalizedString(R.string.app_language),
+                                    selectedIndex = selectedIndex,
+                                    onItemSelected = { newLanguageName ->
+                                        // Find the actual enum by matching its localized name
+                                        val newLanguageIndex =
+                                            languageOptions.indexOfFirst { it == newLanguageName }
+                                        if (newLanguageIndex != -1) {
+                                            val newLanguage = languageEntries[newLanguageIndex]
+                                            selectedLanguage = newLanguage // Update state
+                                            prefs.appLanguage = newLanguage // Persist in preferences
+                                            LauncherLocaleManager.updateLanguage(
+                                                requireContext(),
+                                                newLanguage
+                                            )
+                                            LocalizedResources.invalidate()
+                                            reloadLauncher() // force reload with new language
+                                        }
+                                    }
+                                )
+                            }
+                        )
+
                         SettingsSelect(
                             title = getLocalizedString(R.string.settings_text_size),
                             option = selectedSettingsSize.toString(),
@@ -3080,17 +3020,6 @@ class SettingsFragment : BaseFragment() {
                                 prefs.lockOrientationPortrait =
                                     currentOrientation == Configuration.ORIENTATION_PORTRAIT
                                 AppReloader.restartApp(requireContext())
-                            }
-                        )
-
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.force_colored_wallpaper),
-                            fontSize = titleFontSize,
-                            defaultState = toggledForceWallpaper,
-
-                            onCheckedChange = {
-                                toggledForceWallpaper = !prefs.forceWallpaper
-                                prefs.forceWallpaper = toggledForceWallpaper
                             }
                         )
 

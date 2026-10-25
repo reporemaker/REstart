@@ -15,8 +15,6 @@ internal const val FORCE_COLORED_WALLPAPER = "FORCE_COLORED_WALLPAPER"
 
 // Home & Drawer
 internal const val HOME_APPS_NUM = "HOME_APPS_NUM"
-internal const val HOME_PAGES_NUM = "HOME_PAGES_NUM"
-internal const val HOME_PAGES_PAGER = "HOME_PAGES_PAGER"
 internal const val AUTO_SHOW_KEYBOARD = "AUTO_SHOW_KEYBOARD"
 internal const val AUTO_OPEN_APP = "AUTO_OPEN_APP"
 internal const val OPEN_APP_ON_ENTER = "OPEN_APP_ON_ENTER"

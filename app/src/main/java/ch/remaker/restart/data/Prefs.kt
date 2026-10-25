@@ -223,10 +223,6 @@ class Prefs(val context: Context) {
         get() = getSetting(OPEN_APP_ON_ENTER, false)
         set(value) = prefsNormal.edit { putBoolean(OPEN_APP_ON_ENTER, value) }
 
-    var homePager: Boolean
-        get() = getSetting(HOME_PAGES_PAGER, false)
-        set(value) = prefsNormal.edit { putBoolean(HOME_PAGES_PAGER, value) }
-
     var recentAppsDisplayed: Boolean
         get() = getSetting(RECENT_APPS_DISPLAYED, false)
         set(value) = prefsNormal.edit { putBoolean(RECENT_APPS_DISPLAYED, value) }
@@ -268,12 +264,8 @@ class Prefs(val context: Context) {
         set(value) = prefsNormal.edit { putBoolean(AUTO_SHOW_KEYBOARD, value) }
 
     var homeAppsNum: Int
-        get() = getSetting(HOME_APPS_NUM, 4)
+        get() = getSetting(HOME_APPS_NUM, 4).coerceAtMost(Constants.MAX_HOME_APPS)
         set(value) = prefsNormal.edit { putInt(HOME_APPS_NUM, value) }
-
-    var homePagesNum: Int
-        get() = getSetting(HOME_PAGES_NUM, 1)
-        set(value) = prefsNormal.edit { putInt(HOME_PAGES_NUM, value) }
 
     var backgroundColor: Int
         get() = getSetting(BACKGROUND_COLOR, getColor(context, getColorInt("bg")))
@@ -660,13 +652,13 @@ class Prefs(val context: Context) {
 
     var longSwipeLeftAction: Constants.Action
         get() {
-            return getEnumSetting(LONG_SWIPE_LEFT_ACTION, Constants.Action.PreviousPage)
+            return getEnumSetting(LONG_SWIPE_LEFT_ACTION, Constants.Action.Disabled)
         }
         set(value) = prefsNormal.edit { putString(LONG_SWIPE_LEFT_ACTION, value.name) }
 
     var longSwipeRightAction: Constants.Action
         get() {
-            return getEnumSetting(LONG_SWIPE_RIGHT_ACTION, Constants.Action.NextPage)
+            return getEnumSetting(LONG_SWIPE_RIGHT_ACTION, Constants.Action.Disabled)
         }
         set(value) = prefsNormal.edit { putString(LONG_SWIPE_RIGHT_ACTION, value.name) }
 

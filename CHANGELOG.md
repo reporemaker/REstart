@@ -6,6 +6,19 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- Settings reorganised by surface: Features = behaviour (Search, Drawer, Weather, Private
+  space); Look & Feel = appearance (Appearance, Clock area, Home list, Quick actions, Drawer);
+  Advanced = Expert and General (language, settings text size, orientation, lock, haptics).
+  Nothing was renamed or removed except the home-screen pages: the pager and its "Number of
+  pages" / "Home pager" settings are gone, the home list holds up to 8 apps, and long swipes
+  left/right no longer switch pages (their default action is now Disabled).
+- Clock area: one settings page under Look & Feel holds everything about the block at the top
+  of the home screen — the four styles with live previews, what is shown (clock, AM/PM, date,
+  day of year, alarm, battery), the chosen style's own layout rows, colours and sizes, and the
+  tap actions for the clock and the date. "No alarm is set." is now translated.
+- Fonts: the clock keeps the user's font family in every style — weights are derived from it
+  instead of swapping in the system light face, negative letter-spacing is applied only to the
+  system font (so Doto's dots never collide), and the bottom sheets keep each label's weight.
 - Swiss style across the app: page heads with a 2 dp rule, hairline rows instead of boxes,
   numbered settings home, square tiles and switches, caps section labels; popups square with a
   rule, every choice a one-column list; home apps and drawer rows ruled, index numbers on a

@@ -45,6 +45,13 @@
     <string name="settings_exit_launcher_dialog">Bir başlatıcı seçin</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Özellikler</string>
+    <string name="settings_search_section">Arama</string>
+    <string name="settings_drawer_section">Çekmece</string>
+    <string name="settings_private_space_section">Özel alan</string>
+    <string name="settings_appearance_section">Görünüm</string>
+    <string name="settings_home_list_section">Ana ekran listesi</string>
+    <string name="settings_quick_actions_section">Hızlı eylemler</string>
+    <string name="settings_general_section">Genel</string>
     <string name="personalization">Kişiselleştirme</string>
     <string name="theme_mode">Tema modu</string>
     <string name="app_language">Arayüz Dili</string>

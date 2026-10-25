@@ -63,14 +63,19 @@
 
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Features</string>
+    <string name="settings_search_section">Search</string>
+    <string name="settings_drawer_section">Drawer</string>
+    <string name="settings_private_space_section">Private space</string>
+    <string name="settings_appearance_section">Appearance</string>
+    <string name="settings_home_list_section">Home list</string>
+    <string name="settings_quick_actions_section">Quick actions</string>
+    <string name="settings_general_section">General</string>
 
-    <string name="personalization">Personalization</string>
 
     <string name="theme_mode">Theme mode</string>
     <string name="app_language">Interface Language</string>
     <string name="font_family">Font Family</string>
 
-    <string name="search_and_app_list">Search &amp; App List</string>
 
     <string name="hide_search_view">Hide Search View</string>
     <string name="show_floating_button">Show Shortcut Buttons</string>
@@ -83,15 +88,12 @@
     <string name="auto_show_keyboard">Auto Show Keyboard</string>
     <string name="search_from_start">Search from Start</string>
 
-    <string name="home_management">Home &amp; App Management</string>
 
     <string name="auto_open_apps">Auto Open Apps</string>
     <string name="open_apps_on_enter">Open App on Enter</string>
     <string name="lock_home_apps">Lock Home Apps</string>
     <string name="lock_settings">Lock Settings</string>
     <string name="apps_on_home_screen">Number of Home Apps</string>
-    <string name="pages_on_home_screen">Number of Pages</string>
-    <string name="enable_home_pager">Enable Home Pager</string>
     <string name="enable_app_timer">Enable App Timer</string>
     <string name="force_colored_wallpaper">Force Colored Wallpaper</string>
 
@@ -115,12 +117,10 @@
     <string name="temp_unit">Temperature Unit</string>
     <string name="manual_location">Set Manual Location</string>
 
-    <string name="icon_packs">Icon Packs</string>
 
     <!-- Strings used for look & feel settings -->
     <string name="look_feel_settings_title">Look &amp; Feel</string>
 
-    <string name="text_size_adjustments">Text &amp; Size Adjustments</string>
 
     <string name="app_text_size">App Text Size</string>
     <string name="date_text_size">Date Text Size</string>
@@ -128,13 +128,11 @@
     <string name="alarm_text_size">Alarm Text Size</string>
     <string name="battery_text_size">Battery Text Size</string>
 
-    <string name="layout_positioning">Layout &amp; Positioning</string>
 
     <string name="app_padding_size">Padding Size</string>
     <string name="extend_home_apps_area">Extend Clickable Area</string>
     <string name="alignment_to_bottom">Align to Bottom</string>
 
-    <string name="visibility_display">Visibility &amp; Display</string>
 
     <string name="show_status_bar">Show Status bar</string>
     <string name="show_navigation_bar">Show Navigation bar</string>
@@ -193,7 +191,6 @@
     <string name="background_opacity">Background Transparency</string>
     <string name="total_screen_time">Total Screen Time</string>
 
-    <string name="element_alignment">Element Alignment</string>
 
     <string name="date_alignment">Date</string>
     <string name="clock_alignment">Clock</string>
@@ -201,7 +198,6 @@
     <string name="home_alignment">Home Apps</string>
     <string name="drawer_alignment">Drawer Apps</string>
 
-    <string name="element_colors">Element Colors</string>
 
     <string name="background_color">Background</string>
     <string name="app_color">Apps</string>
@@ -246,8 +242,6 @@
     <string name="show_recents">Show Recents</string>
     <string name="open_power_dialog">Power Dialog</string>
     <string name="take_a_screenshot">Take a Screenshot</string>
-    <string name="previous_page">Go to Previous Page</string>
-    <string name="next_page">Go to Next Page</string>
 
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notes</string>
@@ -374,7 +368,6 @@
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
 
-    <string name="toggleable_items">Toggleable Items</string>
     <string name="threshold">Threshold</string>
 
     <string name="expert_options_display">Show Expert Options</string>
