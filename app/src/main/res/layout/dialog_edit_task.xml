@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <EditText
+    <ch.remaker.components.views.FontEditText
         android:id="@+id/editMessageText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

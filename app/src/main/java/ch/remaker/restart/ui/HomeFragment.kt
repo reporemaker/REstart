@@ -953,6 +953,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 newAppView.apply {
                     // Set properties of newAppView
                     textSize = prefs.appSize.toFloat() / 1.5f
+                    typeface = FontManager.getTypeface(context)
                     id = i
                     val homeApp = prefs.getHomeAppModel(i)
                     // A shortcut's package is its creator (e.g. the browser), whose usage would be misleading

@@ -37,6 +37,7 @@ import ch.remaker.restart.helper.hasLocationPermission
 import ch.remaker.restart.helper.hasUsageAccessPermission
 import ch.remaker.restart.helper.isREstartAppDefault
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import ch.remaker.restart.helper.FontManager
 
 class OnboardingPageFragment : Fragment() {
 
@@ -90,6 +91,8 @@ class OnboardingPageFragment : Fragment() {
             else -> null
         }
 
+        // The buttons are platform ones; the labels already carry the font
+        FontManager.applyToTree(binding.root)
         return binding.root
     }
 
@@ -162,6 +165,7 @@ class OnboardingPageFragment : Fragment() {
                         }
                         .setCancelable(true)
                         .show()
+                        .also { FontManager.applyToDialog(it) }
                 }
 
                 binding.startButton.text = getLocalizedString(R.string.start)

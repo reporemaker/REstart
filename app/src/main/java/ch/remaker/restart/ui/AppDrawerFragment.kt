@@ -61,6 +61,8 @@ import ch.remaker.restart.helper.utils.PrivateSpaceManager
 import ch.remaker.restart.ui.adapter.AppDrawerAdapter
 import ch.remaker.restart.ui.search.ExtraSearch
 import ch.remaker.restart.ui.adapter.ContactDrawerAdapter
+import android.content.res.ColorStateList
+import ch.remaker.restart.helper.FontManager
 
 class AppDrawerFragment : BaseFragment() {
 
@@ -168,6 +170,8 @@ class AppDrawerFragment : BaseFragment() {
         val n = arguments?.getInt("n", 0) ?: 0
 
         val profileType: String = arguments?.getString("profileType", "SYSTEM") ?: "SYSTEM"
+
+        setupPageHead(flag)
 
         when (flag) {
             AppDrawerFlag.SetDoubleTap,
@@ -1139,6 +1143,39 @@ class AppDrawerFragment : BaseFragment() {
             customTag = emptyString(),
             category = AppCategory.REGULAR
         )
+    }
+
+    /**
+     * Swiss page head for the lists opened from the settings (hidden apps, home screen apps, the app
+     * for a gesture): the back arrow, the title bold in the user's font, a 2 dp rule, all in the text
+     * colour. The plain drawer (LaunchApp) keeps no head.
+     */
+    private fun setupPageHead(flag: AppDrawerFlag) {
+        if (flag == AppDrawerFlag.LaunchApp) return
+        val context = requireContext()
+        val ink = prefs.appColor
+        binding.pageHead.isVisible = true
+        binding.pageTitle.apply {
+            text = getLocalizedString(
+                when (flag) {
+                    AppDrawerFlag.HiddenApps -> R.string.settings_hidden_apps_title
+                    AppDrawerFlag.SetHomeApp -> R.string.settings_favorite_apps_title
+                    else -> R.string.select_app
+                }
+            )
+            textSize = 18f * 1.7f
+            letterSpacing = FontManager.tracking(context, -0.02f)
+            typeface = FontManager.weighted(context, 700)
+            setTextColor(ink)
+        }
+        binding.backButton.apply {
+            imageTintList = ColorStateList.valueOf(ink)
+            setOnClickListener { closeDrawer() }
+        }
+        binding.headRule.setBackgroundColor(ink)
+        // The search sits under the head rule, not a second screen margin lower
+        (binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams).topMargin =
+            (8 * resources.displayMetrics.density).toInt()
     }
 
     private fun setupClearHomeButton(position: Int) {

@@ -8,12 +8,47 @@
                 android:animateLayoutChanges="true"
                 android:background="?attr/primaryShadeDarkColor">
 
+    <!-- Swiss page head, only when the list is opened from the settings (hidden apps, home screen
+         apps, an app for a gesture): the back arrow on its own line, the title large and bold, a 2 dp rule -->
+    <LinearLayout
+        android:id="@+id/pageHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="34dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/select_app"
+            android:src="@drawable/ic_back" />
+
+        <ch.remaker.components.views.FontAppCompatTextView
+            android:id="@+id/pageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/headRule"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
     <!-- Search Bar positioned at the top -->
     <LinearLayout
         android:id="@+id/searchContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/pageHead"
         android:layout_marginTop="34dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"

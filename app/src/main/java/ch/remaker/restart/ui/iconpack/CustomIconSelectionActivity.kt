@@ -28,6 +28,7 @@ import ch.remaker.restart.helper.iconPackBlacklist
 import ch.remaker.restart.helper.utils.AppReloader
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.concurrent.Executors
+import ch.remaker.restart.helper.FontManager
 
 class CustomIconSelectionActivity : androidx.appcompat.app.AppCompatActivity() {
     private lateinit var prefs: Prefs
@@ -126,12 +127,14 @@ class CustomIconSelectionActivity : androidx.appcompat.app.AppCompatActivity() {
             val label = TextView(context).apply {
                 text = iconPack.name
                 textSize = 16f
+                typeface = FontManager.getTypeface(context)
                 layoutParams =
                     LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
             }
 
             val checkBox = CheckBox(context).apply {
                 isChecked = index == selectedIndex
+                typeface = FontManager.getTypeface(context)
                 setOnClickListener {
                     selectedIndex = index
                     itemLayouts.forEachIndexed { i, pair ->
@@ -160,6 +163,7 @@ class CustomIconSelectionActivity : androidx.appcompat.app.AppCompatActivity() {
             text = getLocalizedString(R.string.applying_icon_pack)
             isVisible = false
             textSize = 14f
+            typeface = FontManager.getTypeface(context)
             gravity = Gravity.END // Align text to the right
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -193,6 +197,7 @@ class CustomIconSelectionActivity : androidx.appcompat.app.AppCompatActivity() {
         }
 
         dialog.show()
+        FontManager.applyToDialog(dialog)
     }
 
     private fun findInstalledIconPacks(): List<IconPackInfo> {

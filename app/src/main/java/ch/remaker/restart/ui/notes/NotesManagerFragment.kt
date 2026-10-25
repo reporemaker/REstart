@@ -32,6 +32,7 @@ import ch.remaker.restart.helper.utils.messages
 import ch.remaker.restart.ui.BaseFragment
 import ch.remaker.restart.ui.adapter.NotesManagerAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import ch.remaker.restart.helper.FontManager
 
 class NotesManagerFragment : BaseFragment() {
     private lateinit var prefs: Prefs
@@ -167,6 +168,7 @@ class NotesManagerFragment : BaseFragment() {
                         .create()
 
                     popup.show()
+                    FontManager.applyToDialog(popup)
                 }
             }
 

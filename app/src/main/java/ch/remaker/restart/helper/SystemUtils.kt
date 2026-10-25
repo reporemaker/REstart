@@ -68,6 +68,7 @@ import java.util.Calendar
 import java.util.Locale
 import java.util.TimeZone
 import kotlin.system.exitProcess
+import ch.remaker.restart.helper.FontManager
 
 
 fun emptyString(): String {
@@ -126,6 +127,7 @@ fun showPermissionDialog(context: Context) {
     }
     val dialog = builder.create()
     dialog.show()
+    FontManager.applyToDialog(dialog)
 }
 
 fun getUserHandleFromString(context: Context, userHandleString: String): UserHandle {

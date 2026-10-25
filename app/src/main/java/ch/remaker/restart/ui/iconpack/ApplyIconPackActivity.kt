@@ -20,6 +20,7 @@ import ch.remaker.restart.helper.utils.AppReloader
 import ch.remaker.restart.helper.utils.BiometricHelper
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.concurrent.Executors
+import ch.remaker.restart.helper.FontManager
 
 class ApplyIconPackActivity : androidx.appcompat.app.AppCompatActivity() {
     private lateinit var prefs: Prefs
@@ -78,11 +79,13 @@ class ApplyIconPackActivity : androidx.appcompat.app.AppCompatActivity() {
             val checkBoxHome = CheckBox(this).apply {
                 text = getLocalizedString(R.string.apply_to_home) // e.g., "Apply to Home"
                 isChecked = true // default value
+                typeface = FontManager.getTypeface(this@ApplyIconPackActivity)
             }
 
             val checkBoxAppList = CheckBox(this).apply {
                 text = getLocalizedString(R.string.apply_to_app_list) // e.g., "Apply to App List"
                 isChecked = true // default value
+                typeface = FontManager.getTypeface(this@ApplyIconPackActivity)
             }
 
             // Add the CheckBoxes to the layout
@@ -127,6 +130,7 @@ class ApplyIconPackActivity : androidx.appcompat.app.AppCompatActivity() {
                 }
                 .setOnCancelListener { finish() }
                 .show()
+                .also { FontManager.applyToDialog(it) }
         }
     }
 }

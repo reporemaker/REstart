@@ -17,6 +17,7 @@ class FontAppCompatTextView @JvmOverloads constructor(
     }
 
     override fun applyFont(typeface: Typeface?) {
-        this.typeface = typeface
+        // Only the family changes: a bold label (textStyle="bold", TextSmallBold) stays bold
+        this.typeface = typeface?.let { FontManager.keepingWeight(it, this.typeface) }
     }
 }

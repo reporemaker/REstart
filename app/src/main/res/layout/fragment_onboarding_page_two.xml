@@ -14,7 +14,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_usage" />
 
-    <TextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <TextView
+        <ch.remaker.components.views.FontAppCompatTextView
             android:id="@+id/permissionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <ch.remaker.components.views.FontAppCompatTextView
             android:id="@+id/permissionReviewText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <TextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/permissionRemovedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

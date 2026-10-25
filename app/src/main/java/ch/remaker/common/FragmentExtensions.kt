@@ -16,6 +16,7 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import ch.remaker.restart.R
+import ch.remaker.restart.helper.FontManager
 
 fun Fragment.showLongToast(message: String) {
     showCustomToast(this, message, iconRes = R.drawable.app_launcher, delayMillis = 3000L)
@@ -97,6 +98,7 @@ fun showCustomToast(
         text = message
         setTextColor(Color.WHITE)
         textSize = 14f
+        typeface = FontManager.getTypeface(fragment.requireContext())
     })
 
     // Show overlay with animation and auto-dismiss

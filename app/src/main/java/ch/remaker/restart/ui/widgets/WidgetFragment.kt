@@ -11,7 +11,6 @@ import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -46,6 +45,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 import kotlin.math.ceil
+import ch.remaker.restart.helper.FontManager
 
 data class AppWidgetGroup(
     val appName: String,
@@ -261,6 +261,7 @@ class WidgetFragment : Fragment() {
             val option = TextView(requireContext()).apply {
                 text = title
                 textSize = 16f
+                typeface = FontManager.getTypeface(requireContext())
                 setPadding(16, 16, 16, 16)
                 setOnClickListener { action(); bottomSheetDialog.dismiss() }
             }
@@ -411,10 +412,10 @@ class WidgetFragment : Fragment() {
             val labelView = TextView(requireContext()).apply {
                 text = group.appName
                 textSize = 16f
-                setTypeface(null, Typeface.BOLD)
+                typeface = FontManager.weighted(requireContext(), 700)
                 setPadding(16, 0, 0, 0)
             }
-            val expandIcon = TextView(requireContext()).apply { text = "▼"; textSize = 16f }
+            val expandIcon = TextView(requireContext()).apply { text = "▼"; textSize = 16f; typeface = FontManager.getTypeface(requireContext()) }
             appRow.addView(iconView)
             appRow.addView(labelView, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             appRow.addView(expandIcon)
@@ -439,6 +440,7 @@ class WidgetFragment : Fragment() {
                 val labelView = TextView(requireContext()).apply {
                     text = getLocalizedString(R.string.pass_a_string, widgetLabel)
                     textSize = 14f
+                    typeface = FontManager.getTypeface(requireContext())
                     layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
                 }
 
@@ -446,7 +448,7 @@ class WidgetFragment : Fragment() {
                     text = widgetSize
                     textSize = 14f
                     gravity = Gravity.END
-                    setTypeface(null, Typeface.ITALIC)
+                    typeface = FontManager.weighted(requireContext(), 400, italic = true)
                 }
 
                 widgetRow.addView(labelView)
@@ -569,6 +571,7 @@ class WidgetFragment : Fragment() {
             }
             .setNegativeButton(getLocalizedString(R.string.cancel), null)
             .show()
+            .also { FontManager.applyToDialog(it) }
     }
 
     /** Widgets may declare that they work without being configured first (Android 12+). */

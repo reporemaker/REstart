@@ -41,8 +41,8 @@ class FontRecyclerView @JvmOverloads constructor(
 
         when (view) {
             is android.widget.TextView -> {
-                // force override material theming
-                view.setTypeface(typeface, Typeface.NORMAL)
+                // Only the family changes; a bold row label keeps its weight
+                view.typeface = FontManager.keepingWeight(typeface, view.typeface)
             }
 
             is ViewGroup -> {

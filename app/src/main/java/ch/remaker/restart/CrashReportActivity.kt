@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ch.remaker.common.getLocalizedString
 import ch.remaker.restart.helper.emptyString
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import ch.remaker.restart.helper.FontManager
 
 /**
  * Shown after a crash. Nothing is sent anywhere: the dialog names the contact address as plain
@@ -26,6 +27,7 @@ class CrashReportActivity : AppCompatActivity() {
             .setPositiveButton(getLocalizedString(R.string.acra_restart)) { _, _ -> restartApp() }
             .setCancelable(false)
             .show()
+            .also { FontManager.applyToDialog(it) }
     }
 
     private fun restartApp() {

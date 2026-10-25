@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:dividerHeight="1dp" />
 
-        <EditText
+        <ch.remaker.components.views.FontEditText
             android:id="@+id/searchInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

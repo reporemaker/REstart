@@ -16,6 +16,7 @@ import ch.remaker.restart.data.SHORTCUT_PREFIX
 import ch.remaker.restart.data.settingsKeyOf
 import ch.remaker.restart.helper.ShortcutHelper
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import ch.remaker.restart.helper.FontManager
 
 /**
  * Receives "Add to home screen" requests (ACTION_CONFIRM_PIN_SHORTCUT),
@@ -45,6 +46,7 @@ class PinShortcutActivity : AppCompatActivity() {
             setSelection(text.length)
             hint = getLocalizedString(R.string.shortcut_name)
             isSingleLine = true
+            typeface = FontManager.getTypeface(this@PinShortcutActivity)
         }
         val container = FrameLayout(this).apply {
             setPadding(50, 20, 50, 0)
@@ -71,6 +73,7 @@ class PinShortcutActivity : AppCompatActivity() {
             .setNegativeButton(getLocalizedString(R.string.cancel)) { _, _ -> finish() }
             .setOnCancelListener { finish() }
             .show()
+            .also { FontManager.applyToDialog(it) }
     }
 
     override fun onDestroy() {

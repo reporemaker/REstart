@@ -32,6 +32,7 @@ import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Message
 import ch.remaker.restart.data.Prefs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import ch.remaker.restart.helper.FontManager
 
 class NotesManagerAdapter(
     private val context: Context,
@@ -211,6 +212,7 @@ class NotesManagerAdapter(
             }
             .setNegativeButton(getLocalizedString(R.string.cancel), null)
             .show()
+            .also { FontManager.applyToDialog(it) }
     }
 
     private fun onShareClick(position: Int) {
@@ -292,7 +294,7 @@ class NotesManagerAdapter(
         }
 
         builder.setNegativeButton(getLocalizedString(R.string.cancel), null)
-        builder.show()
+        FontManager.applyToDialog(builder.show())
     }
 
     fun getExpandedPosition(): Int? = expandedPosition

@@ -28,6 +28,8 @@ import ch.remaker.restart.databinding.FragmentFavoriteBinding
 import ch.remaker.restart.helper.emptyString
 import ch.remaker.restart.helper.getHexForOpacity
 import ch.remaker.restart.ui.adapter.FavoriteAdapter
+import android.content.res.ColorStateList
+import ch.remaker.restart.helper.FontManager
 
 class FavoriteFragment : BaseFragment() {
 
@@ -172,11 +174,7 @@ class FavoriteFragment : BaseFragment() {
     }
 
     private fun initObservers() {
-        binding.pageName.apply {
-            text = getLocalizedString(R.string.favorite_apps)
-            textSize = prefs.appSize * 1.1f
-            setTextColor(prefs.appColor)
-        }
+        setupPageHead()
 
         // Setup add/remove buttons
         setupAddRemoveButtons()
@@ -186,6 +184,24 @@ class FavoriteFragment : BaseFragment() {
                 updateRecyclerView(newAppsNum)
             }
         }
+    }
+
+    /** Swiss page head: the back arrow, the title bold in the user's font, a 2 dp rule, all in the text colour. */
+    private fun setupPageHead() {
+        val context = requireContext()
+        val ink = prefs.appColor
+        binding.pageName.apply {
+            text = getLocalizedString(R.string.settings_favorite_apps_title)
+            textSize = 18f * 1.7f
+            letterSpacing = FontManager.tracking(context, -0.02f)
+            typeface = FontManager.weighted(context, 700)
+            setTextColor(ink)
+        }
+        binding.backButton.apply {
+            imageTintList = ColorStateList.valueOf(ink)
+            setOnClickListener { findNavController().popBackStack() }
+        }
+        binding.headRule.setBackgroundColor(ink)
     }
 
     private fun setupAddRemoveButtons() {
@@ -269,9 +285,11 @@ class FavoriteFragment : BaseFragment() {
                     }
                     .setNegativeButton(android.R.string.cancel, null)
                     .show()
+                    .also { FontManager.applyToDialog(it) }
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
+            .also { FontManager.applyToDialog(it) }
     }
 
     private fun removeFavoriteAtPosition(position: Int) {

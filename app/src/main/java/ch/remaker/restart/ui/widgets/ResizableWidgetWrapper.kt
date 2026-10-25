@@ -33,6 +33,7 @@ import ch.remaker.common.getLocalizedString
 import ch.remaker.restart.R
 import ch.remaker.restart.helper.getInstallSource
 import kotlin.math.abs
+import ch.remaker.restart.helper.FontManager
 
 @SuppressLint("ClickableViewAccessibility", "ViewConstructor")
 class ResizableWidgetWrapper(
@@ -94,6 +95,7 @@ class ResizableWidgetWrapper(
     private val sizeLabel = TextView(context).apply {
         setTextColor(onAccentColor)
         textSize = 13f
+        typeface = FontManager.getTypeface(context)
         setPadding(dp(12f), dp(5f), dp(12f), dp(5f))
         background = GradientDrawable().apply {
             cornerRadius = dp(14f).toFloat()
@@ -603,6 +605,7 @@ class ResizableWidgetWrapper(
             val item = TextView(context).apply {
                 text = title
                 textSize = 16f
+                typeface = FontManager.getTypeface(context)
                 setPadding(16, 32, 16, 32)
                 setOnClickListener {
                     onClick()

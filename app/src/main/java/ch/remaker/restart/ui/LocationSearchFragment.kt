@@ -19,6 +19,7 @@ import ch.remaker.restart.helper.utils.AppReloader
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ch.remaker.restart.helper.FontManager
 
 class LocationSearchFragment : BaseFragment() {
 
@@ -44,7 +45,10 @@ class LocationSearchFragment : BaseFragment() {
         val searchInput = view.findViewById<EditText>(R.id.searchInput)
         val listView = view.findViewById<ListView>(R.id.resultsList)
 
-        adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1)
+        adapter = object : ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View =
+                super.getView(position, convertView, parent).also { FontManager.applyToTree(it) }
+        }
         listView.adapter = adapter
 
         // Live update search as user types

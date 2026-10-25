@@ -650,7 +650,8 @@ class DialogManager(val context: Context, val activity: Activity) {
 
                 (view as TextView).apply {
                     text = if (position == currentSelected) "→  " + itemStrings[position] else itemStrings[position]
-                    typeface = fonts?.getOrNull(position) ?: Typeface.DEFAULT
+                    // Each font row shows its own face; every other list keeps the user's font
+                    typeface = fonts?.getOrNull(position) ?: FontManager.getTypeface(context) ?: Typeface.DEFAULT
                     textSize = fontSize
                     setTextColor(ink)
                 }

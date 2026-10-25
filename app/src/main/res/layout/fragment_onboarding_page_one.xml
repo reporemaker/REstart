@@ -13,7 +13,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/app_launcher" />
 
-    <TextView
+    <ch.remaker.components.views.FontAppCompatTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
