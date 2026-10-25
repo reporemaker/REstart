@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">Ștergeți toate datele</string>
     <string name="advanced_settings_backup_restore_clear_title">Ștergeți preferințele</string>
     <string name="advanced_settings_backup_restore_clear_description">Sigur vrei să faci asta?</string>
-    <string name="advanced_settings_theme_title">Creații tematice</string>
-    <string name="advanced_settings_theme_description">Personalizează temele care să ți se potrivească.</string>
-    <string name="advanced_settings_theme_export">Export</string>
-    <string name="advanced_settings_theme_import">Import</string>
-    <string name="advanced_settings_theme_clear">Șterge</string>
-    <string name="advanced_settings_theme_clear_title">Resetează tema</string>
-    <string name="advanced_settings_theme_clear_description">Sigur vrei să resetezi toate setările temei?</string>
     <string name="advanced_settings_clear_yes">Da</string>
     <string name="advanced_settings_clear_no">Nu</string>
     <string name="advanced_settings_help_feedback_title">Ajutor &amp; Feedback</string>

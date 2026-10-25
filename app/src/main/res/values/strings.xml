@@ -289,15 +289,8 @@
     <string name="advanced_settings_backup_restore_clear_title">Clear Preferences</string>
     <string name="advanced_settings_backup_restore_clear_description">Are you sure you want to do this?</string>
 
-    <string name="advanced_settings_theme_title">Theme Creations</string>
-    <string name="advanced_settings_theme_description">Customize themes to suit you.</string>
 
-    <string name="advanced_settings_theme_export">Export</string>
-    <string name="advanced_settings_theme_import">Import</string>
-    <string name="advanced_settings_theme_clear">Clear</string>
 
-    <string name="advanced_settings_theme_clear_title">Reset Theme</string>
-    <string name="advanced_settings_theme_clear_description">Are you sure you want to reset all theme settings?</string>
 
 
 
@@ -348,6 +341,7 @@
     <string name="feedback_title">Feedback</string>
     <string name="feedback_text">Found a bug or have an idea? Say what you did, what happened and what you expected, and add the RE*start and Android versions — the RE* mark at the bottom of the settings shows a device summary you can screenshot or copy. Send it as a GitHub issue or by e-mail.</string>
     <string name="feedback_open_issue">Open an issue on GitHub</string>
+    <string name="feedback_translation">Report a translation error</string>
     <string name="feedback_by_mail">By e-mail</string>
     <string name="security_title">Security</string>
     <string name="security_text">Security problems are not reported in public. Do not open an issue: write to hallo@remaker.ch or use GitHub\'s private vulnerability reporting. You will get an answer within 7 days.</string>

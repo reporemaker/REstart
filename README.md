@@ -54,8 +54,6 @@ ignored by git), then:
 ./gradlew assembleProdRelease
 ```
 
-Themes exported from the app live in [themes/](themes/).
-
 ## Contributing
 
 Issues and pull requests are open; see [CONTRIBUTING.md](CONTRIBUTING.md). Security problems go

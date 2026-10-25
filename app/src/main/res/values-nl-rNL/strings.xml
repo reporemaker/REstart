@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">Alle gegevens wissen</string>
     <string name="advanced_settings_backup_restore_clear_title">Voorkeuren wissen</string>
     <string name="advanced_settings_backup_restore_clear_description">Weet u zeker dat u dit wilt doen?</string>
-    <string name="advanced_settings_theme_title">Thema creaties</string>
-    <string name="advanced_settings_theme_description">Pas thema\'s aan uw wensen aan.</string>
-    <string name="advanced_settings_theme_export">Exporteren</string>
-    <string name="advanced_settings_theme_import">Importeren</string>
-    <string name="advanced_settings_theme_clear">Wissen</string>
-    <string name="advanced_settings_theme_clear_title">Thema opnieuw instellen</string>
-    <string name="advanced_settings_theme_clear_description">Weet je zeker dat je alle thema-instellingen wilt resetten?</string>
     <string name="advanced_settings_clear_yes">Ja</string>
     <string name="advanced_settings_clear_no">Nee</string>
     <string name="advanced_settings_help_feedback_title">Hulp &amp; Feedback</string>

@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">Wyczyść wszystkie dane</string>
     <string name="advanced_settings_backup_restore_clear_title">Wyczyść preferencje</string>
     <string name="advanced_settings_backup_restore_clear_description">Czy na pewno chcesz to zrobić?</string>
-    <string name="advanced_settings_theme_title">Kreacje tematyczne</string>
-    <string name="advanced_settings_theme_description">Dostosuj motywy do swoich potrzeb.</string>
-    <string name="advanced_settings_theme_export">Eksport</string>
-    <string name="advanced_settings_theme_import">Import</string>
-    <string name="advanced_settings_theme_clear">Wyczyść</string>
-    <string name="advanced_settings_theme_clear_title">Zresetuj motyw</string>
-    <string name="advanced_settings_theme_clear_description">Czy na pewno chcesz zresetować wszystkie ustawienia motywu?</string>
     <string name="advanced_settings_clear_yes">Tak</string>
     <string name="advanced_settings_clear_no">Nie</string>
     <string name="advanced_settings_help_feedback_title">Pomoc &amp; Opinia</string>

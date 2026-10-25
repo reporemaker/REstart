@@ -4,6 +4,7 @@
     <string name="about_app_title" translatable="false">RE*start</string>
     <string name="about_developer" translatable="false">SEU // RE*maker</string>
     <string name="about_github" translatable="false">github.com/reporemaker/REstart</string>
+    <string name="about_translation_issue_url" translatable="false">https://github.com/reporemaker/REstart/issues/new?template=translation.md</string>
     <string name="about_issues_url" translatable="false">https://github.com/reporemaker/REstart/issues/new/choose</string>
     <string name="about_github_url" translatable="false">https://github.com/reporemaker/REstart</string>
     <string name="about_licence" translatable="false">GPL-3.0</string>

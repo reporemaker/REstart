@@ -1514,7 +1514,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
     private fun dismissDialogs() {
         dialogBuilder.backupRestoreBottomSheet?.dismiss()
-        dialogBuilder.saveLoadThemeBottomSheet?.dismiss()
         dialogBuilder.singleChoiceBottomSheetPill?.dismiss()
         dialogBuilder.singleChoiceBottomSheet?.dismiss()
         dialogBuilder.colorPickerBottomSheet?.dismiss()

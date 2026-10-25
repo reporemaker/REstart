@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">ล้างข้อมูลทั้งหมด</string>
     <string name="advanced_settings_backup_restore_clear_title">ล้างการตั้งค่า</string>
     <string name="advanced_settings_backup_restore_clear_description">คุณแน่ใจว่าต้องการทำเช่นนี้หรือไม่?</string>
-    <string name="advanced_settings_theme_title">การสร้างสรรค์ธีม</string>
-    <string name="advanced_settings_theme_description">ปรับแต่งธีมให้เหมาะกับคุณ</string>
-    <string name="advanced_settings_theme_export">ส่งออก</string>
-    <string name="advanced_settings_theme_import">การนำเข้า</string>
-    <string name="advanced_settings_theme_clear">ล้าง</string>
-    <string name="advanced_settings_theme_clear_title">รีเซ็ตธีม</string>
-    <string name="advanced_settings_theme_clear_description">คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตการตั้งค่าธีมทั้งหมด?</string>
     <string name="advanced_settings_clear_yes">ใช่</string>
     <string name="advanced_settings_clear_no">ไม่</string>
     <string name="advanced_settings_help_feedback_title">ช่วยเหลือ &amp; ข้อเสนอแนะ</string>

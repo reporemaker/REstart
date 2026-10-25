@@ -6,6 +6,11 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- Theme import/export removed: the full backup already carries every colour (and font, sizes,
+  categories…), so the second file format and the bundled theme files are gone. Advanced keeps
+  Backup / Restore only.
+- Help & feedback: "Report a translation error" opens the Translation issue template;
+  CONTRIBUTING explains how translations work.
 - Settings home: the title first, the RE* mark bottom right (tap: device summary for bug
   reports); Advanced is a ruled list of actions; the dead "Expert options" switch is gone.
   New Help & feedback page: what the project is and where it lives, how to report a bug or an

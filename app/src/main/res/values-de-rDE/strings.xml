@@ -182,13 +182,6 @@
     <string name="advanced_settings_backup_restore_clear">Alle Daten löschen</string>
     <string name="advanced_settings_backup_restore_clear_title">Einstellungen löschen</string>
     <string name="advanced_settings_backup_restore_clear_description">Bist du dir sicher, dass du das tun willst?</string>
-    <string name="advanced_settings_theme_title">Designs</string>
-    <string name="advanced_settings_theme_description">Passen Sie die Designs Ihren Wünschen an.</string>
-    <string name="advanced_settings_theme_export">Exportieren</string>
-    <string name="advanced_settings_theme_import">Importieren</string>
-    <string name="advanced_settings_theme_clear">Zurücksetzen</string>
-    <string name="advanced_settings_theme_clear_title">Design zurücksetzen</string>
-    <string name="advanced_settings_theme_clear_description">Möchten Sie wirklich alle Designeinstellungen zurücksetzen?</string>
     <string name="advanced_settings_clear_yes">Ja</string>
     <string name="advanced_settings_clear_no">Nein</string>
     <string name="advanced_settings_help_feedback_title">Hilfe &amp; Feedback</string>
@@ -231,6 +224,7 @@
     <string name="feedback_title">Feedback</string>
     <string name="feedback_text">Einen Fehler gefunden oder eine Idee? Schreib, was du getan hast, was passiert ist und was du erwartet hast, und gib die RE*start- und Android-Version an — das RE*-Zeichen unten in den Einstellungen zeigt eine Gerätezusammenfassung, die du als Screenshot anhängen oder kopieren kannst. Sende es als GitHub-Issue oder per E-Mail.</string>
     <string name="feedback_open_issue">Issue auf GitHub öffnen</string>
+    <string name="feedback_translation">Übersetzungsfehler melden</string>
     <string name="feedback_by_mail">Per E-Mail</string>
     <string name="security_title">Sicherheit</string>
     <string name="security_text">Sicherheitsprobleme werden nicht öffentlich gemeldet. Öffne kein Issue: schreib an hallo@remaker.ch oder nutze die vertrauliche Schwachstellenmeldung von GitHub. Du bekommst innerhalb von 7 Tagen eine Antwort.</string>

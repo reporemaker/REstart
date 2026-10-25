@@ -172,13 +172,6 @@
     <string name="advanced_settings_backup_restore_clear">すべてのデータを消去</string>
     <string name="advanced_settings_backup_restore_clear_title">設定をクリア</string>
     <string name="advanced_settings_backup_restore_clear_description">本当にこれをやりたいのですか？</string>
-    <string name="advanced_settings_theme_title">テーマ作成</string>
-    <string name="advanced_settings_theme_description">自分好みにテーマをカスタマイズしましょう。</string>
-    <string name="advanced_settings_theme_export">エクスポート</string>
-    <string name="advanced_settings_theme_import">インポート</string>
-    <string name="advanced_settings_theme_clear">クリア</string>
-    <string name="advanced_settings_theme_clear_title">テーマをリセット</string>
-    <string name="advanced_settings_theme_clear_description">テーマ設定をすべてリセットしてもよろしいですか？</string>
     <string name="advanced_settings_clear_yes">はい</string>
     <string name="advanced_settings_clear_no">いいえ</string>
     <string name="advanced_settings_help_feedback_title">ヘルプ &amp; フィードバック</string>

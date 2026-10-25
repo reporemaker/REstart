@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">Очистить все данные</string>
     <string name="advanced_settings_backup_restore_clear_title">Очистить настройки</string>
     <string name="advanced_settings_backup_restore_clear_description">Вы уверены, что хотите это сделать?</string>
-    <string name="advanced_settings_theme_title">Создание тем</string>
-    <string name="advanced_settings_theme_description">Настройте темы под себя.</string>
-    <string name="advanced_settings_theme_export">Экспорт</string>
-    <string name="advanced_settings_theme_import">Импорт</string>
-    <string name="advanced_settings_theme_clear">Очистить</string>
-    <string name="advanced_settings_theme_clear_title">Сбросить тему</string>
-    <string name="advanced_settings_theme_clear_description">Вы уверены, что хотите сбросить все настройки темы?</string>
     <string name="advanced_settings_clear_yes">Да</string>
     <string name="advanced_settings_clear_no">Нет</string>
     <string name="advanced_settings_help_feedback_title">Помощь &amp; Обратная связь</string>

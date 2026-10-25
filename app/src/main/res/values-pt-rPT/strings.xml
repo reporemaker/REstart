@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">Limpar todos os dados</string>
     <string name="advanced_settings_backup_restore_clear_title">Limpar preferências</string>
     <string name="advanced_settings_backup_restore_clear_description">Tem a certeza de que deseja fazê-lo?</string>
-    <string name="advanced_settings_theme_title">Criações de temas</string>
-    <string name="advanced_settings_theme_description">Personalize os temas de acordo com as suas preferências.</string>
-    <string name="advanced_settings_theme_export">Exportar</string>
-    <string name="advanced_settings_theme_import">Importar</string>
-    <string name="advanced_settings_theme_clear">Limpar</string>
-    <string name="advanced_settings_theme_clear_title">Redefinir tema</string>
-    <string name="advanced_settings_theme_clear_description">Tem a certeza de que pretende repor todas as definições do tema?</string>
     <string name="advanced_settings_clear_yes">Sim</string>
     <string name="advanced_settings_clear_no">Não</string>
     <string name="advanced_settings_help_feedback_title">Ajuda &amp; Feedback</string>

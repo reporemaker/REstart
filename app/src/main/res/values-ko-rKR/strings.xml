@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">모든 데이터 삭제</string>
     <string name="advanced_settings_backup_restore_clear_title">환경설정 지우기</string>
     <string name="advanced_settings_backup_restore_clear_description">정말 이렇게 하시겠어요?</string>
-    <string name="advanced_settings_theme_title">테마 제작</string>
-    <string name="advanced_settings_theme_description">원하는 대로 테마를 맞춤 설정하세요.</string>
-    <string name="advanced_settings_theme_export">내보내기</string>
-    <string name="advanced_settings_theme_import">가져오기</string>
-    <string name="advanced_settings_theme_clear">지우기</string>
-    <string name="advanced_settings_theme_clear_title">테마 초기화</string>
-    <string name="advanced_settings_theme_clear_description">테마 설정을 모두 초기화하시겠습니까?</string>
     <string name="advanced_settings_clear_yes">예</string>
     <string name="advanced_settings_clear_no">아니요</string>
     <string name="advanced_settings_help_feedback_title">도움말 &amp; 피드백</string>

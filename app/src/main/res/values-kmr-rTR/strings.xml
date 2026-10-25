@@ -175,13 +175,6 @@
     <string name="advanced_settings_backup_restore_clear">Hemû daneyan pak bike</string>
     <string name="advanced_settings_backup_restore_clear_title">Vebijêrkan pak bike</string>
     <string name="advanced_settings_backup_restore_clear_description">Tu bawer î ku tu dixwazî vê yekê bikî?</string>
-    <string name="advanced_settings_theme_title">Afirandina rûkaranan</string>
-    <string name="advanced_settings_theme_description">Rûkaran li gorî dilê xwe kesane bike.</string>
-    <string name="advanced_settings_theme_export">Derxîne</string>
-    <string name="advanced_settings_theme_import">Têxîne</string>
-    <string name="advanced_settings_theme_clear">Pak bike</string>
-    <string name="advanced_settings_theme_clear_title">Rûkarê ji nû ve saz bike</string>
-    <string name="advanced_settings_theme_clear_description">Tu bawer î ku tu dixwazî hemû sazkariyên rûkarê ji nû ve saz bikî?</string>
     <string name="advanced_settings_clear_yes">Erê</string>
     <string name="advanced_settings_clear_no">Na</string>
     <string name="advanced_settings_help_feedback_title">Alîkarî &amp; Nirxandin</string>

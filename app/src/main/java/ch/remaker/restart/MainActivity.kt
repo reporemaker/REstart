@@ -58,8 +58,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var performFullBackup: ActivityResultLauncher<Intent>
     private lateinit var performFullRestore: ActivityResultLauncher<Intent>
 
-    private lateinit var performThemeBackup: ActivityResultLauncher<Intent>
-    private lateinit var performThemeRestore: ActivityResultLauncher<Intent>
 
 
     private lateinit var pickCustomFont: ActivityResultLauncher<Array<String>>
@@ -237,81 +235,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        performThemeBackup = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                // Step 1: Read the color names from theme.xml
-                val colorNames = mutableListOf<String>()
-
-                // Obtain an XmlPullParser for the theme.xml file
-                applicationContext.resources.getXml(R.xml.theme).use { parser ->
-                    while (parser.eventType != XmlPullParser.END_DOCUMENT) {
-                        if (parser.eventType == XmlPullParser.START_TAG && parser.name == "color") {
-                            val colorName = parser.getAttributeValue(null, "colorName")
-                            colorNames.add(colorName)
-                        }
-                        parser.next()
-                    }
-                }
-
-                result.data?.data?.let { uri ->
-                    applicationContext.contentResolver.openFileDescriptor(uri, "w")?.use { file ->
-                        FileOutputStream(file.fileDescriptor).use { stream ->
-                            // Get the filtered preferences (only those in the colorNames list)
-                            val prefs = Prefs(applicationContext).saveToTheme(colorNames)
-                            stream.channel.truncate(0)
-                            stream.write(prefs.toByteArray())
-                        }
-                    }
-                }
-            }
-        }
-
         // Correct usage: Register in onAttach() to ensure it's done before the fragment's view is created
         pickCustomFont = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
             uri?.let { handleFontSelected(it) }
-        }
-
-        performThemeRestore = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                // Step 1: Read the color names from theme.xml
-                val colorNames = mutableListOf<String>()
-
-                // Obtain an XmlPullParser for the theme.xml file
-                applicationContext.resources.getXml(R.xml.theme).use { parser ->
-                    while (parser.eventType != XmlPullParser.END_DOCUMENT) {
-                        if (parser.eventType == XmlPullParser.START_TAG && parser.name == "color") {
-                            val colorName = parser.getAttributeValue(null, "colorName")
-                            colorNames.add(colorName)
-                        }
-                        parser.next()
-                    }
-                }
-
-                result.data?.data?.let { uri ->
-                    try {
-                        applicationContext.contentResolver.openInputStream(uri).use { inputStream ->
-                            val stringBuilder = StringBuilder()
-                            BufferedReader(InputStreamReader(inputStream)).use { reader ->
-                                var line: String? = reader.readLine()
-                                while (line != null) {
-                                    stringBuilder.append(line)
-                                    line = reader.readLine()
-                                }
-                            }
-
-                            val string = stringBuilder.toString()
-                            val prefs = Prefs(applicationContext)
-                            prefs.loadFromTheme(string, colorNames)
-                        }
-                    } catch (e: FileNotFoundException) {
-                        e.printStackTrace()
-                        showLongToast("Selected file could not be opened")
-                    } catch (e: SecurityException) {
-                        e.printStackTrace()
-                        showLongToast("Permission denied")
-                    }
-                }
-            }
         }
 
         setDefaultHomeScreenLauncher =
@@ -405,26 +331,6 @@ class MainActivity : AppCompatActivity() {
             type = "application/json"
         }
         performFullRestore.launch(openFileIntent)
-    }
-
-    fun createThemeBackup() {
-        val timeStamp = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(Date())
-        val fileName = "theme_$timeStamp.mtheme"
-
-        val createFileIntent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "application/octet-stream"
-            putExtra(Intent.EXTRA_TITLE, fileName)
-        }
-        performThemeBackup.launch(createFileIntent)
-    }
-
-    fun restoreThemeBackup() {
-        val openFileIntent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "application/octet-stream"
-        }
-        performThemeRestore.launch(openFileIntent)
     }
 
     fun pickCustomFont() {

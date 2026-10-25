@@ -2857,9 +2857,6 @@ class SettingsFragment : BaseFragment() {
                         SettingsLink(title = getLocalizedString(R.string.advanced_settings_backup_restore_title), fontSize = titleFontSize) {
                             dialogBuilder.showBackupRestoreBottomSheet()
                         }
-                        SettingsLink(title = getLocalizedString(R.string.advanced_settings_theme_title), fontSize = titleFontSize) {
-                            dialogBuilder.showSaveLoadThemeBottomSheet()
-                        }
                         SettingsLink(title = getLocalizedString(R.string.advanced_settings_help_feedback_title), fontSize = titleFontSize) {
                             currentScreen = "help"
                         }
@@ -3005,6 +3002,9 @@ class SettingsFragment : BaseFragment() {
                         AboutRow(title = "", lines = listOf(getLocalizedString(R.string.feedback_text)), titleFontSize = titleFontSize, descriptionFontSize = descriptionFontSize)
                         SettingsLink(title = getLocalizedString(R.string.feedback_open_issue) + " ↗", fontSize = (titleFontSize.value * 0.85f).sp) {
                             requireContext().openUrl(getLocalizedString(R.string.about_issues_url))
+                        }
+                        SettingsLink(title = getLocalizedString(R.string.feedback_translation) + " ↗", fontSize = (titleFontSize.value * 0.85f).sp) {
+                            requireContext().openUrl(getLocalizedString(R.string.about_translation_issue_url))
                         }
                         // The address is plain text on purpose: nothing in the app sends mail by itself
                         AboutRow(title = getLocalizedString(R.string.feedback_by_mail), lines = listOf(getLocalizedString(R.string.acra_email)), titleFontSize = (titleFontSize.value * 0.85f).sp, descriptionFontSize = descriptionFontSize)
@@ -3461,7 +3461,6 @@ class SettingsFragment : BaseFragment() {
 
     private fun dismissDialogs() {
         dialogBuilder.backupRestoreBottomSheet?.dismiss()
-        dialogBuilder.saveLoadThemeBottomSheet?.dismiss()
         dialogBuilder.singleChoiceBottomSheetPill?.dismiss()
         dialogBuilder.singleChoiceBottomSheet?.dismiss()
         dialogBuilder.colorPickerBottomSheet?.dismiss()

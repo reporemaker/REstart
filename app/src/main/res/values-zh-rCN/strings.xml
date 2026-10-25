@@ -172,13 +172,6 @@
     <string name="advanced_settings_backup_restore_clear">清除所有数据</string>
     <string name="advanced_settings_backup_restore_clear_title">清除偏好设置</string>
     <string name="advanced_settings_backup_restore_clear_description">确定要这样做吗？</string>
-    <string name="advanced_settings_theme_title">主题创作</string>
-    <string name="advanced_settings_theme_description">按你的喜好自定义主题。</string>
-    <string name="advanced_settings_theme_export">导出</string>
-    <string name="advanced_settings_theme_import">导入</string>
-    <string name="advanced_settings_theme_clear">清除</string>
-    <string name="advanced_settings_theme_clear_title">重置主题</string>
-    <string name="advanced_settings_theme_clear_description">确定要重置所有主题设置吗？</string>
     <string name="advanced_settings_clear_yes">是</string>
     <string name="advanced_settings_clear_no">否</string>
     <string name="advanced_settings_help_feedback_title">帮助与反馈</string>

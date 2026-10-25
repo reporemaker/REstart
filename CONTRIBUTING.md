@@ -21,6 +21,16 @@ Issues and pull requests are welcome. A few things make them easier to take in.
 By contributing you agree that your contribution is licensed under GPL-3.0, like the rest of
 the code.
 
+## Translations
+
+Strings live in `app/src/main/res/values/strings.xml` (English, the source) and one
+`values-<lang>/strings.xml` per language. English, Turkish and German are maintained by hand;
+the other languages were machine-translated and say so in a comment at the end of the file.
+A wrong word in your language is a bug: open an issue with the "Translation" template or send a
+pull request with the corrected line. `python3 scripts/check-strings.py` checks that every
+language has every key with the same placeholders. Every new string lands with its translations
+in the same change.
+
 ## Where the code comes from
 
 See [FOUNDATION.md](FOUNDATION.md): the lineage from Olauncher to REstart, the people behind

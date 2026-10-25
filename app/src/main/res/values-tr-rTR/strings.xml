@@ -225,13 +225,6 @@
     <string name="advanced_settings_backup_restore_clear">Tüm Verileri Temizle</string>
     <string name="advanced_settings_backup_restore_clear_title">Ayarları sil</string>
     <string name="advanced_settings_backup_restore_clear_description">Bunu gerçekten yapmak istediğinizden emin misiniz?</string>
-    <string name="advanced_settings_theme_title">Temalar</string>
-    <string name="advanced_settings_theme_description">Temaları size uygun şekilde özelleştirin.</string>
-    <string name="advanced_settings_theme_export">Dışa aktar</string>
-    <string name="advanced_settings_theme_import">İçe aktar</string>
-    <string name="advanced_settings_theme_clear">Temizle</string>
-    <string name="advanced_settings_theme_clear_title">Temayı Sıfırla</string>
-    <string name="advanced_settings_theme_clear_description">Tüm tema ayarlarını sıfırlamak istediğinizden emin misiniz?</string>
     <string name="advanced_settings_clear_yes">Evet</string>
     <string name="advanced_settings_clear_no">Hayır</string>
     <string name="advanced_settings_help_feedback_title">Yardım &amp; Geri Bildirim</string>
@@ -274,6 +267,7 @@
     <string name="feedback_title">Geri bildirim</string>
     <string name="feedback_text">Bir hata mı buldun, bir fikrin mi var? Ne yaptığını, ne olduğunu ve ne beklediğini yaz; RE*start ve Android sürümünü ekle — ayarların altındaki RE* işareti, ekran görüntüsünü alıp ekleyebileceğin bir cihaz özeti gösterir. GitHub\'da issue olarak ya da e-posta ile gönder.</string>
     <string name="feedback_open_issue">GitHub\'da issue aç</string>
+    <string name="feedback_translation">Çeviri hatası bildir</string>
     <string name="feedback_by_mail">E-posta ile</string>
     <string name="security_title">Güvenlik</string>
     <string name="security_text">Güvenlik sorunları herkese açık bildirilmez. Issue açma: hallo@remaker.ch adresine yaz ya da GitHub\'ın gizli zafiyet bildirimini kullan. 7 gün içinde cevap alırsın.</string>
