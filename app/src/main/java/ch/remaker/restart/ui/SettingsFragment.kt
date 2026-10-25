@@ -1,5 +1,6 @@
 package ch.remaker.restart.ui
 
+import ch.remaker.common.openUrl
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.ComponentName
@@ -2920,41 +2921,54 @@ class SettingsFragment : BaseFragment() {
                             R.string.about_settings_title,
                             getLocalizedString(R.string.app_name)
                         ),
-
                         onClick = {
                             currentScreen = "main"
                         }
                     )
 
+                    // Logo rule: the RE* mark on a white tile in the light theme, on a dark tile in
+                    // the dark theme (drawable / drawable-night), the same everywhere in the app.
                     Spacer(modifier = Modifier.height(26.dp))
                     TopMainHeader(
                         iconRes = R.drawable.app_launcher,
                         title = getLocalizedString(R.string.app_name),
-                        description = getLocalizedString(R.string.created_by) + "<br>" + getLocalizedString(R.string.app_version),
+                        description = BuildConfig.VERSION_NAME + "<br>" + getLocalizedString(R.string.about_developer),
                         titleFontSize = titleFontSize,
                         descriptionFontSize = descriptionFontSize
                     )
                     Spacer(modifier = Modifier.height(20.dp))
                     SectionCard {
-                        TitleWithHtmlLinks(
-                            title = getLocalizedString(R.string.settings_source_code),
-                            descriptions = listOf(
-                                getLocalizedString(R.string.github_link),
-                                getLocalizedString(R.string.source_link)
-                            ),
+                        AboutRow(
+                            title = getLocalizedString(R.string.about_open_source),
+                            lines = listOf(getLocalizedString(R.string.about_github) + " ↗", getLocalizedString(R.string.about_licence)),
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize,
-                            columns = true
+                            onClick = { requireContext().openUrl(getLocalizedString(R.string.about_github_url)) }
                         )
-                        TitleWithHtmlLinks(
-                            title = getLocalizedString(R.string.settings_credits),
-                            descriptions = listOf(
-                                getLocalizedString(R.string.weather_link),
-                                getLocalizedString(R.string.forked_link)
-                            ),
+                        AboutRow(
+                            title = getLocalizedString(R.string.about_foundation),
+                            lines = listOf(getLocalizedString(R.string.about_foundation_text)),
+                            titleFontSize = titleFontSize,
+                            descriptionFontSize = descriptionFontSize
+                        )
+                        SettingsLink(
+                            title = getLocalizedString(R.string.about_credits_link),
+                            fontSize = titleFontSize,
+                            onClick = { currentScreen = "credits" }
+                        )
+                        AboutRow(
+                            title = getLocalizedString(R.string.about_weather) + " ↗",
+                            lines = emptyList(),
                             titleFontSize = titleFontSize,
                             descriptionFontSize = descriptionFontSize,
-                            columns = true
+                            onClick = { requireContext().openUrl(getLocalizedString(R.string.about_weather_url)) }
+                        )
+                        // The address is plain text on purpose: nothing in the app sends mail by itself.
+                        AboutRow(
+                            title = getLocalizedString(R.string.about_contact),
+                            lines = listOf(getLocalizedString(R.string.acra_email)),
+                            titleFontSize = titleFontSize,
+                            descriptionFontSize = descriptionFontSize
                         )
                     }
                     Spacer(modifier = Modifier.weight(1f))
@@ -2963,13 +2977,122 @@ class SettingsFragment : BaseFragment() {
                     } else {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
                     }
+                }
 
+                "credits" -> {
+                    BackHandler {
+                        currentScreen = "about"
+                    }
+
+                    PageHeader(
+                        iconRes = R.drawable.ic_back,
+                        title = getLocalizedString(R.string.about_credits_link),
+                        onClick = {
+                            currentScreen = "about"
+                        }
+                    )
+
+                    val contributors = remember { readAsset("contributors.txt").lines().filter { it.isNotBlank() } }
+                    val licences = listOf(
+                        R.string.licence_gpl to "licenses/GPL-3.0.txt",
+                        R.string.licence_ofl to "fonts/OFL-Montserrat.txt",
+                        R.string.licence_ccby to "licenses/CC-BY-4.0.txt",
+                        R.string.licence_apache to "licenses/Apache-2.0.txt"
+                    )
+                    var openLicence by remember { mutableStateOf<String?>(null) }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SettingsTitle(text = "Multi Launcher", fontSize = titleFontSize)
+                    SectionCard {
+                        AboutRow(
+                            title = "",
+                            lines = listOf(getLocalizedString(R.string.credits_lineage)),
+                            titleFontSize = titleFontSize,
+                            descriptionFontSize = descriptionFontSize
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SettingsTitle(text = getLocalizedString(R.string.credits_thanks), fontSize = titleFontSize)
+                    SectionCard {
+                        AboutRow(
+                            title = "",
+                            lines = listOf(
+                                getLocalizedString(R.string.credits_thanks_intro),
+                                contributors.joinToString("  ·  "),
+                                getLocalizedString(R.string.credits_thanks_outro)
+                            ),
+                            titleFontSize = titleFontSize,
+                            descriptionFontSize = descriptionFontSize
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SettingsTitle(text = getLocalizedString(R.string.credits_licences), fontSize = titleFontSize)
+                    SectionCard {
+                        licences.forEach { (nameRes, asset) ->
+                            val name = getLocalizedString(nameRes)
+                            SettingsLink(
+                                title = name,
+                                fontSize = titleFontSize,
+                                onClick = { openLicence = if (openLicence == asset) null else asset }
+                            )
+                            if (openLicence == asset) {
+                                val text = remember(asset) {
+                                    if (asset == "fonts/OFL-Montserrat.txt") readAsset(asset) + "\n\n" + readAsset("fonts/OFL-Doto.txt") else readAsset(asset)
+                                }
+                                FontText(
+                                    text = text,
+                                    fontSize = (descriptionFontSize.value * 0.85f).sp,
+                                    color = SettingsTheme.typography.option.color,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                                )
+                            }
+                        }
+                    }
+                    if (isGestureNavigationEnabled(context)) {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
+                    } else {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
+                    }
                 }
 
 
             }
         }
     }
+
+    /** One row of the About card: a title and plain lines under it; optionally the whole row opens something. */
+    @Composable
+    private fun AboutRow(
+        title: String,
+        lines: List<String>,
+        titleFontSize: TextUnit,
+        descriptionFontSize: TextUnit,
+        onClick: (() -> Unit)? = null
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .then(if (onClick != null) Modifier.clickable { onClick() } else Modifier)
+                .padding(vertical = 12.dp, horizontal = 16.dp)
+        ) {
+            if (title.isNotEmpty()) {
+                FontText(text = title, fontSize = titleFontSize, color = SettingsTheme.typography.title.color)
+            }
+            lines.forEach { line ->
+                FontText(
+                    text = line,
+                    fontSize = descriptionFontSize,
+                    color = SettingsTheme.typography.option.color,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
+        }
+    }
+
+    private fun readAsset(path: String): String =
+        requireContext().assets.open(path).bufferedReader().use { it.readText() }
 
     private fun dismissDialogs() {
         dialogBuilder.backupRestoreBottomSheet?.dismiss()

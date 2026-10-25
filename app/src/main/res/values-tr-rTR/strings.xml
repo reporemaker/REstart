@@ -243,6 +243,17 @@
     <string name="advanced_settings_help_feedback_title">Yardım &amp; Geri Bildirim</string>
     <!-- Strings used for about settings -->
     <string name="about_settings_title">%1$s Hakkında</string>
+    <string name="about_open_source">Açık kaynak</string>
+    <string name="about_foundation">Temeli</string>
+    <string name="about_foundation_text">Multi Launcher (mLauncher) üzerine kurulu; o da Olauncher\'ın torunu.</string>
+    <string name="about_credits_link">Katkıda bulunanlar ve lisanslar</string>
+    <string name="about_weather">Hava durumu verisi: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">İletişim</string>
+    <string name="credits_lineage">RE*start, Multi Launcher (mLauncher) üzerine kurulu: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. Her adımda GPL-3.0.</string>
+    <string name="credits_thanks">Teşekkür</string>
+    <string name="credits_thanks_intro">Çatallanma noktasına kadar koda emeği geçen herkes:</string>
+    <string name="credits_thanks_outro">Bu launcher onların emeğinin üstünde duruyor.</string>
+    <string name="credits_licences">Lisanslar</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Uzman</string>
     <string name="toggleable_items">Açılıp Kapanabilen Öğeler</string>

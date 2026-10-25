@@ -317,6 +317,17 @@
 
     <!-- Strings used for about settings -->
     <string name="about_settings_title">About %1$s</string>
+    <string name="about_open_source">Open source</string>
+    <string name="about_foundation">Foundation</string>
+    <string name="about_foundation_text">Built on Multi Launcher (mLauncher), which descends from Olauncher.</string>
+    <string name="about_credits_link">Contributors and licences</string>
+    <string name="about_weather">Weather data: Open-Meteo (CC BY 4.0)</string>
+    <string name="about_contact">Contact</string>
+    <string name="credits_lineage">RE*start is built on Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 at every step.</string>
+    <string name="credits_thanks">Thank you</string>
+    <string name="credits_thanks_intro">Everyone whose work is in the code up to the fork point:</string>
+    <string name="credits_thanks_outro">This launcher stands on their work.</string>
+    <string name="credits_licences">Licences</string>
 
 
     <!-- Strings used for expert settings -->

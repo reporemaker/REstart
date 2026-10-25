@@ -6,6 +6,12 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+- About screen redesigned: the RE* mark (white tile in the light theme, dark tile in the dark
+  theme, the same rule everywhere in the app), name, version, "SEU // RE*maker"; open-source
+  repository and licence; the foundation line (Multi Launcher, which descends from Olauncher);
+  weather data credit; contact address as plain text. A second page, "Contributors and
+  licences", names everyone whose work is in the code up to the fork point and shows the full
+  texts of GPL-3.0, OFL-1.1, CC BY 4.0 and Apache-2.0 from the APK's assets.
 - Fonts: Montserrat and Doto stay, nine bundled fonts are removed (Bitter, Fira Code, Hack, Lato,
   Merriweather, Quicksand, Raleway, Roboto, Source Code Pro); the APK loses about 1.5 MB. System
   font and your own font file (Settings → Look & Feel → Font → Custom) remain. The two fonts now
