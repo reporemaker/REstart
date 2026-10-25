@@ -63,6 +63,8 @@ settings were reorganised by what they affect, and every language is complete ag
 ## 1.0.0 — 25 October 2026
 
 - New name and identity: RE*start, package `ch.remaker.restart`, the RE* mark as app icon.
+  It does not update a Panther Launcher installation: export the settings there (Settings →
+  Backup/Restore) and import them here.
 - Crash dialog no longer offers to send anything; it names the contact address as plain text.
 - Repository moved to [reporemaker/REstart](https://github.com/reporemaker/REstart); issues and pull requests open.
 - One icon style instead of four: the RE* star, tinted with each app's colour.

@@ -21,6 +21,12 @@ Issues and pull requests are welcome. A few things make them easier to take in.
 By contributing you agree that your contribution is licensed under GPL-3.0, like the rest of
 the code.
 
+## Signed release build
+
+Put the keystore at `app/restart.jks` and the secrets in `app/keystore.properties`
+(`KEY_STORE_PASSWORD`, `KEY_ALIAS`, `KEY_PASSWORD`; the file is ignored by git), then run
+`./gradlew assembleProdRelease`.
+
 ## Translations
 
 Strings live in `app/src/main/res/values/strings.xml` (English, the source) and one
