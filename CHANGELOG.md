@@ -6,6 +6,20 @@ the two changes sent back upstream and every difference at the fork point are in
 
 ## Unreleased
 
+### Notes and to-dos
+- The notes page (the RE* mark opens it) is rebuilt in the Swiss style: a page head, entries as
+  ruled rows in three sections (To-do, Notes, Done), the kind, the text and ADD at the bottom.
+- An entry is a note or a to-do; a to-do has a square box, done ones drop to Done and can be
+  cleared at once. Tapping an entry opens it full page: text, kind, done, important, category,
+  date, written; it saves itself on the way back (arrow, back key or leaving the app).
+- Categories are the user's own: pick one in use or type a new one; one exists while an entry
+  uses it. An optional date per entry; an open to-do past its date shows OVERDUE.
+- Fixed on the way: priority and category were stored as translated words, so sorting and the
+  priority colour only worked in English, and entries were sorted by their date text (weekday
+  names) instead of time. Entries now keep codes and times; old notes are moved over once
+  (the highest priority becomes important, "None" drops the category).
+- The old notes settings (bubble colours, auto-expand) are gone; the page follows the theme.
+
 ### Fixed
 - **Light theme blinking dark.** Pages cross-fade when they change (home, drawer, settings);
   the page background (colour + opacity) sat on each page, so mid-fade both were half

@@ -62,8 +62,7 @@
     <fragment
         android:id="@+id/notesManagerFragment"
         android:name="ch.remaker.restart.ui.notes.NotesManagerFragment"
-        android:label="notesManagerFragment"
-        tools:layout="@layout/fragment_notes_manager" />
+        android:label="notesManagerFragment" />
 
     <fragment
         android:id="@+id/appFavoriteFragment"

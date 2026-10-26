@@ -365,17 +365,8 @@ class SettingsFragment : BaseFragment() {
         var selectedLongSwipeThreshold by remember { mutableFloatStateOf(prefs.longSwipeThreshold) }
 
         // Notes Settings
-        var toggledAutoExpandNotes by remember { mutableStateOf(prefs.autoExpandNotes) }
-        var toggledClickToEditDelete by remember { mutableStateOf(prefs.clickToEditDelete) }
 
-        var selectedNotesBackgroundColor by remember { mutableIntStateOf(prefs.notesBackgroundColor) }
-        var selectedBubbleBackgroundColor by remember { mutableIntStateOf(prefs.bubbleBackgroundColor) }
-        var selectedBubbleMessageTextColor by remember { mutableIntStateOf(prefs.bubbleMessageTextColor) }
-        var selectedBubbleTimeDateColor by remember { mutableIntStateOf(prefs.bubbleTimeDateColor) }
-        var selectedBubbleCategoryColor by remember { mutableIntStateOf(prefs.bubbleCategoryColor) }
 
-        var selectedInputMessageColor by remember { mutableIntStateOf(prefs.inputMessageColor) }
-        var selectedInputMessageHintColor by remember { mutableIntStateOf(prefs.inputMessageHintColor) }
 
         // Private Spaces Settings
         val (setPrivateSpacesIcon, setPrivateSpacesStatus) = if (toggledPrivateSpaces) {
@@ -481,7 +472,6 @@ class SettingsFragment : BaseFragment() {
                         Entry(n++, getLocalizedString(R.string.settings_gestures_title), getLocalizedString(R.string.settings_gestures_sub)) { currentScreen = "gestures" }
                         Entry(n++, getLocalizedString(R.string.settings_favorite_apps_title), getLocalizedString(R.string.settings_favorite_apps_sub)) { showFavoriteApps() }
                         Entry(n++, getLocalizedString(R.string.settings_hidden_apps_title), getLocalizedString(R.string.settings_hidden_apps_sub)) { showHiddenApps() }
-                        Entry(n++, getLocalizedString(R.string.settings_notes_title), getLocalizedString(R.string.settings_notes_sub)) { currentScreen = "notes" }
                         if (privateSpaceSetUp) {
                             Entry(n++, getLocalizedString(R.string.private_space_title), getLocalizedString(setPrivateSpacesStatus)) {
                                 if (PrivateSpaceManager(context).isPrivateSpaceSetUp(showToast = false, launchSettings = false)) {
@@ -2646,198 +2636,6 @@ class SettingsFragment : BaseFragment() {
                 
                 }
 
-                "notes" -> {
-                    BackHandler { currentScreen = "main" }
-                    PageHeader(
-                        iconRes = R.drawable.ic_back,
-                        title = getLocalizedString(R.string.notes_settings_title),
-                        onClick = { currentScreen = "main" }
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    // Display
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.display_options),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.auto_expand_notes),
-                        fontSize = titleFontSize,
-                        defaultState = toggledAutoExpandNotes,
-                        onCheckedChange = {
-                            toggledAutoExpandNotes = !prefs.autoExpandNotes
-                            prefs.autoExpandNotes = toggledAutoExpandNotes
-                        }
-                    )
-
-                    SettingsSwitch(
-                        text = getLocalizedString(R.string.click_to_edit_delete),
-                        fontSize = titleFontSize,
-                        defaultState = toggledClickToEditDelete,
-                        onCheckedChange = {
-                            toggledClickToEditDelete = !prefs.clickToEditDelete
-                            prefs.clickToEditDelete = toggledClickToEditDelete
-                        }
-                    )
-
-                    }
-                    // Notes Colors
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.notes_colors),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
-
-                    val hexBackgroundColor =
-                        String.format("#%06X", (0xFFFFFF and selectedNotesBackgroundColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.notes_background_color),
-                        option = hexBackgroundColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBackgroundColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedNotesBackgroundColor,
-                                title = getLocalizedString(R.string.notes_background_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedNotesBackgroundColor = selectedColor
-                                    prefs.notesBackgroundColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexBubbleBackgroundColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBubbleBackgroundColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.bubble_background_color),
-                        option = hexBubbleBackgroundColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBubbleBackgroundColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedBubbleBackgroundColor,
-                                title = getLocalizedString(R.string.bubble_background_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBubbleBackgroundColor = selectedColor
-                                    prefs.bubbleBackgroundColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexMessageTextColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBubbleMessageTextColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.bubble_message_color),
-                        option = hexMessageTextColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexMessageTextColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedBubbleMessageTextColor,
-                                title = getLocalizedString(R.string.bubble_message_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBubbleMessageTextColor = selectedColor
-                                    prefs.bubbleMessageTextColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexBubbleTimeDateColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBubbleTimeDateColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.bubble_date_time_color),
-                        option = hexBubbleTimeDateColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBubbleTimeDateColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedBubbleTimeDateColor,
-                                title = getLocalizedString(R.string.bubble_date_time_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBubbleTimeDateColor = selectedColor
-                                    prefs.bubbleTimeDateColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexBubbleCategoryColor =
-                        String.format("#%06X", (0xFFFFFF and selectedBubbleCategoryColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.bubble_category_color),
-                        option = hexBubbleCategoryColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBubbleCategoryColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedBubbleCategoryColor,
-                                title = getLocalizedString(R.string.bubble_category_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedBubbleCategoryColor = selectedColor
-                                    prefs.bubbleCategoryColor = selectedColor
-                                })
-                        }
-                    )
-
-                    }
-                    // Input Colors
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.input_colors),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
-
-                    val hexBubbleInputMessageColor =
-                        String.format("#%06X", (0xFFFFFF and selectedInputMessageColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.message_input_color),
-                        option = hexBubbleInputMessageColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBubbleInputMessageColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedInputMessageColor,
-                                title = getLocalizedString(R.string.message_input_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedInputMessageColor = selectedColor
-                                    prefs.inputMessageColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexBubbleInputMessageHintColor =
-                        String.format("#%06X", (0xFFFFFF and selectedInputMessageHintColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.message_input_hint_color),
-                        option = hexBubbleInputMessageHintColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexBubbleInputMessageHintColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedInputMessageHintColor,
-                                title = getLocalizedString(R.string.message_input_hint_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedInputMessageHintColor = selectedColor
-                                    prefs.inputMessageHintColor = selectedColor
-                                })
-                        }
-                    )
-
-                    }
-                    if (isGestureNavigationEnabled(context)) {
-                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
-                    } else {
-                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
-                    }
-                
-                }
 
                 "advanced" -> {
                     BackHandler { currentScreen = "main" }

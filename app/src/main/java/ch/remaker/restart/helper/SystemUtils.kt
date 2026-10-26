@@ -54,7 +54,6 @@ import ch.remaker.restart.REstartApp
 import ch.remaker.restart.helper.utils.AppReloader
 import ch.remaker.restart.helper.receivers.coarseCoordinate
 import ch.remaker.restart.data.Constants
-import ch.remaker.restart.data.Message
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.helper.utils.packageNames
 import ch.remaker.restart.services.ActionService
@@ -504,19 +503,6 @@ fun getTrueSystemFont(): Typeface {
 
     // Fallback to Roboto as a default if no system font is found
     return Typeface.DEFAULT
-}
-
-fun sortMessages(messages: List<Message>): List<Message> {
-    return messages.sortedWith(
-        compareBy<Message> {
-            when (it.priority) {
-                "High" -> 0
-                "Medium" -> 1
-                "Low" -> 2
-                else -> 3
-            }
-        }.thenByDescending { it.timestamp }
-    )
 }
 
 fun Context.openFirstWeatherApp() {

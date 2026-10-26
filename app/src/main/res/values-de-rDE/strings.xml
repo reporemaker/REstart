@@ -481,4 +481,18 @@
     <string name="categories_choose_apps_for">Apps von «%1$s»</string>
     <string name="smart_search">Intelligente Suche</string>
     <!-- Machine-translated on 2026-10-25 by RE*start maintainers' AI pass: app_lock_needs_screen_lock, widgets_no_space, drawer_categories, category_other, category_text_size, category_color, category_uppercase, category_show_count, drawer_search_height, drawer_search_spacing, advanced_settings_backup_restore_snapshot, advanced_settings_backup_restore_snapshot_item, advanced_settings_backup_restore_snapshot_confirm, advanced_settings_backup_restore_snapshot_failed, widgets_app_not_opened_yet, drawer_view, drawer_view_az, drawer_view_categories, search_scope, search_scope_apps, search_scope_files, search_scope_all, search_not_found, search_permission_files, search_permission_contacts, search_result_contact, search_no_app_to_open, manage_categories, categories_top_apps, categories_section, categories_new, categories_name_hint, categories_exists, categories_rename, categories_choose_apps, categories_remove, private_space_title, about_short, categories_move_up, categories_move_down, categories_not_created, categories_choose_apps_for, smart_search. Native speakers: corrections welcome via an issue or pull request. -->
+    <string name="notes_kind_note">Notiz</string>
+    <string name="notes_kind_todo">Aufgabe</string>
+    <string name="notes_section_done">Erledigt</string>
+    <string name="notes_clear_done">Erledigte löschen</string>
+    <string name="notes_clear_done_confirm">%1$d erledigte Aufgaben löschen?</string>
+    <string name="notes_important">Wichtig</string>
+    <string name="notes_category_none">Ohne Kategorie</string>
+    <string name="notes_date">Datum</string>
+    <string name="notes_date_none">Kein Datum</string>
+    <string name="notes_date_remove">Datum entfernen</string>
+    <string name="notes_overdue">Überfällig</string>
+    <string name="notes_written">Geschrieben</string>
+    <string name="notes_add">Hinzufügen</string>
+    <string name="notes_kind">Art</string>
 </resources>

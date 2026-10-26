@@ -481,4 +481,18 @@
         <item>Seyahat</item>
         <item>İş</item>
     </string-array>
+    <string name="notes_kind_note">Not</string>
+    <string name="notes_kind_todo">Yapılacak</string>
+    <string name="notes_section_done">Tamamlandı</string>
+    <string name="notes_clear_done">Tamamlananları temizle</string>
+    <string name="notes_clear_done_confirm">Tamamlanan %1$d yapılacak silinsin mi?</string>
+    <string name="notes_important">Önemli</string>
+    <string name="notes_category_none">Kategorisiz</string>
+    <string name="notes_date">Tarih</string>
+    <string name="notes_date_none">Tarih yok</string>
+    <string name="notes_date_remove">Tarihi kaldır</string>
+    <string name="notes_overdue">Gecikti</string>
+    <string name="notes_written">Yazıldı</string>
+    <string name="notes_add">Ekle</string>
+    <string name="notes_kind">Tür</string>
 </resources>
