@@ -431,15 +431,11 @@
     <string name="clock_area_tap">点击</string>
     <string name="clock_display">时钟区域</string>
     <string name="clock_and_date">时钟和日期</string>
-    <string name="clock_style">时钟样式</string>
+    <string name="clock_preview_scaled">已缩小</string>
     <string name="clock_style_classic">经典</string>
     <string name="clock_style_swiss">瑞士</string>
     <string name="clock_style_rings">圆环</string>
     <string name="clock_style_one_line">单行</string>
-    <string name="clock_style_classic_sub">保持现状</string>
-    <string name="clock_style_swiss_sub">两行，大写竖栏</string>
-    <string name="clock_style_rings_sub">小时粗，分钟细</string>
-    <string name="clock_style_one_line_sub">全部放在一行</string>
     <string name="about_open_source">开源</string>
     <string name="about_foundation">基础</string>
     <string name="about_foundation_text">基于 Multi Launcher (mLauncher) 构建，后者源自 Olauncher。</string>

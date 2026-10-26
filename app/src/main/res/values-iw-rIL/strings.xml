@@ -434,15 +434,11 @@
     <string name="clock_area_tap">הקשה</string>
     <string name="clock_display">אזור השעון</string>
     <string name="clock_and_date">שעון ותאריך</string>
-    <string name="clock_style">סגנון שעון</string>
+    <string name="clock_preview_scaled">מוקטן</string>
     <string name="clock_style_classic">קלאסי</string>
     <string name="clock_style_swiss">שווייצרי</string>
     <string name="clock_style_rings">טבעות</string>
     <string name="clock_style_one_line">שורה אחת</string>
-    <string name="clock_style_classic_sub">כפי שהוא היום</string>
-    <string name="clock_style_swiss_sub">שתי שורות, עמודה באותיות גדולות</string>
-    <string name="clock_style_rings_sub">שעות עבות, דקות דקות</string>
-    <string name="clock_style_one_line_sub">הכול בשורה אחת</string>
     <string name="about_open_source">קוד פתוח</string>
     <string name="about_foundation">בסיס</string>
     <string name="about_foundation_text">בנוי על Multi Launcher (mLauncher), שמקורו ב-Olauncher.</string>

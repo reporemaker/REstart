@@ -434,15 +434,11 @@
     <string name="clock_area_tap">Bakstelėjimas</string>
     <string name="clock_display">Laikrodžio sritis</string>
     <string name="clock_and_date">Laikrodis ir data</string>
-    <string name="clock_style">Laikrodžio stilius</string>
+    <string name="clock_preview_scaled">Sumažinta</string>
     <string name="clock_style_classic">Klasikinis</string>
     <string name="clock_style_swiss">Šveicariškas</string>
     <string name="clock_style_rings">Žiedai</string>
     <string name="clock_style_one_line">Viena eilutė</string>
-    <string name="clock_style_classic_sub">kaip dabar</string>
-    <string name="clock_style_swiss_sub">dvi eilutės, stulpelis didžiosiomis raidėmis</string>
-    <string name="clock_style_rings_sub">valandos storos, minutės plonos</string>
-    <string name="clock_style_one_line_sub">viskas vienoje eilutėje</string>
     <string name="about_open_source">Atvirasis kodas</string>
     <string name="about_foundation">Pagrindas</string>
     <string name="about_foundation_text">Sukurta „Multi Launcher“ (mLauncher) pagrindu, kuris kilęs iš „Olauncher“.</string>

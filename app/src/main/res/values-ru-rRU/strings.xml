@@ -440,15 +440,11 @@
     <string name="clock_area_tap">Нажатие</string>
     <string name="clock_display">Область часов</string>
     <string name="clock_and_date">Часы и дата</string>
-    <string name="clock_style">Стиль часов</string>
+    <string name="clock_preview_scaled">Уменьшено</string>
     <string name="clock_style_classic">Классический</string>
     <string name="clock_style_swiss">Швейцарский</string>
     <string name="clock_style_rings">Кольца</string>
     <string name="clock_style_one_line">Одна строка</string>
-    <string name="clock_style_classic_sub">как сейчас</string>
-    <string name="clock_style_swiss_sub">две строки, колонка заглавными</string>
-    <string name="clock_style_rings_sub">часы толстые, минуты тонкие</string>
-    <string name="clock_style_one_line_sub">всё в одной строке</string>
     <string name="about_open_source">Открытый исходный код</string>
     <string name="about_foundation">Основа</string>
     <string name="about_foundation_text">Построен на Multi Launcher (mLauncher), который происходит от Olauncher.</string>

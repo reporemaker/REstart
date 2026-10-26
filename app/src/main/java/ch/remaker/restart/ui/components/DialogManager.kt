@@ -406,6 +406,7 @@ class DialogManager(val context: Context, val activity: Activity) {
         maxValue: Number,
         currentValue: Number,
         steps: Int = 100,
+        live: Boolean = false,
         onValueSelected: (Number) -> Unit
     ) {
         // Dismiss any existing sheet
@@ -468,6 +469,8 @@ class DialogManager(val context: Context, val activity: Activity) {
                     scaledCurrent = progress
                     val value = if (isFloat) scaledCurrent.toFloat() / scaleFactor else scaledCurrent
                     valueText.text = value.toString()
+                    // Live: the value goes out while dragging, so a preview behind the sheet follows the finger
+                    if (live && fromUser) onValueSelected(value)
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -557,6 +560,8 @@ class DialogManager(val context: Context, val activity: Activity) {
         sliderBottomSheet = FontBottomSheetDialogLocked(context).apply {
             setContentView(container)
             show()
+            // Live: no dimming, the preview behind the sheet is what the value is for
+            if (live) window?.setDimAmount(0f)
         }
     }
 

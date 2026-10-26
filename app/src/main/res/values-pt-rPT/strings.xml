@@ -440,15 +440,11 @@
     <string name="clock_area_tap">Toque</string>
     <string name="clock_display">Área do relógio</string>
     <string name="clock_and_date">Relógio e data</string>
-    <string name="clock_style">Estilo do relógio</string>
+    <string name="clock_preview_scaled">Reduzido</string>
     <string name="clock_style_classic">Clássico</string>
     <string name="clock_style_swiss">Suíço</string>
     <string name="clock_style_rings">Anéis</string>
     <string name="clock_style_one_line">Uma linha</string>
-    <string name="clock_style_classic_sub">como está hoje</string>
-    <string name="clock_style_swiss_sub">duas linhas, coluna em maiúsculas</string>
-    <string name="clock_style_rings_sub">horas grossas, minutos finos</string>
-    <string name="clock_style_one_line_sub">tudo numa só fila</string>
     <string name="about_open_source">Código aberto</string>
     <string name="about_foundation">Base</string>
     <string name="about_foundation_text">Construído sobre o Multi Launcher (mLauncher), que descende do Olauncher.</string>

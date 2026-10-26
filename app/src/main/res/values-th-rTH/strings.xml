@@ -441,15 +441,11 @@
     <string name="clock_area_tap">แตะ</string>
     <string name="clock_display">พื้นที่นาฬิกา</string>
     <string name="clock_and_date">นาฬิกาและวันที่</string>
-    <string name="clock_style">รูปแบบนาฬิกา</string>
+    <string name="clock_preview_scaled">ย่อขนาด</string>
     <string name="clock_style_classic">คลาสสิก</string>
     <string name="clock_style_swiss">สวิส</string>
     <string name="clock_style_rings">วงแหวน</string>
     <string name="clock_style_one_line">บรรทัดเดียว</string>
-    <string name="clock_style_classic_sub">แบบปัจจุบัน</string>
-    <string name="clock_style_swiss_sub">สองบรรทัด คอลัมน์ตัวพิมพ์ใหญ่</string>
-    <string name="clock_style_rings_sub">ชั่วโมงหนา นาทีบาง</string>
-    <string name="clock_style_one_line_sub">ทุกอย่างในบรรทัดเดียว</string>
     <string name="about_open_source">โอเพนซอร์ส</string>
     <string name="about_foundation">รากฐาน</string>
     <string name="about_foundation_text">สร้างบน Multi Launcher (mLauncher) ซึ่งสืบทอดมาจาก Olauncher</string>

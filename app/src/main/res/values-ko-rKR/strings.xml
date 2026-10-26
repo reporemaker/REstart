@@ -440,15 +440,11 @@
     <string name="clock_area_tap">탭</string>
     <string name="clock_display">시계 영역</string>
     <string name="clock_and_date">시계와 날짜</string>
-    <string name="clock_style">시계 스타일</string>
+    <string name="clock_preview_scaled">축소됨</string>
     <string name="clock_style_classic">클래식</string>
     <string name="clock_style_swiss">스위스</string>
     <string name="clock_style_rings">링</string>
     <string name="clock_style_one_line">한 줄</string>
-    <string name="clock_style_classic_sub">지금 그대로</string>
-    <string name="clock_style_swiss_sub">두 줄, 대문자 세로단</string>
-    <string name="clock_style_rings_sub">시는 두껍게, 분은 가늘게</string>
-    <string name="clock_style_one_line_sub">모두 한 줄에</string>
     <string name="about_open_source">오픈 소스</string>
     <string name="about_foundation">기반</string>
     <string name="about_foundation_text">Olauncher에서 이어진 Multi Launcher(mLauncher)를 기반으로 만들어졌습니다.</string>

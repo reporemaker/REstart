@@ -265,15 +265,11 @@
     <string name="security_text">Güvenlik sorunları herkese açık bildirilmez. Issue açma: hallo@remaker.ch adresine yaz ya da GitHub\'ın gizli zafiyet bildirimini kullan. 7 gün içinde cevap alırsın.</string>
     <string name="clock_display">Saat alanı</string>
     <string name="clock_and_date">Saat ve tarih</string>
-    <string name="clock_style">Saat düzeni</string>
+    <string name="clock_preview_scaled">Ölçekli</string>
     <string name="clock_style_classic">Klasik</string>
     <string name="clock_style_swiss">İsviçre</string>
     <string name="clock_style_rings">Halkalar</string>
     <string name="clock_style_one_line">Tek satır</string>
-    <string name="clock_style_classic_sub">bugünkü hali</string>
-    <string name="clock_style_swiss_sub">iki satır, büyük harf sütun</string>
-    <string name="clock_style_rings_sub">saat kalın, dakika ince</string>
-    <string name="clock_style_one_line_sub">her şey tek satırda</string>
     <string name="about_open_source">Açık kaynak</string>
     <string name="about_foundation">Temeli</string>
     <string name="about_foundation_text">Multi Launcher (mLauncher) üzerine kurulu; o da Olauncher\'ın torunu.</string>

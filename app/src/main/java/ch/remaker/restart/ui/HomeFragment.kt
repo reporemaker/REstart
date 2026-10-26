@@ -15,7 +15,6 @@ import android.os.Looper
 import android.os.Vibrator
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.format.DateFormat
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.SuperscriptSpan
@@ -56,8 +55,6 @@ import ch.remaker.restart.R
 import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Constants.Action
 import ch.remaker.restart.data.Constants.AppDrawerFlag
-import ch.remaker.restart.data.NotesHome
-import ch.remaker.restart.data.NotesStore
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.FragmentHomeBinding
 import ch.remaker.restart.helper.reMarkFor
@@ -88,12 +85,11 @@ import ch.remaker.restart.listener.GestureAdapter
 import ch.remaker.restart.listener.NotificationDotManager
 import ch.remaker.restart.services.ActionService
 import ch.remaker.restart.ui.components.DialogManager
-import ch.remaker.restart.ui.components.HomeNoteRow
+import ch.remaker.restart.ui.components.ClockBlock
 import ch.remaker.restart.ui.notes.NotesManagerFragment
 import ch.remaker.restart.ui.widgets.WidgetActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.Calendar
 
 class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListener {
 
@@ -109,24 +105,18 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
     private var longPressToSelectApp: Int = 0
 
-    /** The day the notes block was drawn for; a new day (midnight, a clock or time zone change) redraws it. */
-    private var notesDay = 0L
+    /** Clock, date, ring and notes; the same drawing is the preview in the clock settings. */
+    private var clockBlock: ClockBlock? = null
+
+    /** A new day (midnight, a clock or time zone change) redraws the notes. */
     private val dayReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (intent.action != Intent.ACTION_TIME_TICK || NotesHome.startOfDay(System.currentTimeMillis()) != notesDay) {
-                renderHomeNotes()
-            }
+            val block = clockBlock ?: return
+            if (intent.action != Intent.ACTION_TIME_TICK || block.notesStale) block.renderNotes()
         }
     }
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-    private fun getDayOfYearText(): String {
-        val cal = Calendar.getInstance()
-        val day = cal.get(Calendar.DAY_OF_YEAR)
-        val max = cal.getActualMaximum(Calendar.DAY_OF_YEAR)
-        return "[$day/$max]"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -168,6 +158,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
         vibrator = context?.getSystemService(VIBRATOR_SERVICE) as Vibrator
 
         FontManager.reloadFont(requireContext())
+        clockBlock = ClockBlock(binding.clockBlock, prefs) { id -> showNotesManager(id) }
 
         initAppObservers()
         initClickListeners()
@@ -235,7 +226,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
     override fun onResume() {
         super.onResume()
         // Back from the notes page or another app: the entries may have changed
-        renderHomeNotes()
+        clockBlock?.renderNotes()
     }
 
     override fun onStop() {
@@ -263,40 +254,14 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
 
     private fun updateUIFromPreferences() {
-        val locale = prefs.appLanguage.formatLocale()
-        val is24HourFormat = DateFormat.is24HourFormat(requireContext())
-
         binding.apply {
-            val best12Raw = DateFormat.getBestDateTimePattern(locale, "hm") // 12-hour with AM/PM
-            val best12 = if (prefs.showClockFormat) {
-                best12Raw // keep AM/PM
-            } else {
-                best12Raw.replace("a", "").trim() // strip AM/PM
-            }
-
-            val best24 = DateFormat.getBestDateTimePattern(locale, "Hm") // 24-hour
-
-            val timePattern = clockPattern(if (is24HourFormat) best24 else best12)
-
-            clock.format12Hour = timePattern
-            clock.format24Hour = timePattern
-
-            // Date format
-            val datePattern = DateFormat.getBestDateTimePattern(locale, "EEEddMMM")
-            date.format12Hour = datePattern
-            date.format24Hour = datePattern
-
             // Static UI setup
-            date.textSize = prefs.dateSize.toFloat()
-            clock.textSize = prefs.clockSize.toFloat()
             battery.textSize = prefs.batterySize.toFloat()
 
             battery.isVisible = prefs.showBattery
             applyPageBackground(mainLayout, prefs)
-            applyClockStyle()
+            this@HomeFragment.clockBlock?.render()
 
-            date.setTextColor(prefs.dateColor)
-            clock.setTextColor(prefs.clockColor)
             battery.setTextColor(prefs.batteryColor)
             totalScreenTime.setTextColor(prefs.appColor)
             setDefaultLauncher.setTextColor(prefs.appColor)
@@ -328,261 +293,9 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
         }
     }
 
+    /** Time, date and notes again (on start: the day, the 12/24-hour setting or the notes may have changed). */
     private fun updateTimeAndInfo() {
-        val locale = prefs.appLanguage.formatLocale()
-        val is24HourFormat = DateFormat.is24HourFormat(requireContext())
-
-        binding.apply {
-
-            val best12Raw = DateFormat.getBestDateTimePattern(locale, "hm") // 12-hour with AM/PM
-            val best12 = if (prefs.showClockFormat) {
-                best12Raw // keep AM/PM
-            } else {
-                best12Raw.replace("a", "").trim() // strip AM/PM
-            }
-
-            val best24 = DateFormat.getBestDateTimePattern(locale, "Hm") // 24-hour
-
-            val timePattern = clockPattern(if (is24HourFormat) best24 else best12)
-
-            clock.format12Hour = timePattern
-            clock.format24Hour = timePattern
-
-            // Date format
-            // val datePattern = DateFormat.getBestDateTimePattern(locale, "EEEddMMM")
-            // date.format12Hour = datePattern
-            // date.format24Hour = datePattern
-
-            val basePattern = DateFormat.getBestDateTimePattern(locale, "EEEddMMM")
-
-            val finalPattern = if (prefs.showDayOfYear) {
-                "$basePattern   ${getDayOfYearText()}"
-            } else {
-                basePattern
-            }
-
-            date.format12Hour = datePattern(finalPattern)
-            date.format24Hour = datePattern(finalPattern)
-
-            applyClockStyle()
-        }
-    }
-
-    /** "One line" puts the notes under the rule (the row has no room for them); every other style keeps them in the date column. */
-    private fun moveNotes(belowRule: Boolean) {
-        val notes = binding.homeNotes
-        val column = binding.dateNotesLayout
-        val page = binding.clockRule.parent as ViewGroup
-        if (belowRule && notes.parent !== page) {
-            (notes.parent as? ViewGroup)?.removeView(notes)
-            page.addView(notes, page.indexOfChild(binding.clockRule) + 1)
-        } else if (!belowRule && notes.parent !== column) {
-            (notes.parent as? ViewGroup)?.removeView(notes)
-            column.addView(notes)
-        }
-    }
-
-    /**
-     * The notes block: a count line (only the counts above zero) and up to three important entries,
-     * chosen by [NotesHome]. It has the look the alarm had: small spaced capitals in every style but
-     * Classic, the notes colour, size and alignment. Nothing to show hides the whole block.
-     */
-    private fun renderHomeNotes() {
-        val b = _binding ?: return
-        val block = b.homeNotes
-        block.removeAllViews()
-        val now = System.currentTimeMillis()
-        notesDay = NotesHome.startOfDay(now)
-        if (!prefs.notesOnHome) {
-            block.isVisible = false
-            return
-        }
-        val summary = NotesHome.summarize(NotesStore(prefs).load(), now)
-        val locale = prefs.appLanguage.formatLocale()
-        // The language's own digits, as in the date beside it (Arabic writes ٣, not 3)
-        val number = java.text.NumberFormat.getIntegerInstance(locale)
-        val counts = listOf(
-            R.string.settings_notes_title to summary.notes,
-            R.string.notes_kind_todo to summary.openTodos,
-            R.string.notes_overdue to summary.overdue,
-        ).filter { it.second > 0 }.joinToString(" · ") { (label, n) -> "${getLocalizedString(label)}\u00A0${number.format(n)}" }
-        if (counts.isEmpty() && summary.featured.isEmpty()) {
-            block.isVisible = false
-            return
-        }
-
-        val style = prefs.clockStyle
-        val capsOn = style != Constants.ClockStyle.Classic
-        val density = resources.displayMetrics.density
-        val size = prefs.notesHomeSize.coerceIn(Constants.MIN_NOTES_HOME_SIZE, Constants.MAX_NOTES_HOME_SIZE)
-        val textSize = if (capsOn) size * 0.72f else size.toFloat()
-        val color = prefs.notesHomeColor
-        val gravity = prefs.notesHomeAlignment.value()
-        val belowRule = style == Constants.ClockStyle.OneLine
-        // Under the rule the block sits in a LinearLayoutCompat, in the date column in a LinearLayout.
-        // Where that column has a width of its own (see applyClockStyle) the block takes it, so its rows
-        // line up by the notes alignment; in a column only as wide as its content, matching it would
-        // squeeze the rows to the date's width
-        block.layoutParams.width = if (belowRule || columnHasWidth()) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
-        when (val lp = block.layoutParams) {
-            is LinearLayout.LayoutParams -> lp.gravity = gravity
-            is androidx.appcompat.widget.LinearLayoutCompat.LayoutParams -> lp.gravity = gravity
-        }
-        (block.layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin = ((if (belowRule) 8 else 4) * density).toInt()
-        block.gravity = gravity
-        block.requestLayout()
-
-        fun styled(view: TextView, lines: Int = 1) = view.apply {
-            this.textSize = textSize
-            typeface = FontManager.getTypeface(requireContext())
-            isAllCaps = capsOn
-            letterSpacing = if (capsOn) 0.14f else 0f
-            maxLines = lines
-            ellipsize = android.text.TextUtils.TruncateAt.END
-            includeFontPadding = false
-        }
-
-        val pad = (4 * density).toInt()
-        if (counts.isNotEmpty()) {
-            // The counts may take more lines rather than lose the last number
-            block.addView(styled(TextView(requireContext()), lines = 3).apply {
-                layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                this.gravity = gravity
-                text = counts
-                setTextColor(androidx.core.graphics.ColorUtils.setAlphaComponent(color, 184))
-                setPadding(0, pad, 0, pad)
-                setOnClickListener { showNotesManager() }
-            })
-        }
-        val dayPattern = DateFormat.getBestDateTimePattern(locale, "dMMM")
-        val px = android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, textSize, resources.displayMetrics)
-        summary.featured.forEach { (item, reason) ->
-            val day = item.due?.let { DateFormat.format(dayPattern, it).toString() }
-            val meta = when (reason) {
-                NotesHome.Reason.OVERDUE -> "${getLocalizedString(R.string.notes_overdue)} $day"
-                NotesHome.Reason.TODAY -> getLocalizedString(R.string.notes_today)
-                NotesHome.Reason.UPCOMING -> day
-                NotesHome.Reason.IMPORTANT -> null
-            }
-            val first = item.text.lineSequence().first().trim()
-            val row = HomeNoteRow(requireContext(), gap = (px * 0.6f).toInt()).apply {
-                // Wrapped, not the column's default match_parent: a stretched row would push the day to the far edge
-                layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                setPadding(0, pad, 0, pad)
-                setOnClickListener { showNotesManager(item.id) }
-            }
-            // The mark in front: an empty square for a to-do, a short bar for a note
-            val mark = View(requireContext()).apply {
-                val side = (px * 0.62f).toInt()
-                layoutParams = ViewGroup.LayoutParams(side, if (item.todo) side else (2 * density).toInt())
-                background = android.graphics.drawable.GradientDrawable().apply {
-                    if (item.todo) setStroke((1.5f * density).toInt().coerceAtLeast(1), color) else setColor(color)
-                }
-            }
-            row.addView(mark)
-            // Text, separator and day: HomeNoteRow shortens the text or moves the day under it when short of room
-            fun part(value: String) = styled(TextView(requireContext())).apply {
-                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                text = value
-                setTextColor(color)
-            }
-            row.addView(part(first))
-            if (meta != null) {
-                row.addView(part(" · "))
-                row.addView(part(meta))
-            }
-            block.addView(row)
-        }
-        block.isVisible = true
-    }
-
-    /**
-     * Whether the date/notes column can be as wide as the room it stands in: yes under the clock or
-     * beside the ring, so right and centre alignment mean that room. Not beside the clock (Swiss side
-     * column, One line) nor under a centred ring, where the column is only as wide as what it holds.
-     */
-    private fun columnHasWidth(): Boolean = when (prefs.clockStyle) {
-        Constants.ClockStyle.Classic -> true
-        Constants.ClockStyle.Swiss -> !prefs.swissSideColumn
-        Constants.ClockStyle.Rings -> prefs.ringPlacement != Constants.RingPlacement.Centred
-        Constants.ClockStyle.OneLine -> false
-    }
-
-    /** The clock pattern for the chosen style: "Swiss" stacks hours over minutes. */
-    private fun clockPattern(pattern: String): String {
-        if (prefs.clockStyle != Constants.ClockStyle.Swiss) return pattern
-        // Two digits on both lines; AM/PM has no place in the stack and moves to the date line
-        val is24 = DateFormat.is24HourFormat(requireContext())
-        return if (is24) "HH\nmm" else "hh\nmm"
-    }
-
-    /** "Swiss" with a 12-hour clock: the AM/PM marker joins the date line. */
-    private fun datePattern(pattern: String): String =
-        if (prefs.clockStyle == Constants.ClockStyle.Swiss && prefs.showClockFormat && !DateFormat.is24HourFormat(requireContext())) "$pattern · a" else pattern
-
-    /** Draws the clock block the way the chosen style wants it; everything else stays as set by the preferences. */
-    private fun applyClockStyle() {
-        val style = prefs.clockStyle
-        binding.apply {
-            val capsOn = style != Constants.ClockStyle.Classic
-            val density = resources.displayMetrics.density
-            ringClock.isVisible = style == Constants.ClockStyle.Rings
-            ringClock.color = prefs.clockColor
-            val centred = style == Constants.ClockStyle.Rings && prefs.ringPlacement == Constants.RingPlacement.Centred
-            (ringClock.layoutParams as LinearLayout.LayoutParams).apply {
-                width = (prefs.ringSize * density).toInt()
-                height = width
-                marginEnd = if (centred) 0 else (18 * density).toInt()
-                bottomMargin = if (centred) (12 * density).toInt() else 0
-            }
-            clockRow.orientation = if (centred) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL
-            clockRow.gravity = if (centred) android.view.Gravity.CENTER_HORIZONTAL else android.view.Gravity.CENTER_VERTICAL
-            (timeDateLayout.layoutParams as LinearLayout.LayoutParams).apply {
-                width = if (centred) ViewGroup.LayoutParams.WRAP_CONTENT else 0
-                weight = if (centred) 0f else 1f
-            }
-            timeDateLayout.requestLayout()
-            clockRule.isVisible = style == Constants.ClockStyle.OneLine && prefs.clockRule
-            clockRule.setBackgroundColor(prefs.clockColor)
-            ringClock.inside = prefs.ringInside
-            ringClock.wholeDay = prefs.ringScale == Constants.RingScale.TwentyFour
-            clock.twoLineWeights = style == Constants.ClockStyle.Swiss && prefs.swissWeights
-            clock.setLineSpacing(0f, if (style == Constants.ClockStyle.Swiss) 0.82f else 1f)
-            // "Rings" with the time inside: the numeric clock leaves the column
-            clock.isVisible = prefs.showClock && !(style == Constants.ClockStyle.Rings && prefs.ringInside == Constants.RingInside.Time)
-
-            // Where the date/notes column sits: beside the clock (Swiss side column, One line) or under it
-            val beside = (style == Constants.ClockStyle.Swiss && prefs.swissSideColumn) || style == Constants.ClockStyle.OneLine
-            timeDateLayout.orientation = if (beside) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
-            timeDateLayout.gravity = if (beside) android.view.Gravity.CENTER_VERTICAL else android.view.Gravity.NO_GRAVITY
-            (dateNotesLayout.layoutParams as LinearLayout.LayoutParams).apply {
-                marginStart = if (beside) (14 * density).toInt() else 0
-                width = if (columnHasWidth()) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
-            }
-            // One line keeps clock and date on one row; its notes go under the rule
-            dateNotesLayout.orientation = LinearLayout.VERTICAL
-            moveNotes(belowRule = style == Constants.ClockStyle.OneLine)
-
-            // Date: small spaced capitals in every style but Classic (the notes follow in renderHomeNotes)
-            date.isAllCaps = capsOn
-            date.letterSpacing = if (capsOn) 0.14f else 0f
-            date.setPadding(if (style == Constants.ClockStyle.OneLine) (12 * density).toInt() else 0, 0, 0, 0)
-            date.textSize = when (style) {
-                Constants.ClockStyle.Classic -> prefs.dateSize.toFloat()
-                else -> prefs.dateSize * 0.72f
-            }
-            clock.textSize = when (style) {
-                Constants.ClockStyle.Classic -> prefs.clockSize.toFloat()
-                Constants.ClockStyle.Swiss -> prefs.clockSize * 1.5f
-                Constants.ClockStyle.Rings -> prefs.clockSize * 0.7f
-                Constants.ClockStyle.OneLine -> prefs.clockSize * 0.5f
-            }
-            // Weight from the user's family (a fresh base each time, so Classic really is Regular again);
-            // the tight tracking only for the system sans: Doto's dots and unknown custom fonts keep their spacing
-            clock.typeface = FontManager.weighted(requireContext(), if (style == Constants.ClockStyle.Classic) 400 else 700)
-            clock.letterSpacing = if (style == Constants.ClockStyle.Classic) 0f else FontManager.tracking(requireContext(), -0.04f)
-        }
-        renderHomeNotes()
+        clockBlock?.render()
     }
 
 
@@ -706,8 +419,8 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
     private fun initClickListeners() {
         binding.apply {
-            clock.setOnClickListener(this@HomeFragment)
-            date.setOnClickListener(this@HomeFragment)
+            clockBlock.clock.setOnClickListener(this@HomeFragment)
+            clockBlock.date.setOnClickListener(this@HomeFragment)
             totalScreenTime.setOnClickListener(this@HomeFragment)
             setDefaultLauncher.setOnClickListener(this@HomeFragment)
             battery.setOnClickListener(this@HomeFragment)
@@ -764,35 +477,9 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
     private fun initObservers() {
         with(viewModel) {
-            showDate.observe(viewLifecycleOwner) {
-                binding.date.isVisible = it
-            }
-            showDayOfYear.observe(viewLifecycleOwner) {
-                updateTimeAndInfo()
-            }
-            showClock.observe(viewLifecycleOwner) {
-                binding.clock.isVisible = it
-                applyClockStyle()   // "Rings" with the time inside keeps the numeric clock hidden
-            }
-
-            clockAlignment.observe(viewLifecycleOwner) { clockGravity ->
-                binding.clock.gravity = clockGravity.value()
-
-                // Set layout_gravity to align the TextClock (clock) within the parent (LinearLayout)
-                binding.clock.layoutParams =
-                    (binding.clock.layoutParams as LinearLayout.LayoutParams).apply {
-                        gravity = clockGravity.value()
-                    }
-            }
-
-            dateAlignment.observe(viewLifecycleOwner) { dateGravity ->
-                binding.date.gravity = dateGravity.value()
-
-                // Set layout_gravity to align the TextClock (date) within the parent (LinearLayout)
-                binding.date.layoutParams =
-                    (binding.date.layoutParams as LinearLayout.LayoutParams).apply {
-                        gravity = dateGravity.value()
-                    }
+            // The block reads every clock setting from the preferences itself
+            listOf(showDate, showDayOfYear, showClock, clockAlignment, dateAlignment).forEach { setting ->
+                setting.observe(viewLifecycleOwner) { clockBlock?.render() }
             }
 
             homeAppsAlignment.observe(viewLifecycleOwner) { (homeAppsGravity, onBottom) ->

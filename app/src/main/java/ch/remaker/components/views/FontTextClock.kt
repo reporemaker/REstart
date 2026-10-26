@@ -39,6 +39,25 @@ class FontTextClock @JvmOverloads constructor(
         }
     }
 
+    /**
+     * A clock never wraps inside a line: hours and minutes are one word each. With Arabic-Indic
+     * digits some measure passes come out narrower than the text lays out ("١٠" broke into two
+     * lines, seen on the Swiss stack); when the layout has more lines than the text, the view is
+     * measured again at the real width of its widest line. The date gets the same guard.
+     */
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val content = text ?: return
+        val laid = layout ?: return
+        val lines = content.count { it == '\n' } + 1
+        if (laid.lineCount <= lines || MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) return
+        val free = android.text.StaticLayout.Builder.obtain(content, 0, content.length, paint, 1 shl 20).build()
+        val widest = (0 until free.lineCount).maxOf { free.getLineWidth(it) }
+        var width = kotlin.math.ceil(widest).toInt() + compoundPaddingLeft + compoundPaddingRight + 1
+        if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.AT_MOST) width = minOf(width, MeasureSpec.getSize(widthMeasureSpec))
+        super.onMeasure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY), heightMeasureSpec)
+    }
+
     override fun setTypeface(tf: Typeface?) {
         super.setTypeface(tf)
         // The spans were derived from the old family; rebuild them from the new one

@@ -222,15 +222,11 @@
     <string name="security_text">Sicherheitsprobleme werden nicht öffentlich gemeldet. Öffne kein Issue: schreib an hallo@remaker.ch oder nutze die vertrauliche Schwachstellenmeldung von GitHub. Du bekommst innerhalb von 7 Tagen eine Antwort.</string>
     <string name="clock_display">Uhrbereich</string>
     <string name="clock_and_date">Uhr und Datum</string>
-    <string name="clock_style">Uhrstil</string>
+    <string name="clock_preview_scaled">Verkleinert</string>
     <string name="clock_style_classic">Klassisch</string>
     <string name="clock_style_swiss">Schweizer</string>
     <string name="clock_style_rings">Ringe</string>
     <string name="clock_style_one_line">Eine Zeile</string>
-    <string name="clock_style_classic_sub">wie bisher</string>
-    <string name="clock_style_swiss_sub">zwei Zeilen, Versalspalte</string>
-    <string name="clock_style_rings_sub">Stunden dick, Minuten dünn</string>
-    <string name="clock_style_one_line_sub">alles in einer Zeile</string>
     <string name="about_open_source">Open Source</string>
     <string name="about_foundation">Grundlage</string>
     <string name="about_foundation_text">Baut auf Multi Launcher (mLauncher) auf, das von Olauncher abstammt.</string>

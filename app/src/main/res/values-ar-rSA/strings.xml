@@ -439,15 +439,11 @@
     <string name="clock_area_tap">النقر</string>
     <string name="clock_display">منطقة الساعة</string>
     <string name="clock_and_date">الساعة والتاريخ</string>
-    <string name="clock_style">نمط الساعة</string>
+    <string name="clock_preview_scaled">مُصغَّر</string>
     <string name="clock_style_classic">كلاسيكي</string>
     <string name="clock_style_swiss">سويسري</string>
     <string name="clock_style_rings">حلقات</string>
     <string name="clock_style_one_line">سطر واحد</string>
-    <string name="clock_style_classic_sub">كما هو اليوم</string>
-    <string name="clock_style_swiss_sub">سطران، وعمود بأحرف كبيرة</string>
-    <string name="clock_style_rings_sub">الساعات سميكة، والدقائق رفيعة</string>
-    <string name="clock_style_one_line_sub">كل شيء في سطر واحد</string>
     <string name="about_open_source">مفتوح المصدر</string>
     <string name="about_foundation">الأساس</string>
     <string name="about_foundation_text">مبني على Multi Launcher (mLauncher)، المتحدر من Olauncher.</string>

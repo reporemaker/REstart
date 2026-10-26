@@ -440,15 +440,11 @@
     <string name="clock_area_tap">Atingere</string>
     <string name="clock_display">Zona ceasului</string>
     <string name="clock_and_date">Ceas și dată</string>
-    <string name="clock_style">Stilul ceasului</string>
+    <string name="clock_preview_scaled">Micșorat</string>
     <string name="clock_style_classic">Clasic</string>
     <string name="clock_style_swiss">Elvețian</string>
     <string name="clock_style_rings">Inele</string>
     <string name="clock_style_one_line">Un rând</string>
-    <string name="clock_style_classic_sub">așa cum este acum</string>
-    <string name="clock_style_swiss_sub">două rânduri, coloană cu majuscule</string>
-    <string name="clock_style_rings_sub">ore groase, minute subțiri</string>
-    <string name="clock_style_one_line_sub">totul pe un singur rând</string>
     <string name="about_open_source">Sursă deschisă</string>
     <string name="about_foundation">Fundație</string>
     <string name="about_foundation_text">Construit pe Multi Launcher (mLauncher), care provine din Olauncher.</string>

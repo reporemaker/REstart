@@ -434,15 +434,11 @@
     <string name="clock_area_tap">Ťuknutie</string>
     <string name="clock_display">Oblasť hodín</string>
     <string name="clock_and_date">Hodiny a dátum</string>
-    <string name="clock_style">Štýl hodín</string>
+    <string name="clock_preview_scaled">Zmenšené</string>
     <string name="clock_style_classic">Klasický</string>
     <string name="clock_style_swiss">Švajčiarsky</string>
     <string name="clock_style_rings">Prstence</string>
     <string name="clock_style_one_line">Jeden riadok</string>
-    <string name="clock_style_classic_sub">ako doteraz</string>
-    <string name="clock_style_swiss_sub">dva riadky, stĺpec verzálkami</string>
-    <string name="clock_style_rings_sub">hodiny hrubé, minúty tenké</string>
-    <string name="clock_style_one_line_sub">všetko v jednom riadku</string>
     <string name="about_open_source">Open source</string>
     <string name="about_foundation">Základ</string>
     <string name="about_foundation_text">Postavené na Multi Launcheri (mLauncher), ktorý vychádza z Olauncheru.</string>

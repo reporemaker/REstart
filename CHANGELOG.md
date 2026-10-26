@@ -38,10 +38,23 @@ the two changes sent back upstream and every difference at the fork point are in
   alignment, colour and size (the alarm's old values carry over), and the categories. The alarm
   settings and the bedtime filter that belonged to them are removed.
 
+### Clock area: a live preview
+- The four style cards are now four names to choose from. Over them, fixed while the settings
+  scroll, a preview of the chosen style drawn by the home screen's own code: battery line, clock,
+  date, ring, rule and notes as they will be, in the page colours. Every switch, alignment, colour
+  and style shows at once; the size sliders follow the finger (the sheet no longer dims the page).
+  A preview taller than 40% of the screen (28% on a short one) is scaled down and says SCALED.
+- No notes, or notes switched off: none in the preview either, as on the home screen.
+
 ### Fixed
 - **Long dashes in the texts.** The feedback and hidden-apps texts (21 languages), the licence
   lines and the docs used the em dash; they now use a colon, a semicolon or a hyphen. Turkish
   "Tarih'i göster", "Pil'i göster" are now "Tarihi göster", "Pili göster".
+- **Arabic clock on the Swiss stack.** Some measure passes came out narrower than Arabic-Indic
+  digits lay out, so "١٠" could break into two lines (three or four lines for the time); the clock
+  now measures again at the real width of its widest line.
+- **Margins changed after the first layout** (clock beside the column, ring) were not applied for
+  the layout direction; the block sets its layout parameters anew each time.
 - **Light theme blinking dark.** Pages cross-fade when they change (home, drawer, settings);
   the page background (colour + opacity) sat on each page, so mid-fade both were half
   transparent and the wallpaper showed through: a dark wallpaper made the light theme blink.

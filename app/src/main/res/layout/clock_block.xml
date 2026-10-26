@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The home clock block: ring, clock, date, notes and the "One line" rule. ClockBlock draws it for
+     the chosen style; the home screen and the preview in Settings > Clock area use the same layout. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- The ring (style "Rings") sits beside the text; the rule under it belongs to "One line" -->
+    <LinearLayout
+        android:id="@+id/clockRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+    <ch.remaker.restart.ui.components.RingClockView
+        android:id="@+id/ringClock"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/timeDateLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginVertical="1dp"
+        android:orientation="vertical"
+        tools:visibility="visible">
+
+        <ch.remaker.components.views.FontTextClock
+            android:id="@+id/clock"
+            style="@style/TextDefaultStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/time_size"
+            tools:text="02:34" />
+
+
+        <!-- Date and notes share a column so the styles can put them beside or under the clock -->
+        <LinearLayout
+            android:id="@+id/dateNotesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <ch.remaker.components.views.FontTextClock
+            android:id="@+id/date"
+            style="@style/TextDefaultStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textSize="@dimen/date_size"
+            tools:text="Thu, 30 Dec" />
+
+        <!-- Notes in the alarm's old place: a count line and up to three important entries, built in code -->
+        <LinearLayout
+            android:id="@+id/homeNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/clockRule"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone" />
+</LinearLayout>

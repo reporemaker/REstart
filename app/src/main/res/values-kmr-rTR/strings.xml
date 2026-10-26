@@ -434,15 +434,11 @@
     <string name="clock_area_tap">Tikandin</string>
     <string name="clock_display">Qada demjimêrê</string>
     <string name="clock_and_date">Demjimêr û dîrok</string>
-    <string name="clock_style">Şêwaza demjimêrê</string>
+    <string name="clock_preview_scaled">Biçûkkirî</string>
     <string name="clock_style_classic">Klasîk</string>
     <string name="clock_style_swiss">Swîsrî</string>
     <string name="clock_style_rings">Xelek</string>
     <string name="clock_style_one_line">Yek rêz</string>
-    <string name="clock_style_classic_sub">wekî îro</string>
-    <string name="clock_style_swiss_sub">du rêz, stûna tîpên mezin</string>
-    <string name="clock_style_rings_sub">saet stûr, deqîqe zirav</string>
-    <string name="clock_style_one_line_sub">her tişt di yek rêzê de</string>
     <string name="about_open_source">Çavkaniya vekirî</string>
     <string name="about_foundation">Bingeh</string>
     <string name="about_foundation_text">Li ser Multi Launcher (mLauncher) hatiye avakirin, ku ew jî ji Olauncher tê.</string>

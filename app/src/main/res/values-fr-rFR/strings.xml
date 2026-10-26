@@ -439,15 +439,11 @@
     <string name="clock_area_tap">Appui</string>
     <string name="clock_display">Zone de l\'horloge</string>
     <string name="clock_and_date">Horloge et date</string>
-    <string name="clock_style">Style d\'horloge</string>
+    <string name="clock_preview_scaled">Réduit</string>
     <string name="clock_style_classic">Classique</string>
     <string name="clock_style_swiss">Suisse</string>
     <string name="clock_style_rings">Anneaux</string>
     <string name="clock_style_one_line">Une ligne</string>
-    <string name="clock_style_classic_sub">comme aujourd\'hui</string>
-    <string name="clock_style_swiss_sub">deux lignes, colonne en capitales</string>
-    <string name="clock_style_rings_sub">heures épaisses, minutes fines</string>
-    <string name="clock_style_one_line_sub">tout sur une seule ligne</string>
     <string name="about_open_source">Open source</string>
     <string name="about_foundation">Fondation</string>
     <string name="about_foundation_text">Construit sur Multi Launcher (mLauncher), lui-même issu d\'Olauncher.</string>

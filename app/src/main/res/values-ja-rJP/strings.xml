@@ -432,15 +432,11 @@
     <string name="clock_area_tap">タップ</string>
     <string name="clock_display">時計エリア</string>
     <string name="clock_and_date">時計と日付</string>
-    <string name="clock_style">時計のスタイル</string>
+    <string name="clock_preview_scaled">縮小表示</string>
     <string name="clock_style_classic">クラシック</string>
     <string name="clock_style_swiss">スイス</string>
     <string name="clock_style_rings">リング</string>
     <string name="clock_style_one_line">1行</string>
-    <string name="clock_style_classic_sub">現在のまま</string>
-    <string name="clock_style_swiss_sub">2行、大文字の列</string>
-    <string name="clock_style_rings_sub">時は太く、分は細く</string>
-    <string name="clock_style_one_line_sub">すべてを1行に</string>
     <string name="about_open_source">オープンソース</string>
     <string name="about_foundation">基盤</string>
     <string name="about_foundation_text">Olauncher から派生した Multi Launcher (mLauncher) をベースにしています。</string>
