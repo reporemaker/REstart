@@ -4,6 +4,17 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
+## Unreleased
+
+### Fixed
+- **Light theme blinking dark.** Pages cross-fade when they change (home, drawer, settings);
+  the page background (colour + opacity) sat on each page, so mid-fade both were half
+  transparent and the wallpaper showed through: a dark wallpaper made the light theme blink.
+  The background now sits on the container under every page, set before the first frame.
+- **Widget page menus in the Swiss style.** The long-press menu is the same titled sheet as
+  every other menu; the widget picker lists apps with their icon and a thin + / -, widgets
+  indented with their size in cells.
+
 ## 1.1.1 - 25 October 2026
 
 A patch release: six faults found in daily use after 1.1.0, and the dependency round from the
