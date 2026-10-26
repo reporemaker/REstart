@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">お気に入りのアプリを並べ替えて、ホーム画面からすぐにアクセスできるようにしましょう。</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">隠しアプリ</string>
-    <string name="settings_hidden_apps_description">非表示アプリを管理する — 必要に応じて、このリストから任意のアプリを表示できます。</string>
+    <string name="settings_hidden_apps_description">非表示アプリを管理する：必要に応じて、このリストから任意のアプリを表示できます。</string>
     <string name="settings_advanced_title">詳細設定</string>
     <string name="settings_advanced_description">アプリ情報、デフォルトランチャー、バックアップツールなどにアクセスできます。</string>
     <string name="settings_expert_title">エキスパート</string>
@@ -65,10 +65,10 @@
     <string name="force_colored_wallpaper">単色の壁紙を強制</string>
     <string name="info_tiles">情報タイル</string>
     <string name="show_clock">時計を表示</string>
+    <string name="show_notes">メモを表示</string>
     <string name="show_clock_format">午前/午後を表示</string>
     <string name="show_date">日付を表示</string>
     <string name="show_day_of_year">年間通算日を表示</string>
-    <string name="show_alarm">アラームを表示</string>
     <string name="show_battery">バッテリーを表示</string>
     <string name="show_battery_icon">バッテリーアイコンを表示</string>
     <string name="show_private_spaces">プライベートスペースアイコンを表示</string>
@@ -82,7 +82,6 @@
     <string name="app_text_size">アプリのテキストサイズ</string>
     <string name="date_text_size">日付のテキストサイズ</string>
     <string name="clock_text_size">時計の文字サイズ</string>
-    <string name="alarm_text_size">アラームのテキストサイズ</string>
     <string name="battery_text_size">バッテリーのテキストサイズ</string>
     <string name="app_padding_size">余白サイズ</string>
     <string name="extend_home_apps_area">クリック可能な領域を拡張する</string>
@@ -101,14 +100,12 @@
     <string name="total_screen_time">総画面時間</string>
     <string name="date_alignment">日付</string>
     <string name="clock_alignment">時計</string>
-    <string name="alarm_alignment">アラーム</string>
     <string name="home_alignment">ホーム アプリ</string>
     <string name="drawer_alignment">ドロワーアプリ</string>
     <string name="background_color">背景</string>
     <string name="app_color">アプリ</string>
     <string name="clock_color">時計</string>
     <string name="date_color">日付</string>
-    <string name="alarm_color">アラーム</string>
     <string name="battery_color">バッテリー</string>
     <string name="rainbow_shortcuts">レインボーショートカット</string>
     <string name="shortcuts_color">ショートカット</string>
@@ -362,9 +359,6 @@
     <string name="settings_home_list_section">ホームリスト</string>
     <string name="settings_quick_actions_section">クイックアクション</string>
     <string name="settings_general_section">一般</string>
-    <string name="alarm_settings">アラーム</string>
-    <string name="bedtime_start_time">就寝時間の開始</string>
-    <string name="bedtime_end_time">就寝時間の終了</string>
     <string name="app_lock_needs_screen_lock">アプリロックを使うには、この端末で画面ロックを設定してください。</string>
     <string name="widgets_no_space">ウィジェットページに空きがありません。先にウィジェットのサイズを変更するか削除してください。</string>
     <string name="drawer_categories">アプリをカテゴリ別にまとめる</string>
@@ -435,8 +429,6 @@
     <string name="ring_scale">時のリング</string>
     <string name="ring_scale_12">12時間の文字盤</string>
     <string name="ring_scale_24">一日全体（24時間）</string>
-    <string name="one_line_alarm_below">アラームを罫線の下の独立した行に</string>
-    <string name="no_alarm_set">アラームは設定されていません。</string>
     <string name="clock_area_tap">タップ</string>
     <string name="clock_display">時計エリア</string>
     <string name="clock_and_date">時計と日付</string>
@@ -475,7 +467,7 @@
     <string name="help_title">ヘルプ</string>
     <string name="help_text">RE*start は無料のオープンソースランチャーです。ソースコード、変更履歴、フォーク以降の変更一覧は GitHub にあります。プロジェクトのホームは remaker.ch です。</string>
     <string name="feedback_title">フィードバック</string>
-    <string name="feedback_text">バグを見つけた、またはアイデアがありますか？何をしたか、何が起きたか、何を期待していたかを書き、RE*start と Android のバージョンを添えてください — 設定の一番下にある RE* マークをタップすると、スクリーンショットやコピーに使える端末の概要が表示されます。GitHub の issue またはメールで送ってください。</string>
+    <string name="feedback_text">バグを見つけた、またはアイデアがありますか？何をしたか、何が起きたか、何を期待していたかを書き、RE*start と Android のバージョンを添えてください。設定の一番下にある RE* マークをタップすると、スクリーンショットやコピーに使える端末の概要が表示されます。GitHub の issue またはメールで送ってください。</string>
     <string name="feedback_open_issue">GitHub で issue を開く</string>
     <string name="feedback_by_mail">メールで</string>
     <string name="security_title">セキュリティ</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">作成</string>
     <string name="notes_add">追加</string>
     <string name="notes_kind">種類</string>
+    <string name="notes_today">今日</string>
+    <string name="notes_home_show">件数と重要な項目を表示</string>
+    <string name="notes_home_alignment">配置</string>
+    <string name="notes_home_color">色</string>
+    <string name="notes_home_size">文字サイズ</string>
+    <string name="notes_category_entries">項目: %1$d</string>
+    <string name="notes_category_remove_confirm">「%1$s」を削除しますか？項目はカテゴリなしで残ります。</string>
+    <string name="notes_categories_hint">メモとToDoで使用</string>
 </resources>

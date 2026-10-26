@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Forza sfondo colorato</string>
     <string name="info_tiles">Riquadri informativi</string>
     <string name="show_clock">Mostra l\'orologio</string>
+    <string name="show_notes">Mostra note</string>
     <string name="show_clock_format">Mostra formato (AM/PM)</string>
     <string name="show_date">Mostra la data</string>
     <string name="show_day_of_year">Mostra il giorno dell\'anno</string>
-    <string name="show_alarm">Mostra allarme</string>
-    <string name="alarm_settings">Allarme</string>
-    <string name="bedtime_start_time">Inizio ora di riposo</string>
-    <string name="bedtime_end_time">Fine ora di riposo</string>
     <string name="show_battery">Mostra batteria</string>
     <string name="show_battery_icon">Mostra l\'icona della batteria</string>
     <string name="show_private_spaces">Mostra l\'icona degli spazi privati</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Dimensioni del testo dell\'app</string>
     <string name="date_text_size">Dimensioni del testo della data</string>
     <string name="clock_text_size">Dimensioni del testo dell\'orologio</string>
-    <string name="alarm_text_size">Dimensioni del testo dell\'allarme</string>
     <string name="battery_text_size">Dimensioni del testo della batteria</string>
     <string name="app_padding_size">Dimensione della spaziatura</string>
     <string name="extend_home_apps_area">Estendi l\'area cliccabile</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Tempo totale di utilizzo dello schermo</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Orologio</string>
-    <string name="alarm_alignment">Allarme</string>
     <string name="home_alignment">App della home</string>
     <string name="drawer_alignment">App per il cassetto</string>
     <string name="background_color">Sfondo</string>
     <string name="app_color">App</string>
     <string name="clock_color">Orologio</string>
     <string name="date_color">Data</string>
-    <string name="alarm_color">Allarme</string>
     <string name="battery_color">Batteria</string>
     <string name="rainbow_shortcuts">Scorciatoie arcobaleno</string>
     <string name="shortcuts_color">Scorciatoie</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">Anello delle ore</string>
     <string name="ring_scale_12">Quadrante a 12 ore</string>
     <string name="ring_scale_24">L\'intera giornata (24 h)</string>
-    <string name="one_line_alarm_below">Allarme su una riga propria, sotto il filetto</string>
-    <string name="no_alarm_set">Nessun allarme impostato.</string>
     <string name="clock_area_tap">Tocco</string>
     <string name="clock_display">Area dell\'orologio</string>
     <string name="clock_and_date">Orologio e data</string>
@@ -475,7 +467,7 @@
     <string name="help_title">Aiuto</string>
     <string name="help_text">RE*start è un launcher gratuito e open source. Il codice sorgente, il changelog e l\'elenco delle modifiche dal fork sono su GitHub; la casa del progetto è remaker.ch.</string>
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_text">Hai trovato un bug o hai un\'idea? Racconta cosa hai fatto, cosa è successo e cosa ti aspettavi, e aggiungi le versioni di RE*start e di Android — il segno RE* in fondo alle impostazioni mostra un riepilogo del dispositivo che puoi catturare con uno screenshot o copiare. Invialo come issue su GitHub o per e-mail.</string>
+    <string name="feedback_text">Hai trovato un bug o hai un\'idea? Racconta cosa hai fatto, cosa è successo e cosa ti aspettavi, e aggiungi le versioni di RE*start e di Android; il segno RE* in fondo alle impostazioni mostra un riepilogo del dispositivo che puoi catturare con uno screenshot o copiare. Invialo come issue su GitHub o per e-mail.</string>
     <string name="feedback_open_issue">Apri una issue su GitHub</string>
     <string name="feedback_by_mail">Per e-mail</string>
     <string name="security_title">Sicurezza</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">Scritta</string>
     <string name="notes_add">Aggiungi</string>
     <string name="notes_kind">Tipo</string>
+    <string name="notes_today">Oggi</string>
+    <string name="notes_home_show">Mostra i conteggi e le voci importanti</string>
+    <string name="notes_home_alignment">Allineamento</string>
+    <string name="notes_home_color">Colore</string>
+    <string name="notes_home_size">Dimensione del testo</string>
+    <string name="notes_category_entries">Voci: %1$d</string>
+    <string name="notes_category_remove_confirm">Rimuovere «%1$s»? Le sue voci restano, senza categoria.</string>
+    <string name="notes_categories_hint">Per note e attività</string>
 </resources>

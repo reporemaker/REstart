@@ -100,6 +100,8 @@ import ch.remaker.restart.data.AppListItem
 import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Constants.Action
 import ch.remaker.restart.data.Constants.AppDrawerFlag
+import ch.remaker.restart.data.NotesCategories
+import ch.remaker.restart.data.NotesStore
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.FragmentSettingsBinding
 import ch.remaker.restart.helper.FontManager
@@ -134,8 +136,6 @@ import ch.remaker.restart.ui.compose.SettingsComposable.SettingsTitle
 import ch.remaker.restart.ui.compose.SettingsComposable.TitleWithHtmlLinks
 import ch.remaker.restart.ui.compose.SettingsComposable.TopMainHeader
 import ch.remaker.restart.ui.iconpack.CustomIconSelectionActivity
-import com.google.android.material.timepicker.MaterialTimePicker
-import com.google.android.material.timepicker.TimeFormat
 
 
 class SettingsFragment : BaseFragment() {
@@ -255,11 +255,7 @@ class SettingsFragment : BaseFragment() {
         var toggledShowDayOfYear by remember { mutableStateOf(prefs.showDayOfYear) }
         var toggledShowClock by remember { mutableStateOf(prefs.showClock) }
         var toggledShowClockFormat by remember { mutableStateOf(prefs.showClockFormat) }
-        var toggledShowAlarm by remember { mutableStateOf(prefs.showAlarm) }
-        var bedtimeStartHour by remember { mutableIntStateOf(prefs.bedtimeStartHour) }
-        var bedtimeStartMinute by remember { mutableIntStateOf(prefs.bedtimeStartMinute) }
-        var bedtimeEndHour by remember { mutableIntStateOf(prefs.bedtimeEndHour) }
-        var bedtimeEndMinute by remember { mutableIntStateOf(prefs.bedtimeEndMinute) }
+        var toggledNotesOnHome by remember { mutableStateOf(prefs.notesOnHome) }
         var toggledShowBattery by remember { mutableStateOf(prefs.showBattery) }
         var toggledShowBatteryIcon by remember { mutableStateOf(prefs.showBatteryIcon) }
         var toggledShowWeather by remember { mutableStateOf(prefs.showWeather) }
@@ -296,7 +292,7 @@ class SettingsFragment : BaseFragment() {
         var selectedAppSize by remember { mutableIntStateOf(prefs.appSize) }
         var selectedDateSize by remember { mutableIntStateOf(prefs.dateSize) }
         var selectedClockSize by remember { mutableIntStateOf(prefs.clockSize) }
-        var selectedAlarmSize by remember { mutableIntStateOf(prefs.alarmSize) }
+        var selectedNotesSize by remember { mutableIntStateOf(prefs.notesHomeSize) }
         var selectedBatterySize by remember { mutableIntStateOf(prefs.batterySize) }
 
         var selectedPaddingSize by remember { mutableIntStateOf(prefs.textPaddingSize) }
@@ -316,14 +312,14 @@ class SettingsFragment : BaseFragment() {
         var selectedHomeAlignment by remember { mutableStateOf(prefs.homeAlignment) }
         var selectedClockAlignment by remember { mutableStateOf(prefs.clockAlignment) }
         var selectedDateAlignment by remember { mutableStateOf(prefs.dateAlignment) }
-        var selectedAlarmAlignment by remember { mutableStateOf(prefs.alarmAlignment) }
+        var selectedNotesAlignment by remember { mutableStateOf(prefs.notesHomeAlignment) }
         var selectedDrawAlignment by remember { mutableStateOf(prefs.drawerAlignment) }
 
         var selectedBackgroundColor by remember { mutableIntStateOf(prefs.backgroundColor) }
         var selectedAppColor by remember { mutableIntStateOf(prefs.appColor) }
         var selectedDateColor by remember { mutableIntStateOf(prefs.dateColor) }
         var selectedClockColor by remember { mutableIntStateOf(prefs.clockColor) }
-        var selectedAlarmColor by remember { mutableIntStateOf(prefs.alarmClockColor) }
+        var selectedNotesColor by remember { mutableIntStateOf(prefs.notesHomeColor) }
         var selectedBatteryColor by remember { mutableIntStateOf(prefs.batteryColor) }
         var toggledIconRainbowColors by remember { mutableStateOf(prefs.iconRainbowColors) }
         var selectedShortcutIconsColor by remember { mutableIntStateOf(prefs.shortcutIconsColor) }
@@ -472,6 +468,7 @@ class SettingsFragment : BaseFragment() {
                         Entry(n++, getLocalizedString(R.string.settings_gestures_title), getLocalizedString(R.string.settings_gestures_sub)) { currentScreen = "gestures" }
                         Entry(n++, getLocalizedString(R.string.settings_favorite_apps_title), getLocalizedString(R.string.settings_favorite_apps_sub)) { showFavoriteApps() }
                         Entry(n++, getLocalizedString(R.string.settings_hidden_apps_title), getLocalizedString(R.string.settings_hidden_apps_sub)) { showHiddenApps() }
+                        Entry(n++, getLocalizedString(R.string.settings_notes_title), getLocalizedString(R.string.settings_notes_sub)) { currentScreen = "notes" }
                         if (privateSpaceSetUp) {
                             Entry(n++, getLocalizedString(R.string.private_space_title), getLocalizedString(setPrivateSpacesStatus)) {
                                 if (PrivateSpaceManager(context).isPrivateSpaceSetUp(showToast = false, launchSettings = false)) {
@@ -1702,15 +1699,12 @@ class SettingsFragment : BaseFragment() {
                         }
                     )
 
+                    // The notes block took the alarm's place; the same switch as on the Notes page
                     SettingsSwitch(
-                        text = getLocalizedString(R.string.show_alarm),
+                        text = getLocalizedString(R.string.show_notes),
                         fontSize = titleFontSize,
-                        defaultState = toggledShowAlarm,
-                        onCheckedChange = {
-                            toggledShowAlarm = !prefs.showAlarm
-                            prefs.showAlarm = toggledShowAlarm
-                            viewModel.setShowAlarm(prefs.showAlarm)
-                        }
+                        defaultState = toggledNotesOnHome,
+                        onCheckedChange = { toggledNotesOnHome = it; prefs.notesOnHome = it }
                     )
 
                     SettingsSwitch(
@@ -1735,55 +1729,6 @@ class SettingsFragment : BaseFragment() {
 
                     Spacer(modifier = Modifier.height(12.dp))
                     
-                    if (toggledShowAlarm) {
-
-                        // Alarm
-                        SettingsTitle(
-                            text = getLocalizedString(R.string.alarm_settings),
-                            fontSize = titleFontSize
-                        )
-
-
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.bedtime_start_time),
-                            option = String.format(
-                                "%02d:%02d",
-                                bedtimeStartHour,
-                                bedtimeStartMinute
-                            ),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                showBedtimeTimePicker(
-                                    bedtimeStartHour,
-                                    bedtimeStartMinute
-                                ) { hour, minute ->
-                                    bedtimeStartHour = hour
-                                    bedtimeStartMinute = minute
-                                    prefs.bedtimeStartHour = hour
-                                    prefs.bedtimeStartMinute = minute
-                                }
-                            }
-                        )
-
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.bedtime_end_time),
-                            option = String.format("%02d:%02d", bedtimeEndHour, bedtimeEndMinute),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                showBedtimeTimePicker(
-                                    bedtimeEndHour,
-                                    bedtimeEndMinute
-                                ) { hour, minute ->
-                                    bedtimeEndHour = hour
-                                    bedtimeEndMinute = minute
-                                    prefs.bedtimeEndHour = hour
-                                    prefs.bedtimeEndMinute = minute
-                                }
-                            }
-                        )
-
-                        Spacer(modifier = Modifier.height(12.dp))
-                    }
 
 
                     }
@@ -1799,9 +1744,9 @@ class SettingsFragment : BaseFragment() {
                     var toggledClockRule by remember { mutableStateOf(prefs.clockRule) }
                     var toggledSwissSide by remember { mutableStateOf(prefs.swissSideColumn) }
                     var toggledSwissWeights by remember { mutableStateOf(prefs.swissWeights) }
-                    var toggledAlarmBelow by remember { mutableStateOf(prefs.oneLineAlarmBelow) }
                     // Alignment rows wherever they move something: the clock whenever the numbers are
-                    // on screen, date and alarm whenever they stand under the clock (not beside it)
+                    // on screen, the date whenever it stands under the clock (not beside it); the notes
+                    // under the clock have their own page
                     val clockShown = !(st == Constants.ClockStyle.Rings && selectedRingInside == Constants.RingInside.Time)
                     val dateUnder = st == Constants.ClockStyle.Classic || st == Constants.ClockStyle.Rings ||
                         (st == Constants.ClockStyle.Swiss && !toggledSwissSide)
@@ -1854,31 +1799,6 @@ class SettingsFragment : BaseFragment() {
                                         prefs.dateAlignment =
                                             newGravity // Persist selection in preferences
                                         viewModel.updateDateAlignment(newGravity)
-                                    }
-                                )
-                            }
-                        )
-
-                        SettingsSelect(
-                            title = getLocalizedString(R.string.alarm_alignment),
-                            option = selectedAlarmAlignment.string(),
-                            fontSize = titleFontSize,
-                            onClick = {
-                                val gravityOptions = Constants.Gravity.entries.toTypedArray()
-                                val selectedIndex =
-                                    gravityOptions.indexOf(selectedAlarmAlignment).takeIf { it >= 0 }
-                                        ?: 1
-
-                                dialogBuilder.showSingleChoiceBottomSheetPill(
-                                    context = requireContext(),
-                                    options = Constants.Gravity.entries.toTypedArray(),
-                                    title = getLocalizedString(R.string.alarm_alignment),
-                                    selectedIndex = selectedIndex,
-                                    onItemSelected = { newGravity ->
-                                        selectedAlarmAlignment = newGravity // Update state
-                                        prefs.alarmAlignment =
-                                            newGravity // Persist selection in preferences
-                                        viewModel.updateAlarmAlignment(newGravity)
                                     }
                                 )
                             }
@@ -1968,12 +1888,6 @@ class SettingsFragment : BaseFragment() {
                             defaultState = toggledClockRule,
                             onCheckedChange = { toggledClockRule = it; prefs.clockRule = it }
                         )
-                        SettingsSwitch(
-                            text = getLocalizedString(R.string.one_line_alarm_below),
-                            fontSize = titleFontSize,
-                            defaultState = toggledAlarmBelow,
-                            onCheckedChange = { toggledAlarmBelow = it; prefs.oneLineAlarmBelow = it }
-                        )
                     }
                     }
                     SettingsTitle(
@@ -2013,24 +1927,6 @@ class SettingsFragment : BaseFragment() {
                                 onItemSelected = { selectedColor ->
                                     selectedDateColor = selectedColor
                                     prefs.dateColor = selectedColor
-                                })
-                        }
-                    )
-
-                    val hexAlarmColor = String.format("#%06X", (0xFFFFFF and selectedAlarmColor))
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.alarm_color),
-                        option = hexAlarmColor,
-                        fontSize = titleFontSize,
-                        optionColor = Color(hexAlarmColor.toColorInt()),
-                        onClick = {
-                            dialogBuilder.showColorPickerBottomSheet(
-                                context = requireContext(),
-                                color = selectedAlarmColor,
-                                title = getLocalizedString(R.string.alarm_color),
-                                onItemSelected = { selectedColor ->
-                                    selectedAlarmColor = selectedColor
-                                    prefs.alarmClockColor = selectedColor
                                 })
                         }
                     )
@@ -2096,26 +1992,6 @@ class SettingsFragment : BaseFragment() {
                         )
 
                     }
-
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.alarm_text_size),
-                        option = selectedAlarmSize.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = requireContext(),
-                                title = getLocalizedString(R.string.alarm_text_size),
-                                minValue = Constants.MIN_ALARM_SIZE,
-                                maxValue = Constants.MAX_ALARM_SIZE,
-                                currentValue = prefs.alarmSize,
-                                onValueSelected = { newDateSize ->
-                                    selectedAlarmSize = newDateSize.toInt() // Update state
-                                    prefs.alarmSize =
-                                        newDateSize.toInt() // Persist selection in preferences
-                                }
-                            )
-                        }
-                    )
 
                     SettingsSelect(
                         title = getLocalizedString(R.string.battery_text_size),
@@ -2637,6 +2513,152 @@ class SettingsFragment : BaseFragment() {
                 }
 
 
+                "notes" -> {
+                    BackHandler { currentScreen = "main" }
+                    PageHeader(
+                        iconRes = R.drawable.ic_back,
+                        title = getLocalizedString(R.string.settings_notes_title),
+                        onClick = { currentScreen = "main" }
+                    )
+                    // The notes block under the clock: counts and up to three important entries
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.settings_notes_sub),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+                        SettingsSwitch(
+                            text = getLocalizedString(R.string.notes_home_show),
+                            fontSize = titleFontSize,
+                            defaultState = toggledNotesOnHome,
+                            onCheckedChange = { toggledNotesOnHome = it; prefs.notesOnHome = it }
+                        )
+                        if (toggledNotesOnHome) {
+                            SettingsSelect(
+                                title = getLocalizedString(R.string.notes_home_alignment),
+                                option = selectedNotesAlignment.string(),
+                                fontSize = titleFontSize,
+                                onClick = {
+                                    val gravityOptions = Constants.Gravity.entries.toTypedArray()
+                                    dialogBuilder.showSingleChoiceBottomSheetPill(
+                                        context = requireContext(),
+                                        options = gravityOptions,
+                                        title = getLocalizedString(R.string.notes_home_alignment),
+                                        selectedIndex = gravityOptions.indexOf(selectedNotesAlignment).takeIf { it >= 0 } ?: 0,
+                                        onItemSelected = { newGravity ->
+                                            selectedNotesAlignment = newGravity
+                                            prefs.notesHomeAlignment = newGravity
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    }
+                    if (toggledNotesOnHome) {
+                        SettingsTitle(
+                            text = getLocalizedString(R.string.colour_and_size),
+                            fontSize = titleFontSize
+                        )
+                        SectionCard {
+                            val hexNotesColor = String.format("#%06X", (0xFFFFFF and selectedNotesColor))
+                            SettingsSelect(
+                                title = getLocalizedString(R.string.notes_home_color),
+                                option = hexNotesColor,
+                                fontSize = titleFontSize,
+                                optionColor = Color(hexNotesColor.toColorInt()),
+                                onClick = {
+                                    dialogBuilder.showColorPickerBottomSheet(
+                                        context = requireContext(),
+                                        color = selectedNotesColor,
+                                        title = getLocalizedString(R.string.notes_home_color),
+                                        onItemSelected = { selectedColor ->
+                                            selectedNotesColor = selectedColor
+                                            prefs.notesHomeColor = selectedColor
+                                        })
+                                }
+                            )
+                            SettingsSelect(
+                                title = getLocalizedString(R.string.notes_home_size),
+                                option = selectedNotesSize.toString(),
+                                fontSize = titleFontSize,
+                                onClick = {
+                                    dialogBuilder.showSliderBottomSheet(
+                                        context = requireContext(),
+                                        title = getLocalizedString(R.string.notes_home_size),
+                                        minValue = Constants.MIN_NOTES_HOME_SIZE,
+                                        maxValue = Constants.MAX_NOTES_HOME_SIZE,
+                                        currentValue = prefs.notesHomeSize.coerceIn(Constants.MIN_NOTES_HOME_SIZE, Constants.MAX_NOTES_HOME_SIZE),
+                                        onValueSelected = { newSize ->
+                                            selectedNotesSize = newSize.toInt()
+                                            prefs.notesHomeSize = newSize.toInt()
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    }
+                    // The categories entries can carry: created here or in an entry, renamed or removed here
+                    val notesStore = remember { NotesStore(prefs) }
+                    fun categoryRows() = notesStore.load().let { items ->
+                        notesStore.categories(items).map { it to NotesCategories.count(items, it) }
+                    }
+                    var noteCategories by remember { mutableStateOf(categoryRows()) }
+                    SettingsTitle(
+                        text = getLocalizedString(R.string.categories_section),
+                        fontSize = titleFontSize
+                    )
+                    SectionCard {
+                        noteCategories.forEach { (name, entries) ->
+                            SettingsSelect(
+                                title = name,
+                                option = getLocalizedString(R.string.notes_category_entries, entries),
+                                fontSize = titleFontSize,
+                                onClick = {
+                                    val actions = listOf(getLocalizedString(R.string.categories_rename), getLocalizedString(R.string.categories_remove))
+                                    dialogBuilder.chooser(name, actions) { i ->
+                                        if (i == 0) {
+                                            dialogBuilder.showTextInputDialog(requireContext(), getLocalizedString(R.string.categories_rename), name, getLocalizedString(R.string.categories_name_hint)) { newName ->
+                                                if (newName.trim() == name) return@showTextInputDialog
+                                                if (notesStore.renameCategory(name, newName)) noteCategories = categoryRows()
+                                                else if (newName.isNotBlank()) showShortToast(getLocalizedString(R.string.categories_exists))
+                                            }
+                                        } else {
+                                            dialogBuilder.confirm(
+                                                getLocalizedString(R.string.categories_remove),
+                                                getLocalizedString(R.string.notes_category_remove_confirm, name),
+                                                getLocalizedString(R.string.delete)
+                                            ) {
+                                                notesStore.removeCategory(name)
+                                                noteCategories = categoryRows()
+                                            }
+                                        }
+                                    }
+                                }
+                            )
+                        }
+                        SettingsSelect(
+                            title = "+ " + getLocalizedString(R.string.categories_new),
+                            option = getLocalizedString(R.string.notes_categories_hint),
+                            fontSize = titleFontSize,
+                            onClick = {
+                                dialogBuilder.showTextInputDialog(requireContext(), getLocalizedString(R.string.categories_new), "", getLocalizedString(R.string.categories_name_hint)) { newName ->
+                                    if (newName.isBlank()) return@showTextInputDialog
+                                    if (noteCategories.any { it.first.equals(newName.trim(), ignoreCase = true) }) {
+                                        showShortToast(getLocalizedString(R.string.categories_exists))
+                                    } else {
+                                        notesStore.addCategory(newName)
+                                        noteCategories = categoryRows()
+                                    }
+                                }
+                            }
+                        )
+                    }
+                    if (isGestureNavigationEnabled(context)) {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
+                    } else {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
+                    }
+                }
+
                 "advanced" -> {
                     BackHandler { currentScreen = "main" }
                     PageHeader(
@@ -2864,7 +2886,7 @@ class SettingsFragment : BaseFragment() {
                             .size(160.dp)
                             .align(Alignment.CenterHorizontally)
                     )
-                    // Name: light "RE", red star, medium "start" — the largest text on the page
+                    // Name: light "RE", red star, medium "start": the largest text on the page
                     FontText(
                         text = buildAnnotatedString {
                             withStyle(SpanStyle(fontWeight = FontWeight.Light)) { append("RE") }
@@ -3407,25 +3429,6 @@ class SettingsFragment : BaseFragment() {
         drawable.setBounds(0, 0, canvas.width, canvas.height)
         drawable.draw(canvas)
         return bitmap
-    }
-
-    private fun showBedtimeTimePicker(
-        initialHour: Int,
-        initialMinute: Int,
-        onTimeSet: (hour: Int, minute: Int) -> Unit
-    ) {
-        // Use Material TimePicker (Material Design picker)
-        val materialTimePicker = MaterialTimePicker.Builder()
-            .setTimeFormat(TimeFormat.CLOCK_24H)
-            .setHour(initialHour)
-            .setMinute(initialMinute)
-            .build()
-
-        materialTimePicker.addOnPositiveButtonClickListener {
-            onTimeSet(materialTimePicker.hour, materialTimePicker.minute)
-        }
-
-        materialTimePicker.show(requireActivity().supportFragmentManager, "TIME_PICKER")
     }
 }
 

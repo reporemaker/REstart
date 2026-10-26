@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.sp
 import ch.remaker.common.getLocalizedString
 import ch.remaker.restart.R
 import ch.remaker.restart.data.NoteItem
+import ch.remaker.restart.data.NotesOrder
 import ch.remaker.restart.data.NotesStore
 import ch.remaker.restart.helper.FontManager
 import ch.remaker.restart.style.SettingsTheme
@@ -65,6 +66,9 @@ class NotesState(private val store: NotesStore) {
 
     fun categories(): List<String> = store.categories(items)
 
+    /** A category made in the editor is kept on the list even after its entry moves on. */
+    fun addCategory(name: String) = store.addCategory(name)
+
     fun add(text: String, todo: Boolean) {
         val now = System.currentTimeMillis()
         items.add(NoteItem(id = now, text = text.trim(), created = now, edited = now, todo = todo))
@@ -83,11 +87,13 @@ class NotesState(private val store: NotesStore) {
 
     fun delete(item: NoteItem) {
         items.removeAll { it.id == item.id }
-        if (editingId == item.id) {
+        val wasOpen = editingId == item.id
+        if (wasOpen) {
             pendingSave = null
             editingId = null
         }
         persist()
+        if (wasOpen) afterClose?.invoke()
     }
 
     fun clearDone() {
@@ -102,10 +108,14 @@ class NotesState(private val store: NotesStore) {
         pendingSave?.invoke()
     }
 
+    /** Runs once an entry is closed; an entry opened from the home screen goes back there. */
+    var afterClose: (() -> Unit)? = null
+
     fun closeEditor() {
         flush()
         pendingSave = null
         editingId = null
+        afterClose?.invoke()
     }
 }
 
@@ -205,10 +215,9 @@ private fun metaOf(item: NoteItem, today: Long): String {
 @Composable
 private fun NotesList(state: NotesState, ink: Ink, dialogs: DialogManager, onBack: () -> Unit) {
     val today = startOfDay(System.currentTimeMillis())
-    val open = state.items.filter { it.todo && !it.done }
-        .sortedWith(compareBy<NoteItem>({ it.due ?: Long.MAX_VALUE }, { !it.important }, { -it.created }))
-    val notes = state.items.filter { !it.todo }.sortedWith(compareBy<NoteItem>({ !it.important }, { -it.created }))
-    val done = state.items.filter { it.todo && it.done }.sortedByDescending { it.edited }
+    val open = NotesOrder.openTodos(state.items)
+    val notes = NotesOrder.notes(state.items, System.currentTimeMillis())
+    val done = NotesOrder.done(state.items)
 
     var input by remember { mutableStateOf("") }
     var newIsTodo by remember { mutableStateOf(false) }
@@ -370,7 +379,7 @@ private fun NoteEditor(state: NotesState, original: NoteItem, ink: Ink, dialogs:
                     when (i) {
                         0 -> { category = ""; commit() }
                         labels.lastIndex -> dialogs.showTextInputDialog(context, getLocalizedString(R.string.categories_new), "", getLocalizedString(R.string.categories_name_hint)) { name ->
-                            if (name.isNotBlank()) { category = name.trim(); commit() }
+                            if (name.isNotBlank()) { state.addCategory(name); category = name.trim(); commit() }
                         }
                         else -> { category = existing[i - 1]; commit() }
                     }

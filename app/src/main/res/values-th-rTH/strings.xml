@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">เรียงลำดับแอปที่คุณชื่นชอบใหม่เพื่อการเข้าถึงอย่างรวดเร็วจากหน้าจอหลัก</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">แอพที่ซ่อนอยู่</string>
-    <string name="settings_hidden_apps_description">จัดการแอพที่ซ่อนไว้ — ยกเลิกการซ่อนแอพใดๆ จากรายการนี้เมื่อจำเป็น</string>
+    <string name="settings_hidden_apps_description">จัดการแอพที่ซ่อนไว้ ยกเลิกการซ่อนแอพใดๆ จากรายการนี้เมื่อจำเป็น</string>
     <string name="settings_advanced_title">การตั้งค่าขั้นสูง</string>
     <string name="settings_advanced_description">เข้าถึงข้อมูลแอป ตัวเปิดใช้เริ่มต้น เครื่องมือสำรองข้อมูล และอื่นๆ อีกมากมาย</string>
     <string name="settings_expert_title">ผู้เชี่ยวชาญ</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">บังคับใช้วอลเปเปอร์สีพื้น</string>
     <string name="info_tiles">แผงข้อมูล</string>
     <string name="show_clock">แสดงนาฬิกา</string>
+    <string name="show_notes">แสดงบันทึก</string>
     <string name="show_clock_format">รูปแบบการแสดง (AM/PM)</string>
     <string name="show_date">แสดงวันที่</string>
     <string name="show_day_of_year">แสดงวันที่ของปี</string>
-    <string name="show_alarm">แสดงสัญญาณเตือน</string>
-    <string name="alarm_settings">เตือน</string>
-    <string name="bedtime_start_time">เวลาเริ่มเข้านอน</string>
-    <string name="bedtime_end_time">เวลาสิ้นสุดการเข้านอน</string>
     <string name="show_battery">แสดงแบตเตอรี่</string>
     <string name="show_battery_icon">แสดงไอคอนแบตเตอรี่</string>
     <string name="show_private_spaces">แสดงไอคอนพื้นที่ส่วนตัว</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">ขนาดข้อความของแอป</string>
     <string name="date_text_size">ขนาดข้อความวันที่</string>
     <string name="clock_text_size">ขนาดข้อความนาฬิกา</string>
-    <string name="alarm_text_size">ขนาดข้อความแจ้งเตือน</string>
     <string name="battery_text_size">ขนาดข้อความแบตเตอรี่</string>
     <string name="app_padding_size">ขนาดช่องว่างภายใน</string>
     <string name="extend_home_apps_area">ขยายพื้นที่ที่สามารถคลิกได้</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">เวลาหน้าจอทั้งหมด</string>
     <string name="date_alignment">วันที่</string>
     <string name="clock_alignment">นาฬิกา</string>
-    <string name="alarm_alignment">เตือน</string>
     <string name="home_alignment">แอปหน้าจอหลัก</string>
     <string name="drawer_alignment">แอปลิ้นชัก</string>
     <string name="background_color">พื้นหลัง</string>
     <string name="app_color">แอปพลิเคชั่น</string>
     <string name="clock_color">นาฬิกา</string>
     <string name="date_color">วันที่</string>
-    <string name="alarm_color">เตือน</string>
     <string name="battery_color">แบตเตอรี่</string>
     <string name="rainbow_shortcuts">ทางลัดสายรุ้ง</string>
     <string name="shortcuts_color">ทางลัด</string>
@@ -444,8 +438,6 @@
     <string name="ring_scale">วงแหวนชั่วโมง</string>
     <string name="ring_scale_12">หน้าปัด 12 ชั่วโมง</string>
     <string name="ring_scale_24">ทั้งวัน (24 ชม.)</string>
-    <string name="one_line_alarm_below">นาฬิกาปลุกอยู่บรรทัดของตัวเอง ใต้เส้น</string>
-    <string name="no_alarm_set">ไม่ได้ตั้งนาฬิกาปลุก</string>
     <string name="clock_area_tap">แตะ</string>
     <string name="clock_display">พื้นที่นาฬิกา</string>
     <string name="clock_and_date">นาฬิกาและวันที่</string>
@@ -476,7 +468,7 @@
     <string name="help_title">ช่วยเหลือ</string>
     <string name="help_text">RE*start เป็นตัวเปิดใช้แบบโอเพนซอร์สที่ใช้ฟรี รหัสต้นฉบับ บันทึกการเปลี่ยนแปลง และรายการการเปลี่ยนแปลงนับตั้งแต่แยกสาขาอยู่บน GitHub ส่วนบ้านของโครงการคือ remaker.ch</string>
     <string name="feedback_title">ข้อเสนอแนะ</string>
-    <string name="feedback_text">พบบั๊กหรือมีไอเดียไหม บอกว่าคุณทำอะไร เกิดอะไรขึ้น และคุณคาดหวังอะไร พร้อมระบุเวอร์ชันของ RE*start และ Android — เครื่องหมาย RE* ที่ด้านล่างของการตั้งค่าจะแสดงสรุปข้อมูลอุปกรณ์ที่คุณจับภาพหน้าจอหรือคัดลอกได้ ส่งเป็น issue บน GitHub หรือทางอีเมล</string>
+    <string name="feedback_text">พบบั๊กหรือมีไอเดียไหม บอกว่าคุณทำอะไร เกิดอะไรขึ้น และคุณคาดหวังอะไร พร้อมระบุเวอร์ชันของ RE*start และ Android เครื่องหมาย RE* ที่ด้านล่างของการตั้งค่าจะแสดงสรุปข้อมูลอุปกรณ์ที่คุณจับภาพหน้าจอหรือคัดลอกได้ ส่งเป็น issue บน GitHub หรือทางอีเมล</string>
     <string name="feedback_open_issue">เปิด issue บน GitHub</string>
     <string name="feedback_by_mail">ทางอีเมล</string>
     <string name="security_title">ความปลอดภัย</string>
@@ -497,4 +489,12 @@
     <string name="notes_written">เขียนเมื่อ</string>
     <string name="notes_add">เพิ่ม</string>
     <string name="notes_kind">ประเภท</string>
+    <string name="notes_today">วันนี้</string>
+    <string name="notes_home_show">แสดงจำนวนและรายการสำคัญ</string>
+    <string name="notes_home_alignment">การจัดแนว</string>
+    <string name="notes_home_color">สี</string>
+    <string name="notes_home_size">ขนาดตัวอักษร</string>
+    <string name="notes_category_entries">รายการ: %1$d</string>
+    <string name="notes_category_remove_confirm">ลบ “%1$s” ไหม รายการจะยังอยู่โดยไม่มีหมวดหมู่</string>
+    <string name="notes_categories_hint">ใช้กับบันทึกและสิ่งที่ต้องทำ</string>
 </resources>

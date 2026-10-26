@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">أعد ترتيب تطبيقاتك المفضلة للوصول السريع إليها من الشاشة الرئيسية.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">تطبيقات مخفية</string>
-    <string name="settings_hidden_apps_description">إدارة التطبيقات المخفية — إظهار أي تطبيق من هذه القائمة عند الحاجة.</string>
+    <string name="settings_hidden_apps_description">إدارة التطبيقات المخفية: إظهار أي تطبيق من هذه القائمة عند الحاجة.</string>
     <string name="settings_advanced_title">الإعدادات المتقدمة</string>
     <string name="settings_advanced_description">يمكنك الوصول إلى معلومات التطبيق، والمشغل الافتراضي، وأدوات النسخ الاحتياطي، والمزيد.</string>
     <string name="settings_expert_title">خبير</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">فرض خلفية ملونة</string>
     <string name="info_tiles">بطاقات المعلومات</string>
     <string name="show_clock">عرض الساعة</string>
+    <string name="show_notes">إظهار الملحوظات</string>
     <string name="show_clock_format">تنسيق العرض (صباحًا/مساءً)</string>
     <string name="show_date">إظهار التاريخ</string>
     <string name="show_day_of_year">عرض يوم السنة</string>
-    <string name="show_alarm">إظهار الإنذار</string>
-    <string name="alarm_settings">جهاز إنذار</string>
-    <string name="bedtime_start_time">وقت بدء النوم</string>
-    <string name="bedtime_end_time">وقت انتهاء وقت النوم</string>
     <string name="show_battery">عرض البطارية</string>
     <string name="show_battery_icon">إظهار أيقونة البطارية</string>
     <string name="show_private_spaces">إظهار أيقونة المساحات الخاصة</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">حجم نص التطبيق</string>
     <string name="date_text_size">التاريخ حجم الخط</string>
     <string name="clock_text_size">حجم نص الساعة</string>
-    <string name="alarm_text_size">حجم نص التنبيه</string>
     <string name="battery_text_size">حجم نص البطارية</string>
     <string name="app_padding_size">حجم الحشوة</string>
     <string name="extend_home_apps_area">توسيع منطقة النقر</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">إجمالي وقت الشاشة</string>
     <string name="date_alignment">تاريخ</string>
     <string name="clock_alignment">ساعة</string>
-    <string name="alarm_alignment">جهاز إنذار</string>
     <string name="home_alignment">تطبيقات الشاشة الرئيسية</string>
     <string name="drawer_alignment">تطبيقات الدرج</string>
     <string name="background_color">خلفية</string>
     <string name="app_color">التطبيقات</string>
     <string name="clock_color">ساعة</string>
     <string name="date_color">تاريخ</string>
-    <string name="alarm_color">جهاز إنذار</string>
     <string name="battery_color">بطارية</string>
     <string name="rainbow_shortcuts">اختصارات قوس قزح</string>
     <string name="shortcuts_color">اختصارات</string>
@@ -442,8 +436,6 @@
     <string name="ring_scale">حلقة الساعات</string>
     <string name="ring_scale_12">ميناء 12 ساعة</string>
     <string name="ring_scale_24">اليوم كاملًا (24 ساعة)</string>
-    <string name="one_line_alarm_below">المنبه في سطر مستقل أسفل الخط</string>
-    <string name="no_alarm_set">لم يتم ضبط أي منبه.</string>
     <string name="clock_area_tap">النقر</string>
     <string name="clock_display">منطقة الساعة</string>
     <string name="clock_and_date">الساعة والتاريخ</string>
@@ -474,7 +466,7 @@
     <string name="help_title">مساعدة</string>
     <string name="help_text">RE*start مشغل تطبيقات مجاني ومفتوح المصدر. الشفرة المصدرية وسجل التغييرات وقائمة التغييرات منذ التفرّع موجودة على GitHub؛ وموطن المشروع هو remaker.ch.</string>
     <string name="feedback_title">ملاحظات</string>
-    <string name="feedback_text">هل وجدت خطأ أو لديك فكرة؟ اذكر ما فعلته وما حدث وما كنت تتوقعه، وأضف إصدار RE*start وإصدار Android — علامة RE* في أسفل الإعدادات تعرض ملخص الجهاز الذي يمكنك التقاط لقطة شاشة له أو نسخه. أرسله كـ issue على GitHub أو عبر البريد الإلكتروني.</string>
+    <string name="feedback_text">هل وجدت خطأ أو لديك فكرة؟ اذكر ما فعلته وما حدث وما كنت تتوقعه، وأضف إصدار RE*start وإصدار Android; علامة RE* في أسفل الإعدادات تعرض ملخص الجهاز الذي يمكنك التقاط لقطة شاشة له أو نسخه. أرسله كـ issue على GitHub أو عبر البريد الإلكتروني.</string>
     <string name="feedback_open_issue">افتح issue على GitHub</string>
     <string name="feedback_by_mail">عبر البريد الإلكتروني</string>
     <string name="security_title">الأمان</string>
@@ -495,4 +487,12 @@
     <string name="notes_written">كُتبت</string>
     <string name="notes_add">إضافة</string>
     <string name="notes_kind">النوع</string>
+    <string name="notes_today">اليوم</string>
+    <string name="notes_home_show">عرض الأعداد والعناصر المهمة</string>
+    <string name="notes_home_alignment">المحاذاة</string>
+    <string name="notes_home_color">اللون</string>
+    <string name="notes_home_size">حجم النص</string>
+    <string name="notes_category_entries">العناصر: %1$d</string>
+    <string name="notes_category_remove_confirm">إزالة «%1$s»؟ تبقى عناصرها بلا فئة.</string>
+    <string name="notes_categories_hint">تُستخدم في الملحوظات والمهام</string>
 </resources>

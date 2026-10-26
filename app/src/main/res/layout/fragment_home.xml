@@ -88,9 +88,9 @@
                     tools:text="02:34" />
 
 
-                <!-- Date and alarm share a column so the styles can put them beside or under the clock -->
+                <!-- Date and notes share a column so the styles can put them beside or under the clock -->
                 <LinearLayout
-                    android:id="@+id/dateAlarmLayout"
+                    android:id="@+id/dateNotesLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -104,11 +104,12 @@
                     android:textSize="@dimen/date_size"
                     tools:text="Thu, 30 Dec" />
 
-                <ch.remaker.components.views.FontAppCompatTextView
-                    android:id="@+id/alarm"
+                <!-- Notes in the alarm's old place: a count line and up to three important entries, built in code -->
+                <LinearLayout
+                    android:id="@+id/homeNotes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/alarm_size"
+                    android:orientation="vertical"
                     android:visibility="gone" />
                 </LinearLayout>
             </LinearLayout>

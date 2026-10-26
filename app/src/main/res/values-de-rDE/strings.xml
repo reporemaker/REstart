@@ -72,13 +72,10 @@
     <string name="force_colored_wallpaper">Farbigen Hintergrund erzwingen</string>
     <string name="info_tiles">Infokacheln</string>
     <string name="show_clock">Uhr anzeigen</string>
+    <string name="show_notes">Notizen anzeigen</string>
     <string name="show_clock_format">Format anzeigen (AM/PM)</string>
     <string name="show_date">Datum anzeigen</string>
     <string name="show_day_of_year">Tag des Jahres anzeigen</string>
-    <string name="show_alarm">Wecker anzeigen</string>
-    <string name="alarm_settings">Wecker</string>
-    <string name="bedtime_start_time">Beginn der Schlafenszeit</string>
-    <string name="bedtime_end_time">Ende der Schlafenszeit</string>
     <string name="show_battery">Akku anzeigen</string>
     <string name="show_battery_icon">Akkusymbol anzeigen</string>
     <string name="show_private_spaces">Symbol für private Bereiche anzeigen</string>
@@ -92,7 +89,6 @@
     <string name="app_text_size">App-Textgrösse</string>
     <string name="date_text_size">Textgrösse des Datums</string>
     <string name="clock_text_size">Textgrösse der Uhr</string>
-    <string name="alarm_text_size">Textgrösse des Weckers</string>
     <string name="battery_text_size">Textgrösse der Akkuanzeige</string>
     <string name="app_padding_size">Abstand</string>
     <string name="extend_home_apps_area">Klickbaren Bereich erweitern</string>
@@ -111,14 +107,12 @@
     <string name="total_screen_time">Gesamte Bildschirmzeit</string>
     <string name="date_alignment">Datum</string>
     <string name="clock_alignment">Uhr</string>
-    <string name="alarm_alignment">Wecker</string>
     <string name="home_alignment">Startbildschirm-Apps</string>
     <string name="drawer_alignment">Apps in der Schublade</string>
     <string name="background_color">Hintergrund</string>
     <string name="app_color">Apps</string>
     <string name="clock_color">Uhr</string>
     <string name="date_color">Datum</string>
-    <string name="alarm_color">Wecker</string>
     <string name="battery_color">Akku</string>
     <string name="rainbow_shortcuts">Bunte Schnellzugriffe</string>
     <string name="shortcuts_color">Schnellzugriffe</string>
@@ -214,15 +208,13 @@
     <string name="ring_scale">Stundenring</string>
     <string name="ring_scale_12">12-Stunden-Zifferblatt</string>
     <string name="ring_scale_24">Der ganze Tag (24 h)</string>
-    <string name="one_line_alarm_below">Wecker in eigener Zeile unter der Linie</string>
-    <string name="no_alarm_set">Kein Wecker gestellt.</string>
     <string name="clock_area_tap">Tippen</string>
     <string name="settings_actions_section">Aktionen</string>
     <string name="device_summary">Gerätezusammenfassung</string>
     <string name="help_title">Hilfe</string>
     <string name="help_text">RE*start ist ein freier, quelloffener Launcher. Der Quellcode, das Änderungsprotokoll und die Liste der Änderungen seit dem Fork liegen auf GitHub; die Heimat des Projekts ist remaker.ch.</string>
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_text">Einen Fehler gefunden oder eine Idee? Schreib, was du getan hast, was passiert ist und was du erwartet hast, und gib die RE*start- und Android-Version an — das RE*-Zeichen unten in den Einstellungen zeigt eine Gerätezusammenfassung, die du als Screenshot anhängen oder kopieren kannst. Sende es als GitHub-Issue oder per E-Mail.</string>
+    <string name="feedback_text">Einen Fehler gefunden oder eine Idee? Schreib, was du getan hast, was passiert ist und was du erwartet hast, und gib die RE*start- und Android-Version an; das RE*-Zeichen unten in den Einstellungen zeigt eine Gerätezusammenfassung, die du als Screenshot anhängen oder kopieren kannst. Sende es als GitHub-Issue oder per E-Mail.</string>
     <string name="feedback_open_issue">Issue auf GitHub öffnen</string>
     <string name="feedback_translation">Übersetzungsfehler melden</string>
     <string name="feedback_by_mail">Per E-Mail</string>
@@ -495,4 +487,12 @@
     <string name="notes_written">Geschrieben</string>
     <string name="notes_add">Hinzufügen</string>
     <string name="notes_kind">Art</string>
+    <string name="notes_today">Heute</string>
+    <string name="notes_home_show">Anzahl und wichtige Einträge zeigen</string>
+    <string name="notes_home_alignment">Ausrichtung</string>
+    <string name="notes_home_color">Farbe</string>
+    <string name="notes_home_size">Textgröße</string>
+    <string name="notes_category_entries">Einträge: %1$d</string>
+    <string name="notes_category_remove_confirm">„%1$s“ entfernen? Die Einträge bleiben, ohne Kategorie.</string>
+    <string name="notes_categories_hint">Für Notizen und Aufgaben</string>
 </resources>

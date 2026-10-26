@@ -30,8 +30,8 @@ object Constants {
     const val MIN_CLOCK_DATE_SIZE = 10
     const val MAX_CLOCK_DATE_SIZE = 120
 
-    const val MIN_ALARM_SIZE = 10
-    const val MAX_ALARM_SIZE = 120
+    const val MIN_NOTES_HOME_SIZE = 10
+    const val MAX_NOTES_HOME_SIZE = 40
 
 
     const val MIN_BATTERY_SIZE = 10

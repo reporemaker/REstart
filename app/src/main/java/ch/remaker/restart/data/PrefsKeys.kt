@@ -40,7 +40,6 @@ internal const val SWISS_SIDE_COLUMN = "SWISS_SIDE_COLUMN"
 internal const val SWISS_WEIGHTS = "SWISS_WEIGHTS"
 internal const val RING_INSIDE = "RING_INSIDE"
 internal const val RING_SCALE = "RING_SCALE"
-internal const val ONE_LINE_ALARM_BELOW = "ONE_LINE_ALARM_BELOW"
 internal const val SEARCH_SCOPE = "SEARCH_SCOPE"
 internal const val OPEN_DRAWER_CATEGORY = "OPEN_DRAWER_CATEGORY"
 internal const val CATEGORY_SIZE_TEXT = "CATEGORY_SIZE_TEXT"
@@ -84,14 +83,8 @@ internal const val CLICK_EDIT_DELETE = "CLICK_EDIT_DELETE"
 // Clock / Daily Word / Floating
 internal const val SHOW_CLOCK = "SHOW_CLOCK"
 internal const val SHOW_CLOCK_FORMAT = "SHOW_CLOCK_FORMAT"
-internal const val SHOW_ALARM = "SHOW_ALARM"
+internal const val NOTES_ON_HOME = "NOTES_ON_HOME"
 internal const val SHOW_FLOATING = "SHOW_FLOATING"
-
-// Bedtime Mode Settings
-internal const val BEDTIME_START_HOUR = "BEDTIME_START_HOUR"
-internal const val BEDTIME_START_MINUTE = "BEDTIME_START_MINUTE"
-internal const val BEDTIME_END_HOUR = "BEDTIME_END_HOUR"
-internal const val BEDTIME_END_MINUTE = "BEDTIME_END_MINUTE"
 
 // Icons
 internal const val ICON_PACK_HOME = "ICON_PACK_HOME"

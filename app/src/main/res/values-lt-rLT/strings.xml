@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Priverstinai naudoti spalvotą foną</string>
     <string name="info_tiles">Informacijos plytelės</string>
     <string name="show_clock">Rodyti laikrodį</string>
+    <string name="show_notes">Rodyti pastabas</string>
     <string name="show_clock_format">Rodyti formatą (AM/PM)</string>
     <string name="show_date">Rodyti datą</string>
     <string name="show_day_of_year">Rodyti metų dieną</string>
-    <string name="show_alarm">Rodyti signalą</string>
-    <string name="alarm_settings">Signalizacija</string>
-    <string name="bedtime_start_time">Miego pradžios laikas</string>
-    <string name="bedtime_end_time">Miego pabaigos laikas</string>
     <string name="show_battery">Rodyti bateriją</string>
     <string name="show_battery_icon">Rodyti akumuliatoriaus piktogramą</string>
     <string name="show_private_spaces">Rodyti privačių erdvių piktogramą</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Programėlių teksto dydis</string>
     <string name="date_text_size">Datos teksto dydis</string>
     <string name="clock_text_size">Laikrodžio teksto dydis</string>
-    <string name="alarm_text_size">Signalo teksto dydis</string>
     <string name="battery_text_size">Baterijos teksto dydis</string>
     <string name="app_padding_size">Tarpų dydis</string>
     <string name="extend_home_apps_area">Išplėsti spustelėjamą sritį</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Bendras ekrano laikas</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Laikrodis</string>
-    <string name="alarm_alignment">Signalizacija</string>
     <string name="home_alignment">Pagrindinio ekrano programėlės</string>
     <string name="drawer_alignment">Stalčių programos</string>
     <string name="background_color">Fonas</string>
     <string name="app_color">Programėlės</string>
     <string name="clock_color">Laikrodis</string>
     <string name="date_color">Data</string>
-    <string name="alarm_color">Signalizacija</string>
     <string name="battery_color">Baterija</string>
     <string name="rainbow_shortcuts">Vaivorykštės nuorodos</string>
     <string name="shortcuts_color">Nuorodos</string>
@@ -437,8 +431,6 @@
     <string name="ring_scale">Valandų žiedas</string>
     <string name="ring_scale_12">12 valandų ciferblatas</string>
     <string name="ring_scale_24">Visa para (24 val.)</string>
-    <string name="one_line_alarm_below">Žadintuvas atskiroje eilutėje po linija</string>
-    <string name="no_alarm_set">Žadintuvas nenustatytas.</string>
     <string name="clock_area_tap">Bakstelėjimas</string>
     <string name="clock_display">Laikrodžio sritis</string>
     <string name="clock_and_date">Laikrodis ir data</string>
@@ -469,7 +461,7 @@
     <string name="help_title">Pagalba</string>
     <string name="help_text">RE*start – nemokama atvirojo kodo paleidimo priemonė. Šaltinio kodas, pakeitimų žurnalas ir pakeitimų nuo atšakos sąrašas yra „GitHub“; projekto namai – remaker.ch.</string>
     <string name="feedback_title">Atsiliepimai</string>
-    <string name="feedback_text">Radote klaidą ar turite idėją? Parašykite, ką darėte, kas nutiko ir ko tikėjotės, ir nurodykite RE*start bei Android versijas — RE* ženklas nustatymų apačioje rodo įrenginio santrauką, kurią galite išsaugoti kaip ekrano kopiją arba nukopijuoti. Siųskite kaip „GitHub“ problemą (issue) arba el. paštu.</string>
+    <string name="feedback_text">Radote klaidą ar turite idėją? Parašykite, ką darėte, kas nutiko ir ko tikėjotės, ir nurodykite RE*start bei Android versijas; RE* ženklas nustatymų apačioje rodo įrenginio santrauką, kurią galite išsaugoti kaip ekrano kopiją arba nukopijuoti. Siųskite kaip „GitHub“ problemą (issue) arba el. paštu.</string>
     <string name="feedback_open_issue">Atidaryti problemą (issue) „GitHub“</string>
     <string name="feedback_by_mail">El. paštu</string>
     <string name="security_title">Saugumas</string>
@@ -490,4 +482,12 @@
     <string name="notes_written">Parašyta</string>
     <string name="notes_add">Pridėti</string>
     <string name="notes_kind">Tipas</string>
+    <string name="notes_today">Šiandien</string>
+    <string name="notes_home_show">Rodyti skaičius ir svarbius įrašus</string>
+    <string name="notes_home_alignment">Lygiuotė</string>
+    <string name="notes_home_color">Spalva</string>
+    <string name="notes_home_size">Teksto dydis</string>
+    <string name="notes_category_entries">Įrašai: %1$d</string>
+    <string name="notes_category_remove_confirm">Pašalinti „%1$s“? Įrašai liks, be kategorijos.</string>
+    <string name="notes_categories_hint">Pastaboms ir užduotims</string>
 </resources>

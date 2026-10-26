@@ -12,15 +12,36 @@ the two changes sent back upstream and every difference at the fork point are in
 - An entry is a note or a to-do; a to-do has a square box, done ones drop to Done and can be
   cleared at once. Tapping an entry opens it full page: text, kind, done, important, category,
   date, written; it saves itself on the way back (arrow, back key or leaving the app).
-- Categories are the user's own: pick one in use or type a new one; one exists while an entry
-  uses it. An optional date per entry; an open to-do past its date shows OVERDUE.
+- Categories are the user's own: pick one or type a new one in an entry, or create, rename and
+  remove them under Settings → Notes (a removed category leaves its entries without one). An
+  optional date per entry; an open to-do past its date shows OVERDUE.
+- The sections are ordered by date first, and on the same day the important entries first:
+  to-dos from the longest overdue to the furthest, undated last; notes dated today or later
+  first, then the others by the day they show, newest first.
 - Fixed on the way: priority and category were stored as translated words, so sorting and the
   priority colour only worked in English, and entries were sorted by their date text (weekday
   names) instead of time. Entries now keep codes and times; old notes are moved over once
   (the highest priority becomes important, "None" drops the category).
 - The old notes settings (bubble colours, auto-expand) are gone; the page follows the theme.
 
+### Notes on the home screen (instead of the alarm)
+- The next-alarm line under the clock is gone; the notes block takes its place and its look in
+  all four clock styles: a count line (notes, open to-dos, overdue; a zero is not written) and
+  up to three entries marked important: overdue to-dos first, then today, then coming, then
+  undated. Nothing to show hides the block. One line puts it under the rule.
+- Tapping the count line opens the notes page; tapping an entry opens that entry, and closing
+  it goes back home. The block redraws itself at midnight and when the clock or time zone
+  changes, and whenever the home screen comes back.
+- In a narrow column the text gives way first; a day that does not fit moves under the text.
+  Counts use the language's own digits (Arabic ٣).
+- Settings → Notes is back: show on the home screen (also under Clock area → Shown information),
+  alignment, colour and size (the alarm's old values carry over), and the categories. The alarm
+  settings and the bedtime filter that belonged to them are removed.
+
 ### Fixed
+- **Long dashes in the texts.** The feedback and hidden-apps texts (21 languages), the licence
+  lines and the docs used the em dash; they now use a colon, a semicolon or a hyphen. Turkish
+  "Tarih'i göster", "Pil'i göster" are now "Tarihi göster", "Pili göster".
 - **Light theme blinking dark.** Pages cross-fade when they change (home, drawer, settings);
   the page background (colour + opacity) sat on each page, so mid-fade both were half
   transparent and the wallpaper showed through: a dark wallpaper made the light theme blink.

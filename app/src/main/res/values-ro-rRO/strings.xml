@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Reordonați aplicațiile preferate pentru acces rapid de pe ecranul principal.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Aplicații ascunse</string>
-    <string name="settings_hidden_apps_description">Gestionați aplicațiile ascunse — afișați orice aplicație din această listă atunci când este nevoie.</string>
+    <string name="settings_hidden_apps_description">Gestionați aplicațiile ascunse: afișați orice aplicație din această listă atunci când este nevoie.</string>
     <string name="settings_advanced_title">Avansat</string>
     <string name="settings_advanced_description">Accesează informații despre aplicație, lansatorul implicit, instrumentele de backup și multe altele.</string>
     <string name="settings_expert_title">Expert</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Forțează fundal colorat</string>
     <string name="info_tiles">Casete de informații</string>
     <string name="show_clock">Afișați ceasul</string>
+    <string name="show_notes">Afișează notițele</string>
     <string name="show_clock_format">Afișează formatul (AM/PM)</string>
     <string name="show_date">Afișează data</string>
     <string name="show_day_of_year">Afișează ziua anului</string>
-    <string name="show_alarm">Afișare alarmă</string>
-    <string name="alarm_settings">Alarma</string>
-    <string name="bedtime_start_time">Ora de începere a orei de culcare</string>
-    <string name="bedtime_end_time">Ora de încheiere a orei de culcare</string>
     <string name="show_battery">Afișați bateria</string>
     <string name="show_battery_icon">Afișează pictograma bateriei</string>
     <string name="show_private_spaces">Afișează pictograma spațiilor private</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Dimensiunea textului aplicației</string>
     <string name="date_text_size">Dimensiunea textului datei</string>
     <string name="clock_text_size">Dimensiunea textului ceasului</string>
-    <string name="alarm_text_size">Dimensiunea textului de alarmă</string>
     <string name="battery_text_size">Dimensiunea textului bateriei</string>
     <string name="app_padding_size">Dimensiunea spațierii</string>
     <string name="extend_home_apps_area">Extindeți zona pe care se poate face clic</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Timp total de utilizare</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Ceas</string>
-    <string name="alarm_alignment">Alarma</string>
     <string name="home_alignment">Aplicații de pe ecranul principal</string>
     <string name="drawer_alignment">Aplicații în sertar</string>
     <string name="background_color">Fundal</string>
     <string name="app_color">Aplicații</string>
     <string name="clock_color">Ceas</string>
     <string name="date_color">Data</string>
-    <string name="alarm_color">Alarma</string>
     <string name="battery_color">Baterie</string>
     <string name="rainbow_shortcuts">Scurtături curcubeu</string>
     <string name="shortcuts_color">Scurtături</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">Inelul orelor</string>
     <string name="ring_scale_12">Cadran de 12 ore</string>
     <string name="ring_scale_24">Toată ziua (24 h)</string>
-    <string name="one_line_alarm_below">Alarma pe rândul ei, sub linie</string>
-    <string name="no_alarm_set">Nicio alarmă setată.</string>
     <string name="clock_area_tap">Atingere</string>
     <string name="clock_display">Zona ceasului</string>
     <string name="clock_and_date">Ceas și dată</string>
@@ -475,7 +467,7 @@
     <string name="help_title">Ajutor</string>
     <string name="help_text">RE*start este un lansator gratuit, cu sursă deschisă. Codul sursă, jurnalul de modificări și lista schimbărilor de la bifurcare sunt pe GitHub; casa proiectului este remaker.ch.</string>
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_text">Ați găsit o eroare sau aveți o idee? Spuneți ce ați făcut, ce s-a întâmplat și la ce vă așteptați, și adăugați versiunile RE*start și Android — semnul RE* din partea de jos a setărilor afișează un rezumat al dispozitivului pe care îl puteți captura sau copia. Trimiteți-l ca issue pe GitHub sau prin e-mail.</string>
+    <string name="feedback_text">Ați găsit o eroare sau aveți o idee? Spuneți ce ați făcut, ce s-a întâmplat și la ce vă așteptați, și adăugați versiunile RE*start și Android; semnul RE* din partea de jos a setărilor afișează un rezumat al dispozitivului pe care îl puteți captura sau copia. Trimiteți-l ca issue pe GitHub sau prin e-mail.</string>
     <string name="feedback_open_issue">Deschideți un issue pe GitHub</string>
     <string name="feedback_by_mail">Prin e-mail</string>
     <string name="security_title">Securitate</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">Scrisă</string>
     <string name="notes_add">Adaugă</string>
     <string name="notes_kind">Tip</string>
+    <string name="notes_today">Azi</string>
+    <string name="notes_home_show">Afișează numărul și intrările importante</string>
+    <string name="notes_home_alignment">Aliniere</string>
+    <string name="notes_home_color">Culoare</string>
+    <string name="notes_home_size">Mărimea textului</string>
+    <string name="notes_category_entries">Intrări: %1$d</string>
+    <string name="notes_category_remove_confirm">Eliminați „%1$s”? Intrările rămân, fără categorie.</string>
+    <string name="notes_categories_hint">Pentru notițe și sarcini</string>
 </resources>

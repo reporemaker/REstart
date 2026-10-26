@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">כפה טפט צבעוני</string>
     <string name="info_tiles">אריחי מידע</string>
     <string name="show_clock">הצג שעון</string>
+    <string name="show_notes">הצגת הערות</string>
     <string name="show_clock_format">תצוגת זמן (AM/PM)</string>
     <string name="show_date">הצג תאריך</string>
     <string name="show_day_of_year">הצג יום בשנה</string>
-    <string name="show_alarm">הצג שעון מעורר</string>
-    <string name="alarm_settings">אַזעָקָה</string>
-    <string name="bedtime_start_time">שעת תחילת שעת השינה</string>
-    <string name="bedtime_end_time">שעת סיום שעת השינה</string>
     <string name="show_battery">הצג סוללה</string>
     <string name="show_battery_icon">הצגת סמליל סוללה</string>
     <string name="show_private_spaces">הצג סמל מרחבים פרטיים</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">גודל הטקסט של היישום</string>
     <string name="date_text_size">גודל הטקסט של התאריך</string>
     <string name="clock_text_size">גודל טקסט שעון</string>
-    <string name="alarm_text_size">גודל טקסט שעון מעורר</string>
     <string name="battery_text_size">גודל הטקסט של הסוללה</string>
     <string name="app_padding_size">גודל ריפוד</string>
     <string name="extend_home_apps_area">הרחב את האזור הניתן ללחיצה</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">זמן מסך כולל</string>
     <string name="date_alignment">תאריך</string>
     <string name="clock_alignment">שעון</string>
-    <string name="alarm_alignment">שעון מעורר</string>
     <string name="home_alignment">יישומי דף הבית</string>
     <string name="drawer_alignment">יישומי מגירה</string>
     <string name="background_color">רקע</string>
     <string name="app_color">יישומים</string>
     <string name="clock_color">שעון</string>
     <string name="date_color">תאריך</string>
-    <string name="alarm_color">שעון מעורר</string>
     <string name="battery_color">סוללה</string>
     <string name="rainbow_shortcuts">קיצורי קשת בענן</string>
     <string name="shortcuts_color">קיצורי דרך</string>
@@ -437,8 +431,6 @@
     <string name="ring_scale">טבעת השעות</string>
     <string name="ring_scale_12">לוח 12 שעות</string>
     <string name="ring_scale_24">היממה כולה (24 שעות)</string>
-    <string name="one_line_alarm_below">שעון מעורר בשורה נפרדת, מתחת לקו</string>
-    <string name="no_alarm_set">לא הוגדר שעון מעורר.</string>
     <string name="clock_area_tap">הקשה</string>
     <string name="clock_display">אזור השעון</string>
     <string name="clock_and_date">שעון ותאריך</string>
@@ -469,7 +461,7 @@
     <string name="help_title">עזרה</string>
     <string name="help_text">RE*start הוא מפעיל חינמי בקוד פתוח. קוד המקור, יומן השינויים ורשימת השינויים מאז הפיצול נמצאים ב-GitHub; ביתו של הפרויקט הוא remaker.ch.</string>
     <string name="feedback_title">משוב</string>
-    <string name="feedback_text">מצאת באג או יש לך רעיון? כתוב מה עשית, מה קרה ומה ציפית שיקרה, והוסף את גרסאות RE*start ו-Android — סימן ה-RE* בתחתית ההגדרות מציג סיכום מכשיר שאפשר לצלם או להעתיק. שלח אותו כ-issue ב-GitHub או בדוא\"ל.</string>
+    <string name="feedback_text">מצאת באג או יש לך רעיון? כתוב מה עשית, מה קרה ומה ציפית שיקרה, והוסף את גרסאות RE*start ו-Android; סימן ה-RE* בתחתית ההגדרות מציג סיכום מכשיר שאפשר לצלם או להעתיק. שלח אותו כ-issue ב-GitHub או בדוא\"ל.</string>
     <string name="feedback_open_issue">פתח issue ב-GitHub</string>
     <string name="feedback_by_mail">בדוא\"ל</string>
     <string name="security_title">אבטחה</string>
@@ -490,4 +482,12 @@
     <string name="notes_written">נכתב</string>
     <string name="notes_add">הוסף</string>
     <string name="notes_kind">סוג</string>
+    <string name="notes_today">היום</string>
+    <string name="notes_home_show">הצגת ספירות ופריטים חשובים</string>
+    <string name="notes_home_alignment">יישור</string>
+    <string name="notes_home_color">צבע</string>
+    <string name="notes_home_size">גודל טקסט</string>
+    <string name="notes_category_entries">פריטים: %1$d</string>
+    <string name="notes_category_remove_confirm">להסיר את „%1$s”? הפריטים יישארו, ללא קטגוריה.</string>
+    <string name="notes_categories_hint">להערות ולמשימות</string>
 </resources>

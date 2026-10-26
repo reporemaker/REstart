@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Vynútiť farebnú tapetu</string>
     <string name="info_tiles">Informačné dlaždice</string>
     <string name="show_clock">Zobraziť hodiny</string>
+    <string name="show_notes">Zobraziť poznámky</string>
     <string name="show_clock_format">Zobraziť formát (AM/PM)</string>
     <string name="show_date">Zobraziť dátum</string>
     <string name="show_day_of_year">Zobraziť deň v roku</string>
-    <string name="show_alarm">Zobraziť budík</string>
-    <string name="alarm_settings">Budík</string>
-    <string name="bedtime_start_time">Čas začiatku večerky</string>
-    <string name="bedtime_end_time">Čas ukončenia večerky</string>
     <string name="show_battery">Zobraziť batériu</string>
     <string name="show_battery_icon">Zobraziť ikonu batérie</string>
     <string name="show_private_spaces">Zobraziť ikonu súkromných priestorov</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Veľkosť textu aplikácie</string>
     <string name="date_text_size">Veľkosť textu dátumu</string>
     <string name="clock_text_size">Veľkosť textu hodín</string>
-    <string name="alarm_text_size">Veľkosť textu budíka</string>
     <string name="battery_text_size">Veľkosť textu batérie</string>
     <string name="app_padding_size">Veľkosť odsadenia</string>
     <string name="extend_home_apps_area">Rozšíriť oblasť kliknutia</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Celkový čas pri obrazovke</string>
     <string name="date_alignment">Dátum</string>
     <string name="clock_alignment">Hodiny</string>
-    <string name="alarm_alignment">Budík</string>
     <string name="home_alignment">Aplikácie domovskej obrazovky</string>
     <string name="drawer_alignment">Aplikácie v zozname</string>
     <string name="background_color">Pozadie</string>
     <string name="app_color">Aplikácie</string>
     <string name="clock_color">Hodiny</string>
     <string name="date_color">Dátum</string>
-    <string name="alarm_color">Budík</string>
     <string name="battery_color">Batéria</string>
     <string name="rainbow_shortcuts">Dúhové skratky</string>
     <string name="shortcuts_color">Skratky</string>
@@ -437,8 +431,6 @@
     <string name="ring_scale">Hodinový prstenec</string>
     <string name="ring_scale_12">12-hodinový ciferník</string>
     <string name="ring_scale_24">Celý deň (24 h)</string>
-    <string name="one_line_alarm_below">Budík na vlastnom riadku pod linkou</string>
-    <string name="no_alarm_set">Nie je nastavený žiadny budík.</string>
     <string name="clock_area_tap">Ťuknutie</string>
     <string name="clock_display">Oblasť hodín</string>
     <string name="clock_and_date">Hodiny a dátum</string>
@@ -469,7 +461,7 @@
     <string name="help_title">Pomoc</string>
     <string name="help_text">RE*start je bezplatný spúšťač s otvoreným zdrojovým kódom. Zdrojový kód, changelog a zoznam zmien od forku sú na GitHube; domovom projektu je remaker.ch.</string>
     <string name="feedback_title">Spätná väzba</string>
-    <string name="feedback_text">Našli ste chybu alebo máte nápad? Napíšte, čo ste urobili, čo sa stalo a čo ste očakávali, a doplňte verziu RE*start a Androidu — značka RE* dole v nastaveniach zobrazí súhrn zariadenia, ktorý môžete uložiť ako snímku obrazovky alebo skopírovať. Pošlite to ako issue na GitHube alebo e-mailom.</string>
+    <string name="feedback_text">Našli ste chybu alebo máte nápad? Napíšte, čo ste urobili, čo sa stalo a čo ste očakávali, a doplňte verziu RE*start a Androidu; značka RE* dole v nastaveniach zobrazí súhrn zariadenia, ktorý môžete uložiť ako snímku obrazovky alebo skopírovať. Pošlite to ako issue na GitHube alebo e-mailom.</string>
     <string name="feedback_open_issue">Otvoriť issue na GitHube</string>
     <string name="feedback_by_mail">E-mailom</string>
     <string name="security_title">Bezpečnosť</string>
@@ -490,4 +482,12 @@
     <string name="notes_written">Napísané</string>
     <string name="notes_add">Pridať</string>
     <string name="notes_kind">Typ</string>
+    <string name="notes_today">Dnes</string>
+    <string name="notes_home_show">Zobraziť počty a dôležité položky</string>
+    <string name="notes_home_alignment">Zarovnanie</string>
+    <string name="notes_home_color">Farba</string>
+    <string name="notes_home_size">Veľkosť textu</string>
+    <string name="notes_category_entries">Položky: %1$d</string>
+    <string name="notes_category_remove_confirm">Odstrániť „%1$s“? Položky zostanú, bez kategórie.</string>
+    <string name="notes_categories_hint">Pre poznámky a úlohy</string>
 </resources>

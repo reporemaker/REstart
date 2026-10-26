@@ -1,7 +1,6 @@
 package ch.remaker.restart.helper
 
 import android.Manifest
-import android.app.AlarmManager
 import android.app.AppOpsManager
 import android.app.role.RoleManager
 import android.appwidget.AppWidgetManager
@@ -15,28 +14,17 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Canvas
-import android.graphics.ColorFilter
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Process
 import android.os.UserHandle
 import android.os.UserManager
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.format.DateFormat
-import android.text.style.ImageSpan
 import android.util.TypedValue
 import android.view.View
 import android.view.Window
 import android.view.WindowInsets
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.withSave
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -137,127 +125,6 @@ fun getUserHandleFromString(context: Context, userHandleString: String): UserHan
         }
     }
     return Process.myUserHandle()
-}
-
-fun getNextAlarm(context: Context, prefs: Prefs): CharSequence {
-    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-    val is24HourFormat = DateFormat.is24HourFormat(context)
-    val nextAlarmClock = alarmManager.nextAlarmClock ?: return context.getString(R.string.no_alarm_set)
-
-    // Filter out Sleep/Bedtime mode alarms from Samsung and Google Clock
-    // Uses user-configured bedtime start/end times from settings
-    val isSleepModeAlarm = isSleepModeAlarm(nextAlarmClock, prefs)
-
-    if (isSleepModeAlarm) {
-        AppLogger.d("AlarmFilter", "Filtered out sleep mode alarm")
-        return context.getString(R.string.no_alarm_set)
-    }
-
-    val alarmTime = nextAlarmClock.triggerTime
-    val timezone =
-        prefs.appLanguage.locale()  // Assuming this returns a string like "America/New_York"
-    val formattedDate = DateFormat.getBestDateTimePattern(timezone, "eeeddMMM")
-    val best12 = DateFormat.getBestDateTimePattern(
-        timezone,
-        if (prefs.showClockFormat) "hhmma" else "hhmm"
-    ).let {
-        if (!prefs.showClockFormat) it.removeSuffix(" a") else it
-    }
-    val best24 = DateFormat.getBestDateTimePattern(timezone, "HHmm")
-    val formattedTime = if (is24HourFormat) best24 else best12
-    val formattedAlarm =
-        SimpleDateFormat("$formattedDate $formattedTime", Locale.getDefault()).format(alarmTime)
-
-    val drawable = AppCompatResources.getDrawable(context, R.drawable.ic_alarm_clock)
-    val fontSize = TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_SP,
-        (prefs.alarmSize / 1.5).toFloat(),
-        context.resources.displayMetrics
-    ).toInt()
-
-    drawable?.apply {
-        setBounds(0, 0, fontSize, fontSize)
-        val colorFilterColor: ColorFilter =
-            PorterDuffColorFilter(prefs.alarmClockColor, PorterDuff.Mode.SRC_IN)
-        drawable.colorFilter = colorFilterColor
-    }
-
-    val imageSpan = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        ImageSpan(drawable!!, ImageSpan.ALIGN_CENTER)
-    } else {
-        CenteredImageSpan(drawable!!)
-    }
-
-    return SpannableStringBuilder(" ").apply {
-        setSpan(
-            imageSpan,
-            0, 1,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        append(" $formattedAlarm")
-    }
-}
-
-/**
- * Checks if the given alarm is a sleep mode/bedtime alarm
- * Uses user-configured bedtime start/end times from settings
- */
-private fun isSleepModeAlarm(alarmClock: AlarmManager.AlarmClockInfo, prefs: Prefs): Boolean {
-    return try {
-        val showIntent = alarmClock.showIntent ?: return false
-
-        // Use public API to get the creator package (available since API 31)
-        val creatorPackage = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            showIntent.creatorPackage
-        } else {
-            // For older versions, we can't get the package, so check device manufacturer
-            if (Build.MANUFACTURER.equals("Samsung", ignoreCase = true) ||
-                Build.BRAND.equals("Samsung", ignoreCase = true) ||
-                Build.MANUFACTURER.equals("Google", ignoreCase = true) ||
-                Build.BRAND.equals("Google", ignoreCase = true)) {
-                "samsung_or_google"
-            } else {
-                null
-            }
-        }
-
-        AppLogger.d("AlarmFilter", "Alarm creator package: $creatorPackage")
-
-        // Samsung Clock package: com.sec.android.app.clockpackage
-        // Google Clock package: com.google.android.deskclock
-        val isSamsungClock = creatorPackage == "com.sec.android.app.clockpackage"
-        val isGoogleClock = creatorPackage == "com.google.android.deskclock"
-        val isSamsungOrGoogleDevice = creatorPackage == "samsung_or_google"
-
-        if (isSamsungClock || isGoogleClock || isSamsungOrGoogleDevice) {
-            val calendar = Calendar.getInstance()
-            calendar.timeInMillis = alarmClock.triggerTime
-            val hour = calendar.get(Calendar.HOUR_OF_DAY)
-            val minute = calendar.get(Calendar.MINUTE)
-
-            // Get user-configured bedtime times from settings
-            val bedtimeStartHour = prefs.bedtimeStartHour
-            val bedtimeStartMinute = prefs.bedtimeStartMinute
-            val bedtimeEndHour = prefs.bedtimeEndHour
-            val bedtimeEndMinute = prefs.bedtimeEndMinute
-
-            // Check if alarm time matches bedtime start or end time
-            val isBedtimeStart = (hour == bedtimeStartHour && minute == bedtimeStartMinute)
-            val isBedtimeEnd = (hour == bedtimeEndHour && minute == bedtimeEndMinute)
-
-            if (isBedtimeStart || isBedtimeEnd) {
-                AppLogger.d("AlarmFilter", "Alarm matches bedtime time: $hour:$minute")
-                true
-            } else {
-                false
-            }
-        } else {
-            false
-        }
-    } catch (e: Exception) {
-        AppLogger.e("AlarmFilter", "Error checking for sleep mode alarm: ${e.message}", e)
-        false
-    }
 }
 
 fun isREstartAppDefault(context: Context): Boolean {
@@ -918,25 +785,4 @@ fun setTopPadding(view: View, isSettings: Boolean = false) {
     }
 
     ViewCompat.requestApplyInsets(view)
-}
-
-class CenteredImageSpan(drawable: Drawable) : ImageSpan(drawable) {
-    override fun draw(
-        canvas: Canvas,
-        text: CharSequence,
-        start: Int,
-        end: Int,
-        x: Float,
-        top: Int,
-        y: Int,
-        bottom: Int,
-        paint: Paint
-    ) {
-        val drawable = drawable
-        canvas.withSave {
-            val transY = top + ((bottom - top) - drawable.bounds.height()) / 2
-            translate(x, transY.toFloat())
-            drawable.draw(this)
-        }
-    }
 }

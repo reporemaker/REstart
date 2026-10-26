@@ -30,6 +30,13 @@ class NotesManagerFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val prefs = Prefs(requireContext())
         state = NotesState(NotesStore(prefs))
+        // A line on the home screen opens its entry straight away; closing it goes back home
+        val openId = arguments?.getLong(ARG_NOTE_ID, 0L) ?: 0L
+        arguments?.remove(ARG_NOTE_ID)
+        if (openId != 0L && state.items.any { it.id == openId }) {
+            state.editingId = openId
+            state.afterClose = { findNavController().popBackStack() }
+        }
         val dialogs = DialogManager(requireContext(), requireActivity())
         val isDark = when (prefs.appTheme) {
             Constants.Theme.Light -> false
@@ -59,6 +66,10 @@ class NotesManagerFragment : BaseFragment() {
                 }
             }
         })
+    }
+
+    companion object {
+        const val ARG_NOTE_ID = "noteId"
     }
 
     private fun share(text: String) {

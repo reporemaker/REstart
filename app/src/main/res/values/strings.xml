@@ -47,7 +47,7 @@
 
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Hidden Apps</string>
-    <string name="settings_hidden_apps_description">Manage hidden apps — unhide any app from this list when needed.</string>
+    <string name="settings_hidden_apps_description">Manage hidden apps: unhide any app from this list when needed.</string>
 
 
     <string name="settings_advanced_title">Advanced</string>
@@ -100,13 +100,10 @@
     <string name="info_tiles">Info Tiles</string>
 
     <string name="show_clock">Show Clock</string>
+    <string name="show_notes">Show Notes</string>
     <string name="show_clock_format">Show Format (AM/PM)</string>
     <string name="show_date">Show Date</string>
     <string name="show_day_of_year">Show Day Of Year</string>
-    <string name="show_alarm">Show Alarm</string>
-    <string name="alarm_settings">Alarm</string>
-    <string name="bedtime_start_time">Bedtime Start Time</string>
-    <string name="bedtime_end_time">Bedtime End Time</string>
     <string name="show_battery">Show Battery</string>
     <string name="show_battery_icon">Show Battery Icon</string>
     <string name="show_private_spaces">Show Private Spaces Icon</string>
@@ -125,7 +122,6 @@
     <string name="app_text_size">App Text Size</string>
     <string name="date_text_size">Date Text Size</string>
     <string name="clock_text_size">Clock Text Size</string>
-    <string name="alarm_text_size">Alarm Text Size</string>
     <string name="battery_text_size">Battery Text Size</string>
 
 
@@ -194,7 +190,6 @@
 
     <string name="date_alignment">Date</string>
     <string name="clock_alignment">Clock</string>
-    <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Home Apps</string>
     <string name="drawer_alignment">Drawer Apps</string>
 
@@ -203,7 +198,6 @@
     <string name="app_color">Apps</string>
     <string name="clock_color">Clock</string>
     <string name="date_color">Date</string>
-    <string name="alarm_color">Alarm</string>
     <string name="battery_color">Battery</string>
     <string name="rainbow_shortcuts">Rainbow Shortcuts</string>
     <string name="shortcuts_color">Shortcuts</string>
@@ -331,15 +325,13 @@
     <string name="ring_scale">Hour ring</string>
     <string name="ring_scale_12">12-hour dial</string>
     <string name="ring_scale_24">The whole day (24 h)</string>
-    <string name="one_line_alarm_below">Alarm on its own line, under the rule</string>
-    <string name="no_alarm_set">No alarm is set.</string>
     <string name="clock_area_tap">Tap</string>
     <string name="settings_actions_section">Actions</string>
     <string name="device_summary">Device summary</string>
     <string name="help_title">Help</string>
     <string name="help_text">RE*start is a free, open-source launcher. The source code, the changelog and the list of changes since the fork are on GitHub; the project\'s home is remaker.ch.</string>
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_text">Found a bug or have an idea? Say what you did, what happened and what you expected, and add the RE*start and Android versions — the RE* mark at the bottom of the settings shows a device summary you can screenshot or copy. Send it as a GitHub issue or by e-mail.</string>
+    <string name="feedback_text">Found a bug or have an idea? Say what you did, what happened and what you expected, and add the RE*start and Android versions; the RE* mark at the bottom of the settings shows a device summary you can screenshot or copy. Send it as a GitHub issue or by e-mail.</string>
     <string name="feedback_open_issue">Open an issue on GitHub</string>
     <string name="feedback_translation">Report a translation error</string>
     <string name="feedback_by_mail">By e-mail</string>
@@ -598,4 +590,12 @@
     <string name="notes_written">Written</string>
     <string name="notes_add">Add</string>
     <string name="notes_kind">Type</string>
+    <string name="notes_today">Today</string>
+    <string name="notes_home_show">Show counts and important entries</string>
+    <string name="notes_home_alignment">Alignment</string>
+    <string name="notes_home_color">Colour</string>
+    <string name="notes_home_size">Text size</string>
+    <string name="notes_category_entries">Entries: %1$d</string>
+    <string name="notes_category_remove_confirm">Remove “%1$s”? Its entries stay, without a category.</string>
+    <string name="notes_categories_hint">Used by notes and to-dos</string>
 </resources>

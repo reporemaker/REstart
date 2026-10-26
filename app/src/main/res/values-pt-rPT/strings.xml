@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Reorganize as suas aplicações favoritas para acesso rápido no ecrã inicial.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Aplicações ocultas</string>
-    <string name="settings_hidden_apps_description">Gerir aplicações ocultas — mostre qualquer aplicação desta lista quando necessário.</string>
+    <string name="settings_hidden_apps_description">Gerir aplicações ocultas: mostre qualquer aplicação desta lista quando necessário.</string>
     <string name="settings_advanced_title">Definições avançadas</string>
     <string name="settings_advanced_description">Aceda a informações da aplicação, iniciador predefinido, ferramentas de cópia de segurança e muito mais.</string>
     <string name="settings_expert_title">Especialista</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Forçar fundo de ecrã colorido</string>
     <string name="info_tiles">Blocos de Informação</string>
     <string name="show_clock">Mostrar relógio</string>
+    <string name="show_notes">Mostrar notas</string>
     <string name="show_clock_format">Mostrar formato (AM/PM)</string>
     <string name="show_date">Mostrar data</string>
     <string name="show_day_of_year">Mostrar dia do ano</string>
-    <string name="show_alarm">Mostrar alarme</string>
-    <string name="alarm_settings">Alarme</string>
-    <string name="bedtime_start_time">Hora de início do descanso</string>
-    <string name="bedtime_end_time">Hora de fim do descanso</string>
     <string name="show_battery">Mostrar bateria</string>
     <string name="show_battery_icon">Mostrar ícone da bateria</string>
     <string name="show_private_spaces">Mostrar ícone de espaços privados</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Tamanho do texto da aplicação</string>
     <string name="date_text_size">Tamanho do texto da data</string>
     <string name="clock_text_size">Tamanho do texto do relógio</string>
-    <string name="alarm_text_size">Tamanho do texto do alarme</string>
     <string name="battery_text_size">Tamanho do texto da bateria</string>
     <string name="app_padding_size">Tamanho do Preenchimento</string>
     <string name="extend_home_apps_area">Ampliar área clicável</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Tempo total de ecrã</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Relógio</string>
-    <string name="alarm_alignment">Alarme</string>
     <string name="home_alignment">Aplicações do ecrã inicial</string>
     <string name="drawer_alignment">Aplicações da gaveta</string>
     <string name="background_color">Fundo</string>
     <string name="app_color">Aplicações</string>
     <string name="clock_color">Relógio</string>
     <string name="date_color">Data</string>
-    <string name="alarm_color">Alarme</string>
     <string name="battery_color">Bateria</string>
     <string name="rainbow_shortcuts">Atalhos do Arco-Íris</string>
     <string name="shortcuts_color">Atalhos</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">Anel das horas</string>
     <string name="ring_scale_12">Mostrador de 12 horas</string>
     <string name="ring_scale_24">O dia inteiro (24 h)</string>
-    <string name="one_line_alarm_below">Alarme numa fila própria, por baixo da linha</string>
-    <string name="no_alarm_set">Nenhum alarme definido.</string>
     <string name="clock_area_tap">Toque</string>
     <string name="clock_display">Área do relógio</string>
     <string name="clock_and_date">Relógio e data</string>
@@ -475,7 +467,7 @@
     <string name="help_title">Ajuda</string>
     <string name="help_text">O RE*start é um iniciador gratuito e de código aberto. O código-fonte, o registo de alterações e a lista de alterações desde a bifurcação estão no GitHub; a casa do projeto é remaker.ch.</string>
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_text">Encontrou um erro ou tem uma ideia? Diga o que fez, o que aconteceu e o que esperava, e indique as versões do RE*start e do Android — a marca RE* no fundo das definições mostra um resumo do dispositivo que pode capturar ou copiar. Envie como issue no GitHub ou por e-mail.</string>
+    <string name="feedback_text">Encontrou um erro ou tem uma ideia? Diga o que fez, o que aconteceu e o que esperava, e indique as versões do RE*start e do Android; a marca RE* no fundo das definições mostra um resumo do dispositivo que pode capturar ou copiar. Envie como issue no GitHub ou por e-mail.</string>
     <string name="feedback_open_issue">Abrir um issue no GitHub</string>
     <string name="feedback_by_mail">Por e-mail</string>
     <string name="security_title">Segurança</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">Escrita</string>
     <string name="notes_add">Adicionar</string>
     <string name="notes_kind">Tipo</string>
+    <string name="notes_today">Hoje</string>
+    <string name="notes_home_show">Mostrar contagens e entradas importantes</string>
+    <string name="notes_home_alignment">Alinhamento</string>
+    <string name="notes_home_color">Cor</string>
+    <string name="notes_home_size">Tamanho do texto</string>
+    <string name="notes_category_entries">Entradas: %1$d</string>
+    <string name="notes_category_remove_confirm">Remover «%1$s»? As entradas ficam, sem categoria.</string>
+    <string name="notes_categories_hint">Para notas e tarefas</string>
 </resources>

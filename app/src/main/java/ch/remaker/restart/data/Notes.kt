@@ -34,6 +34,8 @@ class NotesStore(private val prefs: Prefs) {
 
     private val adapter = Moshi.Builder().build()
         .adapter<List<NoteItem>>(Types.newParameterizedType(List::class.java, NoteItem::class.java))
+    private val namesAdapter = Moshi.Builder().build()
+        .adapter<List<String>>(Types.newParameterizedType(List::class.java, String::class.java))
 
     fun load(): List<NoteItem> {
         val json = prefs.prefsNormal.getString(NOTES_ITEMS, null)
@@ -50,9 +52,39 @@ class NotesStore(private val prefs: Prefs) {
         prefs.prefsNormal.edit(commit = true) { putString(NOTES_ITEMS, adapter.toJson(items)) }
     }
 
-    /** Categories in use, alphabetically, without duplicates (any case) or blanks. */
-    fun categories(items: List<NoteItem>): List<String> =
-        items.map { it.category.trim() }.filter { it.isNotEmpty() }.distinctBy { it.lowercase() }.sortedBy { it.lowercase() }
+    /** The categories the user created, kept even while no entry carries them. */
+    fun savedCategories(): List<String> = try {
+        prefs.prefsNormal.getString(NOTES_CATEGORIES, null)?.let { namesAdapter.fromJson(it) } ?: emptyList()
+    } catch (e: Exception) {
+        AppLogger.e("NotesStore", "Could not read note categories", e)
+        emptyList()
+    }
+
+    fun saveCategories(names: List<String>) {
+        prefs.prefsNormal.edit(commit = true) { putString(NOTES_CATEGORIES, namesAdapter.toJson(names)) }
+    }
+
+    /** Every category, created or in use, alphabetically, each once (see [NotesCategories]). */
+    fun categories(items: List<NoteItem>): List<String> = NotesCategories.all(savedCategories(), items)
+
+    fun addCategory(name: String) = saveCategories(NotesCategories.add(savedCategories(), name))
+
+    /** Renames [old] on the list and on every entry; false when [new] is blank or taken. */
+    fun renameCategory(old: String, new: String): Boolean {
+        val items = load()
+        if (!NotesCategories.canRename(categories(items), old, new)) return false
+        val (names, entries) = NotesCategories.rename(savedCategories(), items, old, new)
+        save(entries)
+        saveCategories(names)
+        return true
+    }
+
+    /** Removes [name]; its entries stay, without a category. */
+    fun removeCategory(name: String) {
+        val (names, entries) = NotesCategories.remove(savedCategories(), load(), name)
+        save(entries)
+        saveCategories(names)
+    }
 
     /**
      * The old notes kept text, a formatted date, and the category and priority as translated
@@ -102,5 +134,6 @@ class NotesStore(private val prefs: Prefs) {
 
     companion object {
         private const val NOTES_ITEMS = "NOTES_ITEMS"
+        private const val NOTES_CATEGORIES = "NOTES_CATEGORIES"
     }
 }

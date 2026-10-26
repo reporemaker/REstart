@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Zmień kolejność ulubionych aplikacji, aby mieć do nich szybki dostęp z ekranu głównego.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Ukryte aplikacje</string>
-    <string name="settings_hidden_apps_description">Zarządzaj ukrytymi aplikacjami — w razie potrzeby pokaż dowolną aplikację z tej listy.</string>
+    <string name="settings_hidden_apps_description">Zarządzaj ukrytymi aplikacjami: w razie potrzeby pokaż dowolną aplikację z tej listy.</string>
     <string name="settings_advanced_title">Ustawienia zaawansowane</string>
     <string name="settings_advanced_description">Uzyskaj dostęp do informacji o aplikacjach, domyślnego programu uruchamiającego, narzędzi do tworzenia kopii zapasowych i nie tylko.</string>
     <string name="settings_expert_title">Ekspert</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Wymuś kolorową tapetę</string>
     <string name="info_tiles">Kafelki informacyjne</string>
     <string name="show_clock">Pokaż zegar</string>
+    <string name="show_notes">Pokaż notatki</string>
     <string name="show_clock_format">Pokaż format (AM/PM)</string>
     <string name="show_date">Pokaż datę</string>
     <string name="show_day_of_year">Pokaż dzień roku</string>
-    <string name="show_alarm">Pokaż alarm</string>
-    <string name="alarm_settings">Alarm</string>
-    <string name="bedtime_start_time">Czas rozpoczęcia snu</string>
-    <string name="bedtime_end_time">Czas zakończenia snu</string>
     <string name="show_battery">Pokaż baterię</string>
     <string name="show_battery_icon">Pokaż ikonę baterii</string>
     <string name="show_private_spaces">Pokaż ikonę przestrzeni prywatnych</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Rozmiar tekstu aplikacji</string>
     <string name="date_text_size">Rozmiar tekstu daty</string>
     <string name="clock_text_size">Rozmiar tekstu zegara</string>
-    <string name="alarm_text_size">Rozmiar tekstu alarmu</string>
     <string name="battery_text_size">Rozmiar tekstu baterii</string>
     <string name="app_padding_size">Rozmiar wypełnienia</string>
     <string name="extend_home_apps_area">Rozszerz obszar klikalny</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Całkowity czas spędzony przed ekranem</string>
     <string name="date_alignment">Data</string>
     <string name="clock_alignment">Zegar</string>
-    <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Aplikacje ekranu głównego</string>
     <string name="drawer_alignment">Aplikacje w szufladzie</string>
     <string name="background_color">Tło</string>
     <string name="app_color">Aplikacje</string>
     <string name="clock_color">Zegar</string>
     <string name="date_color">Data</string>
-    <string name="alarm_color">Alarm</string>
     <string name="battery_color">Bateria</string>
     <string name="rainbow_shortcuts">Tęczowe skróty</string>
     <string name="shortcuts_color">Skróty</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">Pierścień godzin</string>
     <string name="ring_scale_12">Tarcza 12-godzinna</string>
     <string name="ring_scale_24">Cała doba (24 h)</string>
-    <string name="one_line_alarm_below">Alarm w osobnym wierszu, pod linią</string>
-    <string name="no_alarm_set">Nie ustawiono alarmu.</string>
     <string name="clock_area_tap">Dotknięcie</string>
     <string name="clock_display">Obszar zegara</string>
     <string name="clock_and_date">Zegar i data</string>
@@ -475,7 +467,7 @@
     <string name="help_title">Pomoc</string>
     <string name="help_text">RE*start to darmowy launcher o otwartym kodzie. Kod źródłowy, dziennik zmian i lista zmian od rozwidlenia są na GitHubie; domem projektu jest remaker.ch.</string>
     <string name="feedback_title">Opinia</string>
-    <string name="feedback_text">Znalazłeś błąd lub masz pomysł? Opisz, co zrobiłeś, co się stało i czego oczekiwałeś, i podaj wersje RE*start i Androida — znak RE* na dole ustawień pokazuje podsumowanie urządzenia, które możesz zapisać jako zrzut ekranu lub skopiować. Wyślij to jako issue na GitHubie albo e-mailem.</string>
+    <string name="feedback_text">Znalazłeś błąd lub masz pomysł? Opisz, co zrobiłeś, co się stało i czego oczekiwałeś, i podaj wersje RE*start i Androida; znak RE* na dole ustawień pokazuje podsumowanie urządzenia, które możesz zapisać jako zrzut ekranu lub skopiować. Wyślij to jako issue na GitHubie albo e-mailem.</string>
     <string name="feedback_open_issue">Otwórz issue na GitHubie</string>
     <string name="feedback_by_mail">E-mailem</string>
     <string name="security_title">Bezpieczeństwo</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">Napisano</string>
     <string name="notes_add">Dodaj</string>
     <string name="notes_kind">Rodzaj</string>
+    <string name="notes_today">Dzisiaj</string>
+    <string name="notes_home_show">Pokazuj liczby i ważne wpisy</string>
+    <string name="notes_home_alignment">Wyrównanie</string>
+    <string name="notes_home_color">Kolor</string>
+    <string name="notes_home_size">Rozmiar tekstu</string>
+    <string name="notes_category_entries">Wpisy: %1$d</string>
+    <string name="notes_category_remove_confirm">Usunąć „%1$s”? Wpisy zostaną, bez kategorii.</string>
+    <string name="notes_categories_hint">Dla notatek i zadań</string>
 </resources>

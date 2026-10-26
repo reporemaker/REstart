@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Rangschik je favoriete apps opnieuw voor snelle toegang vanaf het startscherm.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Verborgen apps</string>
-    <string name="settings_hidden_apps_description">Beheer verborgen apps — maak elke gewenste app in deze lijst weer zichtbaar wanneer dat nodig is.</string>
+    <string name="settings_hidden_apps_description">Beheer verborgen apps: maak elke gewenste app in deze lijst weer zichtbaar wanneer dat nodig is.</string>
     <string name="settings_advanced_title">Geavanceerd</string>
     <string name="settings_advanced_description">Toegang tot app-info, standaard launcher, back-uptools en meer.</string>
     <string name="settings_expert_title">Expert</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Gekleurde achtergrond forceren</string>
     <string name="info_tiles">Informatietegels</string>
     <string name="show_clock">Klok weergeven</string>
+    <string name="show_notes">Notities tonen</string>
     <string name="show_clock_format">Notatie weergeven (AM/PM)</string>
     <string name="show_date">Datum weergeven</string>
     <string name="show_day_of_year">Toon de dag van het jaar</string>
-    <string name="show_alarm">Alarm weergeven</string>
-    <string name="alarm_settings">Alarm</string>
-    <string name="bedtime_start_time">Begin bedtijd</string>
-    <string name="bedtime_end_time">Einde bedtijd</string>
     <string name="show_battery">Batterij weergeven</string>
     <string name="show_battery_icon">Batterijpictogram weergeven</string>
     <string name="show_private_spaces">Toon pictogram voor privéruimtes</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Tekstgrootte App</string>
     <string name="date_text_size">Datum tekstgrootte</string>
     <string name="clock_text_size">Kloktekstgrootte</string>
-    <string name="alarm_text_size">Tekstgrootte alarm</string>
     <string name="battery_text_size">Tekstgrootte batterij</string>
     <string name="app_padding_size">Opvullingsgrootte</string>
     <string name="extend_home_apps_area">Klikbaar gebied uitbreiden</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Totale schermtijd</string>
     <string name="date_alignment">Datum</string>
     <string name="clock_alignment">Klok</string>
-    <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Home-apps</string>
     <string name="drawer_alignment">Lade-apps</string>
     <string name="background_color">Achtergrond</string>
     <string name="app_color">Apps</string>
     <string name="clock_color">Klok</string>
     <string name="date_color">Datum</string>
-    <string name="alarm_color">Alarm</string>
     <string name="battery_color">Batterij</string>
     <string name="rainbow_shortcuts">Regenboogsnelkoppelingen</string>
     <string name="shortcuts_color">Snelkoppelingen</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">Urenring</string>
     <string name="ring_scale_12">12-uurs wijzerplaat</string>
     <string name="ring_scale_24">De hele dag (24 u)</string>
-    <string name="one_line_alarm_below">Alarm op een eigen regel, onder de lijn</string>
-    <string name="no_alarm_set">Geen alarm ingesteld.</string>
     <string name="clock_area_tap">Tikken</string>
     <string name="clock_display">Klokgebied</string>
     <string name="clock_and_date">Klok en datum</string>
@@ -475,7 +467,7 @@
     <string name="help_title">Hulp</string>
     <string name="help_text">RE*start is een gratis, open source launcher. De broncode, het changelog en de lijst met wijzigingen sinds de fork staan op GitHub; het thuis van het project is remaker.ch.</string>
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_text">Een bug gevonden of een idee? Beschrijf wat je deed, wat er gebeurde en wat je verwachtte, en vermeld de RE*start- en Android-versie — het RE*-teken onderaan de instellingen toont een apparaatoverzicht dat je als screenshot kunt toevoegen of kopiëren. Stuur het als GitHub-issue of per e-mail.</string>
+    <string name="feedback_text">Een bug gevonden of een idee? Beschrijf wat je deed, wat er gebeurde en wat je verwachtte, en vermeld de RE*start- en Android-versie; het RE*-teken onderaan de instellingen toont een apparaatoverzicht dat je als screenshot kunt toevoegen of kopiëren. Stuur het als GitHub-issue of per e-mail.</string>
     <string name="feedback_open_issue">Een issue openen op GitHub</string>
     <string name="feedback_by_mail">Per e-mail</string>
     <string name="security_title">Beveiliging</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">Geschreven</string>
     <string name="notes_add">Toevoegen</string>
     <string name="notes_kind">Soort</string>
+    <string name="notes_today">Vandaag</string>
+    <string name="notes_home_show">Aantallen en belangrijke items tonen</string>
+    <string name="notes_home_alignment">Uitlijning</string>
+    <string name="notes_home_color">Kleur</string>
+    <string name="notes_home_size">Tekstgrootte</string>
+    <string name="notes_category_entries">Items: %1$d</string>
+    <string name="notes_category_remove_confirm">„%1$s” verwijderen? De items blijven, zonder categorie.</string>
+    <string name="notes_categories_hint">Voor notities en taken</string>
 </resources>

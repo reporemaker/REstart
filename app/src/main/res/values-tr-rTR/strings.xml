@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Ana ekrandan hızlı erişim için favori uygulamalarınızın sırasını değiştirin.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Gizli uygulamalar</string>
-    <string name="settings_hidden_apps_description">Gizli uygulamaları yönetin — gerektiğinde bu listeden herhangi bir uygulamayı görünür hale getirin.</string>
+    <string name="settings_hidden_apps_description">Gizli uygulamaları yönetin: gerektiğinde bu listeden herhangi bir uygulamayı görünür hale getirin.</string>
     <string name="settings_advanced_title">Gelişmiş Ayarlar</string>
     <string name="settings_advanced_description">Uygulama bilgilerine, varsayılan başlatıcıya, yedekleme araçlarına ve daha fazlasına erişin.</string>
     <string name="settings_expert_title">Uzman</string>
@@ -71,15 +71,12 @@
     <string name="enable_app_timer">Uygulama Zamanlayıcısını Etkinleştir</string>
     <string name="force_colored_wallpaper">Duvar kağıdını arka plan rengiyle değiştir</string>
     <string name="info_tiles">Bilgi Kutucukları</string>
-    <string name="show_clock">Saati Göster</string>
+    <string name="show_clock">Saati göster</string>
+    <string name="show_notes">Notları göster</string>
     <string name="show_clock_format">ÖÖ/ÖS göstergesini göster</string>
-    <string name="show_date">Tarih\'i göster</string>
+    <string name="show_date">Tarihi göster</string>
     <string name="show_day_of_year">Yılın gününü göster</string>
-    <string name="show_alarm">Alarmı Göster</string>
-    <string name="alarm_settings">Alarm</string>
-    <string name="bedtime_start_time">Uyku saati başlangıcı</string>
-    <string name="bedtime_end_time">Uyku saati bitişi</string>
-    <string name="show_battery">Pil\'i göster</string>
+    <string name="show_battery">Pili göster</string>
     <string name="show_battery_icon">Pil simgesini göster</string>
     <string name="show_private_spaces">Özel Alanlar Simgesini Göster</string>
     <string name="weather">Hava durumu</string>
@@ -92,7 +89,6 @@
     <string name="app_text_size">Uygulama Metin Boyutu</string>
     <string name="date_text_size">Tarih Metin Boyutu</string>
     <string name="clock_text_size">Saat Metin Boyutu</string>
-    <string name="alarm_text_size">Alarm Metni Boyutu</string>
     <string name="battery_text_size">Pil Metin Boyutu</string>
     <string name="app_padding_size">Boşluk Boyutu</string>
     <string name="extend_home_apps_area">Tıklanabilir Alanı Genişlet</string>
@@ -154,14 +150,12 @@
     <string name="total_screen_time">Toplam Ekran Süresi</string>
     <string name="date_alignment">Tarih</string>
     <string name="clock_alignment">Saat</string>
-    <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Ana ekran uygulamaları</string>
     <string name="drawer_alignment">Çekmece Uygulamaları</string>
     <string name="background_color">Arka plan</string>
     <string name="app_color">Uygulamalar</string>
     <string name="clock_color">Saat</string>
     <string name="date_color">Tarih</string>
-    <string name="alarm_color">Alarm</string>
     <string name="battery_color">Pil</string>
     <string name="rainbow_shortcuts">Renkli kısayol düğmeleri</string>
     <string name="shortcuts_color">Kısayollar</string>
@@ -257,15 +251,13 @@
     <string name="ring_scale">Saat halkası</string>
     <string name="ring_scale_12">12 saatlik kadran</string>
     <string name="ring_scale_24">Bütün gün (24 s)</string>
-    <string name="one_line_alarm_below">Alarm çizginin altında ayrı satırda</string>
-    <string name="no_alarm_set">Alarm kurulu değil.</string>
     <string name="clock_area_tap">Dokunma</string>
     <string name="settings_actions_section">İşlemler</string>
     <string name="device_summary">Cihaz özeti</string>
     <string name="help_title">Yardım</string>
     <string name="help_text">RE*start ücretsiz, açık kaynaklı bir launcher. Kaynak kodu, değişiklik günlüğü ve çatallanmadan bu yana yapılan değişikliklerin listesi GitHub\'da; projenin evi remaker.ch.</string>
     <string name="feedback_title">Geri bildirim</string>
-    <string name="feedback_text">Bir hata mı buldun, bir fikrin mi var? Ne yaptığını, ne olduğunu ve ne beklediğini yaz; RE*start ve Android sürümünü ekle — ayarların altındaki RE* işareti, ekran görüntüsünü alıp ekleyebileceğin bir cihaz özeti gösterir. GitHub\'da issue olarak ya da e-posta ile gönder.</string>
+    <string name="feedback_text">Bir hata mı buldun, bir fikrin mi var? Ne yaptığını, ne olduğunu ve ne beklediğini yaz; RE*start ve Android sürümünü ekle; ayarların altındaki RE* işareti, ekran görüntüsünü alıp ekleyebileceğin bir cihaz özeti gösterir. GitHub\'da issue olarak ya da e-posta ile gönder.</string>
     <string name="feedback_open_issue">GitHub\'da issue aç</string>
     <string name="feedback_translation">Çeviri hatası bildir</string>
     <string name="feedback_by_mail">E-posta ile</string>
@@ -495,4 +487,12 @@
     <string name="notes_written">Yazıldı</string>
     <string name="notes_add">Ekle</string>
     <string name="notes_kind">Tür</string>
+    <string name="notes_today">Bugün</string>
+    <string name="notes_home_show">Sayıları ve önemlileri göster</string>
+    <string name="notes_home_alignment">Hizalama</string>
+    <string name="notes_home_color">Renk</string>
+    <string name="notes_home_size">Yazı boyutu</string>
+    <string name="notes_category_entries">Kalem: %1$d</string>
+    <string name="notes_category_remove_confirm">“%1$s” silinsin mi? Kalemleri kategorisiz olarak kalır.</string>
+    <string name="notes_categories_hint">Notlarda ve yapılacaklarda kullanılır</string>
 </resources>

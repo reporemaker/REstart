@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Измените порядок ваших любимых приложений для быстрого доступа с главного экрана.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Скрытые приложения</string>
-    <string name="settings_hidden_apps_description">Управление скрытыми приложениями — при необходимости отобразите любое скрытое приложение из этого списка.</string>
+    <string name="settings_hidden_apps_description">Управление скрытыми приложениями: при необходимости отобразите любое скрытое приложение из этого списка.</string>
     <string name="settings_advanced_title">Расширенные настройки</string>
     <string name="settings_advanced_description">Получите доступ к информации о приложениях, стандартному лаунчеру, инструментам резервного копирования и многому другому.</string>
     <string name="settings_expert_title">Эксперт</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Принудительно цветные обои</string>
     <string name="info_tiles">Информационные плитки</string>
     <string name="show_clock">Показать часы</string>
+    <string name="show_notes">Показывать заметки</string>
     <string name="show_clock_format">Показать формат (AM/PM)</string>
     <string name="show_date">Показать дату</string>
     <string name="show_day_of_year">Показать день года</string>
-    <string name="show_alarm">Показать будильник</string>
-    <string name="alarm_settings">Будильник</string>
-    <string name="bedtime_start_time">Время начала сна</string>
-    <string name="bedtime_end_time">Время окончания сна</string>
     <string name="show_battery">Показать состояние батареи</string>
     <string name="show_battery_icon">Показать значок батареи</string>
     <string name="show_private_spaces">Показать значок «Приватные пространства»</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Размер текста приложения</string>
     <string name="date_text_size">Размер текста даты</string>
     <string name="clock_text_size">Размер текста часов</string>
-    <string name="alarm_text_size">Размер текста будильника</string>
     <string name="battery_text_size">Размер текста батареи</string>
     <string name="app_padding_size">Размер отступов</string>
     <string name="extend_home_apps_area">Расширить область, доступную для клика</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Общее время, проведенное за экраном</string>
     <string name="date_alignment">Дата</string>
     <string name="clock_alignment">Часы</string>
-    <string name="alarm_alignment">Будильник</string>
     <string name="home_alignment">Приложения главного экрана</string>
     <string name="drawer_alignment">Приложения в списке</string>
     <string name="background_color">Фон</string>
     <string name="app_color">Приложения</string>
     <string name="clock_color">Часы</string>
     <string name="date_color">Дата</string>
-    <string name="alarm_color">Будильник</string>
     <string name="battery_color">Батарея</string>
     <string name="rainbow_shortcuts">Радужные ярлыки</string>
     <string name="shortcuts_color">Ярлыки</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">Часовое кольцо</string>
     <string name="ring_scale_12">12-часовой циферблат</string>
     <string name="ring_scale_24">Весь день (24 ч)</string>
-    <string name="one_line_alarm_below">Будильник отдельной строкой под линией</string>
-    <string name="no_alarm_set">Будильник не установлен.</string>
     <string name="clock_area_tap">Нажатие</string>
     <string name="clock_display">Область часов</string>
     <string name="clock_and_date">Часы и дата</string>
@@ -473,9 +465,9 @@
     <string name="settings_actions_section">Действия</string>
     <string name="device_summary">Сводка об устройстве</string>
     <string name="help_title">Помощь</string>
-    <string name="help_text">RE*start — бесплатный лаунчер с открытым исходным кодом. Исходный код, журнал изменений и список изменений с момента форка находятся на GitHub; дом проекта — remaker.ch.</string>
+    <string name="help_text">RE*start - бесплатный лаунчер с открытым исходным кодом. Исходный код, журнал изменений и список изменений с момента форка находятся на GitHub; дом проекта - remaker.ch.</string>
     <string name="feedback_title">Обратная связь</string>
-    <string name="feedback_text">Нашли ошибку или есть идея? Опишите, что вы сделали, что произошло и чего ожидали, и укажите версии RE*start и Android — знак RE* внизу настроек показывает сводку об устройстве, которую можно снять скриншотом или скопировать. Отправьте её как issue на GitHub или по электронной почте.</string>
+    <string name="feedback_text">Нашли ошибку или есть идея? Опишите, что вы сделали, что произошло и чего ожидали, и укажите версии RE*start и Android; знак RE* внизу настроек показывает сводку об устройстве, которую можно снять скриншотом или скопировать. Отправьте её как issue на GitHub или по электронной почте.</string>
     <string name="feedback_open_issue">Открыть issue на GitHub</string>
     <string name="feedback_by_mail">По электронной почте</string>
     <string name="security_title">Безопасность</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">Написано</string>
     <string name="notes_add">Добавить</string>
     <string name="notes_kind">Тип</string>
+    <string name="notes_today">Сегодня</string>
+    <string name="notes_home_show">Показывать количество и важные записи</string>
+    <string name="notes_home_alignment">Выравнивание</string>
+    <string name="notes_home_color">Цвет</string>
+    <string name="notes_home_size">Размер текста</string>
+    <string name="notes_category_entries">Записи: %1$d</string>
+    <string name="notes_category_remove_confirm">Удалить «%1$s»? Записи останутся, без категории.</string>
+    <string name="notes_categories_hint">Для заметок и задач</string>
 </resources>

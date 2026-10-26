@@ -5,6 +5,7 @@ import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Context.VIBRATOR_SERVICE
+import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.drawable.Drawable
@@ -55,6 +56,8 @@ import ch.remaker.restart.R
 import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Constants.Action
 import ch.remaker.restart.data.Constants.AppDrawerFlag
+import ch.remaker.restart.data.NotesHome
+import ch.remaker.restart.data.NotesStore
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.databinding.FragmentHomeBinding
 import ch.remaker.restart.helper.reMarkFor
@@ -67,7 +70,6 @@ import ch.remaker.restart.helper.analytics.AppUsageMonitor
 import ch.remaker.restart.helper.formatMillisToHMS
 import ch.remaker.restart.helper.applyPageBackground
 import ch.remaker.restart.helper.getHexForOpacity
-import ch.remaker.restart.helper.getNextAlarm
 import ch.remaker.restart.helper.getSystemIcons
 import ch.remaker.restart.helper.hasUsageAccessPermission
 import ch.remaker.restart.helper.initActionService
@@ -86,6 +88,8 @@ import ch.remaker.restart.listener.GestureAdapter
 import ch.remaker.restart.listener.NotificationDotManager
 import ch.remaker.restart.services.ActionService
 import ch.remaker.restart.ui.components.DialogManager
+import ch.remaker.restart.ui.components.HomeNoteRow
+import ch.remaker.restart.ui.notes.NotesManagerFragment
 import ch.remaker.restart.ui.widgets.WidgetActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -104,6 +108,16 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
     private lateinit var vibrator: Vibrator
 
     private var longPressToSelectApp: Int = 0
+
+    /** The day the notes block was drawn for; a new day (midnight, a clock or time zone change) redraws it. */
+    private var notesDay = 0L
+    private val dayReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (intent.action != Intent.ACTION_TIME_TICK || NotesHome.startOfDay(System.currentTimeMillis()) != notesDay) {
+                renderHomeNotes()
+            }
+        }
+    }
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -207,7 +221,21 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 privateSpaceReceiver = PrivateSpaceReceiver()
                 ctx.registerReceiver(privateSpaceReceiver, IntentFilter(Intent.ACTION_PROFILE_AVAILABLE))
             }
+
+            // System broadcasts only: the minute tick catches midnight, the others a changed clock or zone
+            ctx.registerReceiver(dayReceiver, IntentFilter().apply {
+                addAction(Intent.ACTION_TIME_TICK)
+                addAction(Intent.ACTION_DATE_CHANGED)
+                addAction(Intent.ACTION_TIME_CHANGED)
+                addAction(Intent.ACTION_TIMEZONE_CHANGED)
+            })
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Back from the notes page or another app: the entries may have changed
+        renderHomeNotes()
     }
 
     override fun onStop() {
@@ -215,12 +243,17 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
         context?.let { ctx ->
             try {
+                ctx.unregisterReceiver(dayReceiver)
+            } catch (e: IllegalArgumentException) {
+                e.printStackTrace()
+            }
+            try {
                 batteryReceiver.let { ctx.unregisterReceiver(it) }
                 if (PrivateSpaceManager(requireContext()).isPrivateSpaceSupported()) {
                     privateSpaceReceiver.let { ctx.unregisterReceiver(it) }
                 }
             } catch (e: IllegalArgumentException) {
-                // Receiver not registered — safe to ignore
+                // Receiver not registered: safe to ignore
                 e.printStackTrace()
             }
         }
@@ -256,7 +289,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             // Static UI setup
             date.textSize = prefs.dateSize.toFloat()
             clock.textSize = prefs.clockSize.toFloat()
-            alarm.textSize = prefs.alarmSize.toFloat()
             battery.textSize = prefs.batterySize.toFloat()
 
             battery.isVisible = prefs.showBattery
@@ -265,7 +297,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
             date.setTextColor(prefs.dateColor)
             clock.setTextColor(prefs.clockColor)
-            alarm.setTextColor(prefs.alarmClockColor)
             battery.setTextColor(prefs.batteryColor)
             totalScreenTime.setTextColor(prefs.appColor)
             setDefaultLauncher.setTextColor(prefs.appColor)
@@ -333,26 +364,148 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             date.format12Hour = datePattern(finalPattern)
             date.format24Hour = datePattern(finalPattern)
 
-
-            alarm.text = getNextAlarm(requireContext(), prefs)
             applyClockStyle()
         }
     }
 
-    /** "One line" can put the alarm on its own line under the rule; every other style keeps it in the date column. */
-    private fun moveAlarm(belowRule: Boolean) {
-        val alarm = binding.alarm
-        val column = binding.dateAlarmLayout
+    /** "One line" puts the notes under the rule (the row has no room for them); every other style keeps them in the date column. */
+    private fun moveNotes(belowRule: Boolean) {
+        val notes = binding.homeNotes
+        val column = binding.dateNotesLayout
         val page = binding.clockRule.parent as ViewGroup
-        if (belowRule && alarm.parent !== page) {
-            (alarm.parent as? ViewGroup)?.removeView(alarm)
-            page.addView(alarm, page.indexOfChild(binding.clockRule) + 1)
-            (alarm.layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin = (8 * resources.displayMetrics.density).toInt()
-        } else if (!belowRule && alarm.parent !== column) {
-            (alarm.parent as? ViewGroup)?.removeView(alarm)
-            column.addView(alarm)
-            (alarm.layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin = 0
+        if (belowRule && notes.parent !== page) {
+            (notes.parent as? ViewGroup)?.removeView(notes)
+            page.addView(notes, page.indexOfChild(binding.clockRule) + 1)
+        } else if (!belowRule && notes.parent !== column) {
+            (notes.parent as? ViewGroup)?.removeView(notes)
+            column.addView(notes)
         }
+    }
+
+    /**
+     * The notes block: a count line (only the counts above zero) and up to three important entries,
+     * chosen by [NotesHome]. It has the look the alarm had: small spaced capitals in every style but
+     * Classic, the notes colour, size and alignment. Nothing to show hides the whole block.
+     */
+    private fun renderHomeNotes() {
+        val b = _binding ?: return
+        val block = b.homeNotes
+        block.removeAllViews()
+        val now = System.currentTimeMillis()
+        notesDay = NotesHome.startOfDay(now)
+        if (!prefs.notesOnHome) {
+            block.isVisible = false
+            return
+        }
+        val summary = NotesHome.summarize(NotesStore(prefs).load(), now)
+        val locale = prefs.appLanguage.formatLocale()
+        // The language's own digits, as in the date beside it (Arabic writes ٣, not 3)
+        val number = java.text.NumberFormat.getIntegerInstance(locale)
+        val counts = listOf(
+            R.string.settings_notes_title to summary.notes,
+            R.string.notes_kind_todo to summary.openTodos,
+            R.string.notes_overdue to summary.overdue,
+        ).filter { it.second > 0 }.joinToString(" · ") { (label, n) -> "${getLocalizedString(label)}\u00A0${number.format(n)}" }
+        if (counts.isEmpty() && summary.featured.isEmpty()) {
+            block.isVisible = false
+            return
+        }
+
+        val style = prefs.clockStyle
+        val capsOn = style != Constants.ClockStyle.Classic
+        val density = resources.displayMetrics.density
+        val size = prefs.notesHomeSize.coerceIn(Constants.MIN_NOTES_HOME_SIZE, Constants.MAX_NOTES_HOME_SIZE)
+        val textSize = if (capsOn) size * 0.72f else size.toFloat()
+        val color = prefs.notesHomeColor
+        val gravity = prefs.notesHomeAlignment.value()
+        val belowRule = style == Constants.ClockStyle.OneLine
+        // Under the rule the block sits in a LinearLayoutCompat, in the date column in a LinearLayout.
+        // Where that column has a width of its own (see applyClockStyle) the block takes it, so its rows
+        // line up by the notes alignment; in a column only as wide as its content, matching it would
+        // squeeze the rows to the date's width
+        block.layoutParams.width = if (belowRule || columnHasWidth()) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
+        when (val lp = block.layoutParams) {
+            is LinearLayout.LayoutParams -> lp.gravity = gravity
+            is androidx.appcompat.widget.LinearLayoutCompat.LayoutParams -> lp.gravity = gravity
+        }
+        (block.layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin = ((if (belowRule) 8 else 4) * density).toInt()
+        block.gravity = gravity
+        block.requestLayout()
+
+        fun styled(view: TextView, lines: Int = 1) = view.apply {
+            this.textSize = textSize
+            typeface = FontManager.getTypeface(requireContext())
+            isAllCaps = capsOn
+            letterSpacing = if (capsOn) 0.14f else 0f
+            maxLines = lines
+            ellipsize = android.text.TextUtils.TruncateAt.END
+            includeFontPadding = false
+        }
+
+        val pad = (4 * density).toInt()
+        if (counts.isNotEmpty()) {
+            // The counts may take more lines rather than lose the last number
+            block.addView(styled(TextView(requireContext()), lines = 3).apply {
+                layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                this.gravity = gravity
+                text = counts
+                setTextColor(androidx.core.graphics.ColorUtils.setAlphaComponent(color, 184))
+                setPadding(0, pad, 0, pad)
+                setOnClickListener { showNotesManager() }
+            })
+        }
+        val dayPattern = DateFormat.getBestDateTimePattern(locale, "dMMM")
+        val px = android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, textSize, resources.displayMetrics)
+        summary.featured.forEach { (item, reason) ->
+            val day = item.due?.let { DateFormat.format(dayPattern, it).toString() }
+            val meta = when (reason) {
+                NotesHome.Reason.OVERDUE -> "${getLocalizedString(R.string.notes_overdue)} $day"
+                NotesHome.Reason.TODAY -> getLocalizedString(R.string.notes_today)
+                NotesHome.Reason.UPCOMING -> day
+                NotesHome.Reason.IMPORTANT -> null
+            }
+            val first = item.text.lineSequence().first().trim()
+            val row = HomeNoteRow(requireContext(), gap = (px * 0.6f).toInt()).apply {
+                // Wrapped, not the column's default match_parent: a stretched row would push the day to the far edge
+                layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                setPadding(0, pad, 0, pad)
+                setOnClickListener { showNotesManager(item.id) }
+            }
+            // The mark in front: an empty square for a to-do, a short bar for a note
+            val mark = View(requireContext()).apply {
+                val side = (px * 0.62f).toInt()
+                layoutParams = ViewGroup.LayoutParams(side, if (item.todo) side else (2 * density).toInt())
+                background = android.graphics.drawable.GradientDrawable().apply {
+                    if (item.todo) setStroke((1.5f * density).toInt().coerceAtLeast(1), color) else setColor(color)
+                }
+            }
+            row.addView(mark)
+            // Text, separator and day: HomeNoteRow shortens the text or moves the day under it when short of room
+            fun part(value: String) = styled(TextView(requireContext())).apply {
+                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                text = value
+                setTextColor(color)
+            }
+            row.addView(part(first))
+            if (meta != null) {
+                row.addView(part(" · "))
+                row.addView(part(meta))
+            }
+            block.addView(row)
+        }
+        block.isVisible = true
+    }
+
+    /**
+     * Whether the date/notes column can be as wide as the room it stands in: yes under the clock or
+     * beside the ring, so right and centre alignment mean that room. Not beside the clock (Swiss side
+     * column, One line) nor under a centred ring, where the column is only as wide as what it holds.
+     */
+    private fun columnHasWidth(): Boolean = when (prefs.clockStyle) {
+        Constants.ClockStyle.Classic -> true
+        Constants.ClockStyle.Swiss -> !prefs.swissSideColumn
+        Constants.ClockStyle.Rings -> prefs.ringPlacement != Constants.RingPlacement.Centred
+        Constants.ClockStyle.OneLine -> false
     }
 
     /** The clock pattern for the chosen style: "Swiss" stacks hours over minutes. */
@@ -398,29 +551,26 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             // "Rings" with the time inside: the numeric clock leaves the column
             clock.isVisible = prefs.showClock && !(style == Constants.ClockStyle.Rings && prefs.ringInside == Constants.RingInside.Time)
 
-            // Where the date/alarm column sits: beside the clock (Swiss side column, One line) or under it
+            // Where the date/notes column sits: beside the clock (Swiss side column, One line) or under it
             val beside = (style == Constants.ClockStyle.Swiss && prefs.swissSideColumn) || style == Constants.ClockStyle.OneLine
             timeDateLayout.orientation = if (beside) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
             timeDateLayout.gravity = if (beside) android.view.Gravity.CENTER_VERTICAL else android.view.Gravity.NO_GRAVITY
-            (dateAlarmLayout.layoutParams as LinearLayout.LayoutParams).apply {
+            (dateNotesLayout.layoutParams as LinearLayout.LayoutParams).apply {
                 marginStart = if (beside) (14 * density).toInt() else 0
+                width = if (columnHasWidth()) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
             }
-            // One line: date and alarm share the row, unless the alarm goes under the rule
-            val alarmBelow = style == Constants.ClockStyle.OneLine && prefs.oneLineAlarmBelow
-            dateAlarmLayout.orientation = if (style == Constants.ClockStyle.OneLine && !alarmBelow) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
-            moveAlarm(belowRule = alarmBelow)
+            // One line keeps clock and date on one row; its notes go under the rule
+            dateNotesLayout.orientation = LinearLayout.VERTICAL
+            moveNotes(belowRule = style == Constants.ClockStyle.OneLine)
 
-            // Date and alarm: small spaced capitals in every style but Classic
-            listOf(date, alarm).forEach { v ->
-                v.isAllCaps = capsOn
-                v.letterSpacing = if (capsOn) 0.14f else 0f
-                v.setPadding(if (style == Constants.ClockStyle.OneLine) (12 * density).toInt() else 0, 0, 0, 0)
-            }
+            // Date: small spaced capitals in every style but Classic (the notes follow in renderHomeNotes)
+            date.isAllCaps = capsOn
+            date.letterSpacing = if (capsOn) 0.14f else 0f
+            date.setPadding(if (style == Constants.ClockStyle.OneLine) (12 * density).toInt() else 0, 0, 0, 0)
             date.textSize = when (style) {
                 Constants.ClockStyle.Classic -> prefs.dateSize.toFloat()
                 else -> prefs.dateSize * 0.72f
             }
-            alarm.textSize = if (capsOn) prefs.alarmSize * 0.72f else prefs.alarmSize.toFloat()
             clock.textSize = when (style) {
                 Constants.ClockStyle.Classic -> prefs.clockSize.toFloat()
                 Constants.ClockStyle.Swiss -> prefs.clockSize * 1.5f
@@ -428,10 +578,11 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 Constants.ClockStyle.OneLine -> prefs.clockSize * 0.5f
             }
             // Weight from the user's family (a fresh base each time, so Classic really is Regular again);
-            // the tight tracking only for the system sans — Doto's dots and unknown custom fonts keep their spacing
+            // the tight tracking only for the system sans: Doto's dots and unknown custom fonts keep their spacing
             clock.typeface = FontManager.weighted(requireContext(), if (style == Constants.ClockStyle.Classic) 400 else 700)
             clock.letterSpacing = if (style == Constants.ClockStyle.Classic) 0f else FontManager.tracking(requireContext(), -0.04f)
         }
+        renderHomeNotes()
     }
 
 
@@ -623,9 +774,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 binding.clock.isVisible = it
                 applyClockStyle()   // "Rings" with the time inside keeps the numeric clock hidden
             }
-            showAlarm.observe(viewLifecycleOwner) {
-                binding.alarm.isVisible = it
-            }
 
             clockAlignment.observe(viewLifecycleOwner) { clockGravity ->
                 binding.clock.gravity = clockGravity.value()
@@ -644,16 +792,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
                 binding.date.layoutParams =
                     (binding.date.layoutParams as LinearLayout.LayoutParams).apply {
                         gravity = dateGravity.value()
-                    }
-            }
-
-            alarmAlignment.observe(viewLifecycleOwner) { alarmGravity ->
-                binding.alarm.gravity = alarmGravity.value()
-
-                // Set layout_gravity to align the TextView (alarm) within the parent (LinearLayout)
-                binding.alarm.layoutParams =
-                    (binding.alarm.layoutParams as LinearLayout.LayoutParams).apply {
-                        gravity = alarmGravity.value()
                     }
             }
 
@@ -697,11 +835,15 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
         }
     }
 
-    private fun showNotesManager() {
+    /** The notes page; with [noteId] it opens that entry straight away. */
+    private fun showNotesManager(noteId: Long = 0L) {
         CrashHandler.logUserAction("Display Notes Manager")
         try {
             if (findNavController().currentDestination?.id == R.id.mainFragment) {
-                findNavController().navigate(R.id.action_mainFragment_to_notesManagerFragment)
+                findNavController().navigate(
+                    R.id.action_mainFragment_to_notesManagerFragment,
+                    Bundle().apply { putLong(NotesManagerFragment.ARG_NOTE_ID, noteId) }
+                )
             }
         } catch (e: Exception) {
             e.printStackTrace()

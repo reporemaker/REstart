@@ -203,7 +203,9 @@ class Prefs(val context: Context) {
         get() = getSetting(SHORTCUT_ICONS_COLOR, getColor(context, getColorInt("txt")))
         set(value) = prefsNormal.edit { putInt(SHORTCUT_ICONS_COLOR, value) }
 
-    var alarmClockColor: Int
+    // The home notes block took the alarm's place and keeps its look: colour, alignment and size
+    // stay under the alarm's keys, so an update brings the old values along
+    var notesHomeColor: Int
         get() = getSetting(ALARM_CLOCK_COLOR, getColor(context, getColorInt("txt")))
         set(value) = prefsNormal.edit { putInt(ALARM_CLOCK_COLOR, value) }
 
@@ -285,7 +287,7 @@ class Prefs(val context: Context) {
         }
         set(value) = prefsNormal.edit { putString(DATE_ALIGNMENT, value.toString()) }
 
-    var alarmAlignment: Gravity
+    var notesHomeAlignment: Gravity
         get() {
             return getEnumSetting(ALARM_ALIGNMENT, Gravity.Left)
         }
@@ -325,29 +327,14 @@ class Prefs(val context: Context) {
         get() = getSetting(SHOW_CLOCK_FORMAT, true)
         set(value) = prefsNormal.edit { putBoolean(SHOW_CLOCK_FORMAT, value) }
 
-    var showAlarm: Boolean
-        get() = getSetting(SHOW_ALARM, false)
-        set(value) = prefsNormal.edit { putBoolean(SHOW_ALARM, value) }
+    /** Notes on the home screen, in the clock block (the counts and the important entries). */
+    var notesOnHome: Boolean
+        get() = getSetting(NOTES_ON_HOME, true)
+        set(value) = prefsNormal.edit { putBoolean(NOTES_ON_HOME, value) }
 
     var showFloating: Boolean
         get() = getSetting(SHOW_FLOATING, true)
         set(value) = prefsNormal.edit { putBoolean(SHOW_FLOATING, value) }
-
-    var bedtimeStartHour: Int
-        get() = getSetting(BEDTIME_START_HOUR, 22)
-        set(value) = prefsNormal.edit { putInt(BEDTIME_START_HOUR, value) }
-
-    var bedtimeStartMinute: Int
-        get() = getSetting(BEDTIME_START_MINUTE, 0)
-        set(value) = prefsNormal.edit { putInt(BEDTIME_START_MINUTE, value) }
-
-    var bedtimeEndHour: Int
-        get() = getSetting(BEDTIME_END_HOUR, 7)
-        set(value) = prefsNormal.edit { putInt(BEDTIME_END_HOUR, value) }
-
-    var bedtimeEndMinute: Int
-        get() = getSetting(BEDTIME_END_MINUTE, 0)
-        set(value) = prefsNormal.edit { putInt(BEDTIME_END_MINUTE, value) }
 
     var showBattery: Boolean
         get() = getSetting(SHOW_BATTERY, true)
@@ -409,10 +396,6 @@ class Prefs(val context: Context) {
     var ringScale: Constants.RingScale
         get() = getEnumSetting(RING_SCALE, Constants.RingScale.Twelve)
         set(value) = prefsNormal.edit { putString(RING_SCALE, value.name) }
-
-    var oneLineAlarmBelow: Boolean
-        get() = prefsNormal.getBoolean(ONE_LINE_ALARM_BELOW, false)
-        set(value) = prefsNormal.edit { putBoolean(ONE_LINE_ALARM_BELOW, value) }
 
     var drawerView: Constants.DrawerView
         get() {
@@ -871,7 +854,7 @@ class Prefs(val context: Context) {
         }
         set(value) = prefsNormal.edit { putInt(CLOCK_SIZE_TEXT, value) }
 
-    var alarmSize: Int
+    var notesHomeSize: Int
         get() {
             return getSetting(ALARM_SIZE_TEXT, 20)
         }

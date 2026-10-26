@@ -65,10 +65,10 @@
     <string name="force_colored_wallpaper">强制使用纯色壁纸</string>
     <string name="info_tiles">信息磁贴</string>
     <string name="show_clock">显示时钟</string>
+    <string name="show_notes">显示笔记</string>
     <string name="show_clock_format">显示格式（AM/PM）</string>
     <string name="show_date">显示日期</string>
     <string name="show_day_of_year">显示一年中的第几天</string>
-    <string name="show_alarm">显示闹钟</string>
     <string name="show_battery">显示电量</string>
     <string name="show_battery_icon">显示电量图标</string>
     <string name="show_private_spaces">显示私密空间图标</string>
@@ -82,7 +82,6 @@
     <string name="app_text_size">应用文字大小</string>
     <string name="date_text_size">日期文字大小</string>
     <string name="clock_text_size">时钟文字大小</string>
-    <string name="alarm_text_size">闹钟文字大小</string>
     <string name="battery_text_size">电量文字大小</string>
     <string name="app_padding_size">内边距大小</string>
     <string name="extend_home_apps_area">扩展可点击区域</string>
@@ -101,14 +100,12 @@
     <string name="total_screen_time">总屏幕使用时间</string>
     <string name="date_alignment">日期</string>
     <string name="clock_alignment">时钟</string>
-    <string name="alarm_alignment">闹钟</string>
     <string name="home_alignment">主屏幕应用</string>
     <string name="drawer_alignment">抽屉应用</string>
     <string name="background_color">背景</string>
     <string name="app_color">应用</string>
     <string name="clock_color">时钟</string>
     <string name="date_color">日期</string>
-    <string name="alarm_color">闹钟</string>
     <string name="battery_color">电量</string>
     <string name="rainbow_shortcuts">彩虹快捷方式</string>
     <string name="shortcuts_color">快捷方式</string>
@@ -361,9 +358,6 @@
     <string name="settings_home_list_section">主屏幕列表</string>
     <string name="settings_quick_actions_section">快捷操作</string>
     <string name="settings_general_section">常规</string>
-    <string name="alarm_settings">闹钟</string>
-    <string name="bedtime_start_time">就寝开始时间</string>
-    <string name="bedtime_end_time">就寝结束时间</string>
     <string name="app_lock_needs_screen_lock">要使用应用锁，请先在此设备上设置屏幕锁。</string>
     <string name="widgets_no_space">小部件页面没有剩余空间。请先缩小或移除一个小部件。</string>
     <string name="drawer_categories">按分类分组应用</string>
@@ -434,8 +428,6 @@
     <string name="ring_scale">小时圆环</string>
     <string name="ring_scale_12">12 小时表盘</string>
     <string name="ring_scale_24">全天（24 小时）</string>
-    <string name="one_line_alarm_below">闹钟单独一行，位于分隔线下方</string>
-    <string name="no_alarm_set">未设置闹钟。</string>
     <string name="clock_area_tap">点击</string>
     <string name="clock_display">时钟区域</string>
     <string name="clock_and_date">时钟和日期</string>
@@ -474,7 +466,7 @@
     <string name="help_title">帮助</string>
     <string name="help_text">RE*start 是一款免费的开源启动器。源代码、更新日志以及自分叉以来的变更列表都在 GitHub 上；项目主页是 remaker.ch。</string>
     <string name="feedback_title">反馈</string>
-    <string name="feedback_text">发现了 bug 或有想法？请说明你做了什么、发生了什么、你期望的结果是什么，并附上 RE*start 和 Android 的版本 — 设置底部的 RE* 标记会显示设备摘要，可以截图或复制。通过 GitHub issue 或电子邮件发送。</string>
+    <string name="feedback_text">发现了 bug 或有想法？请说明你做了什么、发生了什么、你期望的结果是什么，并附上 RE*start 和 Android 的版本；设置底部的 RE* 标记会显示设备摘要，可以截图或复制。通过 GitHub issue 或电子邮件发送。</string>
     <string name="feedback_open_issue">在 GitHub 上提交 issue</string>
     <string name="feedback_by_mail">通过电子邮件</string>
     <string name="security_title">安全</string>
@@ -495,4 +487,12 @@
     <string name="notes_written">写于</string>
     <string name="notes_add">添加</string>
     <string name="notes_kind">类型</string>
+    <string name="notes_today">今天</string>
+    <string name="notes_home_show">显示数量和重要条目</string>
+    <string name="notes_home_alignment">对齐</string>
+    <string name="notes_home_color">颜色</string>
+    <string name="notes_home_size">文字大小</string>
+    <string name="notes_category_entries">条目：%1$d</string>
+    <string name="notes_category_remove_confirm">删除“%1$s”？其条目会保留，但没有分类。</string>
+    <string name="notes_categories_hint">用于笔记和待办</string>
 </resources>

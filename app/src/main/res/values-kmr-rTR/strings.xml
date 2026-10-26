@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">Ji bo gihîştina bilez ji dîmendera sereke, rêza sepanên xwe yên bijarte biguherîne.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Sepanên veşartî</string>
-    <string name="settings_hidden_apps_description">Sepanên veşartî bi rê ve bibe — dema pêwist be sepanan ji vê lîsteyê derxîne.</string>
+    <string name="settings_hidden_apps_description">Sepanên veşartî bi rê ve bibe: dema pêwist be sepanan ji vê lîsteyê derxîne.</string>
     <string name="settings_advanced_title">Pêşketî</string>
     <string name="settings_advanced_description">Bigihêje zanyariyên sepanê, launcherê berdest, amûrên vegerandinê û hwd.</string>
     <string name="settings_expert_title">Pispor</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">Wêneyê dîwarê yê rengîn neçar bike</string>
     <string name="info_tiles">Kariyên zanyariyê</string>
     <string name="show_clock">Demjimêrê nîşan bide</string>
+    <string name="show_notes">Nîşeyan nîşan bide</string>
     <string name="show_clock_format">Formatê nîşan bide (AM/PM)</string>
     <string name="show_date">Dîrokê nîşan bide</string>
     <string name="show_day_of_year">Roja salê nîşan bide</string>
-    <string name="show_alarm">Alarmê nîşan bide</string>
-    <string name="alarm_settings">Alarm</string>
-    <string name="bedtime_start_time">Destpêka dema razanê</string>
-    <string name="bedtime_end_time">Dawiya dema razanê</string>
     <string name="show_battery">Betariyê nîşan bide</string>
     <string name="show_battery_icon">Îkona betariyê nîşan bide</string>
     <string name="show_private_spaces">Îkona qadên taybet nîşan bide</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">Mezinahiya nivîsa sepanê</string>
     <string name="date_text_size">Mezinahiya nivîsa dîrokê</string>
     <string name="clock_text_size">Mezinahiya nivîsa demjimêrê</string>
-    <string name="alarm_text_size">Mezinahiya nivîsa alarmê</string>
     <string name="battery_text_size">Mezinahiya nivîsa betariyê</string>
     <string name="app_padding_size">Mezinahiya valahiyê</string>
     <string name="extend_home_apps_area">Qada tikandinê berfireh bike</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">Tevahiya dema dîmenderê</string>
     <string name="date_alignment">Dîrok</string>
     <string name="clock_alignment">Demjimêr</string>
-    <string name="alarm_alignment">Alarm</string>
     <string name="home_alignment">Sepanên dîmendera sereke</string>
     <string name="drawer_alignment">Şemtokê sepanan</string>
     <string name="background_color">Paşrû</string>
     <string name="app_color">Sepan</string>
     <string name="clock_color">Demjimêr</string>
     <string name="date_color">Dîrok</string>
-    <string name="alarm_color">Alarm</string>
     <string name="battery_color">Betarî</string>
     <string name="rainbow_shortcuts">Kurterêyên bûka baranê</string>
     <string name="shortcuts_color">Kurterê</string>
@@ -437,8 +431,6 @@
     <string name="ring_scale">Xeleka saetan</string>
     <string name="ring_scale_12">Rûyê 12 saetan</string>
     <string name="ring_scale_24">Tevahiya rojê (24 s)</string>
-    <string name="one_line_alarm_below">Alarm di rêzeke cuda de, di bin xêzê de</string>
-    <string name="no_alarm_set">Alarm nehatiye sazkirin.</string>
     <string name="clock_area_tap">Tikandin</string>
     <string name="clock_display">Qada demjimêrê</string>
     <string name="clock_and_date">Demjimêr û dîrok</string>
@@ -469,7 +461,7 @@
     <string name="help_title">Alîkarî</string>
     <string name="help_text">RE*start launcherek belaş û çavkaniya vekirî ye. Koda çavkaniyê, tomara guhertinan û lîsteya guhertinên ji çiqilbûnê ve li ser GitHub in; mala projeyê remaker.ch e.</string>
     <string name="feedback_title">Nirxandin</string>
-    <string name="feedback_text">Te xeletiyek dît an fikrek te heye? Binivîse ku te çi kir, çi qewimî û te çi hêvî dikir, û guhertoyên RE*start û Androidê lê zêde bike — nîşana RE* ya li binê sazkariyan kurteyeke cîhazê nîşan dide ku tu dikarî wêneyê ekranê bigirî an jî kopî bikî. Wê wekî issue li ser GitHub an bi e-nameyê bişîne.</string>
+    <string name="feedback_text">Te xeletiyek dît an fikrek te heye? Binivîse ku te çi kir, çi qewimî û te çi hêvî dikir, û guhertoyên RE*start û Androidê lê zêde bike; nîşana RE* ya li binê sazkariyan kurteyeke cîhazê nîşan dide ku tu dikarî wêneyê ekranê bigirî an jî kopî bikî. Wê wekî issue li ser GitHub an bi e-nameyê bişîne.</string>
     <string name="feedback_open_issue">Li ser GitHub issue veke</string>
     <string name="feedback_by_mail">Bi e-nameyê</string>
     <string name="security_title">Ewlehî</string>
@@ -490,4 +482,12 @@
     <string name="notes_written">Hat nivîsîn</string>
     <string name="notes_add">Tevlî bike</string>
     <string name="notes_kind">Cure</string>
+    <string name="notes_today">Îro</string>
+    <string name="notes_home_show">Hejmar û tiştên girîng nîşan bide</string>
+    <string name="notes_home_alignment">Rêzkirin</string>
+    <string name="notes_home_color">Reng</string>
+    <string name="notes_home_size">Mezinahiya nivîsê</string>
+    <string name="notes_category_entries">Tişt: %1$d</string>
+    <string name="notes_category_remove_confirm">“%1$s” were rakirin? Tiştên wê dimînin, bê kategorî.</string>
+    <string name="notes_categories_hint">Ji bo nîşe û karan</string>
 </resources>

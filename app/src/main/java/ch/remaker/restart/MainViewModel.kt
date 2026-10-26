@@ -93,10 +93,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val showDate = MutableLiveData(prefs.showDate)
     val showDayOfYear = MutableLiveData(prefs.showDayOfYear)
     val showClock = MutableLiveData(prefs.showClock)
-    val showAlarm = MutableLiveData(prefs.showAlarm)
     val clockAlignment = MutableLiveData(prefs.clockAlignment)
     val dateAlignment = MutableLiveData(prefs.dateAlignment)
-    val alarmAlignment = MutableLiveData(prefs.alarmAlignment)
     val homeAppsAlignment = MutableLiveData(Pair(prefs.homeAlignment, prefs.homeAlignmentBottom))
     val homeAppsNum = MutableLiveData(prefs.homeAppsNum)
 
@@ -246,10 +244,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setShowClock(visibility: Boolean) {
         showClock.value = visibility
-    }
-
-    fun setShowAlarm(visibility: Boolean) {
-        showAlarm.value = visibility
     }
 
     fun setDefaultLauncher(visibility: Boolean) {
@@ -541,10 +535,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         clockAlignment.value = gravity
     }
 
-    fun updateAlarmAlignment(gravity: Constants.Gravity) {
-        alarmAlignment.value = gravity
-    }
-
     fun updateHomeAppsAlignment(gravity: Constants.Gravity, onBottom: Boolean) {
         homeAppsAlignment.value = Pair(gravity, onBottom)
     }
@@ -614,7 +604,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             pinnedStatusMap[built] = isPinned(raw)
         }
 
-        // Stable, safe sorting — no null comparisons
+        // Stable, safe sorting: no null comparisons
         list.sortWith(
             compareByDescending<R> { pinnedStatusMap[it] == true }
                 .thenBy { normalize(getLabel(it)) }

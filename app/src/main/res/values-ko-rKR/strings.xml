@@ -35,7 +35,7 @@
     <string name="settings_favorite_apps_description">홈 화면에서 자주 사용하는 앱의 순서를 바꿔 빠르게 실행할 수 있습니다.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">숨긴 앱</string>
-    <string name="settings_hidden_apps_description">숨겨진 앱 관리 — 필요할 때 이 목록에서 앱을 표시하세요.</string>
+    <string name="settings_hidden_apps_description">숨겨진 앱 관리: 필요할 때 이 목록에서 앱을 표시하세요.</string>
     <string name="settings_advanced_title">고급 설정</string>
     <string name="settings_advanced_description">앱 정보, 기본 실행기, 백업 도구 등에 액세스할 수 있습니다.</string>
     <string name="settings_expert_title">전문가</string>
@@ -65,13 +65,10 @@
     <string name="force_colored_wallpaper">단색 배경화면 강제 적용</string>
     <string name="info_tiles">정보 타일</string>
     <string name="show_clock">시계 표시</string>
+    <string name="show_notes">메모 표시</string>
     <string name="show_clock_format">오전/오후 표시</string>
     <string name="show_date">날짜 표시</string>
     <string name="show_day_of_year">연중 일수 표시</string>
-    <string name="show_alarm">알람 표시</string>
-    <string name="alarm_settings">알람</string>
-    <string name="bedtime_start_time">취침 시작 시간</string>
-    <string name="bedtime_end_time">취침 종료 시간</string>
     <string name="show_battery">배터리 표시</string>
     <string name="show_battery_icon">배터리 아이콘 표시</string>
     <string name="show_private_spaces">개인 공간 아이콘 표시</string>
@@ -85,7 +82,6 @@
     <string name="app_text_size">앱 텍스트 크기</string>
     <string name="date_text_size">날짜 텍스트 크기</string>
     <string name="clock_text_size">시계 텍스트 크기</string>
-    <string name="alarm_text_size">알람 텍스트 크기</string>
     <string name="battery_text_size">배터리 텍스트 크기</string>
     <string name="app_padding_size">여백 크기</string>
     <string name="extend_home_apps_area">클릭 가능 영역 확장</string>
@@ -104,14 +100,12 @@
     <string name="total_screen_time">총 화면 사용 시간</string>
     <string name="date_alignment">날짜</string>
     <string name="clock_alignment">시계</string>
-    <string name="alarm_alignment">알람</string>
     <string name="home_alignment">홈 앱</string>
     <string name="drawer_alignment">서랍 앱</string>
     <string name="background_color">배경</string>
     <string name="app_color">앱</string>
     <string name="clock_color">시계</string>
     <string name="date_color">날짜</string>
-    <string name="alarm_color">알람</string>
     <string name="battery_color">배터리</string>
     <string name="rainbow_shortcuts">레인보우 바로가기</string>
     <string name="shortcuts_color">바로가기</string>
@@ -443,8 +437,6 @@
     <string name="ring_scale">시간 링</string>
     <string name="ring_scale_12">12시간 눈금</string>
     <string name="ring_scale_24">하루 전체(24시간)</string>
-    <string name="one_line_alarm_below">알람을 구분선 아래 별도 줄에</string>
-    <string name="no_alarm_set">설정된 알람이 없습니다.</string>
     <string name="clock_area_tap">탭</string>
     <string name="clock_display">시계 영역</string>
     <string name="clock_and_date">시계와 날짜</string>
@@ -475,7 +467,7 @@
     <string name="help_title">도움말</string>
     <string name="help_text">RE*start는 무료 오픈 소스 런처입니다. 소스 코드, 변경 로그, 포크 이후의 변경 목록은 GitHub에 있으며, 프로젝트의 홈은 remaker.ch입니다.</string>
     <string name="feedback_title">피드백</string>
-    <string name="feedback_text">버그를 발견했거나 아이디어가 있나요? 무엇을 했는지, 무슨 일이 일어났는지, 무엇을 기대했는지 적고 RE*start와 Android 버전을 덧붙여 주세요 — 설정 맨 아래의 RE* 표시를 누르면 스크린샷을 찍거나 복사할 수 있는 기기 요약이 표시됩니다. GitHub 이슈 또는 이메일로 보내 주세요.</string>
+    <string name="feedback_text">버그를 발견했거나 아이디어가 있나요? 무엇을 했는지, 무슨 일이 일어났는지, 무엇을 기대했는지 적고 RE*start와 Android 버전을 덧붙여 주세요. 설정 맨 아래의 RE* 표시를 누르면 스크린샷을 찍거나 복사할 수 있는 기기 요약이 표시됩니다. GitHub 이슈 또는 이메일로 보내 주세요.</string>
     <string name="feedback_open_issue">GitHub에서 이슈 열기</string>
     <string name="feedback_by_mail">이메일로</string>
     <string name="security_title">보안</string>
@@ -496,4 +488,12 @@
     <string name="notes_written">작성</string>
     <string name="notes_add">추가</string>
     <string name="notes_kind">종류</string>
+    <string name="notes_today">오늘</string>
+    <string name="notes_home_show">개수와 중요 항목 표시</string>
+    <string name="notes_home_alignment">정렬</string>
+    <string name="notes_home_color">색상</string>
+    <string name="notes_home_size">글자 크기</string>
+    <string name="notes_category_entries">항목: %1$d</string>
+    <string name="notes_category_remove_confirm">“%1$s”을(를) 삭제할까요? 항목은 카테고리 없이 남습니다.</string>
+    <string name="notes_categories_hint">메모와 할 일에 사용</string>
 </resources>
