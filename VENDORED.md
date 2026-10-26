@@ -16,7 +16,7 @@ LifeLine skill (Step 4). Do not remove entries whose files still exist.
 - Checksum: sha256:f5a3f02c4a72f1da11c6dadf4fd78c07b2f145a34ed46eb875ed0da28cbd348c
 - Modifications: none (file renamed to montserrat.ttf)
 - Reason: user-selectable launcher font (Settings → Look & Feel → Font); inherited from mLauncher, kept on 2026-10-25 with Doto, nine others removed
-- Last-Checked: 2026-10-25
+- Last-Checked: 2026-10-26
 - Status: current
 
 ## Doto

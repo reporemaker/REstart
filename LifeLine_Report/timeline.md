@@ -1,10 +1,16 @@
 # Dependency Timeline: REstart
-Runs: 3 · 2026-10-24 → 2026-10-25-2
+Runs: 4 · 2026-10-24 → 2026-10-26
 
 Regenerated from every public snapshot in `state/`. Only packages that changed in an
 important field are listed, most recently changed first; versions for direct and vendored
 packages only. Maintainers, publisher and repository are not exposed by the Maven registries
 LifeLine reads, so those rows are absent for this project.
+
+**Coverage line at 2026-10-26.** From the fourth run the snapshot reads the Gradle lock files
+itself and includes the development classpaths (lint tool, instrumented tests, annotation
+processing, Compose tooling). Rows that appear or change scope to `-dev` on 2026-10-26 were
+there before on those classpaths; the release runtime did not change in that run (155 packages,
+same versions).
 
 ## org.jetbrains.kotlinx:kotlinx-coroutines-android (direct-runtime, `.`)
 | Field | Steps |
@@ -27,10 +33,21 @@ Reading: a phantom dependency that was declared, then brought to the current sta
 
 The same step for `ui-test-junit4` and `ui-test-manifest` (direct-dev).
 
-## org.jetbrains.kotlin:kotlin-stdlib (direct-runtime, `.`)
+## org.jetbrains.kotlin:kotlin-stdlib (transitive-runtime, `.`)
 | Field | Steps |
 |---|---|
 | version | 2026-10-24 2.4.20 → 2026-10-25-2 2.4.21 |
+| scope | 2026-10-24 direct-runtime → 2026-10-26 transitive-runtime |
+
+Reading: a relabel, not a change; it comes with the Kotlin plugin, not from a declaration.
+
+## androidx.databinding:viewbinding (transitive-runtime, `.`)
+| Field | Steps |
+|---|---|
+| scope | 2026-10-24 direct-runtime → 2026-10-26 transitive-runtime |
+
+Reading: a relabel; view binding is switched on in the Android plugin, not declared. Licence
+not collected after the relabel (licences are fetched for direct packages only).
 
 ## androidx.biometric:biometric (direct-runtime, `.`)
 | Field | Steps |
@@ -56,6 +73,11 @@ Licence not collected after 2026-10-24 (licences are fetched for direct packages
 | scope | 2026-10-24 direct-runtime → 2026-10-25 direct-dev |
 
 ## Arrivals and departures
+- Listed from 2026-10-26 (development classpaths only, 139 rows): among them several packages
+  that left the release runtime on 2026-10-25 and are still used by tests or tooling
+  (`material3`, `material-icons-core`, the `ui-tooling-*` family, `concurrent-futures-ktx`,
+  `lifecycle-common-java8`, `androidx.test:core`, `monitor`). None of them
+  is in the APK.
 - Arrived 2026-10-25-2 (vendored): JulietaUla/Montserrat 9.000, oliverlalan/Doto 1.000.
 - Gone 2026-10-25 (24): androidx.biometric:biometric-ktx,
   androidx.compose.material3:material3, material3-android,
