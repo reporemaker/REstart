@@ -15,19 +15,14 @@ import ch.remaker.restart.helper.receivers.BatteryReceiver
 
 /**
  * The live preview in Settings > Clock area: the battery line and the clock block exactly as the
- * home screen draws them (the same layout and [ClockBlock]), so every setting shows at once.
- * Taller than [maxHeightFraction] of the screen, it is scaled down evenly and [onScaled] says so.
+ * home screen draws them (the same layout and [ClockBlock]), at full size, so every setting shows
+ * at once.
  */
 class ClockPreview(context: Context, private val prefs: Prefs) : ViewGroup(context) {
-
-    var onScaled: ((Boolean) -> Unit)? = null
-    /** Up to 40% of the screen; on a short screen (under 760 dp) 28%, so the settings keep room. */
-    var maxHeightFraction = if (context.resources.configuration.screenHeightDp < 760) 0.28f else 0.4f
 
     private val content = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
     private val battery = FontAppCompatTextView(context)
     private val block: ClockBlock
-    private var scaled = false
 
     init {
         content.addView(battery, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
@@ -56,19 +51,7 @@ class ClockPreview(context: Context, private val prefs: Prefs) : ViewGroup(conte
             MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
             MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
         )
-        val natural = content.measuredHeight
-        val limit = (resources.displayMetrics.heightPixels * maxHeightFraction).toInt()
-        val scale = if (natural > limit && natural > 0) limit.toFloat() / natural else 1f
-        // Scaled from the top centre, so a left, centred or right block keeps its place roughly
-        content.pivotX = width / 2f
-        content.pivotY = 0f
-        content.scaleX = scale
-        content.scaleY = scale
-        setMeasuredDimension(width, (natural * scale).toInt())
-        if ((scale < 1f) != scaled) {
-            scaled = scale < 1f
-            post { onScaled?.invoke(scaled) }
-        }
+        setMeasuredDimension(width, content.measuredHeight)
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {

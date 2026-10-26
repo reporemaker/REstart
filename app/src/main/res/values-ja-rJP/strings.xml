@@ -432,7 +432,6 @@
     <string name="clock_area_tap">タップ</string>
     <string name="clock_display">時計エリア</string>
     <string name="clock_and_date">時計と日付</string>
-    <string name="clock_preview_scaled">縮小表示</string>
     <string name="clock_style_classic">クラシック</string>
     <string name="clock_style_swiss">スイス</string>
     <string name="clock_style_rings">リング</string>

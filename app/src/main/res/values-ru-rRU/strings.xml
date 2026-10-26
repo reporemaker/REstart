@@ -440,7 +440,6 @@
     <string name="clock_area_tap">Нажатие</string>
     <string name="clock_display">Область часов</string>
     <string name="clock_and_date">Часы и дата</string>
-    <string name="clock_preview_scaled">Уменьшено</string>
     <string name="clock_style_classic">Классический</string>
     <string name="clock_style_swiss">Швейцарский</string>
     <string name="clock_style_rings">Кольца</string>

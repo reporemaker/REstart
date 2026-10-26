@@ -39,11 +39,11 @@ the two changes sent back upstream and every difference at the fork point are in
   settings and the bedtime filter that belonged to them are removed.
 
 ### Clock area: a live preview
-- The four style cards are now four names to choose from. Over them, fixed while the settings
-  scroll, a preview of the chosen style drawn by the home screen's own code: battery line, clock,
-  date, ring, rule and notes as they will be, in the page colours. Every switch, alignment, colour
-  and style shows at once; the size sliders follow the finger (the sheet no longer dims the page).
-  A preview taller than 40% of the screen (28% on a short one) is scaled down and says SCALED.
+- The four style cards are now four names to choose from. Over them, at full size and scrolling
+  with the page, a preview of the chosen style drawn by the home screen's own code: battery line,
+  clock, date, ring, rule and notes as they will be, in the page colours. Every switch, alignment,
+  colour and style shows at once; the size sliders follow the finger (the sheet no longer dims the
+  page).
 - No notes, or notes switched off: none in the preview either, as on the home screen.
 
 ### Fixed

@@ -441,7 +441,6 @@
     <string name="clock_area_tap">แตะ</string>
     <string name="clock_display">พื้นที่นาฬิกา</string>
     <string name="clock_and_date">นาฬิกาและวันที่</string>
-    <string name="clock_preview_scaled">ย่อขนาด</string>
     <string name="clock_style_classic">คลาสสิก</string>
     <string name="clock_style_swiss">สวิส</string>
     <string name="clock_style_rings">วงแหวน</string>

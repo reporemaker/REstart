@@ -339,7 +339,6 @@
     <string name="security_text">Security problems are not reported in public. Do not open an issue: write to hallo@remaker.ch or use GitHub\'s private vulnerability reporting. You will get an answer within 7 days.</string>
     <string name="clock_display">Clock area</string>
     <string name="clock_and_date">Clock and date</string>
-    <string name="clock_preview_scaled">Scaled</string>
     <string name="clock_style_classic">Classic</string>
     <string name="clock_style_swiss">Swiss</string>
     <string name="clock_style_rings">Rings</string>

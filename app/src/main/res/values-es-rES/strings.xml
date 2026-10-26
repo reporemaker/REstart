@@ -440,7 +440,6 @@
     <string name="clock_area_tap">Toque</string>
     <string name="clock_display">Área del reloj</string>
     <string name="clock_and_date">Reloj y fecha</string>
-    <string name="clock_preview_scaled">Reducido</string>
     <string name="clock_style_classic">Clásico</string>
     <string name="clock_style_swiss">Suizo</string>
     <string name="clock_style_rings">Anillos</string>
