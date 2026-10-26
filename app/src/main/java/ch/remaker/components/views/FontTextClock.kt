@@ -21,7 +21,7 @@ class FontTextClock @JvmOverloads constructor(
 
     /**
      * The view's own family at [weight]: the user's font (Doto, Montserrat, a custom file or the system one)
-     * is never swapped for a platform family. A family without that weight stays itself — fake-bold for the
+     * is never swapped for a platform family. A family without that weight stays itself: fake-bold for the
      * heavy line, the plain face for the light one.
      */
     private fun weighted(weight: Int): Typeface =

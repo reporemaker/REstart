@@ -29,9 +29,9 @@ This launcher stands on their work. The complete record, commit by commit, is `g
 
 Before the fork, the general-purpose work was offered to mLauncher. Both pull requests were merged:
 
-- **[#1104](https://github.com/CodeWorksCreativeHub/mLauncher/pull/1104) — pinned shortcuts from "Add to home screen"** (merged 2 October 2026, 16 files, closes #283). Browsers and apps can add web apps and shortcuts through Android's standard route; no WebView, no new permissions, and a shortcut's settings never touch the app that owns it.
-- **[#1115](https://github.com/CodeWorksCreativeHub/mLauncher/pull/1115) — app alias shown on the home screen, favourites and widget** (merged 22 October 2026, 4 files). A renamed app now shows its alias everywhere, not only in the drawer.
-- **[#1110](https://github.com/CodeWorksCreativeHub/mLauncher/issues/1110) — Turkish translation**: 106 of 349 strings corrected and handed over; the maintainer uploaded them to Crowdin.
+- **[#1104](https://github.com/CodeWorksCreativeHub/mLauncher/pull/1104): pinned shortcuts from "Add to home screen"** (merged 2 October 2026, 16 files, closes #283). Browsers and apps can add web apps and shortcuts through Android's standard route; no WebView, no new permissions, and a shortcut's settings never touch the app that owns it.
+- **[#1115](https://github.com/CodeWorksCreativeHub/mLauncher/pull/1115): app alias shown on the home screen, favourites and widget** (merged 22 October 2026, 4 files). A renamed app now shows its alias everywhere, not only in the drawer.
+- **[#1110](https://github.com/CodeWorksCreativeHub/mLauncher/issues/1110): Turkish translation**: 106 of 349 strings corrected and handed over; the maintainer uploaded them to Crowdin.
 
 ## 4. Why an independent project
 
@@ -61,58 +61,58 @@ details are in the git history.
 
 ### 4.1 Security
 
-- **Crash uploader removed** — the disabled code that posted crash logs to `crash.5646316.xyz` is gone from the build.
-- **Crash e-mail to the user** — reports no longer go to the upstream developer; the user enters the recipient.
-- **Old domain links removed** — theme download and privacy-policy links to `5646316.xyz` are gone.
-- **Persistent app lock** — lock changes after the first were lost on restart; they are now saved.
-- **No lock bypass** — locked apps cannot be opened through the home quick-action buttons or the date tap without authentication.
-- **No lock without a screen lock** — an app can no longer be locked on a device without one, which used to make it silently unopenable.
-- **Accessibility service trimmed** — no permission to read screen content, no notification text written to the log.
-- **Widgets without code loading** — widgets render without the owner app's code being loaded into the launcher; widget ids returned by other apps are not trusted.
-- **Hidden apps stay hidden** — pinning an app no longer brings hidden apps back into the drawer and search.
-- **Icon-pack requests verified** — a fake "apply icon pack" request from another app is ignored; the package name is read from the system.
-- **Theme and backup import limited** — an imported theme can only change colours; a broken theme or backup no longer crashes the launcher at start.
-- **Coarse weather location** — about 1 km precision, precise-location permission removed, coordinates never logged.
-- **Private crash log** — kept in the app's own storage instead of the shared Download folder, without the names of opened apps.
-- **No cloud backup of launcher data** — notes stay out of screenshots, the contact cache is deleted when the permission is withdrawn, e-mail addresses are not read.
-- **Pinned toolchain** — stable Kotlin release, no development repositories, checksum-pinned Gradle download.
-- **Nothing typed leaves the device** — forwarding unmatched searches to the Play Store or a web search engine, the internet search button and the search-engine setting are removed.
+- **Crash uploader removed**: the disabled code that posted crash logs to `crash.5646316.xyz` is gone from the build.
+- **Crash e-mail to the user**: reports no longer go to the upstream developer; the user enters the recipient.
+- **Old domain links removed**: theme download and privacy-policy links to `5646316.xyz` are gone.
+- **Persistent app lock**: lock changes after the first were lost on restart; they are now saved.
+- **No lock bypass**: locked apps cannot be opened through the home quick-action buttons or the date tap without authentication.
+- **No lock without a screen lock**: an app can no longer be locked on a device without one, which used to make it silently unopenable.
+- **Accessibility service trimmed**: no permission to read screen content, no notification text written to the log.
+- **Widgets without code loading**: widgets render without the owner app's code being loaded into the launcher; widget ids returned by other apps are not trusted.
+- **Hidden apps stay hidden**: pinning an app no longer brings hidden apps back into the drawer and search.
+- **Icon-pack requests verified**: a fake "apply icon pack" request from another app is ignored; the package name is read from the system.
+- **Theme and backup import limited**: an imported theme can only change colours; a broken theme or backup no longer crashes the launcher at start.
+- **Coarse weather location**: about 1 km precision, precise-location permission removed, coordinates never logged.
+- **Private crash log**: kept in the app's own storage instead of the shared Download folder, without the names of opened apps.
+- **No cloud backup of launcher data**: notes stay out of screenshots, the contact cache is deleted when the permission is withdrawn, e-mail addresses are not read.
+- **Pinned toolchain**: stable Kotlin release, no development repositories, checksum-pinned Gradle download.
+- **Nothing typed leaves the device**: forwarding unmatched searches to the Play Store or a web search engine, the internet search button and the search-engine setting are removed.
 
 ### 4.2 Bug fixes
 
-- **Stuck drawer** — the drawer no longer becomes permanently unopenable after two quick swipes.
-- **Drawer closes only when pulled down** — no more open-and-close on repeated swipes.
-- **Alias on home** — a renamed app shows its alias on the home screen in every mode (also sent upstream as #1115).
-- **Slow swipes** — slow gestures are detected correctly.
-- **Instant tap** — home-screen apps open on tap; the 0.3-second wait is gone.
-- **Follow-system theme** — works when dark mode is scheduled or automatic.
-- **Hidden apps and recents** — hidden apps no longer show in the drawer or search when "Show recent apps" is on.
-- **Turkish translation** — 106 strings corrected.
-- **Settings survive updates** — an automatic copy of all settings before every update (last five kept), restorable from Settings → Backup/Restore.
-- **Widget geometry in grid cells** — no drifting on open, no breaking on rotation, no stale sizes.
-- **Widgets stay on the page** — no overlap, no leaving the page; a widget dropped on taken cells returns, a full page warns.
-- **Widget default size** — new widgets take the size their app asks for, learn their real size correctly, and can be made smaller than the default.
-- **Widget crashes and glitches** — the "Remove all widgets" crash, the page restart after resize mode and the menu opening during a slow drag are fixed.
-- **Never-opened apps** — adding a widget of an app that has never run explains why it may stay empty and offers to open the app.
-- **Widget picker and host id** — every widget is listed, configure screens open the way Android intends, the host id no longer depends on the app name.
-- **Category view search** — refreshing the list no longer replaces search results with the full list.
+- **Stuck drawer**: the drawer no longer becomes permanently unopenable after two quick swipes.
+- **Drawer closes only when pulled down**: no more open-and-close on repeated swipes.
+- **Alias on home**: a renamed app shows its alias on the home screen in every mode (also sent upstream as #1115).
+- **Slow swipes**: slow gestures are detected correctly.
+- **Instant tap**: home-screen apps open on tap; the 0.3-second wait is gone.
+- **Follow-system theme**: works when dark mode is scheduled or automatic.
+- **Hidden apps and recents**: hidden apps no longer show in the drawer or search when "Show recent apps" is on.
+- **Turkish translation**: 106 strings corrected.
+- **Settings survive updates**: an automatic copy of all settings before every update (last five kept), restorable from Settings → Backup/Restore.
+- **Widget geometry in grid cells**: no drifting on open, no breaking on rotation, no stale sizes.
+- **Widgets stay on the page**: no overlap, no leaving the page; a widget dropped on taken cells returns, a full page warns.
+- **Widget default size**: new widgets take the size their app asks for, learn their real size correctly, and can be made smaller than the default.
+- **Widget crashes and glitches**: the "Remove all widgets" crash, the page restart after resize mode and the menu opening during a slow drag are fixed.
+- **Never-opened apps**: adding a widget of an app that has never run explains why it may stay empty and offers to open the app.
+- **Widget picker and host id**: every widget is listed, configure screens open the way Android intends, the host id no longer depends on the app name.
+- **Category view search**: refreshing the list no longer replaces search results with the full list.
 
 ### 4.3 Interface
 
-- **Smart Search** — independent of name length; matches word beginnings and single-letter typos; switching it off restores the old search.
-- **Larger search field** — a bigger search area in the drawer with a gap before the list.
-- **Category view** — pinned apps on top, the rest in categories with one open at a time; off brings back the A–Z list.
-- **Automatic categories** — from the app's tag, otherwise from the category the app declares to Android; the rest go to "Other".
-- **Category header settings** — size, colour, capitalisation, app count, search-field height and spacing are adjustable.
-- **Word of the Day removed** — with all its parts.
-- **New logo** — white on black, set in Cormorant Garamond (open licence); light and dark variants, adaptive icon, toast, splash and "Launcher Dots" use it.
-- **Widget editing view** — thin outline, small handles, live size label, dotted grid, dashed landing preview.
-- **Launcher in its own list** — tapping it opens the settings.
-- **About screen cleaned** — donation, Discord and "Share Application" links removed.
-- **Selection lists instead of toggles** — drawer view (A–Z / Categories) and search scope.
-- **Staged on-device search** — apps, then files, then contacts; a missing permission appears as a one-tap row in the list.
-- **Manage Categories screen** — rename, create with chosen apps, set the apps kept above the categories and the maximum number of categories.
-- **Settings redesigned** — two columns of thin-outlined cards, a fixed "name · version · About" line at the bottom; sections on sub-screens in cards, expert options behind a switch.
+- **Smart Search**: independent of name length; matches word beginnings and single-letter typos; switching it off restores the old search.
+- **Larger search field**: a bigger search area in the drawer with a gap before the list.
+- **Category view**: pinned apps on top, the rest in categories with one open at a time; off brings back the A–Z list.
+- **Automatic categories**: from the app's tag, otherwise from the category the app declares to Android; the rest go to "Other".
+- **Category header settings**: size, colour, capitalisation, app count, search-field height and spacing are adjustable.
+- **Word of the Day removed**: with all its parts.
+- **New logo**: white on black, set in Cormorant Garamond (open licence); light and dark variants, adaptive icon, toast, splash and "Launcher Dots" use it.
+- **Widget editing view**: thin outline, small handles, live size label, dotted grid, dashed landing preview.
+- **Launcher in its own list**: tapping it opens the settings.
+- **About screen cleaned**: donation, Discord and "Share Application" links removed.
+- **Selection lists instead of toggles**: drawer view (A–Z / Categories) and search scope.
+- **Staged on-device search**: apps, then files, then contacts; a missing permission appears as a one-tap row in the list.
+- **Manage Categories screen**: rename, create with chosen apps, set the apps kept above the categories and the maximum number of categories.
+- **Settings redesigned**: two columns of thin-outlined cards, a fixed "name · version · About" line at the bottom; sections on sub-screens in cards, expert options behind a switch.
 
 ## 5. Names
 

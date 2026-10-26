@@ -36,7 +36,7 @@ class WidgetActivity : AppCompatActivity() {
     // Lifecycle
     // ───────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppLogger.d(TAG, "🟢 onCreate() called — savedInstanceState=$savedInstanceState")
+        AppLogger.d(TAG, "🟢 onCreate() called: savedInstanceState=$savedInstanceState")
         super.onCreate(savedInstanceState)
 
         // Initialize preferences
@@ -111,7 +111,7 @@ class WidgetActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        AppLogger.v(TAG, "⚫ onDestroy() — clearing callbacks and pending list")
+        AppLogger.v(TAG, "⚫ onDestroy(): clearing callbacks and pending list")
         widgetResultCallback = null
         pendingWidgets.clear()
     }

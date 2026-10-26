@@ -1,7 +1,7 @@
 ---
 name: Translation
 about: A wrong, missing or awkward translation
-title: "Translation: <language> — <key or text>"
+title: "Translation: <language> - <key or text>"
 labels: translation
 ---
 
@@ -13,6 +13,6 @@ labels: translation
 
 **Suggested text**
 
-**Why** (optional — meaning, grammar, consistency with other screens)
+**Why** (optional: meaning, grammar, consistency with other screens)
 
-<sub>Strings live in `app/src/main/res/values-<lang>/strings.xml`. English, Turkish and German are maintained by hand; the other languages were machine-translated and marked as such at the end of each file — corrections from native speakers are the fix.</sub>
+<sub>Strings live in `app/src/main/res/values-<lang>/strings.xml`. English, Turkish and German are maintained by hand; the other languages were machine-translated and marked as such at the end of each file: corrections from native speakers are the fix.</sub>

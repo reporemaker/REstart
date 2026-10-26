@@ -10,10 +10,10 @@
     <string name="about_licence" translatable="false">GPL-3.0</string>
     <string name="about_weather_url" translatable="false">https://open-meteo.com/</string>
     <string name="about_licence_list" translatable="false">GPL-3.0 · OFL-1.1 · CC BY 4.0 · Apache-2.0</string>
-    <string name="licence_gpl" translatable="false">GNU GPL-3.0 — RE*start, mLauncher, OlauncherCF, Olauncher</string>
-    <string name="licence_ofl" translatable="false">SIL OFL-1.1 — Montserrat, Doto</string>
-    <string name="licence_ccby" translatable="false">CC BY 4.0 — Open-Meteo weather data</string>
-    <string name="licence_apache" translatable="false">Apache-2.0 — AndroidX, Material, Kotlin, Moshi</string>
+    <string name="licence_gpl" translatable="false">GNU GPL-3.0: RE*start, mLauncher, OlauncherCF, Olauncher</string>
+    <string name="licence_ofl" translatable="false">SIL OFL-1.1: Montserrat, Doto</string>
+    <string name="licence_ccby" translatable="false">CC BY 4.0: Open-Meteo weather data</string>
+    <string name="licence_apache" translatable="false">Apache-2.0: AndroidX, Material, Kotlin, Moshi</string>
 
     <!-- Font Stings -->
     <string name="settings_font_doto" translatable="false">Doto</string>

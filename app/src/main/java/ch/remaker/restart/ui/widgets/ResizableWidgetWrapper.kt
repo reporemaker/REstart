@@ -239,7 +239,7 @@ class ResizableWidgetWrapper(
         // 2. Use parent’s width/height for widget sizing
         post {
             if (parentWidth <= 0 || parentHeight <= 0) {
-                AppLogger.w(TAG, "⚠️ Skipping fillHostView — invalid size ($parentWidth x $parentHeight)")
+                AppLogger.w(TAG, "⚠️ Skipping fillHostView: invalid size ($parentWidth x $parentHeight)")
                 return@post
             }
 
@@ -503,7 +503,7 @@ class ResizableWidgetWrapper(
                 onScreen.recycle()
                 if (isResizeMode) return@setOnTouchListener false
 
-                // 🟡 If not in global edit mode, don't consume — allow normal widget touch behavior
+                // 🟡 If not in global edit mode, don't consume: allow normal widget touch behavior
                 if (!WidgetFragment.isEditingWidgets) return@setOnTouchListener false
 
                 when (event.actionMasked) {

@@ -113,7 +113,7 @@ class Migration(val context: Context) {
             // Try to parse as the new format
             val messages = prefs.loadMessages()
             if (messages.isNotEmpty()) {
-                // Already in correct format — no need to migrate
+                // Already in correct format: no need to migrate
                 return
             }
         } catch (_: Exception) {
