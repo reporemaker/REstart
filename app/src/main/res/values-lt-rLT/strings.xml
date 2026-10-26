@@ -496,4 +496,5 @@
     <string name="gestures_buttons">Mygtukai</string>
     <string name="gesture_fallback_settings">telefono nustatymai</string>
     <string name="gesture_fallback_phone">Telefonas</string>
+    <string name="wellbeing_not_opened">Šiame telefone nepavyko atidaryti Skaitmeninės gerovės.</string>
 </resources>

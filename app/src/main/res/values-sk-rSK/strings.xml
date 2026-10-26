@@ -496,4 +496,5 @@
     <string name="gestures_buttons">Tlačidlá</string>
     <string name="gesture_fallback_settings">nastavenia telefónu</string>
     <string name="gesture_fallback_phone">Telefón</string>
+    <string name="wellbeing_not_opened">Digitálnu rovnováhu sa v tomto telefóne nepodarilo otvoriť.</string>
 </resources>

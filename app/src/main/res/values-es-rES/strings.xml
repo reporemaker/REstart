@@ -502,4 +502,5 @@
     <string name="gestures_buttons">Botones</string>
     <string name="gesture_fallback_settings">ajustes del teléfono</string>
     <string name="gesture_fallback_phone">Teléfono</string>
+    <string name="wellbeing_not_opened">No se pudo abrir Bienestar digital en este teléfono.</string>
 </resources>

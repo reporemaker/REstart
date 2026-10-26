@@ -502,4 +502,5 @@
     <string name="gestures_buttons">Knoppen</string>
     <string name="gesture_fallback_settings">telefooninstellingen</string>
     <string name="gesture_fallback_phone">Telefoon</string>
+    <string name="wellbeing_not_opened">Digitaal welzijn kan op deze telefoon niet worden geopend.</string>
 </resources>

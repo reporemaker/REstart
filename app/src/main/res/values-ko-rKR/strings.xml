@@ -502,4 +502,5 @@
     <string name="gestures_buttons">버튼</string>
     <string name="gesture_fallback_settings">전화 설정</string>
     <string name="gesture_fallback_phone">전화</string>
+    <string name="wellbeing_not_opened">이 휴대전화에서 디지털 웰빙을 열 수 없습니다.</string>
 </resources>

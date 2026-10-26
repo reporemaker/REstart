@@ -496,4 +496,5 @@
     <string name="gestures_buttons">לחצנים</string>
     <string name="gesture_fallback_settings">הגדרות הטלפון</string>
     <string name="gesture_fallback_phone">טלפון</string>
+    <string name="wellbeing_not_opened">לא ניתן לפתוח את איזון דיגיטלי בטלפון הזה.</string>
 </resources>

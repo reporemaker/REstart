@@ -501,4 +501,5 @@
     <string name="gestures_buttons">الأزرار</string>
     <string name="gesture_fallback_settings">إعدادات الهاتف</string>
     <string name="gesture_fallback_phone">الهاتف</string>
+    <string name="wellbeing_not_opened">تعذّر فتح «الصحة الرقمية» على هذا الهاتف.</string>
 </resources>

@@ -69,6 +69,10 @@ the two changes sent back upstream and every difference at the fork point are in
   takes the long swipe's action.
 
 ### Fixed
+- **Digital Wellbeing would not open** from the screen time line (or a gesture set to it) on
+  phones where the maker renamed its screen (Samsung does between One UI versions): it now tries
+  the known screens, the app's own entry, then any of its screens that opens, before saying so,
+  in the phone's language.
 - **Long dashes in the texts.** The feedback and hidden-apps texts (21 languages), the licence
   lines and the docs used the em dash; they now use a colon, a semicolon or a hyphen. Turkish
   "Tarih'i göster", "Pil'i göster" are now "Tarihi göster", "Pili göster".

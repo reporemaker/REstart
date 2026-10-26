@@ -502,4 +502,5 @@
     <string name="gestures_buttons">Кнопки</string>
     <string name="gesture_fallback_settings">настройки телефона</string>
     <string name="gesture_fallback_phone">Телефон</string>
+    <string name="wellbeing_not_opened">Не удалось открыть «Цифровое благополучие» на этом телефоне.</string>
 </resources>

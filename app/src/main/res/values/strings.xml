@@ -604,4 +604,5 @@
     <string name="gestures_buttons">Buttons</string>
     <string name="gesture_fallback_settings">phone settings</string>
     <string name="gesture_fallback_phone">Phone</string>
+    <string name="wellbeing_not_opened">Digital Wellbeing could not be opened on this phone.</string>
 </resources>

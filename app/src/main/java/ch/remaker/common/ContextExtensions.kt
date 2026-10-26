@@ -279,34 +279,45 @@ fun Context.openBatteryManager() {
     CrashHandler.logUserAction("Battery Manager Launched")
 }
 
+/**
+ * Opens Digital Wellbeing (Google) or Digital Wellbeing / "Dijital Sağlık" (Samsung). The makers
+ * rename the screen behind it between versions (Samsung between One UI releases), so a fixed class
+ * name fails with "could not be opened". Tried in order, the first that resolves wins: the known
+ * screens, the app's own launcher entry, then any screen of the app that answers MAIN, its likely
+ * main one first.
+ */
 fun Context.openDigitalWellbeing() {
-    // Known Digital Wellbeing packages and their main activity
-    val wellbeingMap = mapOf(
+    val known = listOf(
         "com.google.android.apps.wellbeing" to "com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity",
+        "com.samsung.android.forest" to "com.samsung.android.forest.launcher.LauncherActivity",
         "com.samsung.android.forest" to "com.samsung.android.forest.settings.MainActivity",
-        "com.samsung.android.wellbeing" to "com.samsung.android.wellbeing.SamsungWellbeingSettingsActivity"
+        "com.samsung.android.wellbeing" to "com.samsung.android.wellbeing.SamsungWellbeingSettingsActivity",
     )
-
-    val installedPackages = packageManager.getInstalledPackages(0).map { it.packageName }
-
-    val wellbeingEntry = wellbeingMap.entries.firstOrNull { it.key in installedPackages }
-
-    if (wellbeingEntry != null) {
-        val (pkg, cls) = wellbeingEntry
-        val intent = Intent().apply {
-            component = ComponentName(pkg, cls)
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+    val packages = known.map { it.first }.distinct()
+    val candidates = buildList {
+        known.forEach { (pkg, cls) -> add(Intent().setClassName(pkg, cls)) }
+        packages.forEach { pkg -> packageManager.getLaunchIntentForPackage(pkg)?.let { add(it) } }
+        packages.forEach { pkg ->
+            packageManager.queryIntentActivities(Intent(Intent.ACTION_MAIN).setPackage(pkg), 0)
+                .map { it.activityInfo }
+                .filter { it.exported }
+                .sortedBy { info -> listOf("Dashboard", "Launcher", "TopLevel", "Main", "Settings").indexOfFirst { info.name.contains(it) }.let { if (it < 0) 99 else it } }
+                .forEach { add(Intent().setClassName(it.packageName, it.name)) }
         }
-
-        try {
-            startActivity(intent)
-            CrashHandler.logUserAction("Digital Wellbeing Launched")
-        } catch (_: ActivityNotFoundException) {
-            showLongToast("Unable to launch Digital Wellbeing.")
-        }
-    } else {
-        showLongToast("Digital Wellbeing is not available on this device.")
     }
+    for (intent in candidates) {
+        if (intent.resolveActivity(packageManager) == null) continue
+        try {
+            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            CrashHandler.logUserAction("Digital Wellbeing Launched: ${intent.component?.className}")
+            return
+        } catch (e: ActivityNotFoundException) {
+            AppLogger.w("DigitalWellbeing", "Not opened: ${intent.component}: ${e.message}")
+        } catch (e: SecurityException) {
+            AppLogger.w("DigitalWellbeing", "Not allowed: ${intent.component}: ${e.message}")
+        }
+    }
+    showLongToast(getLocalizedString(ch.remaker.restart.R.string.wellbeing_not_opened))
 }
 
 fun Context.isSystemApp(packageName: String): Boolean {
