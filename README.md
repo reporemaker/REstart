@@ -58,8 +58,9 @@ that carries your taste, not the noise of every app on it.
 - **Gestures you can trust:** one action per swipe direction, however far you swipe; draw a
   circle, a four-sided figure or a triangle in one stroke to start what you choose, and try any
   gesture on a pad first. Fewer missed swipes, more done without looking for an icon.
-- **Settings where you expect them:** three sections by what they affect: Features, Look &
-  Feel, Advanced. An automatic backup before every update, 21 languages. You find what you
+- **Settings where you expect them:** seven sections by what they affect: Features, Look &
+  Feel, Gestures, Home Screen Apps, Hidden Apps, Notes, Advanced. An automatic backup before
+  every update, 21 languages. You find what you
   look for, and an update never undoes your setup.
 - **Quiet:** no ads, no analytics, no crash uploads, no accounts. The only request it makes on
   its own is the weather, with the location rounded to about 1 km; dependencies audited with
