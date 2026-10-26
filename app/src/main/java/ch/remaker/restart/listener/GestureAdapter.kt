@@ -5,14 +5,11 @@ package ch.remaker.restart.listener
  * Override only what you need.
  */
 abstract class GestureAdapter : GestureManager.GestureListener {
-    override fun onShortSwipeLeft() {}
-    override fun onLongSwipeLeft() {}
-    override fun onShortSwipeRight() {}
-    override fun onLongSwipeRight() {}
-    override fun onShortSwipeUp() {}
-    override fun onLongSwipeUp() {}
-    override fun onShortSwipeDown() {}
-    override fun onLongSwipeDown() {}
+    override fun onSwipeLeft() {}
+    override fun onSwipeRight() {}
+    override fun onSwipeUp() {}
+    override fun onSwipeDown() {}
+    override fun onShape(shape: StrokeClassifier.Shape) {}
     override fun onLongPress() {}
     override fun onDoubleTap() {}
     override fun onSingleTap() {}

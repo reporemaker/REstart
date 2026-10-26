@@ -111,21 +111,11 @@
     <string name="shortcuts_color">קיצורי דרך</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">מחוות</string>
-    <string name="tap_click_actions">פעולות הקשה/לחיצה</string>
     <string name="double_tap">הקשה כפולה</string>
     <string name="clock_click_app">לחיצה על השעון</string>
     <string name="date_click_app">לחיצה על התאריך</string>
     <string name="usage_click_app">לחיצה על סך שימוש</string>
     <string name="floating_click_app">לחיצה על הלוגו</string>
-    <string name="swipe_movement">תנועת החלקה</string>
-    <string name="short_swipe_up_app">החלקה קצרה למעלה</string>
-    <string name="short_swipe_down_app">החלקה קצרה למטה</string>
-    <string name="short_swipe_left_app">החלקה קצרה שמאלה</string>
-    <string name="short_swipe_right_app">החלקה קצרה ימינה</string>
-    <string name="long_swipe_up_app">החלקה ארוכה למעלה</string>
-    <string name="long_swipe_down_app">החלקה ארוכה למטה</string>
-    <string name="long_swipe_left_app">החלקה ארוכה שמאלה</string>
-    <string name="long_swipe_right_app">החלקה ארוכה ימינה</string>
     <string name="open_app">הפעלת יישום</string>
     <string name="lock_screen">נעילת מסך</string>
     <string name="private_space">מרחבים פרטיים (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">אודות %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">מוּמחֶה</string>
-    <string name="threshold">סַף</string>
     <string name="expert_options_display">הצג אפשרויות מומחים</string>
     <string name="expert_options_unlocked">אפשרויות מומחים פתוחות!</string>
     <string name="expert_options_tap_hint">%1$d עוד נגיעות לפתיחה</string>
     <string name="settings_text_size">הגדרות גודל טקסט</string>
-    <string name="settings_short_threshold">סף החלקה קצר</string>
-    <string name="settings_long_threshold">סף החלקה ארוכה</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">יישומים מוסתרים</string>
     <string name="favorite_apps">יישומים מועדפים</string>
@@ -485,4 +472,28 @@
     <string name="notes_category_entries">פריטים: %1$d</string>
     <string name="notes_category_remove_confirm">להסיר את „%1$s”? הפריטים יישארו, ללא קטגוריה.</string>
     <string name="notes_categories_hint">להערות ולמשימות</string>
+    <string name="action_open_settings">הגדרות RE*start</string>
+    <string name="gestures_fixed">תמיד אותו דבר</string>
+    <string name="gesture_swipe_up">החלקה למעלה</string>
+    <string name="gesture_swipe_down">החלקה למטה</string>
+    <string name="gesture_swipe_left">החלקה שמאלה</string>
+    <string name="gesture_swipe_right">החלקה ימינה</string>
+    <string name="gesture_value_drawer">מגירת היישומים</string>
+    <string name="gesture_value_notifications">התראות והגדרות מהירות</string>
+    <string name="gestures_swipes">החלקות</string>
+    <string name="swipe_distance">מרחק החלקה</string>
+    <string name="gestures_taps">הקשות</string>
+    <string name="long_press">לחיצה ארוכה</string>
+    <string name="gestures_shapes">צורות בקו אחד</string>
+    <string name="gesture_try">ניסיון תנועה</string>
+    <string name="gesture_try_sub">ציירו או החליקו וראו מה מזוהה</string>
+    <string name="gesture_try_hint">ציירו עיגול, ריבוע או משולש בלי להרים את האצבע, או החליקו. מה שמסך הבית עושה עם זה מופיע למטה.</string>
+    <string name="gesture_not_recognised">לא זוהה</string>
+    <string name="gesture_reason_short">קצר מדי</string>
+    <string name="gesture_reason_small">קטן מדי</string>
+    <string name="gesture_reason_open">לא סגור</string>
+    <string name="gesture_reason_unclear">צורה לא ברורה</string>
+    <string name="gestures_buttons">לחצנים</string>
+    <string name="gesture_fallback_settings">הגדרות הטלפון</string>
+    <string name="gesture_fallback_phone">טלפון</string>
 </resources>

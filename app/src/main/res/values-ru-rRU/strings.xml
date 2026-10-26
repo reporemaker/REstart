@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Ярлыки</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Жесты</string>
-    <string name="tap_click_actions">Действия при касании/нажатии</string>
     <string name="double_tap">Двойное нажатие</string>
     <string name="clock_click_app">Нажмите на часы</string>
     <string name="date_click_app">Нажмите на дату</string>
     <string name="usage_click_app">Нажмите на «Общее использование».</string>
     <string name="floating_click_app">Нажмите на логотип</string>
-    <string name="swipe_movement">Движение свайпа</string>
-    <string name="short_swipe_up_app">Короткий свайп вверх</string>
-    <string name="short_swipe_down_app">Короткий свайп вниз</string>
-    <string name="short_swipe_left_app">Короткий свайп влево</string>
-    <string name="short_swipe_right_app">Короткий свайп вправо</string>
-    <string name="long_swipe_up_app">Длинный свайп вверх</string>
-    <string name="long_swipe_down_app">Длинный свайп вниз</string>
-    <string name="long_swipe_left_app">Длинный свайп влево</string>
-    <string name="long_swipe_right_app">Длинный свайп вправо</string>
     <string name="open_app">Открыть приложение</string>
     <string name="lock_screen">Заблокировать экран</string>
     <string name="private_space">Приватные пространства (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">О %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Эксперт</string>
-    <string name="threshold">Порог</string>
     <string name="expert_options_display">Показать параметры эксперта</string>
     <string name="expert_options_unlocked">Доступны экспертные опции!</string>
     <string name="expert_options_tap_hint">%1$d больше нажатий для разблокировки</string>
     <string name="settings_text_size">Размер текста в настройках</string>
-    <string name="settings_short_threshold">Порог короткого свайпа</string>
-    <string name="settings_long_threshold">Порог длительного свайпа</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Скрытые приложения</string>
     <string name="favorite_apps">Любимые приложения</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">Записи: %1$d</string>
     <string name="notes_category_remove_confirm">Удалить «%1$s»? Записи останутся, без категории.</string>
     <string name="notes_categories_hint">Для заметок и задач</string>
+    <string name="action_open_settings">Настройки RE*start</string>
+    <string name="gestures_fixed">Всегда одинаково</string>
+    <string name="gesture_swipe_up">Смахнуть вверх</string>
+    <string name="gesture_swipe_down">Смахнуть вниз</string>
+    <string name="gesture_swipe_left">Смахнуть влево</string>
+    <string name="gesture_swipe_right">Смахнуть вправо</string>
+    <string name="gesture_value_drawer">Список приложений</string>
+    <string name="gesture_value_notifications">Уведомления и быстрые настройки</string>
+    <string name="gestures_swipes">Смахивания</string>
+    <string name="swipe_distance">Длина смахивания</string>
+    <string name="gestures_taps">Касания</string>
+    <string name="long_press">Долгое нажатие</string>
+    <string name="gestures_shapes">Фигуры одним движением</string>
+    <string name="gesture_try">Попробовать жест</string>
+    <string name="gesture_try_sub">Нарисуйте или смахните и посмотрите, что распознано</string>
+    <string name="gesture_try_hint">Нарисуйте круг, квадрат или треугольник, не отрывая палец, или смахните. Что из этого сделает главный экран, показано ниже.</string>
+    <string name="gesture_not_recognised">Не распознано</string>
+    <string name="gesture_reason_short">слишком коротко</string>
+    <string name="gesture_reason_small">слишком мало</string>
+    <string name="gesture_reason_open">не замкнуто</string>
+    <string name="gesture_reason_unclear">фигура неясна</string>
+    <string name="gestures_buttons">Кнопки</string>
+    <string name="gesture_fallback_settings">настройки телефона</string>
+    <string name="gesture_fallback_phone">Телефон</string>
 </resources>

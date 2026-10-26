@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Raccourcis</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestes</string>
-    <string name="tap_click_actions">Actions par appui/clic</string>
     <string name="double_tap">Double appui</string>
     <string name="clock_click_app">Cliquer sur l\'horloge</string>
     <string name="date_click_app">Cliquer sur Date</string>
     <string name="usage_click_app">Cliquer sur Utilisation totale</string>
     <string name="floating_click_app">Cliquer sur le logo</string>
-    <string name="swipe_movement">Mouvement de balayage</string>
-    <string name="short_swipe_up_app">Balayage court vers le haut</string>
-    <string name="short_swipe_down_app">Balayage court vers le bas</string>
-    <string name="short_swipe_left_app">Balayage court vers la gauche</string>
-    <string name="short_swipe_right_app">Balayage court vers la droite</string>
-    <string name="long_swipe_up_app">Balayage long vers le haut</string>
-    <string name="long_swipe_down_app">Balayage long vers le bas</string>
-    <string name="long_swipe_left_app">Balayage long vers la gauche</string>
-    <string name="long_swipe_right_app">Balayage long vers la droite</string>
     <string name="open_app">Ouvrir l\'application</string>
     <string name="lock_screen">Verrouiller l\'écran</string>
     <string name="private_space">Espaces privés (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">À propos de %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="threshold">Seuil</string>
     <string name="expert_options_display">Afficher les options expertes</string>
     <string name="expert_options_unlocked">Options expertes débloquées !</string>
     <string name="expert_options_tap_hint">Encore %1$d appuis pour déverrouiller</string>
     <string name="settings_text_size">Taille du texte des paramètres</string>
-    <string name="settings_short_threshold">Seuil de balayage court</string>
-    <string name="settings_long_threshold">Seuil de balayage long</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Applications masquées</string>
     <string name="favorite_apps">Applications favorites</string>
@@ -490,4 +477,28 @@
     <string name="notes_category_entries">Entrées : %1$d</string>
     <string name="notes_category_remove_confirm">Retirer « %1$s » ? Ses entrées restent, sans catégorie.</string>
     <string name="notes_categories_hint">Pour les notes et les tâches</string>
+    <string name="action_open_settings">Paramètres de RE*start</string>
+    <string name="gestures_fixed">Toujours pareil</string>
+    <string name="gesture_swipe_up">Balayer vers le haut</string>
+    <string name="gesture_swipe_down">Balayer vers le bas</string>
+    <string name="gesture_swipe_left">Balayer vers la gauche</string>
+    <string name="gesture_swipe_right">Balayer vers la droite</string>
+    <string name="gesture_value_drawer">Tiroir d\'applications</string>
+    <string name="gesture_value_notifications">Notifications et réglages rapides</string>
+    <string name="gestures_swipes">Balayages</string>
+    <string name="swipe_distance">Distance de balayage</string>
+    <string name="gestures_taps">Appuis</string>
+    <string name="long_press">Appui long</string>
+    <string name="gestures_shapes">Formes d\'un seul trait</string>
+    <string name="gesture_try">Essayer un geste</string>
+    <string name="gesture_try_sub">Dessinez ou balayez et voyez ce qui est reconnu</string>
+    <string name="gesture_try_hint">Dessinez un cercle, un carré ou un triangle sans lever le doigt, ou balayez. Ce qu\'en fait l\'écran d\'accueil s\'affiche dessous.</string>
+    <string name="gesture_not_recognised">Non reconnu</string>
+    <string name="gesture_reason_short">trop court</string>
+    <string name="gesture_reason_small">trop petit</string>
+    <string name="gesture_reason_open">pas fermé</string>
+    <string name="gesture_reason_unclear">forme floue</string>
+    <string name="gestures_buttons">Boutons</string>
+    <string name="gesture_fallback_settings">paramètres du téléphone</string>
+    <string name="gesture_fallback_phone">Téléphone</string>
 </resources>

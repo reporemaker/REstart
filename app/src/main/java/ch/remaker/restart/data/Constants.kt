@@ -59,42 +59,12 @@ object Constants {
     const val MAX_OPACITY = 100
 
     const val DOUBLE_CLICK_TIME_DELTA = 300L // Adjust as needed
-    const val SWIPE_VELOCITY_THRESHOLD = 450f // Adjust as needed
-
-    // Update SWIPE_DISTANCE_THRESHOLD dynamically based on screen dimensions
+    // The swipe distance setting: a share of the screen side, see Prefs.swipeDistance
     const val MIN_THRESHOLD = 0f
     const val MAX_THRESHOLD = 1f
-    var SHORT_SWIPE_THRESHOLD = 0f  // pixels
-    var LONG_SWIPE_THRESHOLD = 0f // pixels
-    var USR_DPIX = 0f
-    var USR_DPIY = 0f
 
     const val ACCESS_FINE_LOCATION = 666
     const val READ_CONTACTS = 777
-
-    fun updateSwipeDistanceThreshold(context: Context, direction: String) {
-        val prefs = Prefs(context)
-        val metrics = context.resources.displayMetrics
-
-        USR_DPIX = metrics.xdpi
-        USR_DPIY = metrics.ydpi
-
-        val screenWidthInches = metrics.widthPixels / USR_DPIX
-        val screenHeightInches = metrics.heightPixels / USR_DPIY
-
-        if (direction.equals("left", true) || direction.equals("right", true)) {
-            LONG_SWIPE_THRESHOLD = screenWidthInches * prefs.longSwipeThreshold
-            SHORT_SWIPE_THRESHOLD = screenWidthInches * prefs.shortSwipeThreshold
-        } else {
-            LONG_SWIPE_THRESHOLD = screenHeightInches * prefs.longSwipeThreshold
-            SHORT_SWIPE_THRESHOLD = screenHeightInches * prefs.shortSwipeThreshold
-        }
-
-        AppLogger.d(
-            "GestureThresholds",
-            "Updated thresholds for $direction: SHORT = $SHORT_SWIPE_THRESHOLD inches, LONG = $LONG_SWIPE_THRESHOLD inches"
-        )
-    }
 
     enum class AppDrawerFlag {
         None,
@@ -102,19 +72,17 @@ object Constants {
         HiddenApps,
         PrivateApps,
         SetHomeApp,
-        SetShortSwipeUp,
-        SetShortSwipeDown,
-        SetShortSwipeLeft,
-        SetShortSwipeRight,
-        SetLongSwipeUp,
-        SetLongSwipeDown,
-        SetLongSwipeLeft,
-        SetLongSwipeRight,
+        SetSwipeLeft,
+        SetSwipeRight,
         SetClickClock,
         SetAppUsage,
         SetFloating,
         SetClickDate,
         SetDoubleTap,
+        SetLongPress,
+        SetCircle,
+        SetSquare,
+        SetTriangle,
     }
 
     enum class Language : EnumOption {
@@ -309,6 +277,7 @@ object Constants {
         OpenPowerDialog,
         TakeScreenShot,
         RestartApp,
+        OpenSettings,
         Disabled;
 
         fun getString(): String {
@@ -326,6 +295,7 @@ object Constants {
                 OpenPowerDialog -> getLocalizedString(R.string.open_power_dialog)
                 TakeScreenShot -> getLocalizedString(R.string.take_a_screenshot)
                 RestartApp -> getLocalizedString(R.string.restart_launcher)
+                OpenSettings -> getLocalizedString(R.string.action_open_settings)
                 Disabled -> getLocalizedString(R.string.disabled)
             }
         }
@@ -345,6 +315,7 @@ object Constants {
                 OpenPowerDialog -> getLocalizedString(R.string.open_power_dialog)
                 TakeScreenShot -> getLocalizedString(R.string.take_a_screenshot)
                 RestartApp -> getLocalizedString(R.string.restart_launcher)
+                OpenSettings -> getLocalizedString(R.string.action_open_settings)
                 Disabled -> getLocalizedString(R.string.disabled)
             }
         }

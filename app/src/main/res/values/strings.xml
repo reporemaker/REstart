@@ -205,7 +205,6 @@
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestures</string>
 
-    <string name="tap_click_actions">Tap/Click Actions</string>
 
     <string name="double_tap">Double Tap</string>
     <string name="clock_click_app">Click on Clock</string>
@@ -213,16 +212,7 @@
     <string name="usage_click_app">Click on Total Usage</string>
     <string name="floating_click_app">Click on Logo</string>
 
-    <string name="swipe_movement">Swipe Movement</string>
 
-    <string name="short_swipe_up_app">Short Swipe up</string>
-    <string name="short_swipe_down_app">Short Swipe down</string>
-    <string name="short_swipe_left_app">Short Swipe left</string>
-    <string name="short_swipe_right_app">Short Swipe right</string>
-    <string name="long_swipe_up_app">Long Swipe up</string>
-    <string name="long_swipe_down_app">Long Swipe down</string>
-    <string name="long_swipe_left_app">Long Swipe left</string>
-    <string name="long_swipe_right_app">Long Swipe right</string>
 
     <string name="open_app">Open App</string>
     <string name="lock_screen">Lock Screen</string>
@@ -359,7 +349,6 @@
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
 
-    <string name="threshold">Threshold</string>
 
     <string name="expert_options_display">Show Expert Options</string>
 
@@ -368,8 +357,6 @@
 
     <string name="settings_text_size">Settings Text Size</string>
 
-    <string name="settings_short_threshold">Short Swipe Threshold</string>
-    <string name="settings_long_threshold">Long Swipe Threshold</string>
 
     <!-- App Page Strings -->
     <string name="hidden_apps">Hidden Apps</string>
@@ -593,4 +580,28 @@
     <string name="notes_category_entries">Entries: %1$d</string>
     <string name="notes_category_remove_confirm">Remove “%1$s”? Its entries stay, without a category.</string>
     <string name="notes_categories_hint">Used by notes and to-dos</string>
+    <string name="action_open_settings">RE*start settings</string>
+    <string name="gestures_fixed">Always the same</string>
+    <string name="gesture_swipe_up">Swipe up</string>
+    <string name="gesture_swipe_down">Swipe down</string>
+    <string name="gesture_swipe_left">Swipe left</string>
+    <string name="gesture_swipe_right">Swipe right</string>
+    <string name="gesture_value_drawer">App drawer</string>
+    <string name="gesture_value_notifications">Notifications and quick settings</string>
+    <string name="gestures_swipes">Swipes</string>
+    <string name="swipe_distance">Swipe distance</string>
+    <string name="gestures_taps">Taps</string>
+    <string name="long_press">Long press</string>
+    <string name="gestures_shapes">Shapes in one stroke</string>
+    <string name="gesture_try">Try a gesture</string>
+    <string name="gesture_try_sub">Draw or swipe and see what is recognised</string>
+    <string name="gesture_try_hint">Draw a circle, a square or a triangle without lifting your finger, or swipe. What the home screen makes of it shows below.</string>
+    <string name="gesture_not_recognised">Not recognised</string>
+    <string name="gesture_reason_short">too short</string>
+    <string name="gesture_reason_small">too small</string>
+    <string name="gesture_reason_open">not closed</string>
+    <string name="gesture_reason_unclear">unclear shape</string>
+    <string name="gestures_buttons">Buttons</string>
+    <string name="gesture_fallback_settings">phone settings</string>
+    <string name="gesture_fallback_phone">Phone</string>
 </resources>

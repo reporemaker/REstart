@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Snelkoppelingen</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gebaren</string>
-    <string name="tap_click_actions">Tik/klikacties</string>
     <string name="double_tap">Dubbeltik</string>
     <string name="clock_click_app">Klik op de klok</string>
     <string name="date_click_app">Klik op Datum</string>
     <string name="usage_click_app">Klik op Totaal gebruik</string>
     <string name="floating_click_app">Klik op Logo</string>
-    <string name="swipe_movement">Veeggebaar</string>
-    <string name="short_swipe_up_app">Kort omhoog vegen</string>
-    <string name="short_swipe_down_app">Kort omlaag vegen</string>
-    <string name="short_swipe_left_app">Kort naar links vegen</string>
-    <string name="short_swipe_right_app">Kort naar rechts vegen</string>
-    <string name="long_swipe_up_app">Lang omhoog vegen</string>
-    <string name="long_swipe_down_app">Lang omlaag vegen</string>
-    <string name="long_swipe_left_app">Lang naar links vegen</string>
-    <string name="long_swipe_right_app">Lang naar rechts vegen</string>
     <string name="open_app">App openen</string>
     <string name="lock_screen">Vergrendel scherm</string>
     <string name="private_space">Privéruimtes (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">Over %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="threshold">Drempelwaarde</string>
     <string name="expert_options_display">Expertopties weergeven</string>
     <string name="expert_options_unlocked">Expertopties ontgrendeld!</string>
     <string name="expert_options_tap_hint">%1$d meer tikken om te ontgrendelen</string>
     <string name="settings_text_size">Instellingen Tekstgrootte</string>
-    <string name="settings_short_threshold">Drempelwaarde voor korte veegbewegingen</string>
-    <string name="settings_long_threshold">Drempelwaarde voor lange veegbewegingen</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Verborgen apps</string>
     <string name="favorite_apps">Favoriete apps</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">Items: %1$d</string>
     <string name="notes_category_remove_confirm">„%1$s” verwijderen? De items blijven, zonder categorie.</string>
     <string name="notes_categories_hint">Voor notities en taken</string>
+    <string name="action_open_settings">RE*start-instellingen</string>
+    <string name="gestures_fixed">Altijd hetzelfde</string>
+    <string name="gesture_swipe_up">Omhoog vegen</string>
+    <string name="gesture_swipe_down">Omlaag vegen</string>
+    <string name="gesture_swipe_left">Naar links vegen</string>
+    <string name="gesture_swipe_right">Naar rechts vegen</string>
+    <string name="gesture_value_drawer">App-lade</string>
+    <string name="gesture_value_notifications">Meldingen en snelle instellingen</string>
+    <string name="gestures_swipes">Veegbewegingen</string>
+    <string name="swipe_distance">Veegafstand</string>
+    <string name="gestures_taps">Tikken</string>
+    <string name="long_press">Lang indrukken</string>
+    <string name="gestures_shapes">Vormen in één streek</string>
+    <string name="gesture_try">Gebaar proberen</string>
+    <string name="gesture_try_sub">Teken of veeg en zie wat er wordt herkend</string>
+    <string name="gesture_try_hint">Teken een cirkel, een vierkant of een driehoek zonder je vinger op te tillen, of veeg. Wat het startscherm ervan maakt, staat eronder.</string>
+    <string name="gesture_not_recognised">Niet herkend</string>
+    <string name="gesture_reason_short">te kort</string>
+    <string name="gesture_reason_small">te klein</string>
+    <string name="gesture_reason_open">niet gesloten</string>
+    <string name="gesture_reason_unclear">vorm onduidelijk</string>
+    <string name="gestures_buttons">Knoppen</string>
+    <string name="gesture_fallback_settings">telefooninstellingen</string>
+    <string name="gesture_fallback_phone">Telefoon</string>
 </resources>

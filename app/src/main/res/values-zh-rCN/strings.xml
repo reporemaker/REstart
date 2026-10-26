@@ -111,21 +111,11 @@
     <string name="shortcuts_color">快捷方式</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">手势</string>
-    <string name="tap_click_actions">轻点/点击操作</string>
     <string name="double_tap">双击</string>
     <string name="clock_click_app">点击时钟</string>
     <string name="date_click_app">点击日期</string>
     <string name="usage_click_app">点击总使用时间</string>
     <string name="floating_click_app">点击徽标</string>
-    <string name="swipe_movement">滑动手势</string>
-    <string name="short_swipe_up_app">短距离上滑</string>
-    <string name="short_swipe_down_app">短距离下滑</string>
-    <string name="short_swipe_left_app">短距离左滑</string>
-    <string name="short_swipe_right_app">短距离右滑</string>
-    <string name="long_swipe_up_app">长距离上滑</string>
-    <string name="long_swipe_down_app">长距离下滑</string>
-    <string name="long_swipe_left_app">长距离左滑</string>
-    <string name="long_swipe_right_app">长距离右滑</string>
     <string name="open_app">打开应用</string>
     <string name="lock_screen">锁定屏幕</string>
     <string name="private_space">私密空间（%1$s）</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">关于 %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">专家</string>
-    <string name="threshold">阈值</string>
     <string name="expert_options_display">显示专家选项</string>
     <string name="expert_options_unlocked">专家选项已解锁！</string>
     <string name="expert_options_tap_hint">再点 %1$d 次即可解锁</string>
     <string name="settings_text_size">设置文字大小</string>
-    <string name="settings_short_threshold">短滑阈值</string>
-    <string name="settings_long_threshold">长滑阈值</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">隐藏应用</string>
     <string name="favorite_apps">收藏应用</string>
@@ -490,4 +477,28 @@
     <string name="notes_category_entries">条目：%1$d</string>
     <string name="notes_category_remove_confirm">删除“%1$s”？其条目会保留，但没有分类。</string>
     <string name="notes_categories_hint">用于笔记和待办</string>
+    <string name="action_open_settings">RE*start 设置</string>
+    <string name="gestures_fixed">始终相同</string>
+    <string name="gesture_swipe_up">向上滑动</string>
+    <string name="gesture_swipe_down">向下滑动</string>
+    <string name="gesture_swipe_left">向左滑动</string>
+    <string name="gesture_swipe_right">向右滑动</string>
+    <string name="gesture_value_drawer">应用抽屉</string>
+    <string name="gesture_value_notifications">通知和快捷设置</string>
+    <string name="gestures_swipes">滑动操作</string>
+    <string name="swipe_distance">滑动距离</string>
+    <string name="gestures_taps">点按</string>
+    <string name="long_press">长按</string>
+    <string name="gestures_shapes">一笔画图形</string>
+    <string name="gesture_try">试试手势</string>
+    <string name="gesture_try_sub">画图或滑动，看看识别结果</string>
+    <string name="gesture_try_hint">不抬起手指画一个圆形、方形或三角形，或者滑动。主屏幕会怎样处理将显示在下方。</string>
+    <string name="gesture_not_recognised">未识别</string>
+    <string name="gesture_reason_short">太短</string>
+    <string name="gesture_reason_small">太小</string>
+    <string name="gesture_reason_open">未闭合</string>
+    <string name="gesture_reason_unclear">形状不清楚</string>
+    <string name="gestures_buttons">按钮</string>
+    <string name="gesture_fallback_settings">手机设置</string>
+    <string name="gesture_fallback_phone">电话</string>
 </resources>

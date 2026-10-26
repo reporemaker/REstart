@@ -111,21 +111,11 @@
     <string name="shortcuts_color">ショートカット</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">ジェスチャー</string>
-    <string name="tap_click_actions">タップ/クリック操作</string>
     <string name="double_tap">ダブルタップ</string>
     <string name="clock_click_app">時計をタップ</string>
     <string name="date_click_app">日付をタップ</string>
     <string name="usage_click_app">合計使用時間をタップ</string>
     <string name="floating_click_app">ロゴをタップ</string>
-    <string name="swipe_movement">スワイプ操作</string>
-    <string name="short_swipe_up_app">短く上にスワイプ</string>
-    <string name="short_swipe_down_app">短く下にスワイプ</string>
-    <string name="short_swipe_left_app">短く左にスワイプ</string>
-    <string name="short_swipe_right_app">短く右にスワイプ</string>
-    <string name="long_swipe_up_app">長く上にスワイプ</string>
-    <string name="long_swipe_down_app">長く下にスワイプ</string>
-    <string name="long_swipe_left_app">長く左にスワイプ</string>
-    <string name="long_swipe_right_app">長く右にスワイプ</string>
     <string name="open_app">アプリを開く</string>
     <string name="lock_screen">画面をロック</string>
     <string name="private_space">プライベートスペース（%1$s）</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">%1$s について</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">エキスパート</string>
-    <string name="threshold">しきい値</string>
     <string name="expert_options_display">エキスパートオプションを表示</string>
     <string name="expert_options_unlocked">エキスパート向けオプションが解放されました！</string>
     <string name="expert_options_tap_hint">あと %1$d 回タップでロック解除</string>
     <string name="settings_text_size">設定の文字サイズ</string>
-    <string name="settings_short_threshold">短いスワイプの閾値</string>
-    <string name="settings_long_threshold">ロングスワイプしきい値</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">隠しアプリ</string>
     <string name="favorite_apps">お気に入りのアプリ</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">項目: %1$d</string>
     <string name="notes_category_remove_confirm">「%1$s」を削除しますか？項目はカテゴリなしで残ります。</string>
     <string name="notes_categories_hint">メモとToDoで使用</string>
+    <string name="action_open_settings">RE*start の設定</string>
+    <string name="gestures_fixed">常に同じ</string>
+    <string name="gesture_swipe_up">上にスワイプ</string>
+    <string name="gesture_swipe_down">下にスワイプ</string>
+    <string name="gesture_swipe_left">左にスワイプ</string>
+    <string name="gesture_swipe_right">右にスワイプ</string>
+    <string name="gesture_value_drawer">アプリ一覧</string>
+    <string name="gesture_value_notifications">通知とクイック設定</string>
+    <string name="gestures_swipes">スワイプ操作</string>
+    <string name="swipe_distance">スワイプの距離</string>
+    <string name="gestures_taps">タップ</string>
+    <string name="long_press">長押し</string>
+    <string name="gestures_shapes">一筆で描く図形</string>
+    <string name="gesture_try">ジェスチャーを試す</string>
+    <string name="gesture_try_sub">描くかスワイプして、何が認識されるか確認</string>
+    <string name="gesture_try_hint">指を離さずに円・四角・三角を描くか、スワイプしてください。ホーム画面がそれをどう扱うかが下に表示されます。</string>
+    <string name="gesture_not_recognised">認識されませんでした</string>
+    <string name="gesture_reason_short">短すぎます</string>
+    <string name="gesture_reason_small">小さすぎます</string>
+    <string name="gesture_reason_open">閉じていません</string>
+    <string name="gesture_reason_unclear">形がはっきりしません</string>
+    <string name="gestures_buttons">ボタン</string>
+    <string name="gesture_fallback_settings">電話の設定</string>
+    <string name="gesture_fallback_phone">電話</string>
 </resources>

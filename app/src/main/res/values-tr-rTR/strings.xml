@@ -161,21 +161,11 @@
     <string name="shortcuts_color">Kısayollar</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Hareketler</string>
-    <string name="tap_click_actions">Dokunma/Tıklama Eylemleri</string>
     <string name="double_tap">Çift Dokunuş</string>
     <string name="clock_click_app">Saat üzerine Tıklayın</string>
     <string name="date_click_app">Tarih üzerine Tıklayın</string>
     <string name="usage_click_app">Ekran süresine dokunma</string>
     <string name="floating_click_app">RE*start logosuna dokunma</string>
-    <string name="swipe_movement">Kaydırma Hareketi</string>
-    <string name="short_swipe_up_app">Kısa yukarı kaydırma</string>
-    <string name="short_swipe_down_app">Kısa aşağı kaydırma</string>
-    <string name="short_swipe_left_app">Kısa sola kaydırma</string>
-    <string name="short_swipe_right_app">Kısa sağa kaydırma</string>
-    <string name="long_swipe_up_app">Uzun yukarı kaydırma</string>
-    <string name="long_swipe_down_app">Uzun aşağı kaydırma</string>
-    <string name="long_swipe_left_app">Uzun sola kaydırma</string>
-    <string name="long_swipe_right_app">Uzun sağa kaydırma</string>
     <string name="open_app">Uygulama\'yı Aç</string>
     <string name="lock_screen">Ekranı Kilitle</string>
     <string name="private_space">Özel Alanlar (%1$s)</string>
@@ -282,13 +272,10 @@
     <string name="credits_licences">Lisanslar</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Uzman</string>
-    <string name="threshold">Eşik</string>
     <string name="expert_options_display">Uzman Seçeneklerini Göster</string>
     <string name="expert_options_unlocked">Uzman Seçeneklerinin Kilidi Açıldı!</string>
     <string name="expert_options_tap_hint">Açmak için %1$d dokunma kaldı</string>
     <string name="settings_text_size">Ayarlar Metin Boyutu</string>
-    <string name="settings_short_threshold">Kısa Kaydırma Eşiği</string>
-    <string name="settings_long_threshold">Uzun Kaydırma Eşiği</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Gizli uygulamalar</string>
     <string name="favorite_apps">Favori Uygulamalar</string>
@@ -490,4 +477,28 @@
     <string name="notes_category_entries">Kalem: %1$d</string>
     <string name="notes_category_remove_confirm">“%1$s” silinsin mi? Kalemleri kategorisiz olarak kalır.</string>
     <string name="notes_categories_hint">Notlarda ve yapılacaklarda kullanılır</string>
+    <string name="action_open_settings">RE*start ayarları</string>
+    <string name="gestures_fixed">Her zaman aynı</string>
+    <string name="gesture_swipe_up">Yukarı kaydır</string>
+    <string name="gesture_swipe_down">Aşağı kaydır</string>
+    <string name="gesture_swipe_left">Sola kaydır</string>
+    <string name="gesture_swipe_right">Sağa kaydır</string>
+    <string name="gesture_value_drawer">Uygulama çekmecesi</string>
+    <string name="gesture_value_notifications">Bildirimler ve hızlı ayarlar</string>
+    <string name="gestures_swipes">Kaydırmalar</string>
+    <string name="swipe_distance">Kaydırma mesafesi</string>
+    <string name="gestures_taps">Dokunuşlar</string>
+    <string name="long_press">Uzun basma</string>
+    <string name="gestures_shapes">Tek çizgide şekiller</string>
+    <string name="gesture_try">Hareketi dene</string>
+    <string name="gesture_try_sub">Çiz ya da kaydır, neyin tanındığını gör</string>
+    <string name="gesture_try_hint">Parmağını kaldırmadan bir daire, kare ya da üçgen çiz veya kaydır. Ana ekranın bundan ne anladığı aşağıda görünür.</string>
+    <string name="gesture_not_recognised">Tanınmadı</string>
+    <string name="gesture_reason_short">çok kısa</string>
+    <string name="gesture_reason_small">çok küçük</string>
+    <string name="gesture_reason_open">kapanmadı</string>
+    <string name="gesture_reason_unclear">şekil belirsiz</string>
+    <string name="gestures_buttons">Düğmeler</string>
+    <string name="gesture_fallback_settings">telefon ayarları</string>
+    <string name="gesture_fallback_phone">Telefon</string>
 </resources>

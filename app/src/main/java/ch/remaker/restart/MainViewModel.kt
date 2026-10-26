@@ -197,14 +197,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun selectedApp(fragment: Fragment, app: AppListItem, flag: AppDrawerFlag, n: Int = 0) {
         when (flag) {
             AppDrawerFlag.SetHomeApp -> prefs.setHomeAppModel(n, app)
-            AppDrawerFlag.SetShortSwipeUp -> prefs.appShortSwipeUp = app
-            AppDrawerFlag.SetShortSwipeDown -> prefs.appShortSwipeDown = app
-            AppDrawerFlag.SetShortSwipeLeft -> prefs.appShortSwipeLeft = app
-            AppDrawerFlag.SetShortSwipeRight -> prefs.appShortSwipeRight = app
-            AppDrawerFlag.SetLongSwipeUp -> prefs.appLongSwipeUp = app
-            AppDrawerFlag.SetLongSwipeDown -> prefs.appLongSwipeDown = app
-            AppDrawerFlag.SetLongSwipeLeft -> prefs.appLongSwipeLeft = app
-            AppDrawerFlag.SetLongSwipeRight -> prefs.appLongSwipeRight = app
+            AppDrawerFlag.SetSwipeLeft -> prefs.appSwipeLeft = app
+            AppDrawerFlag.SetSwipeRight -> prefs.appSwipeRight = app
+            AppDrawerFlag.SetLongPress -> prefs.appLongPress = app
+            AppDrawerFlag.SetCircle -> prefs.appCircle = app
+            AppDrawerFlag.SetSquare -> prefs.appSquare = app
+            AppDrawerFlag.SetTriangle -> prefs.appTriangle = app
             AppDrawerFlag.SetClickClock -> prefs.appClickClock = app
             AppDrawerFlag.SetAppUsage -> prefs.appClickUsage = app
             AppDrawerFlag.SetFloating -> prefs.appFloating = app

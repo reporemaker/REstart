@@ -109,6 +109,11 @@ internal const val CLICK_APP_USAGE_ACTION = "CLICK_APP_USAGE_ACTION"
 internal const val CLICK_FLOATING_ACTION = "CLICK_FLOATING_ACTION"
 internal const val CLICK_DATE_ACTION = "CLICK_DATE_ACTION"
 internal const val DOUBLE_TAP_ACTION = "DOUBLE_TAP_ACTION"
+internal const val LONG_PRESS_ACTION = "LONG_PRESS_ACTION"
+internal const val SHAPE_CIRCLE_ACTION = "SHAPE_CIRCLE_ACTION"
+internal const val SHAPE_SQUARE_ACTION = "SHAPE_SQUARE_ACTION"
+internal const val SHAPE_TRIANGLE_ACTION = "SHAPE_TRIANGLE_ACTION"
+internal const val GESTURES_MERGED = "GESTURES_MERGED"
 
 // Hidden / Locked / Pinned Apps and Contacts
 internal const val HIDDEN_APPS = "HIDDEN_APPS"
@@ -145,6 +150,10 @@ internal const val CLICK_USAGE = "CLICK_USAGE"
 internal const val CLICK_FLOATING = "CLICK_FLOATING"
 internal const val CLICK_DATE = "CLICK_DATE"
 internal const val DOUBLE_TAP = "DOUBLE_TAP"
+internal const val LONG_PRESS = "LONG_PRESS"
+internal const val SHAPE_CIRCLE = "SHAPE_CIRCLE"
+internal const val SHAPE_SQUARE = "SHAPE_SQUARE"
+internal const val SHAPE_TRIANGLE = "SHAPE_TRIANGLE"
 
 // Text / Size
 internal const val APP_SIZE_TEXT = "APP_SIZE_TEXT"

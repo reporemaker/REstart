@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Scurtături</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gesturi</string>
-    <string name="tap_click_actions">Acțiuni de atingere/clic</string>
     <string name="double_tap">Atingeți de două ori</string>
     <string name="clock_click_app">Faceți clic pe Ceas</string>
     <string name="date_click_app">Faceți clic pe Dată</string>
     <string name="usage_click_app">Faceți clic pe Utilizare totală</string>
     <string name="floating_click_app">Faceți clic pe siglă</string>
-    <string name="swipe_movement">Mișcare de glisare</string>
-    <string name="short_swipe_up_app">Glisare scurtă în sus</string>
-    <string name="short_swipe_down_app">Glisare scurtă în jos</string>
-    <string name="short_swipe_left_app">Glisare scurtă la stânga</string>
-    <string name="short_swipe_right_app">Glisare scurtă spre dreapta</string>
-    <string name="long_swipe_up_app">Glisare lungă în sus</string>
-    <string name="long_swipe_down_app">Glisare lungă în jos</string>
-    <string name="long_swipe_left_app">Glisare lungă la stânga</string>
-    <string name="long_swipe_right_app">Glisare lungă la dreapta</string>
     <string name="open_app">Deschide aplicația</string>
     <string name="lock_screen">Blochează ecranul</string>
     <string name="private_space">Spații private (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">Despre %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="threshold">Prag</string>
     <string name="expert_options_display">Afișați opțiunile expertului</string>
     <string name="expert_options_unlocked">Opțiuni pentru experți deblocate!</string>
     <string name="expert_options_tap_hint">Încă %1$d atingeri pentru deblocare</string>
     <string name="settings_text_size">Dimensiunea textului setărilor</string>
-    <string name="settings_short_threshold">Prag de glisare scurtă</string>
-    <string name="settings_long_threshold">Prag de glisare lungă</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Aplicații ascunse</string>
     <string name="favorite_apps">Aplicații preferate</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">Intrări: %1$d</string>
     <string name="notes_category_remove_confirm">Eliminați „%1$s”? Intrările rămân, fără categorie.</string>
     <string name="notes_categories_hint">Pentru notițe și sarcini</string>
+    <string name="action_open_settings">Setări RE*start</string>
+    <string name="gestures_fixed">Mereu la fel</string>
+    <string name="gesture_swipe_up">Glisare în sus</string>
+    <string name="gesture_swipe_down">Glisare în jos</string>
+    <string name="gesture_swipe_left">Glisare la stânga</string>
+    <string name="gesture_swipe_right">Glisare la dreapta</string>
+    <string name="gesture_value_drawer">Sertarul de aplicații</string>
+    <string name="gesture_value_notifications">Notificări și setări rapide</string>
+    <string name="gestures_swipes">Glisări</string>
+    <string name="swipe_distance">Distanța de glisare</string>
+    <string name="gestures_taps">Atingeri</string>
+    <string name="long_press">Apăsare lungă</string>
+    <string name="gestures_shapes">Forme dintr-o singură trăsătură</string>
+    <string name="gesture_try">Încercați un gest</string>
+    <string name="gesture_try_sub">Desenați sau glisați și vedeți ce este recunoscut</string>
+    <string name="gesture_try_hint">Desenați un cerc, un pătrat sau un triunghi fără să ridicați degetul, sau glisați. Ce face ecranul principal din asta apare dedesubt.</string>
+    <string name="gesture_not_recognised">Nerecunoscut</string>
+    <string name="gesture_reason_short">prea scurt</string>
+    <string name="gesture_reason_small">prea mic</string>
+    <string name="gesture_reason_open">neînchis</string>
+    <string name="gesture_reason_unclear">formă neclară</string>
+    <string name="gestures_buttons">Butoane</string>
+    <string name="gesture_fallback_settings">setările telefonului</string>
+    <string name="gesture_fallback_phone">Telefon</string>
 </resources>

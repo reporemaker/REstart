@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Skratky</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestá</string>
-    <string name="tap_click_actions">Akcie klepnutia/kliknutia</string>
     <string name="double_tap">Dvojité poklepanie</string>
     <string name="clock_click_app">Kliknúť na Hodiny</string>
     <string name="date_click_app">Kliknúť na Dátum</string>
     <string name="usage_click_app">Kliknite na Celkové využitie</string>
     <string name="floating_click_app">Kliknite na Logo</string>
-    <string name="swipe_movement">Pohyb potiahnutím prstom</string>
-    <string name="short_swipe_up_app">Krátke potiahnutie prstom nahor</string>
-    <string name="short_swipe_down_app">Krátke potiahnutie prstom nadol</string>
-    <string name="short_swipe_left_app">Krátke potiahnutie prstom doľava</string>
-    <string name="short_swipe_right_app">Krátke potiahnutie prstom doprava</string>
-    <string name="long_swipe_up_app">Dlhé potiahnutie prstom nahor</string>
-    <string name="long_swipe_down_app">Dlhé potiahnutie prstom nadol</string>
-    <string name="long_swipe_left_app">Dlhé potiahnutie prstom doľava</string>
-    <string name="long_swipe_right_app">Dlhé potiahnutie prstom doprava</string>
     <string name="open_app">Otvoriť aplikáciu</string>
     <string name="lock_screen">Zamknúť obrazovku</string>
     <string name="private_space">Súkromné priestory (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">O aplikácii %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Expert</string>
-    <string name="threshold">Prahová hodnota</string>
     <string name="expert_options_display">Zobraziť možnosti pre expertov</string>
     <string name="expert_options_unlocked">Možnosti pre expertov sú odomknuté!</string>
     <string name="expert_options_tap_hint">%1$d viac klepnutí na odomknutie</string>
     <string name="settings_text_size">Veľkosť textu nastavení</string>
-    <string name="settings_short_threshold">Prah krátkeho potiahnutia</string>
-    <string name="settings_long_threshold">Prah dlhého potiahnutia</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Skryté aplikácie</string>
     <string name="favorite_apps">Obľúbené aplikácie</string>
@@ -485,4 +472,28 @@
     <string name="notes_category_entries">Položky: %1$d</string>
     <string name="notes_category_remove_confirm">Odstrániť „%1$s“? Položky zostanú, bez kategórie.</string>
     <string name="notes_categories_hint">Pre poznámky a úlohy</string>
+    <string name="action_open_settings">Nastavenia RE*start</string>
+    <string name="gestures_fixed">Vždy rovnaké</string>
+    <string name="gesture_swipe_up">Potiahnutie nahor</string>
+    <string name="gesture_swipe_down">Potiahnutie nadol</string>
+    <string name="gesture_swipe_left">Potiahnutie doľava</string>
+    <string name="gesture_swipe_right">Potiahnutie doprava</string>
+    <string name="gesture_value_drawer">Zásuvka aplikácií</string>
+    <string name="gesture_value_notifications">Upozornenia a rýchle nastavenia</string>
+    <string name="gestures_swipes">Potiahnutia</string>
+    <string name="swipe_distance">Dĺžka potiahnutia</string>
+    <string name="gestures_taps">Klepnutia</string>
+    <string name="long_press">Dlhé stlačenie</string>
+    <string name="gestures_shapes">Tvary jedným ťahom</string>
+    <string name="gesture_try">Vyskúšať gesto</string>
+    <string name="gesture_try_sub">Nakreslite alebo potiahnite a uvidíte, čo sa rozpozná</string>
+    <string name="gesture_try_hint">Nakreslite kruh, štvorec alebo trojuholník bez zdvihnutia prsta, alebo potiahnite. Čo z toho urobí domovská obrazovka, sa zobrazí nižšie.</string>
+    <string name="gesture_not_recognised">Nerozpoznané</string>
+    <string name="gesture_reason_short">príliš krátke</string>
+    <string name="gesture_reason_small">príliš malé</string>
+    <string name="gesture_reason_open">neuzavreté</string>
+    <string name="gesture_reason_unclear">nejasný tvar</string>
+    <string name="gestures_buttons">Tlačidlá</string>
+    <string name="gesture_fallback_settings">nastavenia telefónu</string>
+    <string name="gesture_fallback_phone">Telefón</string>
 </resources>

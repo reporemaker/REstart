@@ -159,13 +159,10 @@ class Prefs(val context: Context) {
         get() = getSetting(FILTER_STRENGTH, 25)
         set(value) = prefsNormal.edit { putInt(FILTER_STRENGTH, value) }
 
-    var shortSwipeThreshold: Float
+    /** How far a swipe must go, as a share of the screen width (across) or height (up/down). */
+    var swipeDistance: Float
         get() = getSetting(SHORT_SWIPE_THRESHOLD, 0.15f)
         set(value) = prefsNormal.edit { putFloat(SHORT_SWIPE_THRESHOLD, value) }
-
-    var longSwipeThreshold: Float
-        get() = getSetting(LONG_SWIPE_THRESHOLD, 0.4f)
-        set(value) = prefsNormal.edit { putFloat(LONG_SWIPE_THRESHOLD, value) }
 
     var searchFromStart: Boolean
         get() = getSetting(SEARCH_START, false)
@@ -509,53 +506,53 @@ class Prefs(val context: Context) {
         get() = getSetting(CLICK_EDIT_DELETE, true)
         set(value) = prefsNormal.edit { putBoolean(CLICK_EDIT_DELETE, value) }
 
-    var shortSwipeUpAction: Constants.Action
-        get() {
-            return getEnumSetting(SWIPE_UP_ACTION, Constants.Action.ShowAppList)
-        }
-        set(value) = prefsNormal.edit { putString(SWIPE_UP_ACTION, value.name) }
-
-    var shortSwipeDownAction: Constants.Action
-        get() {
-            return getEnumSetting(SWIPE_DOWN_ACTION, Constants.Action.ShowNotification)
-        }
-        set(value) = prefsNormal.edit { putString(SWIPE_DOWN_ACTION, value.name) }
-
-    var shortSwipeLeftAction: Constants.Action
-        get() {
-            return getEnumSetting(SWIPE_LEFT_ACTION, Constants.Action.OpenApp)
-        }
+    // Gestures (1.2.0): one action per horizontal direction, however long the swipe; up always opens
+    // the app drawer and down the notifications, so they have no setting. The keys of the short
+    // swipes carry on; the long swipes are folded into them once (mergeLongSwipesOnce).
+    var swipeLeftAction: Constants.Action
+        get() = getEnumSetting(SWIPE_LEFT_ACTION, Constants.Action.OpenApp)
         set(value) = prefsNormal.edit { putString(SWIPE_LEFT_ACTION, value.name) }
 
-    var shortSwipeRightAction: Constants.Action
-        get() {
-            return getEnumSetting(SWIPE_RIGHT_ACTION, Constants.Action.OpenApp)
-        }
+    var swipeRightAction: Constants.Action
+        get() = getEnumSetting(SWIPE_RIGHT_ACTION, Constants.Action.OpenApp)
         set(value) = prefsNormal.edit { putString(SWIPE_RIGHT_ACTION, value.name) }
 
-    var longSwipeUpAction: Constants.Action
-        get() {
-            return getEnumSetting(LONG_SWIPE_UP_ACTION, Constants.Action.ShowAppList)
-        }
-        set(value) = prefsNormal.edit { putString(LONG_SWIPE_UP_ACTION, value.name) }
+    var longPressAction: Constants.Action
+        get() = getEnumSetting(LONG_PRESS_ACTION, Constants.Action.OpenSettings)
+        set(value) = prefsNormal.edit { putString(LONG_PRESS_ACTION, value.name) }
 
-    var longSwipeDownAction: Constants.Action
-        get() {
-            return getEnumSetting(LONG_SWIPE_DOWN_ACTION, Constants.Action.ShowNotification)
-        }
-        set(value) = prefsNormal.edit { putString(LONG_SWIPE_DOWN_ACTION, value.name) }
+    /** Shapes drawn in one stroke; off until the user gives them an action. */
+    var circleAction: Constants.Action
+        get() = getEnumSetting(SHAPE_CIRCLE_ACTION, Constants.Action.Disabled)
+        set(value) = prefsNormal.edit { putString(SHAPE_CIRCLE_ACTION, value.name) }
 
-    var longSwipeLeftAction: Constants.Action
-        get() {
-            return getEnumSetting(LONG_SWIPE_LEFT_ACTION, Constants.Action.Disabled)
-        }
-        set(value) = prefsNormal.edit { putString(LONG_SWIPE_LEFT_ACTION, value.name) }
+    var squareAction: Constants.Action
+        get() = getEnumSetting(SHAPE_SQUARE_ACTION, Constants.Action.Disabled)
+        set(value) = prefsNormal.edit { putString(SHAPE_SQUARE_ACTION, value.name) }
 
-    var longSwipeRightAction: Constants.Action
-        get() {
-            return getEnumSetting(LONG_SWIPE_RIGHT_ACTION, Constants.Action.Disabled)
+    var triangleAction: Constants.Action
+        get() = getEnumSetting(SHAPE_TRIANGLE_ACTION, Constants.Action.Disabled)
+        set(value) = prefsNormal.edit { putString(SHAPE_TRIANGLE_ACTION, value.name) }
+
+    /**
+     * Before 1.2.0 left and right had a short and a long swipe. A side whose short swipe did
+     * nothing takes the long one (action and app); otherwise the short one stays. Runs once; the
+     * old keys are left as they are (migration rule: move, never delete).
+     */
+    fun mergeLongSwipesOnce() {
+        if (prefsNormal.getBoolean(GESTURES_MERGED, false)) return
+        fun merge(shortKey: String, longKey: String, shortApp: String, longApp: String) {
+            val short = prefsNormal.getString(shortKey, null)
+            val long = prefsNormal.getString(longKey, null)
+            if (short == Constants.Action.Disabled.name && long != null && long != Constants.Action.Disabled.name) {
+                prefsNormal.edit { putString(shortKey, long) }
+                if (long == Constants.Action.OpenApp.name) storeApp(shortApp, loadApp(longApp))
+            }
         }
-        set(value) = prefsNormal.edit { putString(LONG_SWIPE_RIGHT_ACTION, value.name) }
+        merge(SWIPE_LEFT_ACTION, LONG_SWIPE_LEFT_ACTION, SHORT_SWIPE_LEFT, LONG_SWIPE_LEFT)
+        merge(SWIPE_RIGHT_ACTION, LONG_SWIPE_RIGHT_ACTION, SHORT_SWIPE_RIGHT, LONG_SWIPE_RIGHT)
+        prefsNormal.edit(commit = true) { putBoolean(GESTURES_MERGED, true) }
+    }
 
     var clickClockAction: Constants.Action
         get() {
@@ -695,31 +692,24 @@ class Prefs(val context: Context) {
         storeApp("$i", appListItem)
     }
 
-    var appShortSwipeUp: AppListItem
-        get() = loadApp(SHORT_SWIPE_UP)
-        set(appModel) = storeApp(SHORT_SWIPE_UP, appModel)
-    var appShortSwipeDown: AppListItem
-        get() = loadApp(SHORT_SWIPE_DOWN)
-        set(appModel) = storeApp(SHORT_SWIPE_DOWN, appModel)
-    var appShortSwipeLeft: AppListItem
+    var appSwipeLeft: AppListItem
         get() = loadApp(SHORT_SWIPE_LEFT)
         set(appModel) = storeApp(SHORT_SWIPE_LEFT, appModel)
-    var appShortSwipeRight: AppListItem
+    var appSwipeRight: AppListItem
         get() = loadApp(SHORT_SWIPE_RIGHT)
         set(appModel) = storeApp(SHORT_SWIPE_RIGHT, appModel)
-
-    var appLongSwipeUp: AppListItem
-        get() = loadApp(LONG_SWIPE_UP)
-        set(appModel) = storeApp(LONG_SWIPE_UP, appModel)
-    var appLongSwipeDown: AppListItem
-        get() = loadApp(LONG_SWIPE_DOWN)
-        set(appModel) = storeApp(LONG_SWIPE_DOWN, appModel)
-    var appLongSwipeLeft: AppListItem
-        get() = loadApp(LONG_SWIPE_LEFT)
-        set(appModel) = storeApp(LONG_SWIPE_LEFT, appModel)
-    var appLongSwipeRight: AppListItem
-        get() = loadApp(LONG_SWIPE_RIGHT)
-        set(appModel) = storeApp(LONG_SWIPE_RIGHT, appModel)
+    var appLongPress: AppListItem
+        get() = loadApp(LONG_PRESS)
+        set(appModel) = storeApp(LONG_PRESS, appModel)
+    var appCircle: AppListItem
+        get() = loadApp(SHAPE_CIRCLE)
+        set(appModel) = storeApp(SHAPE_CIRCLE, appModel)
+    var appSquare: AppListItem
+        get() = loadApp(SHAPE_SQUARE)
+        set(appModel) = storeApp(SHAPE_SQUARE, appModel)
+    var appTriangle: AppListItem
+        get() = loadApp(SHAPE_TRIANGLE)
+        set(appModel) = storeApp(SHAPE_TRIANGLE, appModel)
 
     var appClickClock: AppListItem
         get() = loadApp(CLICK_CLOCK)

@@ -111,21 +111,11 @@
     <string name="shortcuts_color">اختصارات</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">إيماءات</string>
-    <string name="tap_click_actions">إجراءات النقر/الضغط</string>
     <string name="double_tap">النقر المزدوج</string>
     <string name="clock_click_app">انقر على الساعة</string>
     <string name="date_click_app">انقر على التاريخ</string>
     <string name="usage_click_app">انقر على إجمالي الاستخدام</string>
     <string name="floating_click_app">انقر على الشعار</string>
-    <string name="swipe_movement">حركة التمرير</string>
-    <string name="short_swipe_up_app">مرر لأعلى</string>
-    <string name="short_swipe_down_app">مرر لأسفل</string>
-    <string name="short_swipe_left_app">مرر لليسار</string>
-    <string name="short_swipe_right_app">مرر لليمين</string>
-    <string name="long_swipe_up_app">اضغط لفترة طويلة على السحب لأعلى</string>
-    <string name="long_swipe_down_app">الضغط لفترة طويلة اسحب لأسفل</string>
-    <string name="long_swipe_left_app">الضغط لفترة طويلة اسحب لليسار</string>
-    <string name="long_swipe_right_app">اضغط لفترة طويلة اسحب لليمين</string>
     <string name="open_app">فتح التطبيق</string>
     <string name="lock_screen">قفل الشاشة</string>
     <string name="private_space">مساحات خاصة (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">حول %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">خبير</string>
-    <string name="threshold">عتبة</string>
     <string name="expert_options_display">عرض خيارات الخبراء</string>
     <string name="expert_options_unlocked">تم فتح خيارات الخبراء!</string>
     <string name="expert_options_tap_hint">%1$d نقرات أخرى لفتح القفل</string>
     <string name="settings_text_size">إعدادات حجم النص</string>
-    <string name="settings_short_threshold">عتبة التمرير القصيرة</string>
-    <string name="settings_long_threshold">عتبة التمرير الطويل</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">تطبيقات مخفية</string>
     <string name="favorite_apps">التطبيقات المفضلة</string>
@@ -490,4 +477,28 @@
     <string name="notes_category_entries">العناصر: %1$d</string>
     <string name="notes_category_remove_confirm">إزالة «%1$s»؟ تبقى عناصرها بلا فئة.</string>
     <string name="notes_categories_hint">تُستخدم في الملحوظات والمهام</string>
+    <string name="action_open_settings">إعدادات RE*start</string>
+    <string name="gestures_fixed">دائمًا كما هو</string>
+    <string name="gesture_swipe_up">اسحب لأعلى</string>
+    <string name="gesture_swipe_down">اسحب لأسفل</string>
+    <string name="gesture_swipe_left">اسحب لليسار</string>
+    <string name="gesture_swipe_right">اسحب لليمين</string>
+    <string name="gesture_value_drawer">درج التطبيقات</string>
+    <string name="gesture_value_notifications">الإشعارات والإعدادات السريعة</string>
+    <string name="gestures_swipes">السحب</string>
+    <string name="swipe_distance">مسافة السحب</string>
+    <string name="gestures_taps">النقرات</string>
+    <string name="long_press">الضغط المطوّل</string>
+    <string name="gestures_shapes">أشكال بخط واحد</string>
+    <string name="gesture_try">جرّب إيماءة</string>
+    <string name="gesture_try_sub">ارسم أو اسحب وشاهد ما يتم التعرف عليه</string>
+    <string name="gesture_try_hint">ارسم دائرة أو مربعًا أو مثلثًا دون رفع إصبعك، أو اسحب. ما تفعله الشاشة الرئيسية بذلك يظهر أدناه.</string>
+    <string name="gesture_not_recognised">لم يتم التعرف عليه</string>
+    <string name="gesture_reason_short">قصير جدًا</string>
+    <string name="gesture_reason_small">صغير جدًا</string>
+    <string name="gesture_reason_open">غير مغلق</string>
+    <string name="gesture_reason_unclear">شكل غير واضح</string>
+    <string name="gestures_buttons">الأزرار</string>
+    <string name="gesture_fallback_settings">إعدادات الهاتف</string>
+    <string name="gesture_fallback_phone">الهاتف</string>
 </resources>

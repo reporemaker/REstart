@@ -95,6 +95,10 @@ import ch.remaker.restart.BuildConfig
 import ch.remaker.restart.MainActivity
 import ch.remaker.restart.MainViewModel
 import ch.remaker.restart.R
+import kotlin.math.roundToInt
+import androidx.compose.ui.graphics.toArgb
+import ch.remaker.restart.ui.components.GesturePad
+import ch.remaker.restart.listener.StrokeClassifier
 import ch.remaker.restart.ui.components.ClockPreview
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.ui.viewinterop.AndroidView
@@ -334,15 +338,12 @@ class SettingsFragment : BaseFragment() {
         var selectedClickAppUsageAction by remember { mutableStateOf(prefs.clickAppUsageAction) }
         var selectedClickFloatingAction by remember { mutableStateOf(prefs.clickFloatingAction) }
 
-        var selectedShortSwipeUpAction by remember { mutableStateOf(prefs.shortSwipeUpAction) }
-        var selectedShortSwipeDownAction by remember { mutableStateOf(prefs.shortSwipeDownAction) }
-        var selectedShortSwipeLeftAction by remember { mutableStateOf(prefs.shortSwipeLeftAction) }
-        var selectedShortSwipeRightAction by remember { mutableStateOf(prefs.shortSwipeRightAction) }
-
-        var selectedLongSwipeUpAction by remember { mutableStateOf(prefs.longSwipeUpAction) }
-        var selectedLongSwipeDownAction by remember { mutableStateOf(prefs.longSwipeDownAction) }
-        var selectedLongSwipeLeftAction by remember { mutableStateOf(prefs.longSwipeLeftAction) }
-        var selectedLongSwipeRightAction by remember { mutableStateOf(prefs.longSwipeRightAction) }
+        var selectedSwipeLeftAction by remember { mutableStateOf(prefs.swipeLeftAction) }
+        var selectedSwipeRightAction by remember { mutableStateOf(prefs.swipeRightAction) }
+        var selectedLongPressAction by remember { mutableStateOf(prefs.longPressAction) }
+        var selectedCircleAction by remember { mutableStateOf(prefs.circleAction) }
+        var selectedSquareAction by remember { mutableStateOf(prefs.squareAction) }
+        var selectedTriangleAction by remember { mutableStateOf(prefs.triangleAction) }
 
         val actions = Action.entries
 
@@ -360,8 +361,7 @@ class SettingsFragment : BaseFragment() {
         // Convert enums to their string representations
         val actionStrings = filteredActions.map { it.getString() }.toTypedArray()
 
-        var selectedShortSwipeThreshold by remember { mutableFloatStateOf(prefs.shortSwipeThreshold) }
-        var selectedLongSwipeThreshold by remember { mutableFloatStateOf(prefs.longSwipeThreshold) }
+        var selectedSwipeDistance by remember { mutableFloatStateOf(prefs.swipeDistance) }
 
         // Notes Settings
 
@@ -396,7 +396,7 @@ class SettingsFragment : BaseFragment() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .then(if (currentScreen == "main" || currentScreen == "about") Modifier else Modifier.verticalScroll(scrollState))
+                .then(if (currentScreen == "main" || currentScreen == "about" || currentScreen == "gesture_try") Modifier else Modifier.verticalScroll(scrollState))
         ) {
             when (currentScreen) {
                 "main" -> {
@@ -2135,421 +2135,163 @@ class SettingsFragment : BaseFragment() {
                         onClick = { currentScreen = "main" }
                     )
                     Spacer(modifier = Modifier.height(16.dp))
-                    // Tap & Click Actions
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.tap_click_actions),
-                        fontSize = titleFontSize
-                    )
-                    SectionCard {
 
-                    val appLabelDoubleTapAction = prefs.appDoubleTap.activityLabel
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.double_tap),
-                        option = if (selectedDoubleTapAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelDoubleTapAction"
-                        } else {
-                            selectedDoubleTapAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
+                    // One row per gesture: what it does, or "open" and the app; tapping it picks anew.
+                    // A shape row shows the shape itself instead of a word ([icon]; [title] is then its glyph for the sheet)
+                    @Composable
+                    fun GestureRow(title: String, action: Action, app: AppListItem, noApp: String, flag: AppDrawerFlag, icon: StrokeClassifier.Shape? = null, onChange: (Action) -> Unit) {
+                        val option = if (action == Action.OpenApp) "${getLocalizedString(R.string.open)} ${app.activityLabel.ifEmpty { noApp }}" else action.string()
+                        val pick = {
                             dialogBuilder.showSingleChoiceBottomSheet(
                                 context = requireContext(),
                                 options = actionStrings,
-                                title = getLocalizedString(R.string.double_tap),
-                                onItemSelected = { newDoubleTapAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newDoubleTapAction }
-                                    if (selectedAction != null) {
-                                        selectedDoubleTapAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetDoubleTap,
-                                            selectedAction
-                                        ) // Persist selection in preferences
+                                title = title,
+                                onItemSelected = { picked ->
+                                    filteredActions.firstOrNull { it.getString() == picked }?.let {
+                                        onChange(it)
+                                        setGesture(flag, it)
                                     }
                                 }
                             )
                         }
-                    )
-
-                    val appLabelClickClockAction =
-                        prefs.appClickClock.activityLabel.ifEmpty { "Clock" }
-                    val appLabelClickDateAction =
-                        prefs.appClickDate.activityLabel.ifEmpty { "Calendar" }
-                    val appLabelClickAppUsageAction =
-                        prefs.appClickUsage.activityLabel.ifEmpty { "Digital Wellbeing" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.usage_click_app),
-                        option = if (selectedClickAppUsageAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelClickAppUsageAction"
+                        if (icon == null) {
+                            SettingsSelect(title = title, option = option, fontSize = titleFontSize, onClick = pick)
                         } else {
-                            selectedClickAppUsageAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.usage_click_app),
-                                onItemSelected = { newClickAppUsage ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newClickAppUsage }
-                                    if (selectedAction != null) {
-                                        selectedClickAppUsageAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetAppUsage,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
+                            Column(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp, horizontal = 16.dp).clickable(onClick = pick)) {
+                                ShapeIcon(icon, (titleFontSize.value * 1.15f).dp, SettingsTheme.typography.title.color, Modifier.padding(vertical = 4.dp))
+                                FontText(text = option, fontSize = (titleFontSize.value / 1.3f).sp, color = SettingsTheme.typography.option.color)
+                            }
                         }
-                    )
-
-                    val appLabelClickFloatingAction =
-                        prefs.appFloating.activityLabel.ifEmpty { "Notes" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.floating_click_app),
-                        option = if (selectedClickFloatingAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelClickFloatingAction"
-                        } else {
-                            selectedClickFloatingAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.floating_click_app),
-                                onItemSelected = { newClickFloating ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newClickFloating }
-                                    if (selectedAction != null) {
-                                        selectedClickFloatingAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetFloating,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
                     }
-                    // Swipe Actions
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.swipe_movement),
-                        fontSize = titleFontSize,
-                    )
-                    SectionCard {
 
-                    val appLabelShortSwipeUpAction =
-                        prefs.appShortSwipeUp.activityLabel.ifEmpty { "Settings" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.short_swipe_up_app),
-                        option = if (selectedShortSwipeUpAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelShortSwipeUpAction"
-                        } else {
-                            selectedShortSwipeUpAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.short_swipe_up_app),
-                                onItemSelected = { newShortSwipeUpAction ->
-
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newShortSwipeUpAction }
-                                    if (selectedAction != null) {
-                                        selectedShortSwipeUpAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetShortSwipeUp,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
+                    // A gesture that always does the same: no tap, the same look as a setting row
+                    @Composable
+                    fun FixedRow(title: String, value: String) {
+                        Column(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp, horizontal = 16.dp)) {
+                            FontText(text = title, fontSize = titleFontSize, color = SettingsTheme.typography.title.color)
+                            FontText(text = value, fontSize = (titleFontSize.value / 1.3f).sp, color = SettingsTheme.typography.option.color)
                         }
-                    )
-
-                    val appLabelShortSwipeDownAction =
-                        prefs.appShortSwipeDown.activityLabel.ifEmpty { "Phone" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.short_swipe_down_app),
-                        option = if (selectedShortSwipeDownAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelShortSwipeDownAction"
-                        } else {
-                            selectedShortSwipeDownAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.short_swipe_down_app),
-                                onItemSelected = { newShortSwipeDownAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newShortSwipeDownAction }
-                                    if (selectedAction != null) {
-                                        selectedShortSwipeDownAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetShortSwipeDown,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    val appLabelShortSwipeLeftAction =
-                        prefs.appShortSwipeLeft.activityLabel.ifEmpty { "Settings" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.short_swipe_left_app),
-                        option = if (selectedShortSwipeLeftAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelShortSwipeLeftAction"
-                        } else {
-                            selectedShortSwipeLeftAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.short_swipe_left_app),
-                                onItemSelected = { newShortSwipeLeftAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newShortSwipeLeftAction }
-                                    if (selectedAction != null) {
-                                        selectedShortSwipeLeftAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetShortSwipeLeft,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    val appLabelShortSwipeRightAction =
-                        prefs.appShortSwipeRight.activityLabel.ifEmpty { "Phone" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.short_swipe_right_app),
-                        option = if (selectedShortSwipeRightAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelShortSwipeRightAction"
-                        } else {
-                            selectedShortSwipeRightAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.short_swipe_right_app),
-                                onItemSelected = { newShortSwipeRightAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newShortSwipeRightAction }
-                                    if (selectedAction != null) {
-                                        selectedShortSwipeRightAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetShortSwipeRight,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    val appLabelLongSwipeUpAction =
-                        prefs.appLongSwipeUp.activityLabel.ifEmpty { "Settings" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.long_swipe_up_app),
-                        option = if (selectedLongSwipeUpAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelLongSwipeUpAction"
-                        } else {
-                            selectedLongSwipeUpAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.long_swipe_up_app),
-                                onItemSelected = { newLongSwipeUpAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newLongSwipeUpAction }
-                                    if (selectedAction != null) {
-                                        selectedLongSwipeUpAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetLongSwipeUp,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    val appLabelLongSwipeDownAction =
-                        prefs.appLongSwipeDown.activityLabel.ifEmpty { "Phone" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.long_swipe_down_app),
-                        option = if (selectedLongSwipeDownAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelLongSwipeDownAction"
-                        } else {
-                            selectedLongSwipeDownAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.long_swipe_down_app),
-                                onItemSelected = { newLongSwipeDownAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newLongSwipeDownAction }
-                                    if (selectedAction != null) {
-                                        selectedLongSwipeDownAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetLongSwipeDown,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    val appLabelLongSwipeLeftAction =
-                        prefs.appLongSwipeLeft.activityLabel.ifEmpty { "Settings" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.long_swipe_left_app),
-                        option = if (selectedLongSwipeLeftAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelLongSwipeLeftAction"
-                        } else {
-                            selectedLongSwipeLeftAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings, // Pass the list of localized strings
-                                title = getLocalizedString(R.string.long_swipe_left_app),
-                                onItemSelected = { newLongSwipeLeftAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newLongSwipeLeftAction }
-                                    if (selectedAction != null) {
-                                        selectedLongSwipeLeftAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetLongSwipeLeft,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
-                    val appLabelLongSwipeRightAction =
-                        prefs.appLongSwipeRight.activityLabel.ifEmpty { "Phone" }
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.long_swipe_right_app),
-                        option = if (selectedLongSwipeRightAction == Action.OpenApp) {
-                            "${getLocalizedString(R.string.open)} $appLabelLongSwipeRightAction"
-                        } else {
-                            selectedLongSwipeRightAction.string()
-                        },
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSingleChoiceBottomSheet(
-                                context = requireContext(),
-                                options = actionStrings,
-                                title = getLocalizedString(R.string.long_swipe_right_app),
-                                onItemSelected = { newLongSwipeRightAction ->
-                                    val selectedAction =
-                                        actions.firstOrNull { it.getString() == newLongSwipeRightAction }
-                                    if (selectedAction != null) {
-                                        selectedLongSwipeRightAction =
-                                            selectedAction // Store the enum itself
-                                        setGesture(
-                                            AppDrawerFlag.SetLongSwipeRight,
-                                            selectedAction
-                                        ) // Persist selection in preferences
-                                    }
-                                }
-                            )
-                        }
-                    )
-
                     }
-                    // Thresholds
-                    SettingsTitle(
-                        text = getLocalizedString(R.string.threshold),
-                        fontSize = titleFontSize
-                    )
+
+                    SettingsTitle(text = getLocalizedString(R.string.gestures_fixed), fontSize = titleFontSize)
                     SectionCard {
+                        FixedRow(getLocalizedString(R.string.gesture_swipe_up), getLocalizedString(R.string.gesture_value_drawer))
+                        FixedRow(getLocalizedString(R.string.gesture_swipe_down), getLocalizedString(R.string.gesture_value_notifications))
+                    }
 
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.settings_short_threshold),
-                        option = selectedShortSwipeThreshold.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = context,
-                                title = getLocalizedString(R.string.settings_short_threshold),
-                                minValue = Constants.MIN_THRESHOLD,
-                                maxValue = selectedLongSwipeThreshold,
-                                currentValue = prefs.shortSwipeThreshold,
-                                onValueSelected = { newSettingsSize ->
-                                    selectedShortSwipeThreshold = newSettingsSize.toFloat()
-                                    prefs.shortSwipeThreshold = newSettingsSize.toFloat()
-                                }
-                            )
-                        }
-                    )
+                    SettingsTitle(text = getLocalizedString(R.string.gestures_swipes), fontSize = titleFontSize)
+                    SectionCard {
+                        GestureRow(getLocalizedString(R.string.gesture_swipe_left), selectedSwipeLeftAction, prefs.appSwipeLeft,
+                            getLocalizedString(R.string.gesture_fallback_settings), AppDrawerFlag.SetSwipeLeft) { selectedSwipeLeftAction = it }
+                        GestureRow(getLocalizedString(R.string.gesture_swipe_right), selectedSwipeRightAction, prefs.appSwipeRight,
+                            getLocalizedString(R.string.gesture_fallback_phone), AppDrawerFlag.SetSwipeRight) { selectedSwipeRightAction = it }
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.swipe_distance),
+                            option = "${(selectedSwipeDistance * 100).roundToInt()} %",
+                            fontSize = titleFontSize,
+                            onClick = {
+                                dialogBuilder.showSliderBottomSheet(
+                                    context = context,
+                                    title = getLocalizedString(R.string.swipe_distance),
+                                    minValue = 0.05f,
+                                    maxValue = 0.5f,
+                                    currentValue = prefs.swipeDistance,
+                                    onValueSelected = { value ->
+                                        selectedSwipeDistance = value.toFloat()
+                                        prefs.swipeDistance = value.toFloat()
+                                    }
+                                )
+                            }
+                        )
+                    }
 
-                    SettingsSelect(
-                        title = getLocalizedString(R.string.settings_long_threshold),
-                        option = selectedLongSwipeThreshold.toString(),
-                        fontSize = titleFontSize,
-                        onClick = {
-                            dialogBuilder.showSliderBottomSheet(
-                                context = context,
-                                title = getLocalizedString(R.string.settings_long_threshold),
-                                minValue = selectedShortSwipeThreshold,
-                                maxValue = Constants.MAX_THRESHOLD,
-                                currentValue = prefs.longSwipeThreshold,
-                                onValueSelected = { newSettingsSize ->
-                                    selectedLongSwipeThreshold = newSettingsSize.toFloat()
-                                    prefs.longSwipeThreshold = newSettingsSize.toFloat()
-                                }
-                            )
-                        }
-                    )
+                    SettingsTitle(text = getLocalizedString(R.string.gestures_taps), fontSize = titleFontSize)
+                    SectionCard {
+                        GestureRow(getLocalizedString(R.string.double_tap), selectedDoubleTapAction, prefs.appDoubleTap,
+                            getLocalizedString(R.string.select_app), AppDrawerFlag.SetDoubleTap) { selectedDoubleTapAction = it }
+                        GestureRow(getLocalizedString(R.string.long_press), selectedLongPressAction, prefs.appLongPress,
+                            getLocalizedString(R.string.select_app), AppDrawerFlag.SetLongPress) { selectedLongPressAction = it }
+                    }
 
+                    SettingsTitle(text = getLocalizedString(R.string.gestures_shapes), fontSize = titleFontSize)
+                    SectionCard {
+                        GestureRow("○", selectedCircleAction, prefs.appCircle, getLocalizedString(R.string.select_app),
+                            AppDrawerFlag.SetCircle, StrokeClassifier.Shape.Circle) { selectedCircleAction = it }
+                        GestureRow("□", selectedSquareAction, prefs.appSquare, getLocalizedString(R.string.select_app),
+                            AppDrawerFlag.SetSquare, StrokeClassifier.Shape.Square) { selectedSquareAction = it }
+                        GestureRow("△", selectedTriangleAction, prefs.appTriangle, getLocalizedString(R.string.select_app),
+                            AppDrawerFlag.SetTriangle, StrokeClassifier.Shape.Triangle) { selectedTriangleAction = it }
+                        SettingsSelect(
+                            title = getLocalizedString(R.string.gesture_try) + " →",
+                            option = getLocalizedString(R.string.gesture_try_sub),
+                            fontSize = titleFontSize,
+                            onClick = { currentScreen = "gesture_try" }
+                        )
+                    }
+
+                    SettingsTitle(text = getLocalizedString(R.string.gestures_buttons), fontSize = titleFontSize)
+                    SectionCard {
+                        GestureRow(getLocalizedString(R.string.usage_click_app), selectedClickAppUsageAction, prefs.appClickUsage,
+                            "Digital Wellbeing", AppDrawerFlag.SetAppUsage) { selectedClickAppUsageAction = it }
+                        GestureRow(getLocalizedString(R.string.floating_click_app), selectedClickFloatingAction, prefs.appFloating,
+                            getLocalizedString(R.string.settings_notes_title), AppDrawerFlag.SetFloating) { selectedClickFloatingAction = it }
                     }
                     if (isGestureNavigationEnabled(context)) {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
                     } else {
                         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
                     }
-                
                 }
 
+                "gesture_try" -> {
+                    BackHandler { currentScreen = "gestures" }
+                    PageHeader(
+                        iconRes = R.drawable.ic_back,
+                        title = getLocalizedString(R.string.gesture_try),
+                        onClick = { currentScreen = "gestures" }
+                    )
+                    var tryResult by remember { mutableStateOf<StrokeClassifier.Result?>(null) }
+                    val ink = SettingsTheme.typography.title.color
+                    FontText(
+                        text = getLocalizedString(R.string.gesture_try_hint),
+                        fontSize = descriptionFontSize,
+                        color = SettingsTheme.typography.option.color,
+                        modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp)
+                    )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                            .padding(horizontal = 24.dp)
+                            .border(1.dp, outlineColor())
+                    ) {
+                        AndroidView(
+                            factory = { ctx -> GesturePad(ctx).apply { onResult = { tryResult = it } } },
+                            update = { pad -> pad.ink = ink.toArgb() },
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
+                    // What the home screen would do with the same stroke: the shape drawn, or the swipe in words
+                    val (shownShape, shownText) = gestureResult(tryResult)
+                    Row(
+                        modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 16.dp, bottom = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (shownShape != null) ShapeIcon(shownShape, (titleFontSize.value * 1.15f).dp, ink, Modifier.padding(end = 10.dp))
+                        FontText(
+                            text = shownText.uppercase(java.util.Locale.getDefault()),
+                            fontSize = titleFontSize,
+                            fontWeight = FontWeight.Bold,
+                            color = ink,
+                            style = TextStyle(letterSpacing = 0.1.em)
+                        )
+                    }
+                    if (isGestureNavigationEnabled(context)) {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_gesture_nav)))
+                    } else {
+                        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.bottom_margin_3_button_nav)))
+                    }
+                }
 
                 "notes" -> {
                     BackHandler { currentScreen = "main" }
@@ -3273,20 +3015,79 @@ class SettingsFragment : BaseFragment() {
         startActivity(intent)
     }
 
+    /** A shape as a drawing, not a word: the same in every language. */
+    @Composable
+    private fun ShapeIcon(shape: StrokeClassifier.Shape, size: Dp, color: Color, modifier: Modifier = Modifier) {
+        androidx.compose.foundation.Canvas(modifier = modifier.size(size)) {
+            val line = 1.8.dp.toPx()
+            val stroke = androidx.compose.ui.graphics.drawscope.Stroke(width = line)
+            val inset = line / 2
+            when (shape) {
+                StrokeClassifier.Shape.Circle -> drawCircle(color, radius = this.size.minDimension / 2 - inset, style = stroke)
+                StrokeClassifier.Shape.Square -> drawRect(
+                    color, topLeft = androidx.compose.ui.geometry.Offset(inset, inset),
+                    size = androidx.compose.ui.geometry.Size(this.size.width - line, this.size.height - line), style = stroke
+                )
+                StrokeClassifier.Shape.Triangle -> drawPath(
+                    androidx.compose.ui.graphics.Path().apply {
+                        moveTo(this@Canvas.size.width / 2, inset)
+                        lineTo(this@Canvas.size.width - inset, this@Canvas.size.height - inset)
+                        lineTo(inset, this@Canvas.size.height - inset)
+                        close()
+                    },
+                    color, style = stroke
+                )
+            }
+        }
+    }
+
+    /**
+     * The try-out result: the shape (drawn by the caller) or null, and the words: the swipe or the
+     * reason it was not recognised, and what it would do on the home screen.
+     */
+    private fun gestureResult(result: StrokeClassifier.Result?): Pair<StrokeClassifier.Shape?, String> {
+        fun does(action: Action, app: AppListItem, noApp: String) =
+            "→ " + if (action == Action.OpenApp) "${getLocalizedString(R.string.open)} ${app.activityLabel.ifEmpty { noApp }}" else action.getString()
+        return when (result) {
+            null -> null to ""
+            is StrokeClassifier.Swipe -> null to when (result.direction) {
+                StrokeClassifier.Direction.Left -> getLocalizedString(R.string.gesture_swipe_left) + " " + does(prefs.swipeLeftAction, prefs.appSwipeLeft, getLocalizedString(R.string.gesture_fallback_settings))
+                StrokeClassifier.Direction.Right -> getLocalizedString(R.string.gesture_swipe_right) + " " + does(prefs.swipeRightAction, prefs.appSwipeRight, getLocalizedString(R.string.gesture_fallback_phone))
+                StrokeClassifier.Direction.Up -> getLocalizedString(R.string.gesture_swipe_up) + " → " + getLocalizedString(R.string.gesture_value_drawer)
+                StrokeClassifier.Direction.Down -> getLocalizedString(R.string.gesture_swipe_down) + " → " + getLocalizedString(R.string.gesture_value_notifications)
+            }
+            is StrokeClassifier.Figure -> {
+                val select = getLocalizedString(R.string.select_app)
+                val rest = when (result.shape) {
+                    StrokeClassifier.Shape.Circle -> does(prefs.circleAction, prefs.appCircle, select)
+                    StrokeClassifier.Shape.Square -> does(prefs.squareAction, prefs.appSquare, select)
+                    StrokeClassifier.Shape.Triangle -> does(prefs.triangleAction, prefs.appTriangle, select)
+                }
+                result.shape to "${result.score} %  $rest"
+            }
+            is StrokeClassifier.Nothing -> null to getLocalizedString(R.string.gesture_not_recognised) + " · " + getLocalizedString(
+                when (result.reason) {
+                    StrokeClassifier.Reason.TooShort -> R.string.gesture_reason_short
+                    StrokeClassifier.Reason.TooSmall -> R.string.gesture_reason_small
+                    StrokeClassifier.Reason.NotClosed -> R.string.gesture_reason_open
+                    StrokeClassifier.Reason.Unclear -> R.string.gesture_reason_unclear
+                }
+            )
+        }
+    }
+
     private fun setGesture(flag: AppDrawerFlag, action: Action) {
         when (flag) {
-            AppDrawerFlag.SetShortSwipeUp -> prefs.shortSwipeUpAction = action
-            AppDrawerFlag.SetShortSwipeDown -> prefs.shortSwipeDownAction = action
-            AppDrawerFlag.SetShortSwipeLeft -> prefs.shortSwipeLeftAction = action
-            AppDrawerFlag.SetShortSwipeRight -> prefs.shortSwipeRightAction = action
+            AppDrawerFlag.SetSwipeLeft -> prefs.swipeLeftAction = action
+            AppDrawerFlag.SetSwipeRight -> prefs.swipeRightAction = action
             AppDrawerFlag.SetClickClock -> prefs.clickClockAction = action
             AppDrawerFlag.SetAppUsage -> prefs.clickAppUsageAction = action
             AppDrawerFlag.SetClickDate -> prefs.clickDateAction = action
             AppDrawerFlag.SetDoubleTap -> prefs.doubleTapAction = action
-            AppDrawerFlag.SetLongSwipeUp -> prefs.longSwipeUpAction = action
-            AppDrawerFlag.SetLongSwipeDown -> prefs.longSwipeDownAction = action
-            AppDrawerFlag.SetLongSwipeLeft -> prefs.longSwipeLeftAction = action
-            AppDrawerFlag.SetLongSwipeRight -> prefs.longSwipeRightAction = action
+            AppDrawerFlag.SetLongPress -> prefs.longPressAction = action
+            AppDrawerFlag.SetCircle -> prefs.circleAction = action
+            AppDrawerFlag.SetSquare -> prefs.squareAction = action
+            AppDrawerFlag.SetTriangle -> prefs.triangleAction = action
             AppDrawerFlag.SetFloating -> prefs.clickFloatingAction = action
             AppDrawerFlag.None,
             AppDrawerFlag.SetHomeApp,

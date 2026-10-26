@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Scorciatoie</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gesti</string>
-    <string name="tap_click_actions">Azioni di tocco/clic</string>
     <string name="double_tap">Doppio Tocco</string>
     <string name="clock_click_app">Fai clic sull\'orologio</string>
     <string name="date_click_app">Fai clic su Data</string>
     <string name="usage_click_app">Fare clic su Utilizzo totale</string>
     <string name="floating_click_app">Fare clic sul logo</string>
-    <string name="swipe_movement">Movimento di scorrimento</string>
-    <string name="short_swipe_up_app">Scorrimento breve verso l\'alto</string>
-    <string name="short_swipe_down_app">Scorrimento breve verso il basso</string>
-    <string name="short_swipe_left_app">Scorrimento breve verso sinistra</string>
-    <string name="short_swipe_right_app">Scorrimento breve verso destra</string>
-    <string name="long_swipe_up_app">Scorrimento lungo verso l\'alto</string>
-    <string name="long_swipe_down_app">Scorrimento lungo verso il basso</string>
-    <string name="long_swipe_left_app">Scorrimento lungo verso sinistra</string>
-    <string name="long_swipe_right_app">Scorrimento lungo verso destra</string>
     <string name="open_app">Apri App</string>
     <string name="lock_screen">Blocca schermo</string>
     <string name="private_space">Spazi privati (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">Informazioni su %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Esperto</string>
-    <string name="threshold">Soglia</string>
     <string name="expert_options_display">Mostra le opzioni degli esperti</string>
     <string name="expert_options_unlocked">Opzioni avanzate sbloccate!</string>
     <string name="expert_options_tap_hint">%1$d altri tocchi per sbloccare</string>
     <string name="settings_text_size">Impostazioni dimensione testo</string>
-    <string name="settings_short_threshold">Soglia di scorrimento breve</string>
-    <string name="settings_long_threshold">Soglia di scorrimento lungo</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Applicazioni nascoste</string>
     <string name="favorite_apps">App preferite</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">Voci: %1$d</string>
     <string name="notes_category_remove_confirm">Rimuovere «%1$s»? Le sue voci restano, senza categoria.</string>
     <string name="notes_categories_hint">Per note e attività</string>
+    <string name="action_open_settings">Impostazioni di RE*start</string>
+    <string name="gestures_fixed">Sempre uguale</string>
+    <string name="gesture_swipe_up">Scorri verso l\'alto</string>
+    <string name="gesture_swipe_down">Scorri verso il basso</string>
+    <string name="gesture_swipe_left">Scorri a sinistra</string>
+    <string name="gesture_swipe_right">Scorri a destra</string>
+    <string name="gesture_value_drawer">Cassetto delle app</string>
+    <string name="gesture_value_notifications">Notifiche e impostazioni rapide</string>
+    <string name="gestures_swipes">Scorrimenti</string>
+    <string name="swipe_distance">Distanza di scorrimento</string>
+    <string name="gestures_taps">Tocchi</string>
+    <string name="long_press">Pressione prolungata</string>
+    <string name="gestures_shapes">Forme in un solo tratto</string>
+    <string name="gesture_try">Prova un gesto</string>
+    <string name="gesture_try_sub">Disegna o scorri e guarda cosa viene riconosciuto</string>
+    <string name="gesture_try_hint">Disegna un cerchio, un quadrato o un triangolo senza sollevare il dito, oppure scorri. Ciò che ne fa la schermata iniziale appare sotto.</string>
+    <string name="gesture_not_recognised">Non riconosciuto</string>
+    <string name="gesture_reason_short">troppo corto</string>
+    <string name="gesture_reason_small">troppo piccolo</string>
+    <string name="gesture_reason_open">non chiuso</string>
+    <string name="gesture_reason_unclear">forma poco chiara</string>
+    <string name="gestures_buttons">Pulsanti</string>
+    <string name="gesture_fallback_settings">impostazioni del telefono</string>
+    <string name="gesture_fallback_phone">Telefono</string>
 </resources>

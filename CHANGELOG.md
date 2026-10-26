@@ -46,6 +46,25 @@ the two changes sent back upstream and every difference at the fork point are in
   page).
 - No notes, or notes switched off: none in the preview either, as on the home screen.
 
+### Gestures
+- **One action per direction.** The short and the long swipe are gone: a swipe right does the same
+  however far it goes (it used to fall between "short" and "long", where the long one did nothing,
+  so opening the phone could take three or four tries). Up always opens the app drawer, down the
+  notifications with the quick settings; left and right, double tap and long press can be set.
+- **The whole path counts.** A swipe was judged by where it started and ended only, so a circle
+  that stopped short could open the app of a swipe. A stroke that bends is never a swipe now.
+- **Shapes in one stroke:** a circle, a square or a triangle drawn without lifting the finger, each
+  with its own action (off until set). A hand is not a plotter: a circle may stop 70 degrees short
+  or run past its start, an egg counts, a square or triangle may leave most of its last side out,
+  any direction, any start, any rotation; a U, an L or a scribble is nothing.
+- **Try a gesture:** a pad under Settings > Gestures shows what the home screen makes of a stroke
+  (the shape and how close it was, the swipe, or why nothing) and what it would do.
+- **Swipes from the edge:** with gesture navigation Android keeps the side edges for "back", which
+  does nothing on the home screen; the home screen takes 200 dp of each edge back, in the middle.
+- Settings > Gestures is rebuilt for this: always the same, swipes with one distance setting, taps,
+  shapes (drawn, not named), buttons. Old settings carry over: a side whose short swipe did nothing
+  takes the long swipe's action.
+
 ### Fixed
 - **Long dashes in the texts.** The feedback and hidden-apps texts (21 languages), the licence
   lines and the docs used the em dash; they now use a colon, a semicolon or a hyphen. Turkish

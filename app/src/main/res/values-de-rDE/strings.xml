@@ -118,21 +118,11 @@
     <string name="shortcuts_color">Schnellzugriffe</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gesten</string>
-    <string name="tap_click_actions">Tipp-/Klickaktionen</string>
     <string name="double_tap">Doppeltipp</string>
     <string name="clock_click_app">Tippen auf Uhr</string>
     <string name="date_click_app">Tippen auf Datum</string>
     <string name="usage_click_app">Tippen auf Gesamtnutzung</string>
     <string name="floating_click_app">Tippen auf Logo</string>
-    <string name="swipe_movement">Wischbewegung</string>
-    <string name="short_swipe_up_app">Kurz nach oben wischen</string>
-    <string name="short_swipe_down_app">Kurz nach unten wischen</string>
-    <string name="short_swipe_left_app">Kurz nach links wischen</string>
-    <string name="short_swipe_right_app">Kurz nach rechts wischen</string>
-    <string name="long_swipe_up_app">Lang nach oben wischen</string>
-    <string name="long_swipe_down_app">Lang nach unten wischen</string>
-    <string name="long_swipe_left_app">Lang nach links wischen</string>
-    <string name="long_swipe_right_app">Lang nach rechts wischen</string>
     <string name="open_app">App öffnen</string>
     <string name="lock_screen">Bildschirm sperren</string>
     <string name="private_space">Private Bereiche (%1$s)</string>
@@ -239,13 +229,10 @@
     <string name="credits_licences">Lizenzen</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Experte</string>
-    <string name="threshold">Schwelle</string>
     <string name="expert_options_display">Expertenoptionen anzeigen</string>
     <string name="expert_options_unlocked">Expertenoptionen freigeschaltet!</string>
     <string name="expert_options_tap_hint">Noch %1$d Mal tippen zum Freischalten</string>
     <string name="settings_text_size">Textgrösse der Einstellungen</string>
-    <string name="settings_short_threshold">Schwellenwert für kurzes Wischen</string>
-    <string name="settings_long_threshold">Schwellenwert für langes Wischen</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Versteckte Apps</string>
     <string name="favorite_apps">Lieblings-Apps</string>
@@ -490,4 +477,28 @@
     <string name="notes_category_entries">Einträge: %1$d</string>
     <string name="notes_category_remove_confirm">„%1$s“ entfernen? Die Einträge bleiben, ohne Kategorie.</string>
     <string name="notes_categories_hint">Für Notizen und Aufgaben</string>
+    <string name="action_open_settings">RE*start-Einstellungen</string>
+    <string name="gestures_fixed">Immer gleich</string>
+    <string name="gesture_swipe_up">Nach oben wischen</string>
+    <string name="gesture_swipe_down">Nach unten wischen</string>
+    <string name="gesture_swipe_left">Nach links wischen</string>
+    <string name="gesture_swipe_right">Nach rechts wischen</string>
+    <string name="gesture_value_drawer">App-Schublade</string>
+    <string name="gesture_value_notifications">Benachrichtigungen und Schnelleinstellungen</string>
+    <string name="gestures_swipes">Wischgesten</string>
+    <string name="swipe_distance">Wischdistanz</string>
+    <string name="gestures_taps">Tippen</string>
+    <string name="long_press">Lange drücken</string>
+    <string name="gestures_shapes">Formen in einem Zug</string>
+    <string name="gesture_try">Geste ausprobieren</string>
+    <string name="gesture_try_sub">Zeichnen oder wischen und sehen, was erkannt wird</string>
+    <string name="gesture_try_hint">Zeichne einen Kreis, ein Quadrat oder ein Dreieck, ohne den Finger anzuheben, oder wische. Was der Startbildschirm daraus macht, steht darunter.</string>
+    <string name="gesture_not_recognised">Nicht erkannt</string>
+    <string name="gesture_reason_short">zu kurz</string>
+    <string name="gesture_reason_small">zu klein</string>
+    <string name="gesture_reason_open">nicht geschlossen</string>
+    <string name="gesture_reason_unclear">Form unklar</string>
+    <string name="gestures_buttons">Tasten</string>
+    <string name="gesture_fallback_settings">Telefoneinstellungen</string>
+    <string name="gesture_fallback_phone">Telefon</string>
 </resources>

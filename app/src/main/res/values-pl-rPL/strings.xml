@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Skróty</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gesty</string>
-    <string name="tap_click_actions">Akcje dotknięcia/kliknięcia</string>
     <string name="double_tap">Podwójne dotknięcie</string>
     <string name="clock_click_app">Kliknij na zegar</string>
     <string name="date_click_app">Kliknij na datę</string>
     <string name="usage_click_app">Kliknij Całkowite wykorzystanie</string>
     <string name="floating_click_app">Kliknij na logo</string>
-    <string name="swipe_movement">Ruch przesuwania</string>
-    <string name="short_swipe_up_app">Krótkie przesunięcie w górę</string>
-    <string name="short_swipe_down_app">Krótkie przesunięcie w dół</string>
-    <string name="short_swipe_left_app">Krótkie przesunięcie w lewo</string>
-    <string name="short_swipe_right_app">Krótkie przesunięcie w prawo</string>
-    <string name="long_swipe_up_app">Długie przesunięcie w górę</string>
-    <string name="long_swipe_down_app">Długie przesunięcie w dół</string>
-    <string name="long_swipe_left_app">Długie przesunięcie w lewo</string>
-    <string name="long_swipe_right_app">Długie przesunięcie w prawo</string>
     <string name="open_app">Otwórz aplikację</string>
     <string name="lock_screen">Zablokuj ekran</string>
     <string name="private_space">Prywatne przestrzenie (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">O %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Ekspert</string>
-    <string name="threshold">Próg</string>
     <string name="expert_options_display">Pokaż opcje eksperckie</string>
     <string name="expert_options_unlocked">Odblokowano opcje eksperckie!</string>
     <string name="expert_options_tap_hint">%1$d więcej stuknięć do odblokowania</string>
     <string name="settings_text_size">Rozmiar tekstu ustawień</string>
-    <string name="settings_short_threshold">Próg krótkiego przesunięcia</string>
-    <string name="settings_long_threshold">Próg długiego przesunięcia</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Ukryte aplikacje</string>
     <string name="favorite_apps">Ulubione aplikacje</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">Wpisy: %1$d</string>
     <string name="notes_category_remove_confirm">Usunąć „%1$s”? Wpisy zostaną, bez kategorii.</string>
     <string name="notes_categories_hint">Dla notatek i zadań</string>
+    <string name="action_open_settings">Ustawienia RE*start</string>
+    <string name="gestures_fixed">Zawsze tak samo</string>
+    <string name="gesture_swipe_up">Przesunięcie w górę</string>
+    <string name="gesture_swipe_down">Przesunięcie w dół</string>
+    <string name="gesture_swipe_left">Przesunięcie w lewo</string>
+    <string name="gesture_swipe_right">Przesunięcie w prawo</string>
+    <string name="gesture_value_drawer">Szuflada aplikacji</string>
+    <string name="gesture_value_notifications">Powiadomienia i szybkie ustawienia</string>
+    <string name="gestures_swipes">Przesunięcia</string>
+    <string name="swipe_distance">Długość przesunięcia</string>
+    <string name="gestures_taps">Dotknięcia</string>
+    <string name="long_press">Długie naciśnięcie</string>
+    <string name="gestures_shapes">Kształty jednym ruchem</string>
+    <string name="gesture_try">Wypróbuj gest</string>
+    <string name="gesture_try_sub">Narysuj lub przesuń i zobacz, co zostało rozpoznane</string>
+    <string name="gesture_try_hint">Narysuj koło, kwadrat lub trójkąt bez odrywania palca albo przesuń. Co z tym zrobi ekran główny, pojawi się poniżej.</string>
+    <string name="gesture_not_recognised">Nie rozpoznano</string>
+    <string name="gesture_reason_short">za krótko</string>
+    <string name="gesture_reason_small">za mały</string>
+    <string name="gesture_reason_open">niezamknięty</string>
+    <string name="gesture_reason_unclear">niejasny kształt</string>
+    <string name="gestures_buttons">Przyciski</string>
+    <string name="gesture_fallback_settings">ustawienia telefonu</string>
+    <string name="gesture_fallback_phone">Telefon</string>
 </resources>

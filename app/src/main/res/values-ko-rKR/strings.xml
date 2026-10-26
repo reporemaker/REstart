@@ -111,21 +111,11 @@
     <string name="shortcuts_color">바로가기</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">제스처</string>
-    <string name="tap_click_actions">탭/클릭 동작</string>
     <string name="double_tap">두 번 탭</string>
     <string name="clock_click_app">시계 탭</string>
     <string name="date_click_app">날짜 탭</string>
     <string name="usage_click_app">총 사용 시간 탭</string>
     <string name="floating_click_app">로고 탭</string>
-    <string name="swipe_movement">스와이프 동작</string>
-    <string name="short_swipe_up_app">짧게 위로 스와이프</string>
-    <string name="short_swipe_down_app">짧게 아래로 스와이프</string>
-    <string name="short_swipe_left_app">짧게 왼쪽으로 스와이프</string>
-    <string name="short_swipe_right_app">짧게 오른쪽으로 스와이프</string>
-    <string name="long_swipe_up_app">길게 위로 스와이프</string>
-    <string name="long_swipe_down_app">길게 아래로 스와이프</string>
-    <string name="long_swipe_left_app">길게 왼쪽으로 스와이프</string>
-    <string name="long_swipe_right_app">길게 오른쪽으로 스와이프</string>
     <string name="open_app">앱 열기</string>
     <string name="lock_screen">화면 잠금</string>
     <string name="private_space">개인 공간 (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">%1$s에 대하여</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">전문가</string>
-    <string name="threshold">임계값</string>
     <string name="expert_options_display">전문가 옵션 보기</string>
     <string name="expert_options_unlocked">전문가용 옵션이 잠금 해제되었습니다!</string>
     <string name="expert_options_tap_hint">%1$d번 더 탭하면 잠금 해제됩니다</string>
     <string name="settings_text_size">설정 텍스트 크기</string>
-    <string name="settings_short_threshold">짧은 스와이프 임계값</string>
-    <string name="settings_long_threshold">긴 스와이프 임계값</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">숨긴 앱</string>
     <string name="favorite_apps">즐겨 사용하는 앱</string>
@@ -491,4 +478,28 @@
     <string name="notes_category_entries">항목: %1$d</string>
     <string name="notes_category_remove_confirm">“%1$s”을(를) 삭제할까요? 항목은 카테고리 없이 남습니다.</string>
     <string name="notes_categories_hint">메모와 할 일에 사용</string>
+    <string name="action_open_settings">RE*start 설정</string>
+    <string name="gestures_fixed">항상 동일</string>
+    <string name="gesture_swipe_up">위로 스와이프</string>
+    <string name="gesture_swipe_down">아래로 스와이프</string>
+    <string name="gesture_swipe_left">왼쪽으로 스와이프</string>
+    <string name="gesture_swipe_right">오른쪽으로 스와이프</string>
+    <string name="gesture_value_drawer">앱 서랍</string>
+    <string name="gesture_value_notifications">알림 및 빠른 설정</string>
+    <string name="gestures_swipes">스와이프 동작</string>
+    <string name="swipe_distance">스와이프 거리</string>
+    <string name="gestures_taps">탭</string>
+    <string name="long_press">길게 누르기</string>
+    <string name="gestures_shapes">한 획 도형</string>
+    <string name="gesture_try">제스처 시험하기</string>
+    <string name="gesture_try_sub">그리거나 스와이프하고 무엇이 인식되는지 확인</string>
+    <string name="gesture_try_hint">손가락을 떼지 않고 원, 사각형 또는 삼각형을 그리거나 스와이프하세요. 홈 화면이 이를 어떻게 처리하는지 아래에 표시됩니다.</string>
+    <string name="gesture_not_recognised">인식되지 않음</string>
+    <string name="gesture_reason_short">너무 짧음</string>
+    <string name="gesture_reason_small">너무 작음</string>
+    <string name="gesture_reason_open">닫히지 않음</string>
+    <string name="gesture_reason_unclear">모양이 불분명함</string>
+    <string name="gestures_buttons">버튼</string>
+    <string name="gesture_fallback_settings">전화 설정</string>
+    <string name="gesture_fallback_phone">전화</string>
 </resources>

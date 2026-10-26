@@ -111,21 +111,11 @@
     <string name="shortcuts_color">ทางลัด</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">ท่าทาง</string>
-    <string name="tap_click_actions">การแตะ/คลิกการกระทำ</string>
     <string name="double_tap">แตะสองครั้ง</string>
     <string name="clock_click_app">คลิกที่นาฬิกา</string>
     <string name="date_click_app">คลิกที่วันที่</string>
     <string name="usage_click_app">คลิกที่การใช้งานทั้งหมด</string>
     <string name="floating_click_app">คลิกที่โลโก้</string>
-    <string name="swipe_movement">การเคลื่อนไหวด้วยการปัด</string>
-    <string name="short_swipe_up_app">ปัดขึ้นแบบสั้น</string>
-    <string name="short_swipe_down_app">ปัดลงแบบสั้น</string>
-    <string name="short_swipe_left_app">ปัดซ้ายแบบสั้น</string>
-    <string name="short_swipe_right_app">ปัดขวาแบบสั้น</string>
-    <string name="long_swipe_up_app">ปัดขึ้นแบบยาว</string>
-    <string name="long_swipe_down_app">ปัดลงแบบยาว</string>
-    <string name="long_swipe_left_app">ปัดซ้ายแบบยาว</string>
-    <string name="long_swipe_right_app">ปัดขวาแบบยาว</string>
     <string name="open_app">เปิดแอพ</string>
     <string name="lock_screen">ล็อกหน้าจอ</string>
     <string name="private_space">พื้นที่ส่วนตัว (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">เกี่ยวกับ %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">ผู้เชี่ยวชาญ</string>
-    <string name="threshold">เกณฑ์</string>
     <string name="expert_options_display">แสดงตัวเลือกผู้เชี่ยวชาญ</string>
     <string name="expert_options_unlocked">ปลดล็อคตัวเลือกผู้เชี่ยวชาญ!</string>
     <string name="expert_options_tap_hint">แตะอีก %1$d ครั้งเพื่อปลดล็อก</string>
     <string name="settings_text_size">ขนาดตัวอักษรการตั้งค่า</string>
-    <string name="settings_short_threshold">เกณฑ์การปัดสั้น</string>
-    <string name="settings_long_threshold">เกณฑ์การปัดยาว</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">แอพที่ซ่อนอยู่</string>
     <string name="favorite_apps">แอปพลิเคชั่นที่ชื่นชอบ</string>
@@ -492,4 +479,28 @@
     <string name="notes_category_entries">รายการ: %1$d</string>
     <string name="notes_category_remove_confirm">ลบ “%1$s” ไหม รายการจะยังอยู่โดยไม่มีหมวดหมู่</string>
     <string name="notes_categories_hint">ใช้กับบันทึกและสิ่งที่ต้องทำ</string>
+    <string name="action_open_settings">การตั้งค่า RE*start</string>
+    <string name="gestures_fixed">เหมือนเดิมเสมอ</string>
+    <string name="gesture_swipe_up">ปัดขึ้น</string>
+    <string name="gesture_swipe_down">ปัดลง</string>
+    <string name="gesture_swipe_left">ปัดซ้าย</string>
+    <string name="gesture_swipe_right">ปัดขวา</string>
+    <string name="gesture_value_drawer">ลิ้นชักแอป</string>
+    <string name="gesture_value_notifications">การแจ้งเตือนและการตั้งค่าด่วน</string>
+    <string name="gestures_swipes">การปัด</string>
+    <string name="swipe_distance">ระยะการปัด</string>
+    <string name="gestures_taps">การแตะ</string>
+    <string name="long_press">กดค้าง</string>
+    <string name="gestures_shapes">รูปทรงในลากเดียว</string>
+    <string name="gesture_try">ลองท่าทาง</string>
+    <string name="gesture_try_sub">วาดหรือปัดแล้วดูว่ารู้จำเป็นอะไร</string>
+    <string name="gesture_try_hint">วาดวงกลม สี่เหลี่ยม หรือสามเหลี่ยมโดยไม่ยกนิ้ว หรือปัด ผลที่หน้าจอหลักจะทำจะแสดงด้านล่าง</string>
+    <string name="gesture_not_recognised">ไม่รู้จำ</string>
+    <string name="gesture_reason_short">สั้นเกินไป</string>
+    <string name="gesture_reason_small">เล็กเกินไป</string>
+    <string name="gesture_reason_open">ไม่ปิด</string>
+    <string name="gesture_reason_unclear">รูปทรงไม่ชัดเจน</string>
+    <string name="gestures_buttons">ปุ่ม</string>
+    <string name="gesture_fallback_settings">การตั้งค่าโทรศัพท์</string>
+    <string name="gesture_fallback_phone">โทรศัพท์</string>
 </resources>

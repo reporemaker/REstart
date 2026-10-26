@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Nuorodos</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Gestai</string>
-    <string name="tap_click_actions">Bakstelėjimo / spustelėjimo veiksmai</string>
     <string name="double_tap">Dvigubas bakstelėjimas</string>
     <string name="clock_click_app">Spustelėkite ant laikrodžio</string>
     <string name="date_click_app">Spustelėkite ant datos</string>
     <string name="usage_click_app">Spustelėkite Bendras naudojimas</string>
     <string name="floating_click_app">Spustelėkite logotipą</string>
-    <string name="swipe_movement">Braukimo judesys</string>
-    <string name="short_swipe_up_app">Trumpai braukti į viršų</string>
-    <string name="short_swipe_down_app">Trumpai braukti žemyn</string>
-    <string name="short_swipe_left_app">Trumpai braukti kairėn</string>
-    <string name="short_swipe_right_app">Trumpai braukti dešinėn</string>
-    <string name="long_swipe_up_app">Ilgai braukti aukštyn</string>
-    <string name="long_swipe_down_app">Ilgai braukti žemyn</string>
-    <string name="long_swipe_left_app">Ilgai braukti kairėn</string>
-    <string name="long_swipe_right_app">Ilgai braukti dešinėn</string>
     <string name="open_app">Atidaryti programėlę</string>
     <string name="lock_screen">Užrakinti ekraną</string>
     <string name="private_space">Privačios erdvės (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">Apie %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Ekspertas</string>
-    <string name="threshold">Slenkstis</string>
     <string name="expert_options_display">Rodyti eksperto parinktis</string>
     <string name="expert_options_unlocked">Ekspertų parinktys atrakintos!</string>
     <string name="expert_options_tap_hint">Liko %1$d bakstelėjimų iki atrakinimo</string>
     <string name="settings_text_size">Nustatymų teksto dydis</string>
-    <string name="settings_short_threshold">Trumpas braukimo slenkstis</string>
-    <string name="settings_long_threshold">Ilgo braukimo slenkstis</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Paslėptos programėlės</string>
     <string name="favorite_apps">Mėgstamiausios programos</string>
@@ -485,4 +472,28 @@
     <string name="notes_category_entries">Įrašai: %1$d</string>
     <string name="notes_category_remove_confirm">Pašalinti „%1$s“? Įrašai liks, be kategorijos.</string>
     <string name="notes_categories_hint">Pastaboms ir užduotims</string>
+    <string name="action_open_settings">RE*start nustatymai</string>
+    <string name="gestures_fixed">Visada tas pats</string>
+    <string name="gesture_swipe_up">Braukti aukštyn</string>
+    <string name="gesture_swipe_down">Braukti žemyn</string>
+    <string name="gesture_swipe_left">Braukti kairėn</string>
+    <string name="gesture_swipe_right">Braukti dešinėn</string>
+    <string name="gesture_value_drawer">Programų stalčius</string>
+    <string name="gesture_value_notifications">Pranešimai ir spartieji nustatymai</string>
+    <string name="gestures_swipes">Braukimai</string>
+    <string name="swipe_distance">Braukimo atstumas</string>
+    <string name="gestures_taps">Palietimai</string>
+    <string name="long_press">Ilgas paspaudimas</string>
+    <string name="gestures_shapes">Figūros vienu brūkšniu</string>
+    <string name="gesture_try">Išbandyti gestą</string>
+    <string name="gesture_try_sub">Pieškite arba braukite ir pamatykite, kas atpažįstama</string>
+    <string name="gesture_try_hint">Nupieškite apskritimą, kvadratą arba trikampį nepakeldami piršto arba braukite. Ką iš to padaro pagrindinis ekranas, rodoma žemiau.</string>
+    <string name="gesture_not_recognised">Neatpažinta</string>
+    <string name="gesture_reason_short">per trumpas</string>
+    <string name="gesture_reason_small">per mažas</string>
+    <string name="gesture_reason_open">neuždarytas</string>
+    <string name="gesture_reason_unclear">neaiški figūra</string>
+    <string name="gestures_buttons">Mygtukai</string>
+    <string name="gesture_fallback_settings">telefono nustatymai</string>
+    <string name="gesture_fallback_phone">Telefonas</string>
 </resources>

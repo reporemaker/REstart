@@ -111,21 +111,11 @@
     <string name="shortcuts_color">Kurterê</string>
     <!-- Strings used for gestures settings -->
     <string name="gestures_settings_title">Tevger</string>
-    <string name="tap_click_actions">Çalakiyên tikandinê</string>
     <string name="double_tap">Du caran tikandin</string>
     <string name="clock_click_app">Tikandina li ser demjimêrê</string>
     <string name="date_click_app">Tikandina li ser dîrokê</string>
     <string name="usage_click_app">Tikandina li ser tevahiya bikaranînê</string>
     <string name="floating_click_app">Tikandina li ser logoyê</string>
-    <string name="swipe_movement">Tevgerên kaşkirinê</string>
-    <string name="short_swipe_up_app">Kaşkirina kurt ber bi jor</string>
-    <string name="short_swipe_down_app">Kaşkirina kurt ber bi jêr</string>
-    <string name="short_swipe_left_app">Kaşkirina kurt ber bi çepê</string>
-    <string name="short_swipe_right_app">Kaşkirina kurt ber bi rastê</string>
-    <string name="long_swipe_up_app">Kaşkirina dirêj ber bi jor</string>
-    <string name="long_swipe_down_app">Kaşkirina dirêj ber bi jêr</string>
-    <string name="long_swipe_left_app">Kaşkirina dirêj ber bi çepê</string>
-    <string name="long_swipe_right_app">Kaşkirina dirêj ber bi rastê</string>
     <string name="open_app">Sepanê veke</string>
     <string name="lock_screen">Dîmenderê kilît bike</string>
     <string name="private_space">Qadên taybet (%1$s)</string>
@@ -176,13 +166,10 @@
     <string name="about_settings_title">Derbarê %1$s</string>
     <!-- Strings used for expert settings -->
     <string name="expert_settings_title">Pispor</string>
-    <string name="threshold">Sînor</string>
     <string name="expert_options_display">Vebijêrkên pispor nîşan bide</string>
     <string name="expert_options_unlocked">Vebijêrkên pispor vebûn!</string>
     <string name="expert_options_tap_hint">%1$d tikandinên din ji bo vekirinê</string>
     <string name="settings_text_size">Mezinahiya nivîsa sazkariyan</string>
-    <string name="settings_short_threshold">Sînorê kaşkirina kurt</string>
-    <string name="settings_long_threshold">Sînorê kaşkirina dirêj</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Sepanên veşartî</string>
     <string name="favorite_apps">Sepanên bijarte</string>
@@ -485,4 +472,28 @@
     <string name="notes_category_entries">Tişt: %1$d</string>
     <string name="notes_category_remove_confirm">“%1$s” were rakirin? Tiştên wê dimînin, bê kategorî.</string>
     <string name="notes_categories_hint">Ji bo nîşe û karan</string>
+    <string name="action_open_settings">Mîhengên RE*start</string>
+    <string name="gestures_fixed">Her tim wekhev</string>
+    <string name="gesture_swipe_up">Ber bi jor ve kişandin</string>
+    <string name="gesture_swipe_down">Ber bi jêr ve kişandin</string>
+    <string name="gesture_swipe_left">Ber bi çepê ve kişandin</string>
+    <string name="gesture_swipe_right">Ber bi rastê ve kişandin</string>
+    <string name="gesture_value_drawer">Kişoka sepanan</string>
+    <string name="gesture_value_notifications">Agahdarî û mîhengên bilez</string>
+    <string name="gestures_swipes">Kişandin</string>
+    <string name="swipe_distance">Dûrahiya kişandinê</string>
+    <string name="gestures_taps">Lêdan</string>
+    <string name="long_press">Pêlêkirina dirêj</string>
+    <string name="gestures_shapes">Şeklên bi xêzekê</string>
+    <string name="gesture_try">Tevgerekê biceribîne</string>
+    <string name="gesture_try_sub">Xêz bike an bikişîne û bibîne ka çi tê nasîn</string>
+    <string name="gesture_try_hint">Bêyî ku tiliya xwe rakî, gilover, çargoşe an sêgoşeyekê xêz bike, an bikişîne. Ekrana sereke çi jê dike li jêr xuya dibe.</string>
+    <string name="gesture_not_recognised">Nehat nasîn</string>
+    <string name="gesture_reason_short">pir kurt</string>
+    <string name="gesture_reason_small">pir biçûk</string>
+    <string name="gesture_reason_open">negirtî</string>
+    <string name="gesture_reason_unclear">şekil ne zelal</string>
+    <string name="gestures_buttons">Bişkok</string>
+    <string name="gesture_fallback_settings">mîhengên telefonê</string>
+    <string name="gesture_fallback_phone">Telefon</string>
 </resources>
