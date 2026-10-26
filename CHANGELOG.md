@@ -53,10 +53,13 @@ the two changes sent back upstream and every difference at the fork point are in
   notifications with the quick settings; left and right, double tap and long press can be set.
 - **The whole path counts.** A swipe was judged by where it started and ended only, so a circle
   that stopped short could open the app of a swipe. A stroke that bends is never a swipe now.
-- **Shapes in one stroke:** a circle, a square or a triangle drawn without lifting the finger, each
-  with its own action (off until set). A hand is not a plotter: a circle may stop 70 degrees short
-  or run past its start, an egg counts, a square or triangle may leave most of its last side out,
-  any direction, any start, any rotation; a U, an L or a scribble is nothing.
+- **Shapes in one stroke:** a circle, a four-sided figure (sides need not be equal: a rectangle,
+  a trapezium, a slanted one) or a triangle drawn without lifting the finger, each with its own
+  action (off until set). Tuned on 182 strokes drawn by hand: a circle may leave a quarter of its
+  round undrawn, run past its start or be an egg; corners may be drawn round or sharp; a stroke
+  begun at a corner may stop short of it; anything at least 1.4 cm across. Three measures keep the
+  shapes apart (how much of the path runs straight, the corners, and how much of the shape the
+  triangle through three corners covers); none of the 182 is taken for another shape.
 - **Try a gesture:** a pad under Settings > Gestures shows what the home screen makes of a stroke
   (the shape and how close it was, the swipe, or why nothing) and what it would do.
 - **Swipes from the edge:** with gesture navigation Android keeps the side edges for "back", which

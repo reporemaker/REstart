@@ -122,7 +122,7 @@ class StrokeClassifierTest {
 
     @Test
     fun aSmallCircleIsTooSmall() {
-        assertEquals(Nothing(Reason.TooSmall), classify(circle(r = 120f)))   // 0.57 in across
+        assertEquals(Nothing(Reason.TooSmall), classify(circle(r = 110f)))   // 0.52 in (1.3 cm) across
     }
 
     // Squares and triangles
@@ -140,6 +140,17 @@ class StrokeClassifierTest {
     fun aRectangleCountsAsASquare() {
         val rect = listOf(Point(240f, 1000f), Point(840f, 1000f), Point(840f, 1380f), Point(240f, 1380f))   // 1.4 x 0.9 in
         assertEquals(Shape.Square, shapeOf(classify(polygon(rect))))
+    }
+
+    @Test
+    fun anyFourSidedFigureCountsAsASquare() {
+        val trapezium = listOf(Point(390f, 1000f), Point(690f, 1000f), Point(840f, 1400f), Point(240f, 1400f))
+        val slanted = listOf(Point(340f, 1000f), Point(840f, 1050f), Point(740f, 1450f), Point(240f, 1400f))
+        val kiteish = listOf(Point(540f, 950f), Point(820f, 1180f), Point(540f, 1480f), Point(260f, 1180f))
+        for ((name, q) in listOf("trapezium" to trapezium, "slanted" to slanted, "kite" to kiteish)) {
+            classify(polygon(q)).let { assertEquals("$name: $it", Shape.Square, shapeOf(it)) }
+            classify(shaky(polygon(q, cut = 0.3f), 10f)).let { assertEquals("shaky $name: $it", Shape.Square, shapeOf(it)) }
+        }
     }
 
     @Test
@@ -164,6 +175,50 @@ class StrokeClassifierTest {
             assertEquals("square $seed", Shape.Square, shapeOf(classify(shaky(polygon(square(rotateDeg = seed * 3f), cut = seed % 3 * 0.15f), 12f, seed))))
             assertEquals("triangle $seed", Shape.Triangle, shapeOf(classify(shaky(polygon(triangle(), cut = seed % 3 * 0.15f), 12f, seed))))
         }
+    }
+
+    // Real hands
+
+    /**
+     * Circles drawn on the try-out pad by hand (26 Oct 2026, two rounds, 110 strokes). Those the rules
+     * of that day took for circles must stay circles; none of the others may ever turn into a square
+     * or a triangle.
+     */
+    @Test
+    fun realCircles() {
+        realCircles("/strokes/circles-2026-10-26.tsv", atLeast = 45)
+        realCircles("/strokes/circles-2026-10-26-b.tsv", atLeast = 37)
+    }
+
+    /** Four-sided figures drawn on the try-out pad by hand (26 Oct 2026); the same rule as for the circles. */
+    @Test
+    fun realSquares() {
+        realStrokes("/strokes/squares-2026-10-26.tsv", "square", Shape.Square, atLeast = 22)
+        realStrokes("/strokes/squares-2026-10-26-b.tsv", "square", Shape.Square, atLeast = 15)
+    }
+
+    /** Triangles drawn on the try-out pad by hand (26 Oct 2026); the same rule as for the circles. */
+    @Test
+    fun realTriangles() = realStrokes("/strokes/triangles-2026-10-26.tsv", "triangle", Shape.Triangle, atLeast = 29)
+
+    private fun realCircles(file: String, atLeast: Int) = realStrokes(file, "circle", Shape.Circle, atLeast)
+
+    private fun realStrokes(file: String, tag: String, want: Shape, atLeast: Int) {
+        val lines = javaClass.getResourceAsStream(file)!!.bufferedReader().readLines().filter { !it.startsWith("#") && it.isNotBlank() }
+        var kept = 0
+        lines.forEachIndexed { i, line ->
+            val (expect, dx, dy, pts) = line.split("\t")
+            val points = pts.split(";").map { val (x, y) = it.split(","); Point(x.toFloat(), y.toFloat()) }
+            val result = StrokeClassifier.classify(points, dx.toFloat(), dy.toFloat(), swipeX, swipeY)
+            val shape = shapeOf(result)
+            if (expect == tag) {
+                assertEquals("$file ${i + 1}: $result", want, shape)
+                kept++
+            } else {
+                assertTrue("$file ${i + 1} taken for $shape", shape == null || shape == want)
+            }
+        }
+        assertTrue("$file: only $kept", kept >= atLeast)
     }
 
     // Neither

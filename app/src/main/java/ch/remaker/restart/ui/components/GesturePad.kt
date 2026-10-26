@@ -47,7 +47,9 @@ class GesturePad(context: Context) : View(context) {
             }
             MotionEvent.ACTION_UP -> {
                 add(event.x, event.y)
-                onResult?.invoke(GestureManager.classify(context, points))
+                val result = GestureManager.classify(context, points)
+                log(result)
+                onResult?.invoke(result)
             }
         }
         invalidate()
@@ -57,6 +59,22 @@ class GesturePad(context: Context) : View(context) {
     private fun add(x: Float, y: Float) {
         path.lineTo(x, y)
         points.add(StrokeClassifier.Point(x, y))
+    }
+
+    /**
+     * Debug builds: one line per stroke in the log (tag GestureLab) with the result, what the
+     * classifier measured and the points, so real hands can be studied and replayed in tests.
+     */
+    private fun log(result: StrokeClassifier.Result) {
+        if (!ch.remaker.restart.BuildConfig.DEBUG) return
+        val m = resources.displayMetrics
+        val measured = StrokeClassifier.measure(points, m.xdpi, m.ydpi)
+        val id = System.currentTimeMillis()
+        android.util.Log.d("GestureLab", "S$id RESULT=$result | $measured | dpi=${m.xdpi},${m.ydpi} | n=${points.size}")
+        // The points in pieces: a log line stops at about 4000 characters
+        points.joinToString(";") { "${it.x.toInt()},${it.y.toInt()}" }.chunked(3000).forEachIndexed { i, part ->
+            android.util.Log.d("GestureLab", "P$id $i $part")
+        }
     }
 
     override fun onDraw(canvas: Canvas) {
