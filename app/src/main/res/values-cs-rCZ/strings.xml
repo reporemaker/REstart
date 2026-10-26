@@ -355,10 +355,11 @@
     <string name="settings_heading">Nastavení</string>
     <string name="settings_features_sub">Vyhledávání, počasí, zámek aplikací, soukromý prostor</string>
     <string name="settings_look_feel_sub">Motiv, písmo, velikosti textu, ikony</string>
-    <string name="settings_gestures_sub">Přejetí, klepnutí, hardwarová tlačítka</string>
+    <string name="settings_gestures_sub">Přejetí, klepnutí, tvary, tlačítka</string>
     <string name="settings_favorite_apps_sub">Pozice, pořadí, widgety</string>
     <string name="settings_hidden_apps_sub">Aplikace vynechané ze zásuvky</string>
-    <string name="settings_notes_sub">Na domovské obrazovce</string>
+    <string name="settings_notes_sub">Domovská obrazovka, kategorie</string>
+    <string name="notes_section_home">Na domovské obrazovce</string>
     <string name="settings_advanced_sub">Záloha, reset, jazyk, restart</string>
     <string name="ring_placement">Umístění prstence</string>
     <string name="ring_beside">Vedle času</string>

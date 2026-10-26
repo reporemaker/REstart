@@ -157,8 +157,9 @@ class FontTopSheetDialogLocked(context: Context) : AppCompatDialog(context), Cus
     private fun applyFontRecursively(view: View, typeface: Typeface?) {
         if (typeface == null) return
         when (view) {
-            // Keep each text's own weight (a bold label, a light value) and only swap the family
-            is TextView -> view.typeface = view.typeface?.let { Typeface.create(typeface, it.weight, it.isItalic) } ?: typeface
+            // Keep each text's own weight (a bold label, a light value) and only swap the family;
+            // Doto stays on its emboldened cut, as everywhere else (its thin dots wash out to grey)
+            is TextView -> view.typeface = FontManager.keepingWeight(typeface, view.typeface)
             is ViewGroup -> (0 until view.childCount).forEach {
                 applyFontRecursively(view.getChildAt(it), typeface)
             }

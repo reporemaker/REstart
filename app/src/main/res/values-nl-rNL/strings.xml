@@ -355,10 +355,11 @@
     <string name="settings_heading">Instellingen</string>
     <string name="settings_features_sub">Zoeken, weer, app-vergrendeling, privéruimte</string>
     <string name="settings_look_feel_sub">Thema, lettertype, tekstgroottes, pictogrammen</string>
-    <string name="settings_gestures_sub">Vegen, tikken, hardwareknoppen</string>
+    <string name="settings_gestures_sub">Vegen, tikken, vormen, knoppen</string>
     <string name="settings_favorite_apps_sub">Plaatsen, volgorde, widgets</string>
     <string name="settings_hidden_apps_sub">Apps buiten de lade gehouden</string>
-    <string name="settings_notes_sub">Op het startscherm</string>
+    <string name="settings_notes_sub">Startscherm, categorieën</string>
+    <string name="notes_section_home">Op het startscherm</string>
     <string name="settings_advanced_sub">Back-up, resetten, taal, herstarten</string>
     <string name="ring_placement">Plaatsing van de ring</string>
     <string name="ring_beside">Naast de tijd</string>

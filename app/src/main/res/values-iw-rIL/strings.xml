@@ -349,10 +349,11 @@
     <string name="settings_heading">הגדרות</string>
     <string name="settings_features_sub">חיפוש, מזג אוויר, נעילת יישומים, מרחב פרטי</string>
     <string name="settings_look_feel_sub">ערכת נושא, גופן, גדלי טקסט, סמלים</string>
-    <string name="settings_gestures_sub">החלקות, הקשות, לחצני חומרה</string>
+    <string name="settings_gestures_sub">החלקות, הקשות, צורות, לחצנים</string>
     <string name="settings_favorite_apps_sub">משבצות, סדר, ווידג\'טים</string>
     <string name="settings_hidden_apps_sub">יישומים שאינם מוצגים במגירה</string>
-    <string name="settings_notes_sub">במסך הבית</string>
+    <string name="settings_notes_sub">מסך הבית, קטגוריות</string>
+    <string name="notes_section_home">במסך הבית</string>
     <string name="settings_advanced_sub">גיבוי, איפוס, שפה, הפעלה מחדש</string>
     <string name="ring_placement">מיקום הטבעת</string>
     <string name="ring_beside">לצד השעה</string>

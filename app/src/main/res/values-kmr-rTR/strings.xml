@@ -349,10 +349,11 @@
     <string name="settings_heading">Sazkarî</string>
     <string name="settings_features_sub">Lêgerîn, rewşa bayê, kilîta sepanan, qada taybet</string>
     <string name="settings_look_feel_sub">Rûkar, cureya nivîsê, mezinahiyên nivîsê, îkon</string>
-    <string name="settings_gestures_sub">Kişandin, tikandin, bişkokên hardware</string>
+    <string name="settings_gestures_sub">Kişandin, tikandin, şikil, bişkok</string>
     <string name="settings_favorite_apps_sub">Cih, rêz, sepanok</string>
     <string name="settings_hidden_apps_sub">Sepanên ku li berkêşkê nayên nîşandan</string>
-    <string name="settings_notes_sub">Li ser dîmendera sereke</string>
+    <string name="settings_notes_sub">Dîmendera sereke, kategorî</string>
+    <string name="notes_section_home">Li ser dîmendera sereke</string>
     <string name="settings_advanced_sub">Hilanîn, sifirkirin, ziman, dîsa destpêkirin</string>
     <string name="ring_placement">Cihê xelekê</string>
     <string name="ring_beside">Li kêleka demê</string>

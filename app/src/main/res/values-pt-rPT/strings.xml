@@ -355,10 +355,11 @@
     <string name="settings_heading">Definições</string>
     <string name="settings_features_sub">Pesquisa, meteorologia, bloqueio de aplicações, espaço privado</string>
     <string name="settings_look_feel_sub">Tema, tipo de letra, tamanhos de texto, ícones</string>
-    <string name="settings_gestures_sub">Deslizes, toques, botões físicos</string>
+    <string name="settings_gestures_sub">Deslizes, toques, formas, botões</string>
     <string name="settings_favorite_apps_sub">Posições, ordem, widgets</string>
     <string name="settings_hidden_apps_sub">Aplicações fora da gaveta</string>
-    <string name="settings_notes_sub">No ecrã inicial</string>
+    <string name="settings_notes_sub">Ecrã inicial, categorias</string>
+    <string name="notes_section_home">No ecrã inicial</string>
     <string name="settings_advanced_sub">Cópia de segurança, reposição, idioma, reinício</string>
     <string name="ring_placement">Posição do anel</string>
     <string name="ring_beside">Ao lado da hora</string>

@@ -189,10 +189,11 @@
     <string name="settings_heading">Ayarlar</string>
     <string name="settings_features_sub">Arama, hava durumu, uygulama kilidi, özel alan</string>
     <string name="settings_look_feel_sub">Tema, yazı tipi, boyutlar, simgeler</string>
-    <string name="settings_gestures_sub">Kaydırmalar, dokunuşlar, donanım tuşları</string>
+    <string name="settings_gestures_sub">Kaydırmalar, dokunuşlar, şekiller, düğmeler</string>
     <string name="settings_favorite_apps_sub">Yuvalar, sıra, widget\'lar</string>
     <string name="settings_hidden_apps_sub">Çekmecede görünmeyen uygulamalar</string>
-    <string name="settings_notes_sub">Ana ekranda</string>
+    <string name="settings_notes_sub">Ana ekran, kategoriler</string>
+    <string name="notes_section_home">Ana ekranda</string>
     <string name="settings_advanced_sub">Yedekleme, sıfırlama, dil, yeniden başlatma</string>
     <string name="ring_placement">Halka yerleşimi</string>
     <string name="ring_beside">Saatin yanında</string>

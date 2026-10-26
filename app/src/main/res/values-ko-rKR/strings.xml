@@ -355,10 +355,11 @@
     <string name="settings_heading">설정</string>
     <string name="settings_features_sub">검색, 날씨, 앱 잠금, 개인 공간</string>
     <string name="settings_look_feel_sub">테마, 글꼴, 텍스트 크기, 아이콘</string>
-    <string name="settings_gestures_sub">스와이프, 탭, 하드웨어 버튼</string>
+    <string name="settings_gestures_sub">스와이프, 탭, 도형, 버튼</string>
     <string name="settings_favorite_apps_sub">슬롯, 순서, 위젯</string>
     <string name="settings_hidden_apps_sub">서랍에 표시되지 않는 앱</string>
-    <string name="settings_notes_sub">홈 화면에서</string>
+    <string name="settings_notes_sub">홈 화면, 카테고리</string>
+    <string name="notes_section_home">홈 화면에서</string>
     <string name="settings_advanced_sub">백업, 초기화, 언어, 재시작</string>
     <string name="ring_placement">링 위치</string>
     <string name="ring_beside">시간 옆</string>

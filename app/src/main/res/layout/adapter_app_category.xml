@@ -3,7 +3,6 @@
     android:id="@+id/categoryRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/swiss_hairline_bottom"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingHorizontal="24dp"
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:alpha="0.5"
+        android:alpha="0.75"
         android:maxLines="1" />
 
     <ch.remaker.components.views.FontAppCompatTextView
@@ -31,6 +30,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:alpha="0.5"
+        android:alpha="0.75"
         android:text="›" />
 </LinearLayout>

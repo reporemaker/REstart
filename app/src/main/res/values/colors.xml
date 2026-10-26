@@ -41,7 +41,7 @@
 
     <color name="background_light">#FFFFFFFF</color>
     <color name="background_dark">#FF000000</color>
-    <color name="background_bubble">#FFDEDEDE</color>
+    <color name="background_bubble">#FFFFFFFF</color>
 
     <color name="fab_background">#FFFFFFFF</color>
     <color name="fab_border">#FFCCCCCC</color>

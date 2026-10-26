@@ -925,6 +925,25 @@ class DialogManager(val context: Context, val activity: Activity) {
     }
 
     var showDeviceBottomSheet: FontBottomSheetDialogLocked? = null
+
+    private fun statTitle(context: Context, title: String) = TextView(context).apply {
+        text = title
+        setTextColor(ink)
+        setTypeface(null, Typeface.BOLD)
+        textSize = 18f
+    }
+
+    // The values in a plain monospaced face whatever the chosen font: a dotted or display font
+    // makes model names and numbers hard to read, and this sheet is there to be read and sent on
+    private fun statDetails(context: Context, details: String) = TextView(context).apply {
+        text = details
+        setTextColor(ColorUtils.setAlphaComponent(ink, 0xCC))
+        typeface = Typeface.MONOSPACE
+        tag = FontBottomSheetDialogLocked.KEEP_TYPEFACE
+        textSize = 13f
+        setPadding(0, 8, 0, 0)
+    }
+
     fun showDeviceStatsBottomSheet(context: Context) {
         showDeviceBottomSheet?.dismiss()
 
@@ -974,18 +993,8 @@ class DialogManager(val context: Context, val activity: Activity) {
                     }
                 }
                 val (leftTitle, leftDetails) = infoCards[i]
-                leftContainer.addView(TextView(context).apply {
-                    text = leftTitle
-                    setTextColor(Color.WHITE)
-                    setTypeface(null, Typeface.BOLD)
-                    textSize = 18f
-                })
-                leftContainer.addView(TextView(context).apply {
-                    text = leftDetails
-                    setTextColor(Color.LTGRAY)
-                    textSize = 14f
-                    setPadding(0, 8, 0, 0)
-                })
+                leftContainer.addView(statTitle(context, leftTitle))
+                leftContainer.addView(statDetails(context, leftDetails))
 
                 // Right stacked cards container
                 val rightContainer = LinearLayout(context).apply {
@@ -1008,18 +1017,8 @@ class DialogManager(val context: Context, val activity: Activity) {
                             if (j == 1) bottomMargin = 16
                         }
                     }
-                    card.addView(TextView(context).apply {
-                        text = title
-                        setTextColor(Color.WHITE)
-                        setTypeface(null, Typeface.BOLD)
-                        textSize = 18f
-                    })
-                    card.addView(TextView(context).apply {
-                        text = details
-                        setTextColor(Color.LTGRAY)
-                        textSize = 14f
-                        setPadding(0, 8, 0, 0)
-                    })
+                    card.addView(statTitle(context, title))
+                    card.addView(statDetails(context, details))
 
                     rightContainer.addView(card)
                 }
@@ -1079,19 +1078,9 @@ class DialogManager(val context: Context, val activity: Activity) {
                         layoutParams = cardLayoutParams
                     }
 
-                    card.addView(TextView(context).apply {
-                        text = title
-                        setTextColor(Color.WHITE)
-                        setTypeface(null, Typeface.BOLD)
-                        textSize = 18f
-                    })
+                    card.addView(statTitle(context, title))
 
-                    card.addView(TextView(context).apply {
-                        text = details
-                        setTextColor(Color.LTGRAY)
-                        textSize = 14f
-                        setPadding(0, 8, 0, 0)
-                    })
+                    card.addView(statDetails(context, details))
 
                     row.addView(card)
                 }

@@ -262,10 +262,11 @@
     <string name="settings_heading">Settings</string>
     <string name="settings_features_sub">Search, weather, app lock, private space</string>
     <string name="settings_look_feel_sub">Theme, font, text sizes, icons</string>
-    <string name="settings_gestures_sub">Swipes, taps, hardware buttons</string>
+    <string name="settings_gestures_sub">Swipes, taps, shapes, buttons</string>
     <string name="settings_favorite_apps_sub">Slots, order, widgets</string>
     <string name="settings_hidden_apps_sub">Apps kept out of the drawer</string>
-    <string name="settings_notes_sub">On the home screen</string>
+    <string name="settings_notes_sub">Home screen, categories</string>
+    <string name="notes_section_home">On the home screen</string>
     <string name="settings_advanced_sub">Backup, reset, language, restart</string>
     <string name="ring_placement">Ring placement</string>
     <string name="ring_beside">Beside the time</string>

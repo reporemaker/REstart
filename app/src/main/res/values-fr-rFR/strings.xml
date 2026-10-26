@@ -354,10 +354,11 @@
     <string name="settings_heading">Paramètres</string>
     <string name="settings_features_sub">Recherche, météo, verrouillage d\'applications, espace privé</string>
     <string name="settings_look_feel_sub">Thème, police, tailles de texte, icônes</string>
-    <string name="settings_gestures_sub">Glissements, appuis, boutons physiques</string>
+    <string name="settings_gestures_sub">Glissements, appuis, formes, boutons</string>
     <string name="settings_favorite_apps_sub">Emplacements, ordre, widgets</string>
     <string name="settings_hidden_apps_sub">Applications exclues du tiroir</string>
-    <string name="settings_notes_sub">Sur l\'écran d\'accueil</string>
+    <string name="settings_notes_sub">Écran d\'accueil, catégories</string>
+    <string name="notes_section_home">Sur l\'écran d\'accueil</string>
     <string name="settings_advanced_sub">Sauvegarde, réinitialisation, langue, redémarrage</string>
     <string name="ring_placement">Position de l\'anneau</string>
     <string name="ring_beside">À côté de l\'heure</string>

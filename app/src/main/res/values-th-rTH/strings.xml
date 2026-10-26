@@ -356,10 +356,11 @@
     <string name="settings_heading">การตั้งค่า</string>
     <string name="settings_features_sub">ค้นหา สภาพอากาศ ล็อกแอป พื้นที่ส่วนตัว</string>
     <string name="settings_look_feel_sub">ธีม แบบอักษร ขนาดข้อความ ไอคอน</string>
-    <string name="settings_gestures_sub">การปัด การแตะ ปุ่มฮาร์ดแวร์</string>
+    <string name="settings_gestures_sub">การปัด การแตะ รูปทรง ปุ่ม</string>
     <string name="settings_favorite_apps_sub">ช่อง ลำดับ วิดเจ็ต</string>
     <string name="settings_hidden_apps_sub">แอปที่ไม่แสดงในลิ้นชัก</string>
-    <string name="settings_notes_sub">บนหน้าจอหลัก</string>
+    <string name="settings_notes_sub">หน้าจอหลัก หมวดหมู่</string>
+    <string name="notes_section_home">บนหน้าจอหลัก</string>
     <string name="settings_advanced_sub">สำรองข้อมูล รีเซ็ต ภาษา รีสตาร์ท</string>
     <string name="ring_placement">ตำแหน่งวงแหวน</string>
     <string name="ring_beside">ข้างเวลา</string>

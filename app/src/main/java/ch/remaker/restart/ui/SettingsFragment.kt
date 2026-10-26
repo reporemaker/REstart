@@ -2302,7 +2302,7 @@ class SettingsFragment : BaseFragment() {
                     )
                     // The notes block under the clock: counts and up to three important entries
                     SettingsTitle(
-                        text = getLocalizedString(R.string.settings_notes_sub),
+                        text = getLocalizedString(R.string.notes_section_home),
                         fontSize = titleFontSize
                     )
                     SectionCard {

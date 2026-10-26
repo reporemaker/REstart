@@ -7,10 +7,10 @@ import android.view.ViewGroup
 /**
  * One line of the home notes block: the mark, the entry's text and, optionally, its day.
  *
- * With room enough all three stand on one line. Short of room the text gives way (it ends in "…")
- * as long as the day needs at most half of the line; a day that needs more moves under the text,
- * in line with it, so a narrow column (beside the ring) still reads "Pay the bill / Overdue 24 Oct"
- * instead of "Pay… · Ov…". Right-to-left languages get the mirror image.
+ * With room enough all three stand on one line. Short of room the day moves under the text, in
+ * line with it, so the text is not cut for the day: "Renew the passport / Overdue 23 Oct" instead
+ * of "Renew the pass… · Overdue 23 Oct". Only a text too long for a line of its own ends in "…".
+ * Right-to-left languages get the mirror image.
  *
  * Children, in this order: the mark (fixed size, followed by [gap]), the text, and optionally the
  * separator (" · ", dropped when the day moves under the text) and the day.
@@ -45,15 +45,12 @@ class HomeNoteRow(context: Context, private val gap: Int) : ViewGroup(context) {
         val sepWidth = separator?.measuredWidth ?: 0
         val dayWidth = day?.measuredWidth ?: 0
 
-        stacked = day != null && textWidth + sepWidth + dayWidth > room && sepWidth + dayWidth > room / 2
+        stacked = day != null && textWidth + sepWidth + dayWidth > room
         val s = if (stacked) 0 else sepWidth
         val t: Int
         val d: Int
-        when {
-            stacked -> { t = minOf(textWidth, room); d = minOf(dayWidth, room) }
-            textWidth + s + dayWidth > room -> { d = dayWidth; t = room - s - dayWidth }
-            else -> { t = textWidth; d = dayWidth }
-        }
+        if (stacked) { t = minOf(textWidth, room); d = minOf(dayWidth, room) }
+        else { t = textWidth; d = dayWidth }
         text.measure(MeasureSpec.makeMeasureSpec(t.coerceAtLeast(0), MeasureSpec.EXACTLY), free)
         day?.measure(MeasureSpec.makeMeasureSpec(d.coerceAtLeast(0), MeasureSpec.EXACTLY), free)
         separator?.measure(MeasureSpec.makeMeasureSpec(s, MeasureSpec.EXACTLY), free)

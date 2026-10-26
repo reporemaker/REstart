@@ -355,10 +355,11 @@
     <string name="settings_heading">Setări</string>
     <string name="settings_features_sub">Căutare, vreme, blocarea aplicațiilor, spațiu privat</string>
     <string name="settings_look_feel_sub">Temă, font, dimensiuni text, pictograme</string>
-    <string name="settings_gestures_sub">Glisări, atingeri, butoane fizice</string>
+    <string name="settings_gestures_sub">Glisări, atingeri, forme, butoane</string>
     <string name="settings_favorite_apps_sub">Poziții, ordine, widgeturi</string>
     <string name="settings_hidden_apps_sub">Aplicații ținute în afara sertarului</string>
-    <string name="settings_notes_sub">Pe ecranul principal</string>
+    <string name="settings_notes_sub">Ecranul principal, categorii</string>
+    <string name="notes_section_home">Pe ecranul principal</string>
     <string name="settings_advanced_sub">Copie de rezervă, resetare, limbă, repornire</string>
     <string name="ring_placement">Poziția inelului</string>
     <string name="ring_beside">Lângă oră</string>

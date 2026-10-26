@@ -355,10 +355,11 @@
     <string name="settings_heading">Ustawienia</string>
     <string name="settings_features_sub">Wyszukiwanie, pogoda, blokada aplikacji, przestrzeń prywatna</string>
     <string name="settings_look_feel_sub">Motyw, czcionka, rozmiary tekstu, ikony</string>
-    <string name="settings_gestures_sub">Przesunięcia, dotknięcia, przyciski sprzętowe</string>
+    <string name="settings_gestures_sub">Przesunięcia, dotknięcia, kształty, przyciski</string>
     <string name="settings_favorite_apps_sub">Miejsca, kolejność, widżety</string>
     <string name="settings_hidden_apps_sub">Aplikacje wyłączone z szuflady</string>
-    <string name="settings_notes_sub">Na ekranie głównym</string>
+    <string name="settings_notes_sub">Ekran główny, kategorie</string>
+    <string name="notes_section_home">Na ekranie głównym</string>
     <string name="settings_advanced_sub">Kopia zapasowa, reset, język, ponowne uruchomienie</string>
     <string name="ring_placement">Położenie pierścienia</string>
     <string name="ring_beside">Obok godziny</string>

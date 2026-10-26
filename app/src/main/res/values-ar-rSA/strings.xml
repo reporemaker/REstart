@@ -354,10 +354,11 @@
     <string name="settings_heading">الإعدادات</string>
     <string name="settings_features_sub">البحث، الطقس، قفل التطبيقات، المساحة الخاصة</string>
     <string name="settings_look_feel_sub">السمة، الخط، أحجام النص، الأيقونات</string>
-    <string name="settings_gestures_sub">التمرير، النقر، الأزرار المادية</string>
+    <string name="settings_gestures_sub">التمرير، النقر، الأشكال، الأزرار</string>
     <string name="settings_favorite_apps_sub">الخانات، الترتيب، الأدوات</string>
     <string name="settings_hidden_apps_sub">التطبيقات المستبعدة من الدرج</string>
-    <string name="settings_notes_sub">على الشاشة الرئيسية</string>
+    <string name="settings_notes_sub">الشاشة الرئيسية، الفئات</string>
+    <string name="notes_section_home">على الشاشة الرئيسية</string>
     <string name="settings_advanced_sub">النسخ الاحتياطي، إعادة الضبط، اللغة، إعادة التشغيل</string>
     <string name="ring_placement">موضع الحلقة</string>
     <string name="ring_beside">بجانب الوقت</string>

@@ -346,10 +346,11 @@
     <string name="settings_heading">设置</string>
     <string name="settings_features_sub">搜索、天气、应用锁、私密空间</string>
     <string name="settings_look_feel_sub">主题、字体、文字大小、图标</string>
-    <string name="settings_gestures_sub">滑动、点击、实体按键</string>
+    <string name="settings_gestures_sub">滑动、点击、图形、按钮</string>
     <string name="settings_favorite_apps_sub">位置、顺序、小部件</string>
     <string name="settings_hidden_apps_sub">不在抽屉中显示的应用</string>
-    <string name="settings_notes_sub">在主屏幕上</string>
+    <string name="settings_notes_sub">主屏幕、分类</string>
+    <string name="notes_section_home">在主屏幕上</string>
     <string name="settings_advanced_sub">备份、重置、语言、重启</string>
     <string name="ring_placement">圆环位置</string>
     <string name="ring_beside">时间旁边</string>

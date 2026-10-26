@@ -4,6 +4,26 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
+## Unreleased
+
+### Fixed
+- **Sheets on the light theme.** Every sheet (choices, category actions, rename, sliders) stood
+  on a light grey left over from mLauncher instead of white, and its texts were drawn in Doto's
+  thin cut, so they read as grey. Sheets are white on the light theme now, and their texts keep
+  Doto's emboldened cut as every other screen does (the dark theme had the thin cut too).
+- **Drawer category heads.** Each head had its own full-width line and the list's inset line
+  under it: two lines. One inset line now, as between the apps; the count and the arrow are
+  easier to read on both themes.
+- **Home notes cut short.** In a wide line (One line, a column on its own) an entry with a day
+  was cut ("Renew the passpo… · Overdue Oct 23"). A day that does not fit beside the text now
+  moves under it; only a text too long for a line of its own ends in "…".
+- **Settings summaries.** Gestures read "Swipes, taps, hardware buttons" (there are no hardware
+  button settings, and the shapes were missing): now "Swipes, taps, shapes, buttons"; Notes
+  reads "Home screen, categories". 21 languages.
+- **Device summary** (the RE* mark in the settings): the values are in a plain monospaced face
+  whatever the font, so model names and numbers stay readable in Doto, and the colours follow
+  the theme (white titles on the light theme's sheet were hard to see).
+
 ## 1.2.0 - 26 October 2026
 
 ### Notes and to-dos

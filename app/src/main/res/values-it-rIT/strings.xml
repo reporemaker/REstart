@@ -355,10 +355,11 @@
     <string name="settings_heading">Impostazioni</string>
     <string name="settings_features_sub">Ricerca, meteo, blocco app, spazio privato</string>
     <string name="settings_look_feel_sub">Tema, carattere, dimensioni del testo, icone</string>
-    <string name="settings_gestures_sub">Scorrimenti, tocchi, tasti fisici</string>
+    <string name="settings_gestures_sub">Scorrimenti, tocchi, forme, pulsanti</string>
     <string name="settings_favorite_apps_sub">Posizioni, ordine, widget</string>
     <string name="settings_hidden_apps_sub">App escluse dal cassetto</string>
-    <string name="settings_notes_sub">Nella schermata iniziale</string>
+    <string name="settings_notes_sub">Schermata iniziale, categorie</string>
+    <string name="notes_section_home">Nella schermata iniziale</string>
     <string name="settings_advanced_sub">Backup, ripristino, lingua, riavvio</string>
     <string name="ring_placement">Posizione dell\'anello</string>
     <string name="ring_beside">Accanto all\'ora</string>
