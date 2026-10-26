@@ -10,7 +10,7 @@
 <!-- Button and version sit inside the heading, so GitHub's h1 underline falls below the version -->
 <h1>RE*start<br><br>
 <a href="https://github.com/reporemaker/REstart/releases/latest"><img src="https://img.shields.io/badge/%E2%AC%87%20Download-APK%20%C2%B7%20Android%209%2B-f2f2f2?style=for-the-badge&amp;labelColor=0b0e14" alt="⬇ Download: APK · Android 9+" height="68"></a><br>
-<sub><sub>Version 1.1.1 · APK only for now, app stores soon</sub></sub>
+<sub><sub>Version 1.2.0 · APK only for now, app stores soon</sub></sub>
 </h1>
 
 <p><b>Start again, with less.</b><br>A calm Android home screen that turns your phone from a habit back into a tool.</p>
@@ -42,9 +42,15 @@ that carries your taste, not the noise of every app on it.
 - **Swiss layout, your colours:** the grid, hairline rules and clear headings come from Swiss
   typography; its red does not. Colour is kept quiet on purpose, so the screen never calls for
   you like a slot machine, and every colour from the background to the clock is yours to set.
-- **A screen that looks like you:** four clock styles (Classic, Swiss, Rings, One line), your
-  font on every screen, widgets that stay where you put them on a grid. Same app, a different
-  screen in every hand.
+- **A screen that looks like you:** four clock styles (Classic, Swiss, Rings, One line) with a
+  live preview while you set them, your font on every screen, widgets that stay where you put
+  them on a grid. Same app, a different screen in every hand.
+- **Notes and to-dos:** written in the app, sorted by date and importance, the important ones
+  under the clock with a count of what is open or overdue. What you meant to do is on the
+  screen you open most, not in another app.
+- **Gestures you can trust:** one action per swipe direction, however far you swipe; draw a
+  circle, a four-sided figure or a triangle in one stroke to start what you choose, and try any
+  gesture on a pad first. Fewer missed swipes, more done without looking for an icon.
 - **Settings where you expect them:** three sections by what they affect: Features, Look &
   Feel, Advanced. An automatic backup before every update, 21 languages. You find what you
   look for, and an update never undoes your setup.

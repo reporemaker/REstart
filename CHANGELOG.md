@@ -4,7 +4,7 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
-## Unreleased
+## 1.2.0 - 26 October 2026
 
 ### Notes and to-dos
 - The notes page (the RE* mark opens it) is rebuilt in the Swiss style: a page head, entries as
