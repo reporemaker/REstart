@@ -16,9 +16,16 @@
 <p><b>Start again, with less.</b><br>A calm Android home screen that turns your phone from a habit back into a tool.</p>
 
 <p>
-  <img src="docs/screenshots/drawer-categories.png" alt="Drawer with categories" width="180">
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/widget-resize.png" alt="Widget resizing" width="180">
+  <img src="docs/screenshots/1-home-dark.png" alt="Home screen with notes, dark theme" width="180">
+  <img src="docs/screenshots/2-drawer-dark.png" alt="Drawer with pinned apps and categories, dark theme" width="180">
+  <img src="docs/screenshots/3-drawer-light.png" alt="Drawer with pinned apps and categories, light theme" width="180">
+  <img src="docs/screenshots/4-settings-dark.png" alt="Settings" width="180">
+</p>
+<p>
+  <img src="docs/screenshots/5-widgets.jpg" alt="Widgets on the home screen" width="180">
+  <img src="docs/screenshots/6-help-feedback.png" alt="Help and feedback" width="180">
+  <img src="docs/screenshots/7-about-dark.png" alt="About" width="180">
+  <img src="docs/screenshots/8-device-summary.png" alt="Device summary from the RE* mark in settings" width="180">
 </p>
 
 </div>
