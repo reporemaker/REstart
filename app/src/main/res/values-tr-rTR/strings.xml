@@ -20,28 +20,17 @@
     <string name="permission_granted">İzin verildi! Devam edebilirsiniz.</string>
     <string name="this_can_be_disabled_later">* Bu izin daha sonra devre dışı bırakılabilir.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">RE*start Ayarları</string>
     <string name="settings_features_title">Özellikler</string>
-    <string name="settings_features_description">Verimliliğinizi artırın.</string>
     <string name="settings_look_feel_title">Görünüm</string>
-    <string name="settings_look_feel_description">Ana ekranınıza kişisel bir dokunuş katın.</string>
     <string name="settings_gestures_title">Hareketler</string>
-    <string name="settings_gestures_description">Hızlı ve kolay gezinme için hareketleri özelleştirin.</string>
     <string name="settings_notes_title">Notlar</string>
-    <string name="settings_notes_description">Notların görünümünü kendi tarzınıza göre ayarlayın.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Ana Ekran Uygulamaları</string>
-    <string name="settings_favorite_apps_description">Ana ekrandan hızlı erişim için favori uygulamalarınızın sırasını değiştirin.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Gizli uygulamalar</string>
-    <string name="settings_hidden_apps_description">Gizli uygulamaları yönetin: gerektiğinde bu listeden herhangi bir uygulamayı görünür hale getirin.</string>
     <string name="settings_advanced_title">Gelişmiş Ayarlar</string>
-    <string name="settings_advanced_description">Uygulama bilgilerine, varsayılan başlatıcıya, yedekleme araçlarına ve daha fazlasına erişin.</string>
-    <string name="settings_expert_title">Uzman</string>
-    <string name="settings_expert_description">Gizli seçenekleri ve ileri düzey ince ayarları açın.</string>
     <string name="settings_exit_launcher_title">RE*start\'dan Çıkış</string>
-    <string name="settings_exit_launcher_description">Geçici olarak varsayılan başlatıcınıza geçin.</string>
     <string name="settings_exit_launcher_dialog">Bir başlatıcı seçin</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Özellikler</string>
@@ -59,7 +48,6 @@
     <string name="show_floating_button">Kısayol Düğmelerini Göster</string>
     <string name="lock_orientation">Ekran yönünü kilitle</string>
     <string name="haptic_feedback">Dokunsal Geri Bildirim</string>
-    <string name="search">Ara</string>
     <string name="show_az_sidebar">A-Z kenar çubuğunu göster</string>
     <string name="auto_show_keyboard">Klavye\'yi otomatik göster</string>
     <string name="search_from_start">Aramayı Başlat\'tan Başlat\'a kadar yapın</string>
@@ -68,9 +56,7 @@
     <string name="lock_home_apps">Ana ekran uygulamalarını kilitle</string>
     <string name="lock_settings">Ayarları kilitle</string>
     <string name="apps_on_home_screen">Ana ekrandaki uygulama sayısı</string>
-    <string name="enable_app_timer">Uygulama Zamanlayıcısını Etkinleştir</string>
     <string name="force_colored_wallpaper">Duvar kağıdını arka plan rengiyle değiştir</string>
-    <string name="info_tiles">Bilgi Kutucukları</string>
     <string name="show_clock">Saati göster</string>
     <string name="show_notes">Notları göster</string>
     <string name="show_clock_format">ÖÖ/ÖS göstergesini göster</string>
@@ -102,7 +88,6 @@
     <string name="select_app_list_icons">Uygulama Listesi Simge Paketini Seçin</string>
     <string name="app_lock_needs_screen_lock">Uygulama kilidini kullanmak için bu cihazda ekran kilidi ayarlayın.</string>
     <string name="widgets_no_space">Widget sayfasında yer kalmadı. Önce bir widget\'ı küçültün ya da kaldırın.</string>
-    <string name="drawer_categories">Uygulamaları kategoriye göre grupla</string>
     <string name="category_other">Diğer</string>
     <string name="category_text_size">Kategori Metin Boyutu</string>
     <string name="category_color">Kategori</string>
@@ -180,30 +165,15 @@
     <string name="take_a_screenshot">Ekran görüntüsü al</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notlar</string>
-    <string name="display_options">Görüntüleme Seçenekleri</string>
-    <string name="auto_expand_notes">Notları Otomatik Genişlet</string>
-    <string name="click_to_edit_delete">Düzenlemek/Silmek için tıklayın</string>
-    <string name="notes_colors">Not renkleri</string>
-    <string name="notes_background_color">Not arka planı</string>
-    <string name="bubble_background_color">Baloncuk Arka Planı</string>
-    <string name="bubble_message_color">Balon Mesajı</string>
-    <string name="bubble_date_time_color">Baloncuk Tarih/Saat</string>
-    <string name="bubble_category_color">Baloncuk kategorisi</string>
-    <string name="input_colors">Giriş alanı renkleri</string>
-    <string name="message_input_color">Mesaj Girişi</string>
-    <string name="message_input_hint_color">Mesaj Giriş İpucu</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Gelişmiş Ayarlar</string>
     <string name="advanced_settings_app_info_title">Uygulama Bilgileri</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Varsayılan başlatıcı olarak ayarla</string>
     <string name="advanced_settings_set_as_default_launcher_description">RE*start\'ı varsayılan ana ekran uygulamanız yapın.</string>
     <string name="advanced_settings_change_default_launcher">Varsayılan başlatıcıyı değiştir</string>
     <string name="advanced_settings_change_default_launcher_description">Varsayılan başlatıcı olarak farklı bir başlatıcı seçin.</string>
     <string name="advanced_settings_restart_title">Başlatıcıyı Yeniden Başlat</string>
-    <string name="advanced_settings_restart_description">Açıp kapatmayı denediniz mi?</string>
     <string name="advanced_settings_backup_restore_title">Yedekleme/Geri Yükleme</string>
-    <string name="advanced_settings_backup_restore_description">Lütfen ne dilediğinize dikkat edin.</string>
     <string name="advanced_settings_backup_restore_backup">Yedekle</string>
     <string name="advanced_settings_backup_restore_restore">Geri yükle</string>
     <string name="advanced_settings_backup_restore_clear">Tüm Verileri Temizle</string>
@@ -259,33 +229,22 @@
     <string name="clock_style_swiss">İsviçre</string>
     <string name="clock_style_rings">Halkalar</string>
     <string name="clock_style_one_line">Tek satır</string>
-    <string name="about_open_source">Açık kaynak</string>
-    <string name="about_foundation">Temeli</string>
     <string name="about_foundation_text">Multi Launcher (mLauncher) üzerine kurulu; o da Olauncher\'ın torunu.</string>
-    <string name="about_credits_link">Katkıda bulunanlar ve lisanslar</string>
-    <string name="about_weather">Hava durumu verisi: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">İletişim</string>
     <string name="credits_lineage">RE*start, Multi Launcher (mLauncher) üzerine kurulu: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. Her adımda GPL-3.0.</string>
     <string name="credits_thanks">Teşekkür</string>
     <string name="credits_thanks_intro">Çatallanma noktasına kadar koda emeği geçen herkes:</string>
     <string name="credits_thanks_outro">Bu launcher onların emeğinin üstünde duruyor.</string>
     <string name="credits_licences">Lisanslar</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Uzman</string>
-    <string name="expert_options_display">Uzman Seçeneklerini Göster</string>
-    <string name="expert_options_unlocked">Uzman Seçeneklerinin Kilidi Açıldı!</string>
-    <string name="expert_options_tap_hint">Açmak için %1$d dokunma kaldı</string>
     <string name="settings_text_size">Ayarlar Metin Boyutu</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Gizli uygulamalar</string>
-    <string name="favorite_apps">Favori Uygulamalar</string>
     <string name="clear_home_app">Ana ekran yuvasını boşalt</string>
     <!-- Favorite management strings -->
     <string name="add_app">Uygulama Ekle</string>
     <string name="remove_app">Uygulamayı Kaldır</string>
     <string name="max_apps_reached">Maksimum ana ekran uygulaması sayısına ulaşıldı</string>
     <string name="min_apps_reached">Minimum ana ekran uygulaması sayısına ulaşıldı</string>
-    <string name="no_apps_to_remove">Kaldırılacak uygulama yok.</string>
     <string name="select_app_to_remove">Kaldırmak istediğiniz uygulamayı seçin.</string>
     <string name="empty_favorite">Boş</string>
     <string name="confirm_remove_favorite">Bu uygulamayı favorilerinizden kaldırmak istediğinizden emin misiniz?</string>
@@ -321,8 +280,6 @@
     <string name="acra_restart">Yeniden başlat</string>
     <string name="acra_crash">Çökme</string>
     <string name="acra_dialog_text">%1$s beklenmedik bir sorunla karşılaştı ve kapanması gerekiyor.</string>
-    <string name="acra_send_report">Rapor gönder</string>
-    <string name="acra_dont_send">Gönderme</string>
     <!-- Share Strings -->
     <string name="share_note">Notu paylaş</string>
     <!-- Icon Pack Strings -->
@@ -332,7 +289,6 @@
     <string name="apply_icon_pack_are_you_sure">Bu simge paketini uygulamak istediğinizden emin misiniz?\n\n%1$s</string>
     <string name="apply_to_home">Ana ekrana uygula</string>
     <string name="apply_to_app_list">Uygulama listesine uygula</string>
-    <string name="default_icon_not_found">Varsayılan uygulama simgesi çizilebilir dosyası bulunamadı.</string>
     <!-- Settings Strings -->
     <string name="left">Sol</string>
     <string name="right">Sağ</string>
@@ -357,9 +313,7 @@
     <string name="info">Bilgi</string>
     <string name="okay">Tamam</string>
     <string name="apply">Uygula</string>
-    <string name="reset">Sıfırla</string>
     <string name="cancel">İptal Et</string>
-    <string name="save">Kaydet</string>
     <string name="shortcut_add_title">Kısayol ekle</string>
     <string name="shortcut_add">Ekle</string>
     <string name="shortcut_name">İsim</string>
@@ -387,9 +341,7 @@
     <string name="applist_button_contacts">Kişiler</string>
     <string name="allow">İzin ver</string>
     <string name="deny">Reddet</string>
-    <string name="send">Gönder</string>
     <string name="message_hint">Bir not yazın…</string>
-    <string name="message_category">Kategori: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">İzin Gerekli</string>
     <string name="access_usage_data_permission">Devam etmek için lütfen cihaz ayarlarınızda kullanım verilerine erişim iznini etkinleştirin.</string>
@@ -418,14 +370,10 @@
     <string name="notes_list_empty_hint">İlk notunuzu aşağıya yazmaya başlayın.</string>
     <string name="confirm_delete_title">Notu Sil</string>
     <string name="confirm_delete_message">Bu notu silmek istediğinizden emin misiniz?</string>
-    <string name="edit_note">Notu düzenle</string>
     <string name="category">Kategori</string>
-    <string name="priority">Öncelik</string>
     <string name="settings_context_menu_title">Bağlam Menüsü</string>
     <string name="settings_home_buttons_title">Ana Sayfa Düğmeleri</string>
     <string name="settings_applist_buttons_title">Uygulama Listesi Düğmeleri</string>
-    <string name="settings_source_code">Kaynak Kodu</string>
-    <string name="settings_credits">Katkıda bulunanlar</string>
     <string-array name="priorities">
         <item>Düşük</item>
         <item>Orta</item>

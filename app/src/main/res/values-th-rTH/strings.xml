@@ -20,28 +20,17 @@
     <string name="permission_granted">ได้รับอนุญาตแล้ว! คุณสามารถดำเนินการต่อได้</string>
     <string name="this_can_be_disabled_later">* สิทธิ์นี้อาจถูกปิดใช้งานในภายหลัง</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">การตั้งค่า RE*start</string>
     <string name="settings_features_title">คุณสมบัติ</string>
-    <string name="settings_features_description">ปรับปรุงประสิทธิภาพการทำงานของคุณ</string>
     <string name="settings_look_feel_title">รูปลักษณ์</string>
-    <string name="settings_look_feel_description">เพิ่มความเป็นส่วนตัวให้กับหน้าจอหลักของคุณ</string>
     <string name="settings_gestures_title">ท่าทาง</string>
-    <string name="settings_gestures_description">ปรับแต่งท่าทางเพื่อการนำทางที่รวดเร็วและง่ายดาย</string>
     <string name="settings_notes_title">บันทึก</string>
-    <string name="settings_notes_description">ปรับแต่งบันทึกของคุณให้ตรงกับสไตล์ของคุณ</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">แอปหน้าจอหลัก</string>
-    <string name="settings_favorite_apps_description">เรียงลำดับแอปที่คุณชื่นชอบใหม่เพื่อการเข้าถึงอย่างรวดเร็วจากหน้าจอหลัก</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">แอพที่ซ่อนอยู่</string>
-    <string name="settings_hidden_apps_description">จัดการแอพที่ซ่อนไว้ ยกเลิกการซ่อนแอพใดๆ จากรายการนี้เมื่อจำเป็น</string>
     <string name="settings_advanced_title">การตั้งค่าขั้นสูง</string>
-    <string name="settings_advanced_description">เข้าถึงข้อมูลแอป ตัวเปิดใช้เริ่มต้น เครื่องมือสำรองข้อมูล และอื่นๆ อีกมากมาย</string>
-    <string name="settings_expert_title">ผู้เชี่ยวชาญ</string>
-    <string name="settings_expert_description">ปลดล็อคตัวเลือกที่ซ่อนอยู่และการปรับแต่งขั้นสูง</string>
     <string name="settings_exit_launcher_title">ออกจาก RE*start</string>
-    <string name="settings_exit_launcher_description">สลับไปใช้ตัวเปิดใช้เริ่มต้นของคุณชั่วคราว</string>
     <string name="settings_exit_launcher_dialog">เลือกตัวเรียกใช้งาน</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">คุณสมบัติ</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">แสดงปุ่มทางลัด</string>
     <string name="lock_orientation">ล็อกการหมุนหน้าจอ</string>
     <string name="haptic_feedback">การตอบสนองแบบสัมผัส</string>
-    <string name="search">ค้นหา</string>
     <string name="show_az_sidebar">แสดงแถบด้านข้าง AZ</string>
     <string name="auto_show_keyboard">แป้นพิมพ์แสดงอัตโนมัติ</string>
     <string name="search_from_start">ค้นหาแอปตั้งแต่เริ่มต้น</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">ล็อกแอปหน้าจอหลัก</string>
     <string name="lock_settings">ล็อคการตั้งค่า</string>
     <string name="apps_on_home_screen">จำนวนแอปบนหน้าจอหลัก</string>
-    <string name="enable_app_timer">เปิดใช้งานตัวจับเวลาแอป</string>
     <string name="force_colored_wallpaper">บังคับใช้วอลเปเปอร์สีพื้น</string>
-    <string name="info_tiles">แผงข้อมูล</string>
     <string name="show_clock">แสดงนาฬิกา</string>
     <string name="show_notes">แสดงบันทึก</string>
     <string name="show_clock_format">รูปแบบการแสดง (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">ถ่ายภาพหน้าจอ</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">บันทึก</string>
-    <string name="display_options">ตัวเลือกการแสดงผล</string>
-    <string name="auto_expand_notes">ขยายบันทึกอัตโนมัติ</string>
-    <string name="click_to_edit_delete">คลิกเพื่อแก้ไข/ลบ</string>
-    <string name="notes_colors">สีของบันทึก</string>
-    <string name="notes_background_color">พื้นหลังบันทึก</string>
-    <string name="bubble_background_color">พื้นหลังฟองสบู่</string>
-    <string name="bubble_message_color">ข้อความฟองสบู่</string>
-    <string name="bubble_date_time_color">วันที่/เวลาฟองสบู่</string>
-    <string name="bubble_category_color">หมวดหมู่บับเบิ้ล</string>
-    <string name="input_colors">สีอินพุต</string>
-    <string name="message_input_color">การป้อนข้อความ</string>
-    <string name="message_input_hint_color">คำแนะนำการป้อนข้อความ</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">การตั้งค่าขั้นสูง</string>
     <string name="advanced_settings_app_info_title">ข้อมูลแอป</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">ตั้งเป็นตัวเรียกใช้งานเริ่มต้น</string>
     <string name="advanced_settings_set_as_default_launcher_description">ตั้ง RE*start ให้เป็นแอปหลักเริ่มต้นของคุณ</string>
     <string name="advanced_settings_change_default_launcher">เปลี่ยนตัวเรียกใช้งานเริ่มต้น</string>
     <string name="advanced_settings_change_default_launcher_description">เลือกตัวเปิดใช้อื่นเป็นค่าเริ่มต้นของคุณ</string>
     <string name="advanced_settings_restart_title">รีสตาร์ทตัวเรียกใช้งาน</string>
-    <string name="advanced_settings_restart_description">คุณได้ลองเปิดและปิดมันแล้วหรือยัง?</string>
     <string name="advanced_settings_backup_restore_title">การสำรองข้อมูล/กู้คืน</string>
-    <string name="advanced_settings_backup_restore_description">โปรดระวังสิ่งที่คุณปรารถนา?</string>
     <string name="advanced_settings_backup_restore_backup">สำรองข้อมูล</string>
     <string name="advanced_settings_backup_restore_restore">คืนค่า</string>
     <string name="advanced_settings_backup_restore_clear">ล้างข้อมูลทั้งหมด</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">เกี่ยวกับ %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">ผู้เชี่ยวชาญ</string>
-    <string name="expert_options_display">แสดงตัวเลือกผู้เชี่ยวชาญ</string>
-    <string name="expert_options_unlocked">ปลดล็อคตัวเลือกผู้เชี่ยวชาญ!</string>
-    <string name="expert_options_tap_hint">แตะอีก %1$d ครั้งเพื่อปลดล็อก</string>
     <string name="settings_text_size">ขนาดตัวอักษรการตั้งค่า</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">แอพที่ซ่อนอยู่</string>
-    <string name="favorite_apps">แอปพลิเคชั่นที่ชื่นชอบ</string>
     <string name="clear_home_app">ล้างช่องนี้</string>
     <!-- Favorite management strings -->
     <string name="add_app">เพิ่มแอป</string>
     <string name="remove_app">ลบแอป</string>
     <string name="max_apps_reached">ถึงจำนวนแอปหน้าจอหลักสูงสุดแล้ว</string>
     <string name="min_apps_reached">ถึงจำนวนแอปหน้าจอหลักขั้นต่ำแล้ว</string>
-    <string name="no_apps_to_remove">ไม่มีแอปให้ลบ</string>
     <string name="select_app_to_remove">เลือกแอปเพื่อลบ</string>
     <string name="empty_favorite">ยังไม่ได้ใช้งาน</string>
     <string name="confirm_remove_favorite">คุณแน่ใจหรือไม่ว่าต้องการลบแอปนี้ออกจากรายการโปรด?</string>
@@ -212,8 +177,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">ขัดข้อง</string>
     <string name="acra_dialog_text">%1$s พบปัญหาที่ไม่คาดคิดและต้องปิดลง</string>
-    <string name="acra_send_report">ส่งรายงาน</string>
-    <string name="acra_dont_send">อย่าส่ง</string>
     <!-- Share Strings -->
     <string name="share_note">แบ่งปันบันทึก</string>
     <!-- Icon Pack Strings -->
@@ -223,7 +186,6 @@
     <string name="apply_icon_pack_are_you_sure">คุณแน่ใจหรือไม่ว่าต้องการใช้แพ็คไอคอนนี้\n\n%1$s</string>
     <string name="apply_to_home">ใช้กับหน้าจอหลัก</string>
     <string name="apply_to_app_list">ใช้กับรายการแอป</string>
-    <string name="default_icon_not_found">ไม่พบไอคอนแอปเริ่มต้นที่สามารถวาดได้</string>
     <!-- Settings Strings -->
     <string name="left">ซ้าย</string>
     <string name="right">ขวา</string>
@@ -250,9 +212,7 @@
     <string name="info">ข้อมูล</string>
     <string name="okay">ตกลง</string>
     <string name="apply">นำมาใช้</string>
-    <string name="reset">รีเซ็ต</string>
     <string name="cancel">ยกเลิก</string>
-    <string name="save">บันทึก</string>
     <string name="shortcut_add_title">เพิ่มทางลัด</string>
     <string name="shortcut_add">เพิ่ม</string>
     <string name="shortcut_name">ชื่อ</string>
@@ -280,9 +240,7 @@
     <string name="applist_button_contacts">รายชื่อติดต่อ</string>
     <string name="allow">อนุญาต</string>
     <string name="deny">ปฏิเสธ</string>
-    <string name="send">ส่ง</string>
     <string name="message_hint">ใส่ข้อความ…</string>
-    <string name="message_category">หมวดหมู่: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">ต้องได้รับอนุญาต</string>
     <string name="access_usage_data_permission">หากต้องการดำเนินการต่อ โปรดเปิดสิทธิ์การเข้าถึงข้อมูลการใช้งานในการตั้งค่าอุปกรณ์ของคุณ</string>
@@ -311,14 +269,10 @@
     <string name="notes_list_empty_hint">เริ่มต้นบันทึกแรกของคุณด้านล่างนี้</string>
     <string name="confirm_delete_title">ลบบันทึก</string>
     <string name="confirm_delete_message">คุณแน่ใจว่าต้องการลบบันทึกนี้หรือไม่?</string>
-    <string name="edit_note">แก้ไขบันทึก</string>
     <string name="category">หมวดหมู่</string>
-    <string name="priority">ลำดับความสำคัญ</string>
     <string name="settings_context_menu_title">เมนูบริบท</string>
     <string name="settings_home_buttons_title">ปุ่มโฮม</string>
     <string name="settings_applist_buttons_title">ปุ่มรายการแอป</string>
-    <string name="settings_source_code">รหัสต้นฉบับ</string>
-    <string name="settings_credits">เครดิต</string>
     <string-array name="priorities">
         <item>ต่ำ</item>
         <item>ปานกลาง</item>
@@ -357,7 +311,6 @@
     <string name="settings_general_section">ทั่วไป</string>
     <string name="app_lock_needs_screen_lock">ตั้งค่าการล็อกหน้าจอบนอุปกรณ์นี้เพื่อใช้การล็อกแอป</string>
     <string name="widgets_no_space">ไม่มีพื้นที่เหลือในหน้าวิดเจ็ต โปรดปรับขนาดหรือลบวิดเจ็ตออกก่อน</string>
-    <string name="drawer_categories">จัดกลุ่มแอปตามหมวดหมู่</string>
     <string name="category_other">อื่นๆ</string>
     <string name="category_text_size">ขนาดข้อความหมวดหมู่</string>
     <string name="category_color">หมวดหมู่</string>
@@ -432,12 +385,7 @@
     <string name="clock_style_swiss">สวิส</string>
     <string name="clock_style_rings">วงแหวน</string>
     <string name="clock_style_one_line">บรรทัดเดียว</string>
-    <string name="about_open_source">โอเพนซอร์ส</string>
-    <string name="about_foundation">รากฐาน</string>
     <string name="about_foundation_text">สร้างบน Multi Launcher (mLauncher) ซึ่งสืบทอดมาจาก Olauncher</string>
-    <string name="about_credits_link">ผู้มีส่วนร่วมและสัญญาอนุญาต</string>
-    <string name="about_weather">ข้อมูลสภาพอากาศ: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">ติดต่อ</string>
     <string name="credits_lineage">RE*start สร้างบน Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start ใช้ GPL-3.0 ทุกขั้นตอน</string>
     <string name="credits_thanks">ขอบคุณ</string>
     <string name="credits_thanks_intro">ทุกคนที่มีผลงานอยู่ในโค้ดจนถึงจุดที่แยกสาขา:</string>

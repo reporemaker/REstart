@@ -20,28 +20,17 @@
     <string name="permission_granted">승인되었습니다! 계속 진행하셔도 됩니다.</string>
     <string name="this_can_be_disabled_later">* 이 권한은 나중에 비활성화될 수 있습니다.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">RE*start 설정</string>
     <string name="settings_features_title">기능</string>
-    <string name="settings_features_description">생산성을 향상시키세요.</string>
     <string name="settings_look_feel_title">모양 및 느낌</string>
-    <string name="settings_look_feel_description">홈 화면에 나만의 개성을 더해보세요.</string>
     <string name="settings_gestures_title">제스처</string>
-    <string name="settings_gestures_description">빠르고 간편한 탐색을 위해 제스처를 맞춤 설정하세요.</string>
     <string name="settings_notes_title">메모</string>
-    <string name="settings_notes_description">나만의 스타일에 맞춰 메모를 꾸며보세요.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">홈 화면 앱</string>
-    <string name="settings_favorite_apps_description">홈 화면에서 자주 사용하는 앱의 순서를 바꿔 빠르게 실행할 수 있습니다.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">숨긴 앱</string>
-    <string name="settings_hidden_apps_description">숨겨진 앱 관리: 필요할 때 이 목록에서 앱을 표시하세요.</string>
     <string name="settings_advanced_title">고급 설정</string>
-    <string name="settings_advanced_description">앱 정보, 기본 실행기, 백업 도구 등에 액세스할 수 있습니다.</string>
-    <string name="settings_expert_title">전문가</string>
-    <string name="settings_expert_description">숨겨진 옵션과 고급 설정을 이용해 보세요.</string>
     <string name="settings_exit_launcher_title">RE*start 종료</string>
-    <string name="settings_exit_launcher_description">기본 실행 프로그램으로 잠시 전환하세요.</string>
     <string name="settings_exit_launcher_dialog">런처를 선택하세요</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">기능</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">바로가기 버튼 표시</string>
     <string name="lock_orientation">화면 방향 잠금</string>
     <string name="haptic_feedback">햅틱 피드백</string>
-    <string name="search">검색</string>
     <string name="show_az_sidebar">AZ 사이드바 표시</string>
     <string name="auto_show_keyboard">키보드 자동 표시</string>
     <string name="search_from_start">시작부터 검색</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">홈 앱 잠금</string>
     <string name="lock_settings">잠금 설정</string>
     <string name="apps_on_home_screen">홈 앱 개수</string>
-    <string name="enable_app_timer">앱 타이머 활성화</string>
     <string name="force_colored_wallpaper">단색 배경화면 강제 적용</string>
-    <string name="info_tiles">정보 타일</string>
     <string name="show_clock">시계 표시</string>
     <string name="show_notes">메모 표시</string>
     <string name="show_clock_format">오전/오후 표시</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">스크린샷 찍기</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">메모</string>
-    <string name="display_options">표시 옵션</string>
-    <string name="auto_expand_notes">메모 자동 확장</string>
-    <string name="click_to_edit_delete">클릭하여 수정/삭제</string>
-    <string name="notes_colors">메모 색상</string>
-    <string name="notes_background_color">메모 배경</string>
-    <string name="bubble_background_color">버블 배경</string>
-    <string name="bubble_message_color">말풍선 메시지</string>
-    <string name="bubble_date_time_color">버블 날짜/시간</string>
-    <string name="bubble_category_color">버블 카테고리</string>
-    <string name="input_colors">입력 색상</string>
-    <string name="message_input_color">메시지 입력</string>
-    <string name="message_input_hint_color">메시지 입력 힌트</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">고급 설정</string>
     <string name="advanced_settings_app_info_title">앱 정보</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">기본 실행기로 설정</string>
     <string name="advanced_settings_set_as_default_launcher_description">RE*start를 기본 홈 앱으로 설정하세요.</string>
     <string name="advanced_settings_change_default_launcher">기본 실행기 변경</string>
     <string name="advanced_settings_change_default_launcher_description">기본 실행 프로그램으로 다른 프로그램을 선택하세요.</string>
     <string name="advanced_settings_restart_title">런처 재시작</string>
-    <string name="advanced_settings_restart_description">전원을 껐다 켜보셨나요?</string>
     <string name="advanced_settings_backup_restore_title">백업/복원</string>
-    <string name="advanced_settings_backup_restore_description">소원을 빌 때는 신중해야 합니다.</string>
     <string name="advanced_settings_backup_restore_backup">백업</string>
     <string name="advanced_settings_backup_restore_restore">복원</string>
     <string name="advanced_settings_backup_restore_clear">모든 데이터 삭제</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">%1$s에 대하여</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">전문가</string>
-    <string name="expert_options_display">전문가 옵션 보기</string>
-    <string name="expert_options_unlocked">전문가용 옵션이 잠금 해제되었습니다!</string>
-    <string name="expert_options_tap_hint">%1$d번 더 탭하면 잠금 해제됩니다</string>
     <string name="settings_text_size">설정 텍스트 크기</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">숨긴 앱</string>
-    <string name="favorite_apps">즐겨 사용하는 앱</string>
     <string name="clear_home_app">홈 슬롯 비우기</string>
     <!-- Favorite management strings -->
     <string name="add_app">앱 추가</string>
     <string name="remove_app">앱 삭제</string>
     <string name="max_apps_reached">홈 앱 최대 개수에 도달했습니다.</string>
     <string name="min_apps_reached">최소 홈 앱 개수에 도달했습니다.</string>
-    <string name="no_apps_to_remove">삭제할 앱이 없습니다</string>
     <string name="select_app_to_remove">삭제할 앱을 선택하세요</string>
     <string name="empty_favorite">미사용</string>
     <string name="confirm_remove_favorite">즐겨찾기에서 이 앱을 삭제하시겠습니까?</string>
@@ -213,8 +178,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">충돌</string>
     <string name="acra_dialog_text">%1$s에 예기치 않은 문제가 발생하여 종료해야 합니다.</string>
-    <string name="acra_send_report">보고서 보내기</string>
-    <string name="acra_dont_send">보내지 않음</string>
     <!-- Share Strings -->
     <string name="share_note">메모 공유</string>
     <!-- Icon Pack Strings -->
@@ -224,7 +187,6 @@
     <string name="apply_icon_pack_are_you_sure">이 아이콘 팩을 적용하시겠습니까?\n\n%1$s</string>
     <string name="apply_to_home">홈 화면에 적용</string>
     <string name="apply_to_app_list">앱 목록에 적용</string>
-    <string name="default_icon_not_found">기본 앱 아이콘 드로어블을 찾을 수 없습니다.</string>
     <!-- Settings Strings -->
     <string name="left">왼쪽</string>
     <string name="right">오른쪽</string>
@@ -249,9 +211,7 @@
     <string name="info">정보</string>
     <string name="okay">확인</string>
     <string name="apply">적용</string>
-    <string name="reset">초기화</string>
     <string name="cancel">취소</string>
-    <string name="save">저장</string>
     <string name="shortcut_add_title">바로가기 추가</string>
     <string name="shortcut_add">추가</string>
     <string name="shortcut_name">이름</string>
@@ -279,9 +239,7 @@
     <string name="applist_button_contacts">연락처</string>
     <string name="allow">허용</string>
     <string name="deny">거부</string>
-    <string name="send">보내기</string>
     <string name="message_hint">메시지를 입력하세요…</string>
-    <string name="message_category">카테고리: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">권한이 필요합니다</string>
     <string name="access_usage_data_permission">계속 진행하려면 기기 설정에서 사용량 데이터 접근 권한을 활성화해 주세요.</string>
@@ -310,14 +268,10 @@
     <string name="notes_list_empty_hint">아래에 첫 번째 메모를 작성해 주세요.</string>
     <string name="confirm_delete_title">메모 삭제</string>
     <string name="confirm_delete_message">이 메모를 정말 삭제하시겠습니까?</string>
-    <string name="edit_note">메모 편집</string>
     <string name="category">카테고리</string>
-    <string name="priority">우선순위</string>
     <string name="settings_context_menu_title">컨텍스트 메뉴</string>
     <string name="settings_home_buttons_title">홈 버튼</string>
     <string name="settings_applist_buttons_title">앱 목록 버튼</string>
-    <string name="settings_source_code">소스 코드</string>
-    <string name="settings_credits">크레딧</string>
     <string-array name="priorities">
         <item>낮은</item>
         <item>중간</item>
@@ -356,7 +310,6 @@
     <string name="settings_general_section">일반</string>
     <string name="app_lock_needs_screen_lock">앱 잠금을 사용하려면 이 기기에 화면 잠금을 설정하세요.</string>
     <string name="widgets_no_space">위젯 페이지에 남은 공간이 없습니다. 먼저 위젯 크기를 줄이거나 제거하세요.</string>
-    <string name="drawer_categories">앱을 카테고리별로 묶기</string>
     <string name="category_other">기타</string>
     <string name="category_text_size">카테고리 텍스트 크기</string>
     <string name="category_color">카테고리</string>
@@ -431,12 +384,7 @@
     <string name="clock_style_swiss">스위스</string>
     <string name="clock_style_rings">링</string>
     <string name="clock_style_one_line">한 줄</string>
-    <string name="about_open_source">오픈 소스</string>
-    <string name="about_foundation">기반</string>
     <string name="about_foundation_text">Olauncher에서 이어진 Multi Launcher(mLauncher)를 기반으로 만들어졌습니다.</string>
-    <string name="about_credits_link">기여자 및 라이선스</string>
-    <string name="about_weather">날씨 데이터: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">연락처</string>
     <string name="credits_lineage">RE*start는 Multi Launcher(mLauncher)를 기반으로 합니다: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. 모든 단계에서 GPL-3.0.</string>
     <string name="credits_thanks">감사합니다</string>
     <string name="credits_thanks_intro">포크 시점까지 코드에 기여한 모든 분:</string>

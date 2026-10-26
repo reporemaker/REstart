@@ -20,28 +20,17 @@
     <string name="permission_granted">Разрешение получено! Вы можете продолжить.</string>
     <string name="this_can_be_disabled_later">* Это разрешение может быть отключено позже.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Настройки RE*start</string>
     <string name="settings_features_title">Функции</string>
-    <string name="settings_features_description">Повысьте свою производительность.</string>
     <string name="settings_look_feel_title">Внешний вид</string>
-    <string name="settings_look_feel_description">Придайте своему домашнему экрану индивидуальный стиль.</string>
     <string name="settings_gestures_title">Жесты</string>
-    <string name="settings_gestures_description">Настройте жесты для быстрой и удобной навигации.</string>
     <string name="settings_notes_title">Заметки</string>
-    <string name="settings_notes_description">Персонализируйте свои заметки в соответствии со своим стилем.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Приложения главного экрана</string>
-    <string name="settings_favorite_apps_description">Измените порядок ваших любимых приложений для быстрого доступа с главного экрана.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Скрытые приложения</string>
-    <string name="settings_hidden_apps_description">Управление скрытыми приложениями: при необходимости отобразите любое скрытое приложение из этого списка.</string>
     <string name="settings_advanced_title">Расширенные настройки</string>
-    <string name="settings_advanced_description">Получите доступ к информации о приложениях, стандартному лаунчеру, инструментам резервного копирования и многому другому.</string>
-    <string name="settings_expert_title">Эксперт</string>
-    <string name="settings_expert_description">Разблокируйте скрытые опции и расширенные настройки.</string>
     <string name="settings_exit_launcher_title">Выйти из RE*start</string>
-    <string name="settings_exit_launcher_description">Временно переключитесь на стандартную программу запуска.</string>
     <string name="settings_exit_launcher_dialog">Выберите лаунчер</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Функции</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">Показать кнопки быстрого доступа</string>
     <string name="lock_orientation">Заблокировать ориентацию</string>
     <string name="haptic_feedback">Тактильная обратная связь</string>
-    <string name="search">Поиск</string>
     <string name="show_az_sidebar">Показать боковую панель AZ</string>
     <string name="auto_show_keyboard">Автоматически показывать клавиатуру</string>
     <string name="search_from_start">Поиск с начала названия</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">Блокировка приложений на главном экране</string>
     <string name="lock_settings">Блокировка настроек</string>
     <string name="apps_on_home_screen">Количество приложений на главном экране</string>
-    <string name="enable_app_timer">Включить таймер приложения</string>
     <string name="force_colored_wallpaper">Принудительно цветные обои</string>
-    <string name="info_tiles">Информационные плитки</string>
     <string name="show_clock">Показать часы</string>
     <string name="show_notes">Показывать заметки</string>
     <string name="show_clock_format">Показать формат (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">Сделать снимок экрана</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Заметки</string>
-    <string name="display_options">Параметры отображения</string>
-    <string name="auto_expand_notes">Автоматически разворачивать заметки</string>
-    <string name="click_to_edit_delete">Нажмите, чтобы отредактировать/удалить</string>
-    <string name="notes_colors">Цвета заметок</string>
-    <string name="notes_background_color">Фон заметок</string>
-    <string name="bubble_background_color">Фон с пузырьками</string>
-    <string name="bubble_message_color">Сообщение в виде пузырька</string>
-    <string name="bubble_date_time_color">Дата/время появления пузырьков</string>
-    <string name="bubble_category_color">Категория «Пузырь»</string>
-    <string name="input_colors">Цвета ввода</string>
-    <string name="message_input_color">Ввод сообщения</string>
-    <string name="message_input_hint_color">Подсказка при вводе сообщения</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Расширенные настройки</string>
     <string name="advanced_settings_app_info_title">Информация о приложении</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Установить в качестве средства запуска по умолчанию</string>
     <string name="advanced_settings_set_as_default_launcher_description">Сделайте RE*start приложением по умолчанию на главном экране.</string>
     <string name="advanced_settings_change_default_launcher">Изменить средство запуска по умолчанию</string>
     <string name="advanced_settings_change_default_launcher_description">Выберите другой лаунчер в качестве основного.</string>
     <string name="advanced_settings_restart_title">Перезапустить лаунчер</string>
-    <string name="advanced_settings_restart_description">Вы пробовали его включить и выключить?</string>
     <string name="advanced_settings_backup_restore_title">Резервное копирование/Восстановление</string>
-    <string name="advanced_settings_backup_restore_description">Будьте осторожны со своими желаниями!</string>
     <string name="advanced_settings_backup_restore_backup">Резервная копия</string>
     <string name="advanced_settings_backup_restore_restore">Восстановить</string>
     <string name="advanced_settings_backup_restore_clear">Очистить все данные</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">О %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Эксперт</string>
-    <string name="expert_options_display">Показать параметры эксперта</string>
-    <string name="expert_options_unlocked">Доступны экспертные опции!</string>
-    <string name="expert_options_tap_hint">%1$d больше нажатий для разблокировки</string>
     <string name="settings_text_size">Размер текста в настройках</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Скрытые приложения</string>
-    <string name="favorite_apps">Любимые приложения</string>
     <string name="clear_home_app">Очистить ячейку</string>
     <!-- Favorite management strings -->
     <string name="add_app">Добавить приложение</string>
     <string name="remove_app">Удалить приложение</string>
     <string name="max_apps_reached">Достигнуто максимальное количество приложений на главном экране</string>
     <string name="min_apps_reached">Достигнуто минимальное количество приложений на главном экране</string>
-    <string name="no_apps_to_remove">Нет приложений для удаления.</string>
     <string name="select_app_to_remove">Выберите приложение для удаления</string>
     <string name="empty_favorite">Неиспользованный</string>
     <string name="confirm_remove_favorite">Вы уверены, что хотите удалить это приложение из избранного?</string>
@@ -213,8 +178,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">Сбой</string>
     <string name="acra_dialog_text">%1$s столкнулось с непредвиденной проблемой и должно закрыться.</string>
-    <string name="acra_send_report">Отправить отчёт</string>
-    <string name="acra_dont_send">Не отправлять</string>
     <!-- Share Strings -->
     <string name="share_note">Поделиться заметкой</string>
     <!-- Icon Pack Strings -->
@@ -224,7 +187,6 @@
     <string name="apply_icon_pack_are_you_sure">Вы уверены, что хотите применить этот набор иконок?\n\n%1$s</string>
     <string name="apply_to_home">Применить к главному экрану</string>
     <string name="apply_to_app_list">Применить к списку приложений</string>
-    <string name="default_icon_not_found">Изображение значка приложения по умолчанию не найдено.</string>
     <!-- Settings Strings -->
     <string name="left">Слева</string>
     <string name="right">Справа</string>
@@ -249,9 +211,7 @@
     <string name="info">Информация</string>
     <string name="okay">ОК</string>
     <string name="apply">Применить</string>
-    <string name="reset">Сбросить</string>
     <string name="cancel">Отмена</string>
-    <string name="save">Сохранить</string>
     <string name="shortcut_add_title">Добавить ярлык</string>
     <string name="shortcut_add">Добавить</string>
     <string name="shortcut_name">Название</string>
@@ -279,9 +239,7 @@
     <string name="applist_button_contacts">Контакты</string>
     <string name="allow">Разрешить</string>
     <string name="deny">Отклонить</string>
-    <string name="send">Отправить</string>
     <string name="message_hint">Введите сообщение…</string>
-    <string name="message_category">Категория: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">Требуется разрешение</string>
     <string name="access_usage_data_permission">Для продолжения, пожалуйста, разрешите доступ к данным об использовании в настройках вашего устройства.</string>
@@ -310,14 +268,10 @@
     <string name="notes_list_empty_hint">Начните свою первую заметку ниже.</string>
     <string name="confirm_delete_title">Удалить заметку</string>
     <string name="confirm_delete_message">Вы уверены, что хотите удалить эту заметку?</string>
-    <string name="edit_note">Редактировать заметку</string>
     <string name="category">Категория</string>
-    <string name="priority">Приоритет</string>
     <string name="settings_context_menu_title">Контекстное меню</string>
     <string name="settings_home_buttons_title">Кнопки \"Домой\"</string>
     <string name="settings_applist_buttons_title">Кнопки списка приложений</string>
-    <string name="settings_source_code">Исходный код</string>
-    <string name="settings_credits">Благодарности</string>
     <string-array name="priorities">
         <item>Низкий</item>
         <item>Середина</item>
@@ -356,7 +310,6 @@
     <string name="settings_general_section">Общие</string>
     <string name="app_lock_needs_screen_lock">Чтобы использовать блокировку приложений, настройте блокировку экрана на этом устройстве.</string>
     <string name="widgets_no_space">На странице виджетов не осталось места. Сначала уменьшите или удалите какой-нибудь виджет.</string>
-    <string name="drawer_categories">Группировать приложения по категориям</string>
     <string name="category_other">Прочее</string>
     <string name="category_text_size">Размер текста категорий</string>
     <string name="category_color">Категория</string>
@@ -431,12 +384,7 @@
     <string name="clock_style_swiss">Швейцарский</string>
     <string name="clock_style_rings">Кольца</string>
     <string name="clock_style_one_line">Одна строка</string>
-    <string name="about_open_source">Открытый исходный код</string>
-    <string name="about_foundation">Основа</string>
     <string name="about_foundation_text">Построен на Multi Launcher (mLauncher), который происходит от Olauncher.</string>
-    <string name="about_credits_link">Участники и лицензии</string>
-    <string name="about_weather">Данные о погоде: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Контакт</string>
     <string name="credits_lineage">RE*start построен на Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 на каждом шаге.</string>
     <string name="credits_thanks">Благодарности</string>
     <string name="credits_thanks_intro">Все, чья работа есть в коде до точки форка:</string>

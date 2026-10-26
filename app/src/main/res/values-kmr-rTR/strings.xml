@@ -20,28 +20,17 @@
     <string name="permission_granted">Maf hat dayîn! Tu dikarî bidomînî.</string>
     <string name="this_can_be_disabled_later">* Ev maf dikare paşê were neçalakkirin.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Sazkariyên RE*start</string>
     <string name="settings_features_title">Taybetmendî</string>
-    <string name="settings_features_description">Berhemdariya xwe pêş bixe.</string>
     <string name="settings_look_feel_title">Xuyabûn &amp; Hest</string>
-    <string name="settings_look_feel_description">Dîmendera xwe kesane bike.</string>
     <string name="settings_gestures_title">Tevger</string>
-    <string name="settings_gestures_description">Ji bo navîgasyona bilez û hêsan tevgeran kesane bike.</string>
     <string name="settings_notes_title">Nîşe</string>
-    <string name="settings_notes_description">Nîşeyên xwe li gorî şêwaza xwe kesane bike.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Sepanên dîmendera sereke</string>
-    <string name="settings_favorite_apps_description">Ji bo gihîştina bilez ji dîmendera sereke, rêza sepanên xwe yên bijarte biguherîne.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Sepanên veşartî</string>
-    <string name="settings_hidden_apps_description">Sepanên veşartî bi rê ve bibe: dema pêwist be sepanan ji vê lîsteyê derxîne.</string>
     <string name="settings_advanced_title">Pêşketî</string>
-    <string name="settings_advanced_description">Bigihêje zanyariyên sepanê, launcherê berdest, amûrên vegerandinê û hwd.</string>
-    <string name="settings_expert_title">Pispor</string>
-    <string name="settings_expert_description">Vebijêrkên veşartî û sazkariyên pêşketî veke.</string>
     <string name="settings_exit_launcher_title">Ji RE*start derkeve</string>
-    <string name="settings_exit_launcher_description">Bi awayekî demkî derbasî launchera xwe ya berdest bibe.</string>
     <string name="settings_exit_launcher_dialog">Destpêkarekî hilbijêre</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Taybetmendî</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">Bişkokên kurterê nîşan bide</string>
     <string name="lock_orientation">Arasteyê kilît bike</string>
     <string name="haptic_feedback">Bersiva haptîk</string>
-    <string name="search">Bigere</string>
     <string name="show_az_sidebar">Darika kêlekê ya A-Z nîşan bide</string>
     <string name="auto_show_keyboard">Kilîtdankê xweber nîşan bide</string>
     <string name="search_from_start">Ji serî bigere</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">Sepanên dîmendera sereke kilît bike</string>
     <string name="lock_settings">Sazkariyan kilît bike</string>
     <string name="apps_on_home_screen">Jimara sepanên dîmendera sereke</string>
-    <string name="enable_app_timer">Demjimêra sepanê çalak bike</string>
     <string name="force_colored_wallpaper">Wêneyê dîwarê yê rengîn neçar bike</string>
-    <string name="info_tiles">Kariyên zanyariyê</string>
     <string name="show_clock">Demjimêrê nîşan bide</string>
     <string name="show_notes">Nîşeyan nîşan bide</string>
     <string name="show_clock_format">Formatê nîşan bide (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">Wêneyê dîmenderê bigire</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Nîşe</string>
-    <string name="display_options">Vebijêrkên nîşandanê</string>
-    <string name="auto_expand_notes">Nîşeyan xweber berfireh bike</string>
-    <string name="click_to_edit_delete">Ji bo Guhertin/Jêbirin bitikîne</string>
-    <string name="notes_colors">Rengê nîşeyan</string>
-    <string name="notes_background_color">Paşrûya nîşeyan</string>
-    <string name="bubble_background_color">Paşrûya bubble</string>
-    <string name="bubble_message_color">Peyama bubble</string>
-    <string name="bubble_date_time_color">Dîrok/dema bubble</string>
-    <string name="bubble_category_color">Kategoriya bubble</string>
-    <string name="input_colors">Rengê têketinê</string>
-    <string name="message_input_color">Têketina peyamê</string>
-    <string name="message_input_hint_color">Nîşana têketina peyamê</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Pêşketî</string>
     <string name="advanced_settings_app_info_title">Zanyariyên sepanê</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Wekî destpêkarê berdest saz bike</string>
     <string name="advanced_settings_set_as_default_launcher_description">RE*start bike sepanê xwe ya dîmendera sereke.</string>
     <string name="advanced_settings_change_default_launcher">Destpêkarê berdest biguherîne</string>
     <string name="advanced_settings_change_default_launcher_description">Destpêkarekî din wekî berdest hilbijêre.</string>
     <string name="advanced_settings_restart_title">Destpêkarê dîsa bide destpêkirin</string>
-    <string name="advanced_settings_restart_description">Te ceriband ku tu vemirînî û dîsa vexînî?</string>
     <string name="advanced_settings_backup_restore_title">Hilanîn/Vegerandin</string>
-    <string name="advanced_settings_backup_restore_description">Tu dixwazî vê yekê bikî?</string>
     <string name="advanced_settings_backup_restore_backup">Hilanîn</string>
     <string name="advanced_settings_backup_restore_restore">Vegerandin</string>
     <string name="advanced_settings_backup_restore_clear">Hemû daneyan pak bike</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">Derbarê %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Pispor</string>
-    <string name="expert_options_display">Vebijêrkên pispor nîşan bide</string>
-    <string name="expert_options_unlocked">Vebijêrkên pispor vebûn!</string>
-    <string name="expert_options_tap_hint">%1$d tikandinên din ji bo vekirinê</string>
     <string name="settings_text_size">Mezinahiya nivîsa sazkariyan</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Sepanên veşartî</string>
-    <string name="favorite_apps">Sepanên bijarte</string>
     <string name="clear_home_app">Sepana dîmendera sereke pak bike</string>
     <!-- Favorite management strings -->
     <string name="add_app">Sepanê tevlî bike</string>
     <string name="remove_app">Sepanê rake</string>
     <string name="max_apps_reached">Jimara herî zêde ya sepanên dîmendera sereke hatiye gihîştin</string>
     <string name="min_apps_reached">Jimara herî kêm ya sepanên dîmendera sereke hatiye gihîştin</string>
-    <string name="no_apps_to_remove">Ti sepan ji bo rakirinê tine ye</string>
     <string name="select_app_to_remove">Sepana ku were rakirin hilbijêre</string>
     <string name="empty_favorite">Vala</string>
     <string name="confirm_remove_favorite">Tu bawer î ku tu dixwazî vê sepanê ji bijarteyan rakî?</string>
@@ -207,8 +172,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">Têkçûn</string>
     <string name="acra_dialog_text">%1$s rastî pirsgirêkeke nebawerkirî hat û divê were girtin.</string>
-    <string name="acra_send_report">Raporê bişîne</string>
-    <string name="acra_dont_send">Neşîne</string>
     <!-- Share Strings -->
     <string name="share_note">Nîşeye parve bike</string>
     <!-- Icon Pack Strings -->
@@ -218,7 +181,6 @@
     <string name="apply_icon_pack_are_you_sure">Tu bawer î ku tu dixwazî vê pakêta îkonan bisepînî?\n\n%1$s</string>
     <string name="apply_to_home">Li dîmendera sereke bisepîne</string>
     <string name="apply_to_app_list">Li lîsteya sepananan bisepîne</string>
-    <string name="default_icon_not_found">Îkona berdest a sepanê nehat dîtin</string>
     <!-- Settings Strings -->
     <string name="left">Çep</string>
     <string name="right">Rast</string>
@@ -243,9 +205,7 @@
     <string name="info">Zanyarî</string>
     <string name="okay">Baş e</string>
     <string name="apply">Bisepîne</string>
-    <string name="reset">Ji nû ve saz bike</string>
     <string name="cancel">Têk bibe</string>
-    <string name="save">Tomar bike</string>
     <string name="shortcut_add_title">Kurterêyê tevlî bike</string>
     <string name="shortcut_add">Tevlî bike</string>
     <string name="shortcut_name">Nav</string>
@@ -273,9 +233,7 @@
     <string name="applist_button_contacts">Têkilî</string>
     <string name="allow">Mafê bide</string>
     <string name="deny">Red bike</string>
-    <string name="send">Bişîne</string>
     <string name="message_hint">Peyamekê binivîse…</string>
-    <string name="message_category">Kategorî: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">Maf pêwist e</string>
     <string name="access_usage_data_permission">Ji bo domandinê, Tika ye di sazkariyên amûrê xwe de mafê gihîştina daneyên bikaranînê çalak bike.</string>
@@ -304,14 +262,10 @@
     <string name="notes_list_empty_hint">Nîşeya xwe ya yekem li jêr dest pê bike</string>
     <string name="confirm_delete_title">Nîşeyê jê bibe</string>
     <string name="confirm_delete_message">Tu bawer î ku tu dixwazî vê nîşeyê jê bibe?</string>
-    <string name="edit_note">Nîşeyê biguherîne</string>
     <string name="category">Kategorî</string>
-    <string name="priority">Pêşîntî</string>
     <string name="settings_context_menu_title">Menûya naverokê</string>
     <string name="settings_home_buttons_title">Bişkokên dîmendera sereke</string>
     <string name="settings_applist_buttons_title">Bişkokên lîsteya sepananan</string>
-    <string name="settings_source_code">Çavkaniya kodê</string>
-    <string name="settings_credits">Kedkar</string>
     <string-array name="priorities">
         <item>Nizm</item>
         <item>Navîn</item>
@@ -350,7 +304,6 @@
     <string name="settings_general_section">Giştî</string>
     <string name="app_lock_needs_screen_lock">Ji bo bikaranîna kilîta sepanan, li ser vê cîhazê kilîta dîmenderê saz bike.</string>
     <string name="widgets_no_space">Li rûpela sepanokan cih nema. Pêşî sepanokekê biçûk bike an rake.</string>
-    <string name="drawer_categories">Sepanan li gorî kategoriyê kom bike</string>
     <string name="category_other">Yên din</string>
     <string name="category_text_size">Mezinahiya nivîsa kategoriyan</string>
     <string name="category_color">Kategorî</string>
@@ -425,12 +378,7 @@
     <string name="clock_style_swiss">Swîsrî</string>
     <string name="clock_style_rings">Xelek</string>
     <string name="clock_style_one_line">Yek rêz</string>
-    <string name="about_open_source">Çavkaniya vekirî</string>
-    <string name="about_foundation">Bingeh</string>
     <string name="about_foundation_text">Li ser Multi Launcher (mLauncher) hatiye avakirin, ku ew jî ji Olauncher tê.</string>
-    <string name="about_credits_link">Beşdar û lîsans</string>
-    <string name="about_weather">Daneyên rewşa bayê: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Têkilî</string>
     <string name="credits_lineage">RE*start li ser Multi Launcher (mLauncher) hatiye avakirin: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. Di her gavê de GPL-3.0.</string>
     <string name="credits_thanks">Spas</string>
     <string name="credits_thanks_intro">Her kesê ku keda wî/wê heta xala çiqilbûnê di kodê de ye:</string>

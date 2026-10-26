@@ -20,28 +20,17 @@
     <string name="permission_granted">权限已授予！您可以继续。</string>
     <string name="this_can_be_disabled_later">* 此权限稍后可以关闭。</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">RE*start 设置</string>
     <string name="settings_features_title">功能</string>
-    <string name="settings_features_description">提升你的效率。</string>
     <string name="settings_look_feel_title">外观与体验</string>
-    <string name="settings_look_feel_description">让主屏幕更符合你的风格。</string>
     <string name="settings_gestures_title">手势</string>
-    <string name="settings_gestures_description">自定义手势，实现快速便捷的导航。</string>
     <string name="settings_notes_title">笔记</string>
-    <string name="settings_notes_description">按你的风格个性化笔记。</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">主屏幕应用</string>
-    <string name="settings_favorite_apps_description">重新排序收藏应用，便于从主屏幕快速访问。</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">隐藏应用</string>
-    <string name="settings_hidden_apps_description">管理隐藏应用，需要时可从此列表中取消隐藏。</string>
     <string name="settings_advanced_title">高级</string>
-    <string name="settings_advanced_description">访问应用信息、默认启动器、备份工具等。</string>
-    <string name="settings_expert_title">专家</string>
-    <string name="settings_expert_description">解锁隐藏选项和高级调整。</string>
     <string name="settings_exit_launcher_title">退出 RE*start</string>
-    <string name="settings_exit_launcher_description">临时切换到默认启动器。</string>
     <string name="settings_exit_launcher_dialog">选择启动器</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">功能</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">显示快捷按钮</string>
     <string name="lock_orientation">锁定方向</string>
     <string name="haptic_feedback">触觉反馈</string>
-    <string name="search">搜索</string>
     <string name="show_az_sidebar">显示 A-Z 侧边栏</string>
     <string name="auto_show_keyboard">自动显示键盘</string>
     <string name="search_from_start">从头开始搜索</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">锁定主屏幕应用</string>
     <string name="lock_settings">锁定设置</string>
     <string name="apps_on_home_screen">主屏幕应用数量</string>
-    <string name="enable_app_timer">启用应用计时器</string>
     <string name="force_colored_wallpaper">强制使用纯色壁纸</string>
-    <string name="info_tiles">信息磁贴</string>
     <string name="show_clock">显示时钟</string>
     <string name="show_notes">显示笔记</string>
     <string name="show_clock_format">显示格式（AM/PM）</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">截图</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">笔记</string>
-    <string name="display_options">显示选项</string>
-    <string name="auto_expand_notes">自动展开笔记</string>
-    <string name="click_to_edit_delete">点击编辑/删除</string>
-    <string name="notes_colors">笔记颜色</string>
-    <string name="notes_background_color">笔记背景</string>
-    <string name="bubble_background_color">气泡背景</string>
-    <string name="bubble_message_color">气泡消息</string>
-    <string name="bubble_date_time_color">气泡日期/时间</string>
-    <string name="bubble_category_color">气泡分类</string>
-    <string name="input_colors">输入颜色</string>
-    <string name="message_input_color">消息输入</string>
-    <string name="message_input_hint_color">消息输入提示</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">高级</string>
     <string name="advanced_settings_app_info_title">应用信息</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">设为默认启动器</string>
     <string name="advanced_settings_set_as_default_launcher_description">将 RE*start 设为默认主屏幕应用。</string>
     <string name="advanced_settings_change_default_launcher">更改默认启动器</string>
     <string name="advanced_settings_change_default_launcher_description">选择其他启动器作为默认启动器。</string>
     <string name="advanced_settings_restart_title">重启启动器</string>
-    <string name="advanced_settings_restart_description">试过重启了吗？</string>
     <string name="advanced_settings_backup_restore_title">备份/恢复</string>
-    <string name="advanced_settings_backup_restore_description">请谨慎操作。</string>
     <string name="advanced_settings_backup_restore_backup">备份</string>
     <string name="advanced_settings_backup_restore_restore">恢复</string>
     <string name="advanced_settings_backup_restore_clear">清除所有数据</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">关于 %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">专家</string>
-    <string name="expert_options_display">显示专家选项</string>
-    <string name="expert_options_unlocked">专家选项已解锁！</string>
-    <string name="expert_options_tap_hint">再点 %1$d 次即可解锁</string>
     <string name="settings_text_size">设置文字大小</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">隐藏应用</string>
-    <string name="favorite_apps">收藏应用</string>
     <string name="clear_home_app">清除主屏幕应用</string>
     <!-- Favorite management strings -->
     <string name="add_app">添加应用</string>
     <string name="remove_app">移除应用</string>
     <string name="max_apps_reached">已达到主屏幕应用的最大数量</string>
     <string name="min_apps_reached">已达到主屏幕应用的最少数量</string>
-    <string name="no_apps_to_remove">没有要移除的应用</string>
     <string name="select_app_to_remove">选择要移除的应用</string>
     <string name="empty_favorite">未使用</string>
     <string name="confirm_remove_favorite">您确定要将此应用从收藏夹中移除吗？</string>
@@ -212,8 +177,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">崩溃</string>
     <string name="acra_dialog_text">%1$s 遇到意外问题，必须关闭。</string>
-    <string name="acra_send_report">发送报告</string>
-    <string name="acra_dont_send">不发送</string>
     <!-- Share Strings -->
     <string name="share_note">分享笔记</string>
     <!-- Icon Pack Strings -->
@@ -223,7 +186,6 @@
     <string name="apply_icon_pack_are_you_sure">确定要应用此图标包吗？\n\n%1$s</string>
     <string name="apply_to_home">应用到主屏幕</string>
     <string name="apply_to_app_list">应用到应用列表</string>
-    <string name="default_icon_not_found">未找到默认应用图标资源</string>
     <!-- Settings Strings -->
     <string name="left">左</string>
     <string name="right">右</string>
@@ -248,9 +210,7 @@
     <string name="info">信息</string>
     <string name="okay">确定</string>
     <string name="apply">应用</string>
-    <string name="reset">重置</string>
     <string name="cancel">取消</string>
-    <string name="save">保存</string>
     <string name="disabled">已禁用</string>
     <string name="open">打开</string>
     <string name="close">关闭</string>
@@ -270,9 +230,7 @@
     <string name="applist_button_contacts">联系人</string>
     <string name="allow">允许</string>
     <string name="deny">拒绝</string>
-    <string name="send">发送</string>
     <string name="message_hint">输入消息…</string>
-    <string name="message_category">分类：%1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">需要权限</string>
     <string name="access_usage_data_permission">要继续，请在设备设置中启用使用情况数据访问权限。</string>
@@ -301,14 +259,10 @@
     <string name="notes_list_empty_hint">在下方开始你的第一条笔记。</string>
     <string name="confirm_delete_title">删除笔记</string>
     <string name="confirm_delete_message">确定要删除这条笔记吗？</string>
-    <string name="edit_note">编辑笔记</string>
     <string name="category">分类</string>
-    <string name="priority">优先级</string>
     <string name="settings_context_menu_title">上下文菜单</string>
     <string name="settings_home_buttons_title">主屏幕按钮</string>
     <string name="settings_applist_buttons_title">应用列表按钮</string>
-    <string name="settings_source_code">源代码</string>
-    <string name="settings_credits">鸣谢</string>
     <string-array name="priorities">
         <item>低</item>
         <item>中</item>
@@ -347,7 +301,6 @@
     <string name="settings_general_section">常规</string>
     <string name="app_lock_needs_screen_lock">要使用应用锁，请先在此设备上设置屏幕锁。</string>
     <string name="widgets_no_space">小部件页面没有剩余空间。请先缩小或移除一个小部件。</string>
-    <string name="drawer_categories">按分类分组应用</string>
     <string name="category_other">其他</string>
     <string name="category_text_size">分类文字大小</string>
     <string name="category_color">分类</string>
@@ -422,12 +375,7 @@
     <string name="clock_style_swiss">瑞士</string>
     <string name="clock_style_rings">圆环</string>
     <string name="clock_style_one_line">单行</string>
-    <string name="about_open_source">开源</string>
-    <string name="about_foundation">基础</string>
     <string name="about_foundation_text">基于 Multi Launcher (mLauncher) 构建，后者源自 Olauncher。</string>
-    <string name="about_credits_link">贡献者与许可证</string>
-    <string name="about_weather">天气数据：Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">联系方式</string>
     <string name="credits_lineage">RE*start 基于 Multi Launcher (mLauncher) 构建：Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start。每一步都采用 GPL-3.0。</string>
     <string name="credits_thanks">致谢</string>
     <string name="credits_thanks_intro">截至分叉点为代码做出贡献的所有人：</string>

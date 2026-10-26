@@ -20,28 +20,17 @@
     <string name="permission_granted">تمت الموافقة! يمكنك المتابعة.</string>
     <string name="this_can_be_disabled_later">* قد يتم تعطيل هذا الإذن لاحقًا.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">إعدادات RE*start</string>
     <string name="settings_features_title">الميزات</string>
-    <string name="settings_features_description">حسّن إنتاجيتك.</string>
     <string name="settings_look_feel_title">الشكل و المظهر</string>
-    <string name="settings_look_feel_description">أضف لمسة شخصية إلى شاشتك الرئيسية.</string>
     <string name="settings_gestures_title">إيماءات</string>
-    <string name="settings_gestures_description">قم بتخصيص الإيماءات لتسهيل التنقل السريع والسهل.</string>
     <string name="settings_notes_title">ملحوظات</string>
-    <string name="settings_notes_description">قم بتخصيص ملاحظاتك لتتناسب مع أسلوبك.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">تطبيقات الشاشة الرئيسية</string>
-    <string name="settings_favorite_apps_description">أعد ترتيب تطبيقاتك المفضلة للوصول السريع إليها من الشاشة الرئيسية.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">تطبيقات مخفية</string>
-    <string name="settings_hidden_apps_description">إدارة التطبيقات المخفية: إظهار أي تطبيق من هذه القائمة عند الحاجة.</string>
     <string name="settings_advanced_title">الإعدادات المتقدمة</string>
-    <string name="settings_advanced_description">يمكنك الوصول إلى معلومات التطبيق، والمشغل الافتراضي، وأدوات النسخ الاحتياطي، والمزيد.</string>
-    <string name="settings_expert_title">خبير</string>
-    <string name="settings_expert_description">افتح الخيارات المخفية والتعديلات المتقدمة.</string>
     <string name="settings_exit_launcher_title">الخروج من RE*start</string>
-    <string name="settings_exit_launcher_description">قم بالتبديل إلى مشغل التطبيقات الافتراضي الخاص بك مؤقتًا.</string>
     <string name="settings_exit_launcher_dialog">اختر مشغل تطبيقات</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">الميزات</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">إظهار أزرار الاختصار</string>
     <string name="lock_orientation">قفل الاتجاه</string>
     <string name="haptic_feedback">ردود الفعل اللمسية</string>
-    <string name="search">بحث</string>
     <string name="show_az_sidebar">عرض الشريط الجانبي AZ</string>
     <string name="auto_show_keyboard">إظهار لوحة المفاتيح تلقائيًا</string>
     <string name="search_from_start">البحث عن التطبيق من البداية</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">قفل تطبيقات الشاشة الرئيسية</string>
     <string name="lock_settings">قفل الإعدادات</string>
     <string name="apps_on_home_screen">عدد تطبيقات الشاشة الرئيسية</string>
-    <string name="enable_app_timer">تفعيل مؤقت التطبيق</string>
     <string name="force_colored_wallpaper">فرض خلفية ملونة</string>
-    <string name="info_tiles">بطاقات المعلومات</string>
     <string name="show_clock">عرض الساعة</string>
     <string name="show_notes">إظهار الملحوظات</string>
     <string name="show_clock_format">تنسيق العرض (صباحًا/مساءً)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">خذ لقطة شاشة</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">ملحوظات</string>
-    <string name="display_options">خيارات العرض</string>
-    <string name="auto_expand_notes">توسيع الملاحظات تلقائيًا</string>
-    <string name="click_to_edit_delete">انقر للتحرير/الحذف</string>
-    <string name="notes_colors">ألوان الملاحظات</string>
-    <string name="notes_background_color">خلفية الملاحظات</string>
-    <string name="bubble_background_color">خلفية الفقاعات</string>
-    <string name="bubble_message_color">رسالة فقاعية</string>
-    <string name="bubble_date_time_color">تاريخ ووقت الفقاعة</string>
-    <string name="bubble_category_color">فئة الفقاعات</string>
-    <string name="input_colors">ألوان الإدخال</string>
-    <string name="message_input_color">إدخال الرسائل</string>
-    <string name="message_input_hint_color">تلميح إدخال الرسالة</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">متقدم</string>
     <string name="advanced_settings_app_info_title">معلومات التطبيق</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">تعيينه كتطبيق تشغيل افتراضي</string>
     <string name="advanced_settings_set_as_default_launcher_description">اجعل تطبيق RE*start تطبيقك الرئيسي الافتراضي.</string>
     <string name="advanced_settings_change_default_launcher">تغيير المشغل الافتراضي</string>
     <string name="advanced_settings_change_default_launcher_description">اختر مشغلًا مختلفًا ليكون المشغل الافتراضي.</string>
     <string name="advanced_settings_restart_title">إعادة تشغيل المشغل</string>
-    <string name="advanced_settings_restart_description">هل جربت تشغيله وإيقافه؟</string>
     <string name="advanced_settings_backup_restore_title">النسخ الاحتياطي/الاستعادة</string>
-    <string name="advanced_settings_backup_restore_description">يرجى الحذر مما تتمناه.</string>
     <string name="advanced_settings_backup_restore_backup">نسخ احتياطي</string>
     <string name="advanced_settings_backup_restore_restore">استعادة</string>
     <string name="advanced_settings_backup_restore_clear">مسح جميع البيانات</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">حول %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">خبير</string>
-    <string name="expert_options_display">عرض خيارات الخبراء</string>
-    <string name="expert_options_unlocked">تم فتح خيارات الخبراء!</string>
-    <string name="expert_options_tap_hint">%1$d نقرات أخرى لفتح القفل</string>
     <string name="settings_text_size">إعدادات حجم النص</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">تطبيقات مخفية</string>
-    <string name="favorite_apps">التطبيقات المفضلة</string>
     <string name="clear_home_app">إفراغ الخانة</string>
     <!-- Favorite management strings -->
     <string name="add_app">إضافة تطبيق</string>
     <string name="remove_app">إزالة التطبيق</string>
     <string name="max_apps_reached">تم الوصول إلى الحد الأقصى لعدد تطبيقات الشاشة الرئيسية</string>
     <string name="min_apps_reached">تم الوصول إلى الحد الأدنى لعدد تطبيقات الشاشة الرئيسية</string>
-    <string name="no_apps_to_remove">لا توجد تطبيقات لإزالتها</string>
     <string name="select_app_to_remove">حدد التطبيق المراد إزالته</string>
     <string name="empty_favorite">غير مستخدم</string>
     <string name="confirm_remove_favorite">هل أنت متأكد من رغبتك في إزالة هذا التطبيق من المفضلة؟</string>
@@ -212,8 +177,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">تعطل</string>
     <string name="acra_dialog_text">واجه %1$s مشكلة غير متوقعة ويجب إغلاقه.</string>
-    <string name="acra_send_report">إرسال تقرير</string>
-    <string name="acra_dont_send">لا ترسل</string>
     <!-- Share Strings -->
     <string name="share_note">مشاركة الملاحظة</string>
     <!-- Icon Pack Strings -->
@@ -223,7 +186,6 @@
     <string name="apply_icon_pack_are_you_sure">هل أنت متأكد من رغبتك في تطبيق حزمة الأيقونات هذه؟\n\n%1$s</string>
     <string name="apply_to_home">تطبيق على الشاشة الرئيسية</string>
     <string name="apply_to_app_list">تطبيق على قائمة التطبيقات</string>
-    <string name="default_icon_not_found">لم يتم العثور على رسمة أيقونة التطبيق الافتراضية</string>
     <!-- Settings Strings -->
     <string name="left">اليسار</string>
     <string name="right">يمين</string>
@@ -248,9 +210,7 @@
     <string name="info">معلومات</string>
     <string name="okay">حسنًا</string>
     <string name="apply">تطبيق</string>
-    <string name="reset">إعادة ضبط</string>
     <string name="cancel">إلغاء</string>
-    <string name="save">حفظ</string>
     <string name="shortcut_add_title">إضافة اختصار</string>
     <string name="shortcut_add">إضافة</string>
     <string name="shortcut_name">اسم</string>
@@ -278,9 +238,7 @@
     <string name="applist_button_contacts">جهات الاتصال</string>
     <string name="allow">السماح</string>
     <string name="deny">رفض</string>
-    <string name="send">إرسال</string>
     <string name="message_hint">أدخل رسالة…</string>
-    <string name="message_category">الفئة: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">يلزم الحصول على إذن</string>
     <string name="access_usage_data_permission">للمتابعة، يرجى تفعيل الإذن بالوصول إلى بيانات الاستخدام في إعدادات جهازك.</string>
@@ -309,14 +267,10 @@
     <string name="notes_list_empty_hint">ابدأ كتابة ملاحظتك الأولى أدناه.</string>
     <string name="confirm_delete_title">حذف الملاحظة</string>
     <string name="confirm_delete_message">هل أنت متأكد من رغبتك في حذف هذه الملاحظة؟</string>
-    <string name="edit_note">تعديل الملاحظة</string>
     <string name="category">فئة</string>
-    <string name="priority">أولوية</string>
     <string name="settings_context_menu_title">قائمة السياق</string>
     <string name="settings_home_buttons_title">أزرار الصفحة الرئيسية</string>
     <string name="settings_applist_buttons_title">أزرار قائمة التطبيقات</string>
-    <string name="settings_source_code">شفرة المصدر</string>
-    <string name="settings_credits">الشكر والتقدير</string>
     <string-array name="priorities">
         <item>قليل</item>
         <item>واسطة</item>
@@ -355,7 +309,6 @@
     <string name="settings_general_section">عام</string>
     <string name="app_lock_needs_screen_lock">عيّن قفل شاشة على هذا الجهاز لاستخدام قفل التطبيقات.</string>
     <string name="widgets_no_space">لم يتبقَّ مكان في صفحة الأدوات. غيّر حجم إحدى الأدوات أو أزلها أولًا.</string>
-    <string name="drawer_categories">تجميع التطبيقات حسب الفئة</string>
     <string name="category_other">أخرى</string>
     <string name="category_text_size">حجم نص الفئات</string>
     <string name="category_color">الفئة</string>
@@ -430,12 +383,7 @@
     <string name="clock_style_swiss">سويسري</string>
     <string name="clock_style_rings">حلقات</string>
     <string name="clock_style_one_line">سطر واحد</string>
-    <string name="about_open_source">مفتوح المصدر</string>
-    <string name="about_foundation">الأساس</string>
     <string name="about_foundation_text">مبني على Multi Launcher (mLauncher)، المتحدر من Olauncher.</string>
-    <string name="about_credits_link">المساهمون والتراخيص</string>
-    <string name="about_weather">بيانات الطقس: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">التواصل</string>
     <string name="credits_lineage">RE*start مبني على Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. بترخيص GPL-3.0 في كل خطوة.</string>
     <string name="credits_thanks">شكرًا</string>
     <string name="credits_thanks_intro">كل من يوجد عمله في الشفرة حتى نقطة التفرّع:</string>

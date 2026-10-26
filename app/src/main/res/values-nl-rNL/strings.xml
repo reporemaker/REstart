@@ -20,28 +20,17 @@
     <string name="permission_granted">Toestemming verleend! U kunt doorgaan.</string>
     <string name="this_can_be_disabled_later">* Deze toestemming kan later worden uitgeschakeld.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">RE*start-instellingen</string>
     <string name="settings_features_title">Functies</string>
-    <string name="settings_features_description">Verbeter uw productiviteit.</string>
     <string name="settings_look_feel_title">Uiterlijk &amp; Stijl</string>
-    <string name="settings_look_feel_description">Geef uw startscherm een persoonlijk tintje.</string>
     <string name="settings_gestures_title">Gebaren</string>
-    <string name="settings_gestures_description">Pas gebaren aan voor snelle en eenvoudige navigatie.</string>
     <string name="settings_notes_title">Notities</string>
-    <string name="settings_notes_description">Personaliseer je notities zodat ze bij je stijl passen.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Startscherm-apps</string>
-    <string name="settings_favorite_apps_description">Rangschik je favoriete apps opnieuw voor snelle toegang vanaf het startscherm.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Verborgen apps</string>
-    <string name="settings_hidden_apps_description">Beheer verborgen apps: maak elke gewenste app in deze lijst weer zichtbaar wanneer dat nodig is.</string>
     <string name="settings_advanced_title">Geavanceerd</string>
-    <string name="settings_advanced_description">Toegang tot app-info, standaard launcher, back-uptools en meer.</string>
-    <string name="settings_expert_title">Expert</string>
-    <string name="settings_expert_description">Ontgrendel verborgen opties en geavanceerde instellingen.</string>
     <string name="settings_exit_launcher_title">RE*start verlaten</string>
-    <string name="settings_exit_launcher_description">Schakel tijdelijk over naar je standaard launcher.</string>
     <string name="settings_exit_launcher_dialog">Kies een launcher</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Functies</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">Snelkoppelingsknoppen weergeven</string>
     <string name="lock_orientation">Oriëntatie vergrendelen</string>
     <string name="haptic_feedback">Haptische feedback</string>
-    <string name="search">Zoeken</string>
     <string name="show_az_sidebar">Toon de AZ-zijbalk</string>
     <string name="auto_show_keyboard">Toetsenbord automatisch tonen</string>
     <string name="search_from_start">App zoeken vanaf het begin</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">Vergrendel Home-apps</string>
     <string name="lock_settings">Instellingen vergrendelen</string>
     <string name="apps_on_home_screen">Aantal Home-apps</string>
-    <string name="enable_app_timer">App-timer inschakelen</string>
     <string name="force_colored_wallpaper">Gekleurde achtergrond forceren</string>
-    <string name="info_tiles">Informatietegels</string>
     <string name="show_clock">Klok weergeven</string>
     <string name="show_notes">Notities tonen</string>
     <string name="show_clock_format">Notatie weergeven (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">Maak een screenshot</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notities</string>
-    <string name="display_options">Weergaveopties</string>
-    <string name="auto_expand_notes">Notities automatisch uitbreiden</string>
-    <string name="click_to_edit_delete">Klik om te bewerken/verwijderen</string>
-    <string name="notes_colors">Notitiekleuren</string>
-    <string name="notes_background_color">Achtergrond notities</string>
-    <string name="bubble_background_color">Bellenachtergrond</string>
-    <string name="bubble_message_color">Bubbelbericht</string>
-    <string name="bubble_date_time_color">Datum/tijd van de bubbel</string>
-    <string name="bubble_category_color">Bubble-categorie</string>
-    <string name="input_colors">Invoerkleuren</string>
-    <string name="message_input_color">Berichtinvoer</string>
-    <string name="message_input_hint_color">Berichtinvoerhint</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Geavanceerd</string>
     <string name="advanced_settings_app_info_title">App informatie</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Instellen als standaard launcher</string>
     <string name="advanced_settings_set_as_default_launcher_description">Maak RE*start je standaard startscherm-app.</string>
     <string name="advanced_settings_change_default_launcher">Standaard launcher wijzigen</string>
     <string name="advanced_settings_change_default_launcher_description">Kies een andere launcher als standaard.</string>
     <string name="advanced_settings_restart_title">Herstart Launcher</string>
-    <string name="advanced_settings_restart_description">Heb je geprobeerd het uit en aan te zetten?</string>
     <string name="advanced_settings_backup_restore_title">Back-up/Herstellen</string>
-    <string name="advanced_settings_backup_restore_description">Wees voorzichtig met wat je wenst?</string>
     <string name="advanced_settings_backup_restore_backup">Back-up</string>
     <string name="advanced_settings_backup_restore_restore">Herstellen</string>
     <string name="advanced_settings_backup_restore_clear">Alle gegevens wissen</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">Over %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Expert</string>
-    <string name="expert_options_display">Expertopties weergeven</string>
-    <string name="expert_options_unlocked">Expertopties ontgrendeld!</string>
-    <string name="expert_options_tap_hint">%1$d meer tikken om te ontgrendelen</string>
     <string name="settings_text_size">Instellingen Tekstgrootte</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Verborgen apps</string>
-    <string name="favorite_apps">Favoriete apps</string>
     <string name="clear_home_app">Vak leegmaken</string>
     <!-- Favorite management strings -->
     <string name="add_app">App toevoegen</string>
     <string name="remove_app">App verwijderen</string>
     <string name="max_apps_reached">Maximaal aantal home-apps bereikt</string>
     <string name="min_apps_reached">Minimum aantal home-apps bereikt</string>
-    <string name="no_apps_to_remove">Geen apps om te verwijderen</string>
     <string name="select_app_to_remove">Selecteer de app die u wilt verwijderen</string>
     <string name="empty_favorite">Ongebruikt</string>
     <string name="confirm_remove_favorite">Weet je zeker dat je deze app uit je favorieten wilt verwijderen?</string>
@@ -213,8 +178,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">Crash</string>
     <string name="acra_dialog_text">%1$s is op een onverwacht probleem gestuit en moet worden afgesloten.</string>
-    <string name="acra_send_report">Verzend rapport</string>
-    <string name="acra_dont_send">Niet verzenden</string>
     <!-- Share Strings -->
     <string name="share_note">Deel notitie</string>
     <!-- Icon Pack Strings -->
@@ -224,7 +187,6 @@
     <string name="apply_icon_pack_are_you_sure">Weet je zeker dat je dit iconenpakket wilt toepassen?\n\n%1$s</string>
     <string name="apply_to_home">Toepassen op home</string>
     <string name="apply_to_app_list">Toepassen op app-lijst</string>
-    <string name="default_icon_not_found">Standaard app-pictogramafbeelding niet gevonden</string>
     <!-- Settings Strings -->
     <string name="left">Links</string>
     <string name="right">Rechts</string>
@@ -249,9 +211,7 @@
     <string name="info">Info</string>
     <string name="okay">OK</string>
     <string name="apply">Toepassen</string>
-    <string name="reset">Reset</string>
     <string name="cancel">Annuleren</string>
-    <string name="save">Opslaan</string>
     <string name="shortcut_add_title">Snelkoppeling toevoegen</string>
     <string name="shortcut_add">Toevoegen</string>
     <string name="shortcut_name">Naam</string>
@@ -279,9 +239,7 @@
     <string name="applist_button_contacts">Contacten</string>
     <string name="allow">Toestaan</string>
     <string name="deny">Weigeren</string>
-    <string name="send">Versturen</string>
     <string name="message_hint">Voer een bericht in…</string>
-    <string name="message_category">Categorie: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">Toestemming vereist</string>
     <string name="access_usage_data_permission">Om verder te gaan, moet u toestemming voor toegang tot gebruiksgegevens inschakelen in de instellingen van uw apparaat.</string>
@@ -310,14 +268,10 @@
     <string name="notes_list_empty_hint">Begin je eerste notitie hieronder.</string>
     <string name="confirm_delete_title">Verwijder notitie</string>
     <string name="confirm_delete_message">Weet je zeker dat je deze notitie wilt verwijderen?</string>
-    <string name="edit_note">Bewerk notitie</string>
     <string name="category">Categorie</string>
-    <string name="priority">Prioriteit</string>
     <string name="settings_context_menu_title">Contextmenu</string>
     <string name="settings_home_buttons_title">Home-knoppen</string>
     <string name="settings_applist_buttons_title">Applijstknoppen</string>
-    <string name="settings_source_code">Broncode</string>
-    <string name="settings_credits">Credits</string>
     <string-array name="priorities">
         <item>Laag</item>
         <item>Medium</item>
@@ -356,7 +310,6 @@
     <string name="settings_general_section">Algemeen</string>
     <string name="app_lock_needs_screen_lock">Stel een schermvergrendeling in op dit apparaat om de app-vergrendeling te gebruiken.</string>
     <string name="widgets_no_space">Geen ruimte meer op de widgetpagina. Verklein of verwijder eerst een widget.</string>
-    <string name="drawer_categories">Apps groeperen per categorie</string>
     <string name="category_other">Overig</string>
     <string name="category_text_size">Tekstgrootte categorieën</string>
     <string name="category_color">Categorie</string>
@@ -431,12 +384,7 @@
     <string name="clock_style_swiss">Zwitsers</string>
     <string name="clock_style_rings">Ringen</string>
     <string name="clock_style_one_line">Eén regel</string>
-    <string name="about_open_source">Open source</string>
-    <string name="about_foundation">Fundament</string>
     <string name="about_foundation_text">Gebouwd op Multi Launcher (mLauncher), dat afstamt van Olauncher.</string>
-    <string name="about_credits_link">Bijdragers en licenties</string>
-    <string name="about_weather">Weergegevens: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Contact</string>
     <string name="credits_lineage">RE*start is gebouwd op Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 bij elke stap.</string>
     <string name="credits_thanks">Dank</string>
     <string name="credits_thanks_intro">Iedereen wiens werk in de code zit tot aan het forkpunt:</string>

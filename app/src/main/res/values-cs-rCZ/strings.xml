@@ -20,28 +20,17 @@
     <string name="permission_granted">Povolení uděleno! Můžete pokračovat.</string>
     <string name="this_can_be_disabled_later">* Toto oprávnění může být později zakázáno.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Nastavení RE*startu</string>
     <string name="settings_features_title">Funkce</string>
-    <string name="settings_features_description">Zlepšete svou produktivitu.</string>
     <string name="settings_look_feel_title">Vzhled</string>
-    <string name="settings_look_feel_description">Dejte své domovské obrazovce osobní nádech.</string>
     <string name="settings_gestures_title">Gesta</string>
-    <string name="settings_gestures_description">Přizpůsobte si gesta pro rychlou a snadnou navigaci.</string>
     <string name="settings_notes_title">Poznámky</string>
-    <string name="settings_notes_description">Přizpůsobte si poznámky svému stylu.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Aplikace domovské obrazovky</string>
-    <string name="settings_favorite_apps_description">Změňte pořadí svých oblíbených aplikací pro rychlý přístup z domovské obrazovky.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Skryté aplikace</string>
-    <string name="settings_hidden_apps_description">Spravovat skryté aplikace – v případě potřeby zobrazí jakoukoli aplikaci v tomto seznamu.</string>
     <string name="settings_advanced_title">Pokročilé</string>
-    <string name="settings_advanced_description">Přístup k informacím o aplikacích, výchozímu spouštěči, nástrojům pro zálohování a dalším funkcím.</string>
-    <string name="settings_expert_title">Expert</string>
-    <string name="settings_expert_description">Odemkněte skryté možnosti a pokročilá vylepšení.</string>
     <string name="settings_exit_launcher_title">Ukončit RE*start</string>
-    <string name="settings_exit_launcher_description">Dočasně přepněte na výchozí spouštěč.</string>
     <string name="settings_exit_launcher_dialog">Vyberte spouštěč</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Funkce</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">Zobrazit tlačítka zkratek</string>
     <string name="lock_orientation">Zamknout orientaci</string>
     <string name="haptic_feedback">Haptická zpětná vazba</string>
-    <string name="search">Vyhledávání</string>
     <string name="show_az_sidebar">Zobrazit postranní panel AZ</string>
     <string name="auto_show_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="search_from_start">Hledat od začátku</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">Zamknout aplikace domovské obrazovky</string>
     <string name="lock_settings">Zamknout nastavení</string>
     <string name="apps_on_home_screen">Počet aplikací na domovské obrazovce</string>
-    <string name="enable_app_timer">Povolit časovač aplikace</string>
     <string name="force_colored_wallpaper">Vynucená barevná tapeta</string>
-    <string name="info_tiles">Informační dlaždice</string>
     <string name="show_clock">Zobrazit hodiny</string>
     <string name="show_notes">Zobrazit poznámky</string>
     <string name="show_clock_format">Zobrazit formát (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">Pořídit snímek obrazovky</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Poznámky</string>
-    <string name="display_options">Možnosti zobrazení</string>
-    <string name="auto_expand_notes">Automatické rozbalení poznámek</string>
-    <string name="click_to_edit_delete">Kliknutím upravíte/odstraníte</string>
-    <string name="notes_colors">Barvy poznámek</string>
-    <string name="notes_background_color">Pozadí poznámek</string>
-    <string name="bubble_background_color">Bublinové pozadí</string>
-    <string name="bubble_message_color">Bublinová zpráva</string>
-    <string name="bubble_date_time_color">Datum/čas bubliny</string>
-    <string name="bubble_category_color">Kategorie bublin</string>
-    <string name="input_colors">Vstupní barvy</string>
-    <string name="message_input_color">Vstup zprávy</string>
-    <string name="message_input_hint_color">Nápověda pro zadání zprávy</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Pokročilé</string>
     <string name="advanced_settings_app_info_title">Informace o aplikaci</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Nastavit jako výchozí spouštěč</string>
     <string name="advanced_settings_set_as_default_launcher_description">Nastavte si RE*start jako výchozí domovskou aplikaci.</string>
     <string name="advanced_settings_change_default_launcher">Změnit výchozí spouštěč</string>
     <string name="advanced_settings_change_default_launcher_description">Vyberte jiný spouštěč jako výchozí.</string>
     <string name="advanced_settings_restart_title">Restartovat spouštěč</string>
-    <string name="advanced_settings_restart_description">Zkoušel jsi to zapnout a vypnout?</string>
     <string name="advanced_settings_backup_restore_title">Zálohování/Obnovení</string>
-    <string name="advanced_settings_backup_restore_description">Prosím, dávej si pozor na to, co si přeješ?</string>
     <string name="advanced_settings_backup_restore_backup">Zálohování</string>
     <string name="advanced_settings_backup_restore_restore">Obnovit</string>
     <string name="advanced_settings_backup_restore_clear">Vymazat všechna data</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">O %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Expert</string>
-    <string name="expert_options_display">Zobrazit možnosti pro experty</string>
-    <string name="expert_options_unlocked">Možnosti pro experty odemčeny!</string>
-    <string name="expert_options_tap_hint">%1$d více klepnutí k odemčení</string>
     <string name="settings_text_size">Velikost textu v nastavení</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Skryté aplikace</string>
-    <string name="favorite_apps">Oblíbené aplikace</string>
     <string name="clear_home_app">Uvolnit pozici</string>
     <!-- Favorite management strings -->
     <string name="add_app">Přidat aplikaci</string>
     <string name="remove_app">Odebrat aplikaci</string>
     <string name="max_apps_reached">Dosažen maximální počet aplikací na domovské obrazovce</string>
     <string name="min_apps_reached">Dosažen minimální počet aplikací na domovské obrazovce</string>
-    <string name="no_apps_to_remove">Žádné aplikace k odstranění</string>
     <string name="select_app_to_remove">Vyberte aplikaci, kterou chcete odstranit</string>
     <string name="empty_favorite">Nepoužitý</string>
     <string name="confirm_remove_favorite">Opravdu chcete tuto aplikaci odebrat z oblíbených?</string>
@@ -213,8 +178,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">Pád</string>
     <string name="acra_dialog_text">Aplikace %1$s narazila na neočekávaný problém a musí se zavřít.</string>
-    <string name="acra_send_report">Odeslat zprávu</string>
-    <string name="acra_dont_send">Neodesílat</string>
     <!-- Share Strings -->
     <string name="share_note">Sdílet poznámku</string>
     <!-- Icon Pack Strings -->
@@ -224,7 +187,6 @@
     <string name="apply_icon_pack_are_you_sure">Jste si jisti, že chcete použít tuto sadu ikon?\n\n%1$s</string>
     <string name="apply_to_home">Použít na domovskou stránku</string>
     <string name="apply_to_app_list">Použít na seznam aplikací</string>
-    <string name="default_icon_not_found">Výchozí ikona aplikace, kterou lze nakreslit, nenalezena.</string>
     <!-- Settings Strings -->
     <string name="left">Vlevo</string>
     <string name="right">Vpravo</string>
@@ -249,9 +211,7 @@
     <string name="info">Informace</string>
     <string name="okay">OK</string>
     <string name="apply">Použít</string>
-    <string name="reset">Obnovit</string>
     <string name="cancel">Zrušit</string>
-    <string name="save">Uložit</string>
     <string name="shortcut_add_title">Přidat zkratku</string>
     <string name="shortcut_add">Přidat</string>
     <string name="shortcut_name">Název</string>
@@ -279,9 +239,7 @@
     <string name="applist_button_contacts">Kontakty</string>
     <string name="allow">Povolit</string>
     <string name="deny">Odmítnout</string>
-    <string name="send">Poslat</string>
     <string name="message_hint">Zadejte zprávu…</string>
-    <string name="message_category">Kategorie: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">Vyžadováno oprávnění</string>
     <string name="access_usage_data_permission">Chcete-li pokračovat, povolte prosím přístup k údajům o používání v nastavení zařízení.</string>
@@ -310,14 +268,10 @@
     <string name="notes_list_empty_hint">Začněte svou první poznámku níže.</string>
     <string name="confirm_delete_title">Smazat poznámku</string>
     <string name="confirm_delete_message">Jste si jisti, že chcete tuto poznámku smazat?</string>
-    <string name="edit_note">Upravit poznámku</string>
     <string name="category">Kategorie</string>
-    <string name="priority">Priorita</string>
     <string name="settings_context_menu_title">Kontextová nabídka</string>
     <string name="settings_home_buttons_title">Tlačítka Domů</string>
     <string name="settings_applist_buttons_title">Tlačítka seznamu aplikací</string>
-    <string name="settings_source_code">Zdrojový kód</string>
-    <string name="settings_credits">Poděkování</string>
     <string-array name="priorities">
         <item>Nízký</item>
         <item>Střední</item>
@@ -356,7 +310,6 @@
     <string name="settings_general_section">Obecné</string>
     <string name="app_lock_needs_screen_lock">Pro použití zámku aplikací nastavte na tomto zařízení zámek obrazovky.</string>
     <string name="widgets_no_space">Na stránce widgetů už není místo. Nejprve některý widget zmenšete nebo odeberte.</string>
-    <string name="drawer_categories">Seskupit aplikace podle kategorií</string>
     <string name="category_other">Ostatní</string>
     <string name="category_text_size">Velikost textu kategorií</string>
     <string name="category_color">Kategorie</string>
@@ -431,12 +384,7 @@
     <string name="clock_style_swiss">Švýcarský</string>
     <string name="clock_style_rings">Prstence</string>
     <string name="clock_style_one_line">Jeden řádek</string>
-    <string name="about_open_source">Open source</string>
-    <string name="about_foundation">Základ</string>
     <string name="about_foundation_text">Postaveno na Multi Launcheru (mLauncher), který vychází z Olauncheru.</string>
-    <string name="about_credits_link">Přispěvatelé a licence</string>
-    <string name="about_weather">Data o počasí: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Kontakt</string>
     <string name="credits_lineage">RE*start je postaven na Multi Launcheru (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 v každém kroku.</string>
     <string name="credits_thanks">Poděkování</string>
     <string name="credits_thanks_intro">Všichni, jejichž práce je v kódu až po bod forku:</string>

@@ -20,28 +20,17 @@
     <string name="permission_granted">Leidimas suteiktas! Galite tęsti.</string>
     <string name="this_can_be_disabled_later">* Šis leidimas vėliau gali būti išjungtas.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">RE*start nustatymai</string>
     <string name="settings_features_title">Funkcijos</string>
-    <string name="settings_features_description">Pagerinkite savo produktyvumą.</string>
     <string name="settings_look_feel_title">Išvaizda</string>
-    <string name="settings_look_feel_description">Suteikite savo pagrindiniam ekranui asmeniškumo.</string>
     <string name="settings_gestures_title">Gestai</string>
-    <string name="settings_gestures_description">Nustatykite gestus, kad galėtumėte greitai ir lengvai naršyti.</string>
     <string name="settings_notes_title">Pastabos</string>
-    <string name="settings_notes_description">Suasmeninkite savo užrašus, kad jie atitiktų jūsų stilių.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Pagrindinio ekrano programėlės</string>
-    <string name="settings_favorite_apps_description">Pertvarkykite mėgstamiausias programas, kad galėtumėte jas greitai pasiekti iš pagrindinio ekrano.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Paslėptos programėlės</string>
-    <string name="settings_hidden_apps_description">Tvarkykite paslėptas programas – prireikus parodykite bet kurią šiame sąraše esančią programą.</string>
     <string name="settings_advanced_title">Išplėstiniai nustatymai</string>
-    <string name="settings_advanced_description">Pasiekite programos informaciją, numatytąją paleidimo priemonę, atsarginių kopijų kūrimo įrankius ir kt.</string>
-    <string name="settings_expert_title">Ekspertas</string>
-    <string name="settings_expert_description">Atrakinkite paslėptas parinktis ir išplėstinius pakeitimus.</string>
     <string name="settings_exit_launcher_title">Išeikite iš „RE*start“.</string>
-    <string name="settings_exit_launcher_description">Laikinai perjunkite į numatytąją paleidimo priemonę.</string>
     <string name="settings_exit_launcher_dialog">Pasirinkite paleidimo priemonę</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Funkcijos</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">Rodyti nuorodų mygtukus</string>
     <string name="lock_orientation">Užrakinti orientaciją</string>
     <string name="haptic_feedback">Haptinis grįžtamasis ryšys</string>
-    <string name="search">Ieškoti</string>
     <string name="show_az_sidebar">Rodyti AZ šoninę juostą</string>
     <string name="auto_show_keyboard">Automatiškai rodyti klaviatūrą</string>
     <string name="search_from_start">Programėlių paieška nuo pradžių.</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">Užrakinti pagrindinio ekrano programėles</string>
     <string name="lock_settings">Užrakinti nustatymus</string>
     <string name="apps_on_home_screen">Pagrindinio ekrano programėlių skaičius</string>
-    <string name="enable_app_timer">Įjungti programos laikmatį</string>
     <string name="force_colored_wallpaper">Priverstinai naudoti spalvotą foną</string>
-    <string name="info_tiles">Informacijos plytelės</string>
     <string name="show_clock">Rodyti laikrodį</string>
     <string name="show_notes">Rodyti pastabas</string>
     <string name="show_clock_format">Rodyti formatą (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">Padaryti ekrano kopiją</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Pastabos</string>
-    <string name="display_options">Ekrano parinktys</string>
-    <string name="auto_expand_notes">Automatiškai išplėsti pastabas</string>
-    <string name="click_to_edit_delete">Spustelėkite norėdami redaguoti / ištrinti</string>
-    <string name="notes_colors">Pastabos Spalvos</string>
-    <string name="notes_background_color">Pastabų fonas</string>
-    <string name="bubble_background_color">Burbulo fonas</string>
-    <string name="bubble_message_color">Burbulo pranešimas</string>
-    <string name="bubble_date_time_color">Burbulo data / laikas</string>
-    <string name="bubble_category_color">Burbulo kategorija</string>
-    <string name="input_colors">Įvesties spalvos</string>
-    <string name="message_input_color">Pranešimo įvedimas</string>
-    <string name="message_input_hint_color">Pranešimo įvesties patarimas</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Išplėstiniai nustatymai</string>
     <string name="advanced_settings_app_info_title">Programos informacija</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Nustatyti kaip numatytajį darbalaukį</string>
     <string name="advanced_settings_set_as_default_launcher_description">Padarykite „RE*start“ numatytąja pagrindinio ekrano programėle.</string>
     <string name="advanced_settings_change_default_launcher">Pakeisti numatytajį darbalaukį</string>
     <string name="advanced_settings_change_default_launcher_description">Pasirinkite kitą paleidimo priemonę kaip numatytąją.</string>
     <string name="advanced_settings_restart_title">Iš naujo paleiskite paleidimo priemonę</string>
-    <string name="advanced_settings_restart_description">Ar bandėte jį įjungti ir išjungti?</string>
     <string name="advanced_settings_backup_restore_title">Atsarginė kopija / atkūrimas</string>
-    <string name="advanced_settings_backup_restore_description">Būkite atsargūs, ko norite?</string>
     <string name="advanced_settings_backup_restore_backup">Atsarginė kopija</string>
     <string name="advanced_settings_backup_restore_restore">Atkurti</string>
     <string name="advanced_settings_backup_restore_clear">Išvalyti visus duomenis</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">Apie %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Ekspertas</string>
-    <string name="expert_options_display">Rodyti eksperto parinktis</string>
-    <string name="expert_options_unlocked">Ekspertų parinktys atrakintos!</string>
-    <string name="expert_options_tap_hint">Liko %1$d bakstelėjimų iki atrakinimo</string>
     <string name="settings_text_size">Nustatymų teksto dydis</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Paslėptos programėlės</string>
-    <string name="favorite_apps">Mėgstamiausios programos</string>
     <string name="clear_home_app">Išvalyti vietą</string>
     <!-- Favorite management strings -->
     <string name="add_app">Pridėti programėlę</string>
     <string name="remove_app">Pašalinti programėlę</string>
     <string name="max_apps_reached">Pasiektas didžiausias pagrindinio ekrano programėlių skaičius</string>
     <string name="min_apps_reached">Pasiektas mažiausias pagrindinio ekrano programėlių skaičius</string>
-    <string name="no_apps_to_remove">Nėra programų, kurias būtų galima pašalinti</string>
     <string name="select_app_to_remove">Pasirinkite norimą pašalinti programą</string>
     <string name="empty_favorite">Nenaudotas</string>
     <string name="confirm_remove_favorite">Ar tikrai norite pašalinti šią programėlę iš mėgstamiausių?</string>
@@ -207,8 +172,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">Avarija</string>
     <string name="acra_dialog_text">%1$s susidūrė su netikėta problema ir turi užsidaryti.</string>
-    <string name="acra_send_report">Siųsti ataskaitą</string>
-    <string name="acra_dont_send">Nesiųsti</string>
     <!-- Share Strings -->
     <string name="share_note">Bendrinti pastabą</string>
     <!-- Icon Pack Strings -->
@@ -218,7 +181,6 @@
     <string name="apply_icon_pack_are_you_sure">Ar tikrai norite pritaikyti šį piktogramų paketą?\n\n%1$s</string>
     <string name="apply_to_home">Taikyti pagrindiniams puslapiams</string>
     <string name="apply_to_app_list">Taikyti programų sąrašui</string>
-    <string name="default_icon_not_found">Numatytoji programėlės piktograma, kuria galima piešti, nerasta</string>
     <!-- Settings Strings -->
     <string name="left">Kairė</string>
     <string name="right">Dešinė</string>
@@ -243,9 +205,7 @@
     <string name="info">Informacija</string>
     <string name="okay">Gerai</string>
     <string name="apply">Taikyti</string>
-    <string name="reset">Atstatyti</string>
     <string name="cancel">Atšaukti</string>
-    <string name="save">Išsaugoti</string>
     <string name="shortcut_add_title">Pridėti nuorodą</string>
     <string name="shortcut_add">Pridėti</string>
     <string name="shortcut_name">Pavadinimas</string>
@@ -273,9 +233,7 @@
     <string name="applist_button_contacts">Kontaktai</string>
     <string name="allow">Leisti</string>
     <string name="deny">Atmesti</string>
-    <string name="send">Siųsti</string>
     <string name="message_hint">Įveskite žinutę…</string>
-    <string name="message_category">Kategorija: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">Reikalingas leidimas</string>
     <string name="access_usage_data_permission">Norėdami tęsti, įrenginio nustatymuose įgalinkite leidimą pasiekti naudojimo duomenis.</string>
@@ -304,14 +262,10 @@
     <string name="notes_list_empty_hint">Pradėkite savo pirmąją pastabą žemiau.</string>
     <string name="confirm_delete_title">Ištrinti pastabą</string>
     <string name="confirm_delete_message">Ar tikrai norite ištrinti šį užrašą?</string>
-    <string name="edit_note">Redaguoti pastabą</string>
     <string name="category">Kategorija</string>
-    <string name="priority">Pirmenybė</string>
     <string name="settings_context_menu_title">Kontekstinis meniu</string>
     <string name="settings_home_buttons_title">Pagrindinio ekrano mygtukai</string>
     <string name="settings_applist_buttons_title">Programų sąrašo mygtukai</string>
-    <string name="settings_source_code">Šaltinio kodas</string>
-    <string name="settings_credits">Padėkos</string>
     <string-array name="priorities">
         <item>Žemas</item>
         <item>Vidutinis</item>
@@ -350,7 +304,6 @@
     <string name="settings_general_section">Bendra</string>
     <string name="app_lock_needs_screen_lock">Kad galėtumėte naudoti programėlių užraktą, nustatykite šio įrenginio ekrano užraktą.</string>
     <string name="widgets_no_space">Valdiklių puslapyje nebeliko vietos. Pirmiausia sumažinkite arba pašalinkite kurį nors valdiklį.</string>
-    <string name="drawer_categories">Grupuoti programėles pagal kategorijas</string>
     <string name="category_other">Kita</string>
     <string name="category_text_size">Kategorijų teksto dydis</string>
     <string name="category_color">Kategorija</string>
@@ -425,12 +378,7 @@
     <string name="clock_style_swiss">Šveicariškas</string>
     <string name="clock_style_rings">Žiedai</string>
     <string name="clock_style_one_line">Viena eilutė</string>
-    <string name="about_open_source">Atvirasis kodas</string>
-    <string name="about_foundation">Pagrindas</string>
     <string name="about_foundation_text">Sukurta „Multi Launcher“ (mLauncher) pagrindu, kuris kilęs iš „Olauncher“.</string>
-    <string name="about_credits_link">Bendraautoriai ir licencijos</string>
-    <string name="about_weather">Orų duomenys: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Kontaktai</string>
     <string name="credits_lineage">RE*start sukurtas „Multi Launcher“ (mLauncher) pagrindu: Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 kiekviename žingsnyje.</string>
     <string name="credits_thanks">Ačiū</string>
     <string name="credits_thanks_intro">Visi, kurių darbas yra kode iki atšakos taško:</string>

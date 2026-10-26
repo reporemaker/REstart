@@ -20,28 +20,17 @@
     <string name="permission_granted">ניתנה רשות! אתה יכול להמשיך.</string>
     <string name="this_can_be_disabled_later">* ייתכן שהרשאה זו תושבת מאוחר יותר.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">הגדרות RE*start</string>
     <string name="settings_features_title">תכונות</string>
-    <string name="settings_features_description">הגדרות לשיפור היעילות שלך.</string>
     <string name="settings_look_feel_title">מראה &amp; תחושה</string>
-    <string name="settings_look_feel_description">מתן מגע אישי למסך הבית שלך.</string>
     <string name="settings_gestures_title">מחוות</string>
-    <string name="settings_gestures_description">התאמה אישית של מחוות לניווט מהיר וקל.</string>
     <string name="settings_notes_title">הערות</string>
-    <string name="settings_notes_description">התאם אישית את ההערות שלך כך שיתאימו לסגנון שלך.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">אפליקציות מסך הבית</string>
-    <string name="settings_favorite_apps_description">סדרו מחדש את האפליקציות המועדפות עליכם לגישה מהירה ממסך הבית.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">יישומים מוסתרים</string>
-    <string name="settings_hidden_apps_description">ניהול אפליקציות נסתרות - בטל הסתרה של כל אפליקציה מרשימה זו בעת הצורך.</string>
     <string name="settings_advanced_title">הגדרות מתקדמות</string>
-    <string name="settings_advanced_description">גישה למידע על אפליקציות, מפעיל ברירת מחדל, כלי גיבוי ועוד.</string>
-    <string name="settings_expert_title">מוּמחֶה</string>
-    <string name="settings_expert_description">פתח אפשרויות נסתרות ושיפורים מתקדמים.</string>
     <string name="settings_exit_launcher_title">צא מ-RE*start</string>
-    <string name="settings_exit_launcher_description">עבור למפעיל ברירת המחדל שלך באופן זמני.</string>
     <string name="settings_exit_launcher_dialog">בחר משגר</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">תכונות</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">הצג כפתורי קיצור</string>
     <string name="lock_orientation">נעילת כיוון</string>
     <string name="haptic_feedback">משוב האפטי</string>
-    <string name="search">חיפוש</string>
     <string name="show_az_sidebar">הצג סרגל צד AZ</string>
     <string name="auto_show_keyboard">הצג מקלדת אוטומטית</string>
     <string name="search_from_start">חיפוש אפליקציה מההתחלה</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">נעילת יישומי דף הבית</string>
     <string name="lock_settings">הגדרות נעילה</string>
     <string name="apps_on_home_screen">מספר יישומים בדף הבית</string>
-    <string name="enable_app_timer">הפעלת טיימר אפליקציה</string>
     <string name="force_colored_wallpaper">כפה טפט צבעוני</string>
-    <string name="info_tiles">אריחי מידע</string>
     <string name="show_clock">הצג שעון</string>
     <string name="show_notes">הצגת הערות</string>
     <string name="show_clock_format">תצוגת זמן (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">צלם מסך</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">הערות</string>
-    <string name="display_options">אפשרויות תצוגה</string>
-    <string name="auto_expand_notes">הרחבת הערות אוטומטית</string>
-    <string name="click_to_edit_delete">לחץ כדי לערוך/למחוק</string>
-    <string name="notes_colors">הערות צבעים</string>
-    <string name="notes_background_color">רקע הערות</string>
-    <string name="bubble_background_color">רקע בועות</string>
-    <string name="bubble_message_color">הודעת בועה</string>
-    <string name="bubble_date_time_color">תאריך/שעה בועה</string>
-    <string name="bubble_category_color">קטגוריית בועות</string>
-    <string name="input_colors">קלט צבעים</string>
-    <string name="message_input_color">קלט הודעה</string>
-    <string name="message_input_hint_color">רמז להזנת הודעה</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">מתקדם</string>
     <string name="advanced_settings_app_info_title">מידע על היישום</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">הגדר כמשגר ברירת מחדל</string>
     <string name="advanced_settings_set_as_default_launcher_description">הפוך את RE*start לאפליקציית הבית המוגדרת כברירת מחדל.</string>
     <string name="advanced_settings_change_default_launcher">שנה את משגר ברירת המחדל</string>
     <string name="advanced_settings_change_default_launcher_description">בחר משגר אחר כברירת מחדל.</string>
     <string name="advanced_settings_restart_title">הפעל מחדש את המשגר</string>
-    <string name="advanced_settings_restart_description">ניסית להדליק ולכבות?</string>
     <string name="advanced_settings_backup_restore_title">גיבוי/שחזור</string>
-    <string name="advanced_settings_backup_restore_description">שמרת גיבוי לשחזור במקרה הצורך?</string>
     <string name="advanced_settings_backup_restore_backup">גיבוי</string>
     <string name="advanced_settings_backup_restore_restore">שחזר</string>
     <string name="advanced_settings_backup_restore_clear">נקה את כל הנתונים</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">אודות %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">מוּמחֶה</string>
-    <string name="expert_options_display">הצג אפשרויות מומחים</string>
-    <string name="expert_options_unlocked">אפשרויות מומחים פתוחות!</string>
-    <string name="expert_options_tap_hint">%1$d עוד נגיעות לפתיחה</string>
     <string name="settings_text_size">הגדרות גודל טקסט</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">יישומים מוסתרים</string>
-    <string name="favorite_apps">יישומים מועדפים</string>
     <string name="clear_home_app">פנה את המשבצת</string>
     <!-- Favorite management strings -->
     <string name="add_app">הוסף אפליקציה</string>
     <string name="remove_app">הסר אפליקציה</string>
     <string name="max_apps_reached">הגעת למספר המרבי של אפליקציות בית</string>
     <string name="min_apps_reached">הגעת למספר המינימלי של אפליקציות בית</string>
-    <string name="no_apps_to_remove">אין אפליקציות להסרה</string>
     <string name="select_app_to_remove">בחר אפליקציה להסרה</string>
     <string name="empty_favorite">לא בשימוש</string>
     <string name="confirm_remove_favorite">האם אתה בטוח שברצונך להסיר את האפליקציה הזו מהמועדפים?</string>
@@ -207,8 +172,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">קריסה</string>
     <string name="acra_dialog_text">%1$s נתקל בבעיה לא צפויה ועליו להיסגר.</string>
-    <string name="acra_send_report">שלח דו\"ח</string>
-    <string name="acra_dont_send">אל תשלח</string>
     <!-- Share Strings -->
     <string name="share_note">שתף הערה</string>
     <!-- Icon Pack Strings -->
@@ -218,7 +181,6 @@
     <string name="apply_icon_pack_are_you_sure">האם אתה בטוח שברצונך להחיל את חבילת האייקונים הזו?\n\n%1$s</string>
     <string name="apply_to_home">החל על הבית</string>
     <string name="apply_to_app_list">החל על רשימת אפליקציות</string>
-    <string name="default_icon_not_found">סמל האפליקציה המוגדר כברירת מחדל הניתן לציור לא נמצא</string>
     <!-- Settings Strings -->
     <string name="left">שמאל</string>
     <string name="right">ימין</string>
@@ -243,9 +205,7 @@
     <string name="info">מידע</string>
     <string name="okay">אישור</string>
     <string name="apply">החל</string>
-    <string name="reset">אפס</string>
     <string name="cancel">בטל</string>
-    <string name="save">שמור</string>
     <string name="shortcut_add_title">הוסף קיצור דרך</string>
     <string name="shortcut_add">הוסף</string>
     <string name="shortcut_name">שֵׁם</string>
@@ -273,9 +233,7 @@
     <string name="applist_button_contacts">אנשי קשר</string>
     <string name="allow">אפשר</string>
     <string name="deny">דחה</string>
-    <string name="send">שלח</string>
     <string name="message_hint">הזן הודעה…</string>
-    <string name="message_category">קטגוריה: %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">נדרשת הרשאה</string>
     <string name="access_usage_data_permission">כדי להמשיך, אפשר הרשאת גישה לנתוני שימוש בהגדרות המכשיר שלך.</string>
@@ -304,14 +262,10 @@
     <string name="notes_list_empty_hint">התחל את ההערה הראשונה שלך למטה.</string>
     <string name="confirm_delete_title">מחק הערה</string>
     <string name="confirm_delete_message">האם אתה בטוח שברצונך למחוק הערה זו?</string>
-    <string name="edit_note">ערוך הערה</string>
     <string name="category">קָטֵגוֹרִיָה</string>
-    <string name="priority">עֲדִיפוּת</string>
     <string name="settings_context_menu_title">תפריט ההקשר</string>
     <string name="settings_home_buttons_title">כפתורי בית</string>
     <string name="settings_applist_buttons_title">כפתורי רשימת אפליקציות</string>
-    <string name="settings_source_code">קוד המקור</string>
-    <string name="settings_credits">קרדיטים</string>
     <string-array name="priorities">
         <item>נָמוּך</item>
         <item>בֵּינוֹנִי</item>
@@ -350,7 +304,6 @@
     <string name="settings_general_section">כללי</string>
     <string name="app_lock_needs_screen_lock">כדי להשתמש בנעילת יישומים, הגדר נעילת מסך במכשיר זה.</string>
     <string name="widgets_no_space">לא נותר מקום בדף הווידג\'טים. תחילה שנה גודל של ווידג\'ט או הסר אותו.</string>
-    <string name="drawer_categories">קיבוץ יישומים לפי קטגוריה</string>
     <string name="category_other">אחר</string>
     <string name="category_text_size">גודל טקסט קטגוריות</string>
     <string name="category_color">קטגוריה</string>
@@ -425,12 +378,7 @@
     <string name="clock_style_swiss">שווייצרי</string>
     <string name="clock_style_rings">טבעות</string>
     <string name="clock_style_one_line">שורה אחת</string>
-    <string name="about_open_source">קוד פתוח</string>
-    <string name="about_foundation">בסיס</string>
     <string name="about_foundation_text">בנוי על Multi Launcher (mLauncher), שמקורו ב-Olauncher.</string>
-    <string name="about_credits_link">תורמים ורישיונות</string>
-    <string name="about_weather">נתוני מזג אוויר: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">יצירת קשר</string>
     <string name="credits_lineage">RE*start בנוי על Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 בכל שלב.</string>
     <string name="credits_thanks">תודה</string>
     <string name="credits_thanks_intro">כל מי שעבודתו נמצאת בקוד עד נקודת הפיצול:</string>

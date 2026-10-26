@@ -20,28 +20,17 @@
     <string name="permission_granted">Autorisation accordée ! Vous pouvez continuer.</string>
     <string name="this_can_be_disabled_later">* Cette autorisation pourra être désactivée ultérieurement.</string>
     <!-- Strings used for settings menus -->
-    <string name="settings_name">Paramètres de RE*start</string>
     <string name="settings_features_title">Fonctionnalités</string>
-    <string name="settings_features_description">Améliorez votre productivité.</string>
     <string name="settings_look_feel_title">Apparence</string>
-    <string name="settings_look_feel_description">Personnalisez votre écran d\'accueil.</string>
     <string name="settings_gestures_title">Gestes</string>
-    <string name="settings_gestures_description">Personnalisez les gestes pour une navigation rapide et facile.</string>
     <string name="settings_notes_title">Notes</string>
-    <string name="settings_notes_description">Personnalisez vos notes selon votre style.</string>
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Applications de l\'écran d\'accueil</string>
-    <string name="settings_favorite_apps_description">Réorganisez vos applications préférées pour y accéder rapidement depuis l\'écran d\'accueil.</string>
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Applications masquées</string>
-    <string name="settings_hidden_apps_description">Gérer les applications masquées: affichez n’importe quelle application de cette liste lorsque cela est nécessaire.</string>
     <string name="settings_advanced_title">Paramètres avancés</string>
-    <string name="settings_advanced_description">Accédez aux informations de l\'application, au lanceur par défaut, aux outils de sauvegarde et plus encore.</string>
-    <string name="settings_expert_title">Expert</string>
-    <string name="settings_expert_description">Débloquez les options cachées et les réglages avancés.</string>
     <string name="settings_exit_launcher_title">Quitter RE*start</string>
-    <string name="settings_exit_launcher_description">Passez temporairement à votre lanceur par défaut.</string>
     <string name="settings_exit_launcher_dialog">Choisissez un lanceur</string>
     <!-- Strings used for features settings -->
     <string name="features_settings_title">Fonctionnalités</string>
@@ -52,7 +41,6 @@
     <string name="show_floating_button">Afficher les boutons de raccourci</string>
     <string name="lock_orientation">Verrouiller l\'orientation</string>
     <string name="haptic_feedback">Retour haptique</string>
-    <string name="search">Recherche</string>
     <string name="show_az_sidebar">Afficher la barre latérale AZ</string>
     <string name="auto_show_keyboard">Afficher le clavier automatiquement</string>
     <string name="search_from_start">Rechercher depuis le début</string>
@@ -61,9 +49,7 @@
     <string name="lock_home_apps">Verrouiller les applications de l\'accueil</string>
     <string name="lock_settings">Verrouiller les paramètres</string>
     <string name="apps_on_home_screen">Nombre d\'applications sur l\'accueil</string>
-    <string name="enable_app_timer">Activer le minuteur de l\'application</string>
     <string name="force_colored_wallpaper">Forcer le fond d\'écran coloré</string>
-    <string name="info_tiles">Tuiles d\'information</string>
     <string name="show_clock">Afficher l\'horloge</string>
     <string name="show_notes">Afficher les notes</string>
     <string name="show_clock_format">Afficher le format (AM/PM)</string>
@@ -130,30 +116,15 @@
     <string name="take_a_screenshot">Prendre une capture d\'écran</string>
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notes</string>
-    <string name="display_options">Options d\'affichage</string>
-    <string name="auto_expand_notes">Développer les notes automatiquement</string>
-    <string name="click_to_edit_delete">Cliquer pour modifier/supprimer</string>
-    <string name="notes_colors">Couleurs des notes</string>
-    <string name="notes_background_color">Arrière-plan des notes</string>
-    <string name="bubble_background_color">Fond à bulles</string>
-    <string name="bubble_message_color">Message bulle</string>
-    <string name="bubble_date_time_color">Date/heure de la bulle</string>
-    <string name="bubble_category_color">Catégorie Bulles</string>
-    <string name="input_colors">Couleurs d\'entrée</string>
-    <string name="message_input_color">Saisie du message</string>
-    <string name="message_input_hint_color">Indice de saisie du message</string>
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Avancé</string>
     <string name="advanced_settings_app_info_title">Informations sur l\'application</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
     <string name="advanced_settings_set_as_default_launcher">Définir comme lanceur par défaut</string>
     <string name="advanced_settings_set_as_default_launcher_description">Définissez RE*start comme application d\'accueil par défaut.</string>
     <string name="advanced_settings_change_default_launcher">Changer le lanceur par défaut</string>
     <string name="advanced_settings_change_default_launcher_description">Choisissez un autre lanceur d\'applications comme lanceur par défaut.</string>
     <string name="advanced_settings_restart_title">Redémarrer le lanceur</string>
-    <string name="advanced_settings_restart_description">Avez-vous essayé de l\'allumer et de l\'éteindre ?</string>
     <string name="advanced_settings_backup_restore_title">Sauvegarde/Restauration</string>
-    <string name="advanced_settings_backup_restore_description">Attention à ce que vous souhaitez !</string>
     <string name="advanced_settings_backup_restore_backup">Sauvegarde</string>
     <string name="advanced_settings_backup_restore_restore">Restaurer</string>
     <string name="advanced_settings_backup_restore_clear">Effacer toutes les données</string>
@@ -165,21 +136,15 @@
     <!-- Strings used for about settings -->
     <string name="about_settings_title">À propos de %1$s</string>
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Expert</string>
-    <string name="expert_options_display">Afficher les options expertes</string>
-    <string name="expert_options_unlocked">Options expertes débloquées !</string>
-    <string name="expert_options_tap_hint">Encore %1$d appuis pour déverrouiller</string>
     <string name="settings_text_size">Taille du texte des paramètres</string>
     <!-- App Page Strings -->
     <string name="hidden_apps">Applications masquées</string>
-    <string name="favorite_apps">Applications favorites</string>
     <string name="clear_home_app">Vider l\'emplacement</string>
     <!-- Favorite management strings -->
     <string name="add_app">Ajouter une application</string>
     <string name="remove_app">Supprimer l\'application</string>
     <string name="max_apps_reached">Nombre maximal d\'applications d\'accueil atteint</string>
     <string name="min_apps_reached">Nombre minimum d\'applications d\'accueil atteint</string>
-    <string name="no_apps_to_remove">Aucune application à supprimer</string>
     <string name="select_app_to_remove">Sélectionnez l\'application à supprimer</string>
     <string name="empty_favorite">Inutilisé</string>
     <string name="confirm_remove_favorite">Êtes-vous sûr de vouloir supprimer cette application de vos favoris ?</string>
@@ -212,8 +177,6 @@
     <!-- Crash Strings -->
     <string name="acra_crash">Erreur</string>
     <string name="acra_dialog_text">%1$s a rencontré un problème inattendu et doit se fermer.</string>
-    <string name="acra_send_report">Envoyer un rapport</string>
-    <string name="acra_dont_send">Ne pas envoyer</string>
     <!-- Share Strings -->
     <string name="share_note">Partager la note</string>
     <!-- Icon Pack Strings -->
@@ -223,7 +186,6 @@
     <string name="apply_icon_pack_are_you_sure">Êtes-vous sûr de vouloir appliquer ce pack d\'icônes ?\n\n%1$s</string>
     <string name="apply_to_home">Appliquer à l\'accueil</string>
     <string name="apply_to_app_list">Appliquer à la liste des applications</string>
-    <string name="default_icon_not_found">icône d\'application par défaut introuvable</string>
     <!-- Settings Strings -->
     <string name="left">Gauche</string>
     <string name="right">Droite</string>
@@ -248,9 +210,7 @@
     <string name="info">Info</string>
     <string name="okay">Ok</string>
     <string name="apply">Appliquer</string>
-    <string name="reset">Réinitialiser</string>
     <string name="cancel">Annuler</string>
-    <string name="save">Sauvegarder</string>
     <string name="shortcut_add_title">Ajouter un raccourci</string>
     <string name="shortcut_add">Ajouter</string>
     <string name="shortcut_name">Nom</string>
@@ -278,9 +238,7 @@
     <string name="applist_button_contacts">Contacts</string>
     <string name="allow">Autoriser</string>
     <string name="deny">Refuser</string>
-    <string name="send">Envoyer</string>
     <string name="message_hint">Saisissez un message…</string>
-    <string name="message_category">Catégorie : %1$s</string>
     <!-- Permissions Strings -->
     <string name="permission_required">Autorisation requise</string>
     <string name="access_usage_data_permission">Pour continuer, veuillez activer l\'autorisation d\'accès aux données d\'utilisation dans les paramètres de votre appareil.</string>
@@ -309,14 +267,10 @@
     <string name="notes_list_empty_hint">Commencez votre première note ci-dessous.</string>
     <string name="confirm_delete_title">Supprimer la note</string>
     <string name="confirm_delete_message">Êtes-vous sûr de vouloir supprimer cette note ?</string>
-    <string name="edit_note">Modifier la note</string>
     <string name="category">Catégorie</string>
-    <string name="priority">Priorité</string>
     <string name="settings_context_menu_title">Menu contextuel</string>
     <string name="settings_home_buttons_title">Boutons d\'accueil</string>
     <string name="settings_applist_buttons_title">Boutons de la liste des applications</string>
-    <string name="settings_source_code">Code source</string>
-    <string name="settings_credits">Crédits</string>
     <string-array name="priorities">
         <item>Faible</item>
         <item>Moyen</item>
@@ -355,7 +309,6 @@
     <string name="settings_general_section">Général</string>
     <string name="app_lock_needs_screen_lock">Définissez un verrouillage d\'écran sur cet appareil pour utiliser le verrouillage d\'applications.</string>
     <string name="widgets_no_space">Plus de place sur la page des widgets. Redimensionnez ou supprimez d\'abord un widget.</string>
-    <string name="drawer_categories">Grouper les applications par catégorie</string>
     <string name="category_other">Autres</string>
     <string name="category_text_size">Taille du texte des catégories</string>
     <string name="category_color">Catégorie</string>
@@ -430,12 +383,7 @@
     <string name="clock_style_swiss">Suisse</string>
     <string name="clock_style_rings">Anneaux</string>
     <string name="clock_style_one_line">Une ligne</string>
-    <string name="about_open_source">Open source</string>
-    <string name="about_foundation">Fondation</string>
     <string name="about_foundation_text">Construit sur Multi Launcher (mLauncher), lui-même issu d\'Olauncher.</string>
-    <string name="about_credits_link">Contributeurs et licences</string>
-    <string name="about_weather">Données météo : Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Contact</string>
     <string name="credits_lineage">RE*start est construit sur Multi Launcher (mLauncher) : Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 à chaque étape.</string>
     <string name="credits_thanks">Merci</string>
     <string name="credits_thanks_intro">Toutes les personnes dont le travail figure dans le code jusqu\'au point de fork :</string>

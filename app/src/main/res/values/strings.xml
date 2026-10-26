@@ -1,5 +1,4 @@
 <resources>
-    <string name="pass_a_string" translatable="false">%1$s</string>
 
     <!-- Base Settings -->
     <string name="select_app">Select App</string>
@@ -26,39 +25,28 @@
     <string name="this_can_be_disabled_later">* This permission may be disabled later.</string>
 
     <!-- Strings used for settings menus -->
-    <string name="settings_name">RE*start Settings</string>
 
     <string name="settings_features_title">Features</string>
-    <string name="settings_features_description">Improve your productivity.</string>
 
     <string name="settings_look_feel_title">Look &amp; Feel</string>
-    <string name="settings_look_feel_description">Give your home screen a personal touch.</string>
 
     <string name="settings_gestures_title">Gestures</string>
-    <string name="settings_gestures_description">Customize gestures for quick and easy navigation.</string>
 
     <string name="settings_notes_title">Notes</string>
-    <string name="settings_notes_description">Personalize your notes to match your style.</string>
 
     <!-- Favorite Apps -->
     <!-- Favorite Apps -->
     <string name="settings_favorite_apps_title">Home Screen Apps</string>
-    <string name="settings_favorite_apps_description">Reorder your favorite apps for quick access from the home screen.</string>
 
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Hidden Apps</string>
-    <string name="settings_hidden_apps_description">Manage hidden apps: unhide any app from this list when needed.</string>
 
 
     <string name="settings_advanced_title">Advanced</string>
-    <string name="settings_advanced_description">Access app info, default launcher, backup tools and more.</string>
 
-    <string name="settings_expert_title">Expert</string>
-    <string name="settings_expert_description">Unlock hidden options, and advanced tweaks.</string>
 
 
     <string name="settings_exit_launcher_title">Exit RE*start</string>
-    <string name="settings_exit_launcher_description">Switch to your default launcher temporarily.</string>
     <string name="settings_exit_launcher_dialog">Choose a launcher</string>
 
     <!-- Strings used for features settings -->
@@ -82,7 +70,6 @@
     <string name="lock_orientation">Lock Orientation</string>
     <string name="haptic_feedback">Haptic Feedback</string>
 
-    <string name="search">Search</string>
 
     <string name="show_az_sidebar">Show A-Z Sidebar</string>
     <string name="auto_show_keyboard">Auto Show Keyboard</string>
@@ -94,10 +81,8 @@
     <string name="lock_home_apps">Lock Home Apps</string>
     <string name="lock_settings">Lock Settings</string>
     <string name="apps_on_home_screen">Number of Home Apps</string>
-    <string name="enable_app_timer">Enable App Timer</string>
     <string name="force_colored_wallpaper">Force Colored Wallpaper</string>
 
-    <string name="info_tiles">Info Tiles</string>
 
     <string name="show_clock">Show Clock</string>
     <string name="show_notes">Show Notes</string>
@@ -140,7 +125,6 @@
     <string name="app_lock_needs_screen_lock">Set a screen lock on this device to use the app lock.</string>
     <string name="widgets_size_label" translatable="false">%1$d × %2$d</string>
     <string name="widgets_no_space">No room left on the widget page. Resize or remove a widget first.</string>
-    <string name="drawer_categories">Group apps by category</string>
     <string name="category_other">Other</string>
     <string name="category_text_size">Category Text Size</string>
     <string name="category_color">Category</string>
@@ -230,29 +214,16 @@
     <!-- Strings used for notes settings -->
     <string name="notes_settings_title">Notes</string>
 
-    <string name="display_options">Display Options</string>
 
-    <string name="auto_expand_notes">Auto Expand Notes</string>
-    <string name="click_to_edit_delete">Click To Edit/Delete</string>
 
-    <string name="notes_colors">Notes Colors</string>
 
-    <string name="notes_background_color">Notes Background</string>
-    <string name="bubble_background_color">Bubble Background</string>
-    <string name="bubble_message_color">Bubble Message</string>
-    <string name="bubble_date_time_color">Bubble Date/Time</string>
-    <string name="bubble_category_color">Bubble Category</string>
 
-    <string name="input_colors">Input Colors</string>
 
-    <string name="message_input_color">Message Input</string>
-    <string name="message_input_hint_color">Message Input Hint</string>
 
     <!-- Strings used for advanced settings -->
     <string name="advanced_settings_title">Advanced</string>
 
     <string name="advanced_settings_app_info_title">App Info</string>
-    <string name="advanced_settings_app_info_description">%1$s</string>
 
     <string name="advanced_settings_set_as_default_launcher">Set as Default Launcher</string>
     <string name="advanced_settings_set_as_default_launcher_description">Make RE*start your default home app.</string>
@@ -261,10 +232,8 @@
 
 
     <string name="advanced_settings_restart_title">Restart Launcher</string>
-    <string name="advanced_settings_restart_description">Have you tried turning it on and off?</string>
 
     <string name="advanced_settings_backup_restore_title">Backup/Restore</string>
-    <string name="advanced_settings_backup_restore_description">Please be careful what you wish for?</string>
 
     <string name="advanced_settings_backup_restore_backup">Backup</string>
     <string name="advanced_settings_backup_restore_restore">Restore</string>
@@ -333,12 +302,7 @@
     <string name="clock_style_swiss">Swiss</string>
     <string name="clock_style_rings">Rings</string>
     <string name="clock_style_one_line">One line</string>
-    <string name="about_open_source">Open source</string>
-    <string name="about_foundation">Foundation</string>
     <string name="about_foundation_text">Built on Multi Launcher (mLauncher), which descends from Olauncher.</string>
-    <string name="about_credits_link">Contributors and licences</string>
-    <string name="about_weather">Weather data: Open-Meteo (CC BY 4.0)</string>
-    <string name="about_contact">Contact</string>
     <string name="credits_lineage">RE*start is built on Multi Launcher (mLauncher): Olauncher (Tanuj M., 2020) → OlauncherCF (Joscha Loos) → mLauncher (Wayne Wesley) → RE*start. GPL-3.0 at every step.</string>
     <string name="credits_thanks">Thank you</string>
     <string name="credits_thanks_intro">Everyone whose work is in the code up to the fork point:</string>
@@ -347,20 +311,15 @@
 
 
     <!-- Strings used for expert settings -->
-    <string name="expert_settings_title">Expert</string>
 
 
-    <string name="expert_options_display">Show Expert Options</string>
 
-    <string name="expert_options_unlocked">Expert Options Unlocked!</string>
-    <string name="expert_options_tap_hint">%1$d more taps to unlock</string>
 
     <string name="settings_text_size">Settings Text Size</string>
 
 
     <!-- App Page Strings -->
     <string name="hidden_apps">Hidden Apps</string>
-    <string name="favorite_apps">Favorite Apps</string>
     <string name="clear_home_app">Clear Home App</string>
 
     <!-- Favorite management strings -->
@@ -368,7 +327,6 @@
     <string name="remove_app">Remove App</string>
     <string name="max_apps_reached">Maximum number of home apps reached</string>
     <string name="min_apps_reached">Minimum number of home apps reached</string>
-    <string name="no_apps_to_remove">No apps to remove</string>
     <string name="select_app_to_remove">Select app to remove</string>
     <string name="empty_favorite">Unused</string>
     <string name="confirm_remove_favorite">Are you sure you want to remove this app from favorites?</string>
@@ -407,8 +365,6 @@
     <string name="acra_report_hint">If you want to report it, write to %1$s and describe what you were doing. The log file %2$s stays in the app\'s private storage on this device; nothing is sent automatically.</string>
     <string name="acra_restart">Restart</string>
     <string name="acra_dialog_text">%1$s ran into an unexpected problem and has to close.</string>
-    <string name="acra_send_report">Send Report</string>
-    <string name="acra_dont_send">Don\'t Send</string>
 
     <!-- Share Strings -->
     <string name="share_note">Share Note</string>
@@ -420,7 +376,6 @@
     <string name="apply_icon_pack_are_you_sure">Are you sure you want to apply this icon pack?\n\n%1$s</string>
     <string name="apply_to_home">Apply To Home</string>
     <string name="apply_to_app_list">Apply To App List</string>
-    <string name="default_icon_not_found">Default app icon drawable not found</string>
 
     <!-- Settings Strings -->
     <string name="left">Left</string>
@@ -446,9 +401,7 @@
     <string name="info">Info</string>
     <string name="okay">Okay</string>
     <string name="apply">Apply</string>
-    <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
-    <string name="save">Save</string>
     <string name="shortcut_add_title">Add shortcut</string>
     <string name="shortcut_add">Add</string>
     <string name="shortcut_name">Name</string>
@@ -480,9 +433,7 @@
     <string name="allow">Allow</string>
     <string name="deny">Deny</string>
 
-    <string name="send">Send</string>
     <string name="message_hint">Enter a message…</string>
-    <string name="message_category">Category: %1$s</string>
 
     <!-- Permissions Strings -->
     <string name="permission_required">Permission Required</string>
@@ -515,16 +466,12 @@
     <string name="notes_list_empty_hint">Start your first note below.</string>
     <string name="confirm_delete_title">Delete Note</string>
     <string name="confirm_delete_message">Are you sure you want to delete this note?</string>
-    <string name="edit_note">Edit Note</string>
     <string name="category">Category</string>
-    <string name="priority">Priority</string>
 
     <string name="settings_context_menu_title">Context Menu</string>
     <string name="settings_home_buttons_title">Home Buttons</string>
     <string name="settings_applist_buttons_title">App List Buttons</string>
 
-    <string name="settings_source_code">Source Code</string>
-    <string name="settings_credits">Credits</string>
 
     <string-array name="priorities">
         <item>Low</item>
