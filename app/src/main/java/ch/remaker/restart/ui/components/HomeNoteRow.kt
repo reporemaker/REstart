@@ -50,7 +50,8 @@ class HomeNoteRow(context: Context, private val gap: Int) : ViewGroup(context) {
         val t: Int
         val d: Int
         if (stacked) { t = minOf(textWidth, room); d = minOf(dayWidth, room) }
-        else { t = textWidth; d = dayWidth }
+        // Without a day the text alone is capped, or it ran past the screen edge cut mid-letter, without "…"
+        else { t = if (day == null) minOf(textWidth, room) else textWidth; d = dayWidth }
         text.measure(MeasureSpec.makeMeasureSpec(t.coerceAtLeast(0), MeasureSpec.EXACTLY), free)
         day?.measure(MeasureSpec.makeMeasureSpec(d.coerceAtLeast(0), MeasureSpec.EXACTLY), free)
         separator?.measure(MeasureSpec.makeMeasureSpec(s, MeasureSpec.EXACTLY), free)

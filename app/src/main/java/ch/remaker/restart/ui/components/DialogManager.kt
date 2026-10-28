@@ -36,14 +36,11 @@ import ch.remaker.common.getSdCardInfo
 import ch.remaker.common.getStorageInfo
 import ch.remaker.common.requestRuntimePermission
 import ch.remaker.restart.MainActivity
-import ch.remaker.restart.BuildConfig
 import ch.remaker.restart.R
+import ch.remaker.restart.data.backup.BackupCrypto
 import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Prefs
-import ch.remaker.common.AppLogger
 import ch.remaker.common.showLongToast
-import java.text.DateFormat
-import ch.remaker.restart.data.SettingsSnapshots
 import ch.remaker.restart.helper.FontManager
 import ch.remaker.restart.helper.getDeviceInfo
 import ch.remaker.restart.helper.hasContactsPermission
@@ -95,7 +92,7 @@ class DialogManager(val context: Context, val activity: Activity) {
         textSize = 13f
         letterSpacing = 0.14f
         typeface = FontManager.weighted(context, if (strong) 700 else 400)
-        setTextColor(if (strong) ink else ColorUtils.setAlphaComponent(ink, 170))
+        setTextColor(ink)
         setPadding(px(18), px(14), 0, px(6))
         setOnClickListener { onClick() }
     }
@@ -110,7 +107,9 @@ class DialogManager(val context: Context, val activity: Activity) {
         positive: String?,
         onPositive: (() -> Unit)?,
         negative: String? = getLocalizedString(R.string.cancel),
-        cancelable: Boolean = true
+        cancelable: Boolean = true,
+        /** Runs before the sheet closes on [positive]; false keeps it open (e.g. to show an error). */
+        validate: (() -> Boolean)? = null
     ): FontBottomSheetDialogLocked {
         val layout = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
@@ -131,7 +130,12 @@ class DialogManager(val context: Context, val activity: Activity) {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.END
                 negative?.let { addView(sheetButton(it, false) { sheet.dismiss() }) }
-                positive?.let { addView(sheetButton(it, true) { sheet.dismiss(); onPositive?.invoke() }) }
+                positive?.let {
+                    addView(sheetButton(it, true) {
+                        if (validate?.invoke() == false) return@sheetButton
+                        sheet.dismiss(); onPositive?.invoke()
+                    })
+                }
             })
         }
         sheet.setContentView(layout, scrollable = false)
@@ -143,12 +147,12 @@ class DialogManager(val context: Context, val activity: Activity) {
     private fun sheetMessage(text: String): TextView = TextView(context).apply {
         this.text = text
         textSize = 16f
-        setTextColor(ColorUtils.setAlphaComponent(ink, 200))
+        setTextColor(ink)
         setPadding(0, px(16), 0, 0)
     }
 
     /** Yes/no question in the Swiss sheet. */
-    fun confirm(title: String, message: String, positive: String, negative: String = getLocalizedString(R.string.cancel), onPositive: () -> Unit) {
+    fun confirm(title: String, message: String, positive: String, negative: String? = getLocalizedString(R.string.cancel), onPositive: () -> Unit) {
         swissSheet(title, sheetMessage(message), positive, onPositive, negative)
     }
 
@@ -211,7 +215,7 @@ class DialogManager(val context: Context, val activity: Activity) {
                         text = note.uppercase(java.util.Locale.ROOT)
                         textSize = 12f
                         letterSpacing = 0.14f
-                        setTextColor(ColorUtils.setAlphaComponent(ink, 170))
+                        setTextColor(ink)
                     })
                     setOnClickListener { sheet?.dismiss(); onChosen(g, i) }
                 })
@@ -224,38 +228,6 @@ class DialogManager(val context: Context, val activity: Activity) {
 
     var backupRestoreBottomSheet: FontBottomSheetDialogLocked? = null
 
-    /** Lists the automatic settings copies, newest first, and restores the chosen one after confirmation. */
-    private fun showSnapshotPicker() {
-        val snapshots = SettingsSnapshots.list(context)
-        if (snapshots.isEmpty()) return
-        val dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
-        val labels = snapshots.map { snapshot ->
-            getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_item, versionNameOf(snapshot.versionCode), dateFormat.format(snapshot.takenAt))
-        }
-        chooser(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot), labels) { index ->
-            val snapshot = snapshots[index]
-            confirm(
-                labels[index],
-                getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_confirm),
-                getLocalizedString(R.string.advanced_settings_backup_restore_restore)
-            ) {
-                val restored = try {
-                    Prefs(context).loadFromString(snapshot.file.readText())
-                } catch (e: Exception) {
-                    AppLogger.e("SettingsSnapshots", "Could not read ${snapshot.file.name}", e)
-                    false
-                }
-                if (restored) {
-                    // The copy carries the old version number; the update it came from is already done
-                    Prefs(context).appVersion = BuildConfig.VERSION_CODE
-                    AppReloader.restartApp(context)
-                } else {
-                    context.showLongToast(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot_failed))
-                }
-            }
-        }
-    }
-
     /** Asks for one line of text; [onDone] gets the trimmed text, also when it is empty. */
     fun showTextInputDialog(context: Context, title: String, current: String, hint: String = "", onDone: (String) -> Unit) {
         // Swiss input: no box, a 2 dp rule under the text
@@ -266,7 +238,7 @@ class DialogManager(val context: Context, val activity: Activity) {
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
             textSize = 22f
             setTextColor(ink)
-            setHintTextColor(ColorUtils.setAlphaComponent(ink, 90))
+            setHintTextColor(ColorUtils.setAlphaComponent(ink, 150))
             background = ContextCompat.getDrawable(context, R.drawable.swiss_rule_bottom)
             typeface = FontManager.weighted(context, 400)
             setPadding(0, px(18), 0, px(10))
@@ -279,6 +251,61 @@ class DialogManager(val context: Context, val activity: Activity) {
         // The state flag alone does not open the keyboard once the sheet is showing: ask for it
         input.postDelayed({
             sheet.window?.let { WindowCompat.getInsetsController(it, input).show(WindowInsetsCompat.Type.ime()) }
+        }, 120)
+    }
+
+    /**
+     * Asks for a backup password: once to open a backup, twice ([repeat]) to make one. At least
+     * [BackupCrypto.MIN_PASSWORD] characters; [onDone] gets the password, which the caller clears after use.
+     */
+    fun showPasswordDialog(title: String, message: String, repeat: Boolean, onDone: (CharArray) -> Unit) {
+        fun field(hint: String) = EditText(context).apply {
+            this.hint = hint
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            textSize = 20f
+            setTextColor(ink)
+            setHintTextColor(ColorUtils.setAlphaComponent(ink, 150))
+            background = ContextCompat.getDrawable(context, R.drawable.swiss_rule_bottom)
+            typeface = FontManager.weighted(context, 400)
+            setPadding(0, px(18), 0, px(10))
+            importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
+        }
+        val first = field(getLocalizedString(R.string.backup_password_hint))
+        val second = field(getLocalizedString(R.string.backup_password_repeat_hint))
+        val error = TextView(context).apply {
+            textSize = 15f
+            setTextColor(ink)
+            typeface = FontManager.weighted(context, 700)
+            setPadding(0, px(12), 0, 0)
+            visibility = View.GONE
+        }
+        val content = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            addView(sheetMessage(message))
+            addView(first)
+            if (repeat) addView(second)
+            addView(error)
+        }
+        fun password(field: EditText) = CharArray(field.text.length) { field.text[it] }
+        val sheet = swissSheet(title, content, getLocalizedString(R.string.okay), {
+            onDone(password(first))
+            first.text.clear(); second.text.clear()
+        }, validate = {
+            val problem = when {
+                first.text.length < BackupCrypto.MIN_PASSWORD && repeat -> R.string.backup_password_too_short
+                first.text.isEmpty() -> R.string.backup_password_too_short
+                repeat && first.text.toString() != second.text.toString() -> R.string.backup_password_mismatch
+                else -> null
+            }
+            problem?.let { error.text = getLocalizedString(it); error.visibility = View.VISIBLE }
+            problem == null
+        })
+        sheet.window?.setSoftInputMode(
+            android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+        )
+        first.requestFocus()
+        first.postDelayed({
+            sheet.window?.let { WindowCompat.getInsetsController(it, first).show(WindowInsetsCompat.Type.ime()) }
         }, 120)
     }
 
@@ -311,10 +338,6 @@ class DialogManager(val context: Context, val activity: Activity) {
         }
         swissSheet(title, list, getLocalizedString(R.string.okay), { onDone(state.indices.filter { state[it] }.toSet()) })
     }
-
-    /** "1.12.2.0" for a version code of the form MMmmppbb. */
-    private fun versionNameOf(code: Int): String =
-        listOf(code / 1_000_000, code / 10_000 % 100, code / 100 % 100, code % 100).joinToString(".")
 
     fun showBackupRestoreBottomSheet() {
         // Dismiss existing bottom sheet if it's showing
@@ -352,20 +375,19 @@ class DialogManager(val context: Context, val activity: Activity) {
             }
         }
 
-        // Add the three items
-        layout.addView(createItem(getLocalizedString(R.string.advanced_settings_backup_restore_backup)) {
-            (activity as MainActivity).createFullBackup()
-        })
+        val flow = (activity as MainActivity).backupFlow
+        layout.addView(createItem(getLocalizedString(R.string.backup_create)) { flow.create() })
+        layout.addView(createItem(getLocalizedString(R.string.backup_restore)) { flow.restore() })
+        layout.addView(createItem(flow.autoBackupState()) { flow.autoBackup() })
 
-        layout.addView(createItem(getLocalizedString(R.string.advanced_settings_backup_restore_restore)) {
-            (activity as MainActivity).restoreFullBackup()
-        })
+        // Shortcuts from a restored backup that wait to be added again
+        if (flow.hasPendingShortcuts()) {
+            layout.addView(createItem(getLocalizedString(R.string.pending_shortcuts_title)) { flow.pendingShortcuts() })
+        }
 
-        // Copies taken automatically before app updates
-        if (SettingsSnapshots.list(context).isNotEmpty()) {
-            layout.addView(createItem(getLocalizedString(R.string.advanced_settings_backup_restore_snapshot)) {
-                showSnapshotPicker()
-            })
+        // Copies taken automatically before app updates and restores
+        if (flow.hasSnapshots()) {
+            layout.addView(createItem(getLocalizedString(R.string.backup_snapshots)) { flow.snapshots() })
         }
 
         layout.addView(createItem(getLocalizedString(R.string.advanced_settings_backup_restore_clear)) {
@@ -937,7 +959,7 @@ class DialogManager(val context: Context, val activity: Activity) {
     // makes model names and numbers hard to read, and this sheet is there to be read and sent on
     private fun statDetails(context: Context, details: String) = TextView(context).apply {
         text = details
-        setTextColor(ColorUtils.setAlphaComponent(ink, 0xCC))
+        setTextColor(ink)
         typeface = Typeface.MONOSPACE
         tag = FontBottomSheetDialogLocked.KEEP_TYPEFACE
         textSize = 13f

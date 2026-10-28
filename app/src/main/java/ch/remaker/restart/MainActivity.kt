@@ -35,17 +35,12 @@ import ch.remaker.restart.helper.IconPackHelper
 import ch.remaker.restart.helper.emptyString
 import ch.remaker.restart.helper.isREstartAppDefault
 import ch.remaker.restart.helper.utils.AppReloader
+import ch.remaker.restart.ui.backup.BackupFlow
 import ch.remaker.restart.helper.utils.SystemBarObserver
 import ch.remaker.restart.ui.onboarding.OnboardingActivity
 import org.xmlpull.v1.XmlPullParser
-import java.io.BufferedReader
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.FileOutputStream
-import java.io.InputStreamReader
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
@@ -56,8 +51,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var performFullBackup: ActivityResultLauncher<Intent>
-    private lateinit var performFullRestore: ActivityResultLauncher<Intent>
+    lateinit var backupFlow: BackupFlow
 
 
 
@@ -192,52 +186,7 @@ class MainActivity : AppCompatActivity() {
 
         window.addFlags(FLAG_LAYOUT_NO_LIMITS)
 
-        performFullBackup = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                result.data?.data?.let { uri ->
-                    applicationContext.contentResolver.openFileDescriptor(uri, "w")?.use { file ->
-                        FileOutputStream(file.fileDescriptor).use { stream ->
-                            val prefs = Prefs(applicationContext).saveToString()
-                            stream.channel.truncate(0)
-                            stream.write(prefs.toByteArray())
-                        }
-                    }
-                }
-            }
-        }
-
-        performFullRestore = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                result.data?.data?.let { uri ->
-                    try {
-                        applicationContext.contentResolver.openInputStream(uri).use { inputStream ->
-                            val stringBuilder = StringBuilder()
-                            BufferedReader(InputStreamReader(inputStream)).use { reader ->
-                                var line: String? = reader.readLine()
-                                while (line != null) {
-                                    stringBuilder.append(line)
-                                    line = reader.readLine()
-                                }
-                            }
-
-                            val string = stringBuilder.toString()
-                            // The current settings stay untouched unless the file can be read
-                            if (Prefs(applicationContext).loadFromString(string)) {
-                                AppReloader.restartApp(applicationContext)
-                            } else {
-                                showLongToast("The backup file could not be read")
-                            }
-                        }
-                    } catch (e: FileNotFoundException) {
-                        e.printStackTrace()
-                        showLongToast("Selected file could not be opened")
-                    } catch (e: SecurityException) {
-                        e.printStackTrace()
-                        showLongToast("Permission denied")
-                    }
-                }
-            }
-        }
+        backupFlow = BackupFlow(this)
 
         // Correct usage: Register in onAttach() to ensure it's done before the fragment's view is created
         pickCustomFont = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
@@ -315,26 +264,6 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
             null
         }
-    }
-
-    fun createFullBackup() {
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        val fileName = "backup_$timeStamp.json"
-
-        val createFileIntent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "application/json"
-            putExtra(Intent.EXTRA_TITLE, fileName)
-        }
-        performFullBackup.launch(createFileIntent)
-    }
-
-    fun restoreFullBackup() {
-        val openFileIntent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "application/json"
-        }
-        performFullRestore.launch(openFileIntent)
     }
 
     fun pickCustomFont() {

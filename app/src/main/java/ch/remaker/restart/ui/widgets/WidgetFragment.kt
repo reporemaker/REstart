@@ -2,18 +2,23 @@ package ch.remaker.restart.ui.widgets
 
 import android.app.Activity
 import android.appwidget.AppWidgetHost
-import android.appwidget.AppWidgetManager
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import android.content.pm.ApplicationInfo
 import android.appwidget.AppWidgetHostView
-import android.os.Build
+import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProviderInfo
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -26,27 +31,32 @@ import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.core.graphics.toColorInt
 import androidx.core.view.isVisible
+import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import ch.remaker.components.views.FontBottomSheetDialogLocked
-import ch.remaker.restart.ui.components.DialogManager
 import ch.remaker.common.AppLogger
 import ch.remaker.common.appWidgetManager
 import ch.remaker.common.getLocalizedString
-import ch.remaker.common.showLongToast
 import ch.remaker.common.isGestureNavigationEnabled
+import ch.remaker.common.showLongToast
+import ch.remaker.components.views.FontBottomSheetDialogLocked
 import ch.remaker.restart.R
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.data.SavedWidgetEntity
+import ch.remaker.restart.data.backup.PendingWidgets
+import ch.remaker.restart.data.backup.WidgetEntry
+import ch.remaker.restart.data.backup.userForSerial
 import ch.remaker.restart.data.database.WidgetDao
 import ch.remaker.restart.data.database.WidgetDatabase
 import ch.remaker.restart.databinding.FragmentWidgetBinding
+import ch.remaker.restart.helper.FontManager
+import ch.remaker.restart.ui.components.DialogManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlin.math.absoluteValue
+import kotlin.math.ceil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.math.absoluteValue
-import kotlin.math.ceil
-import ch.remaker.restart.helper.FontManager
 
 data class AppWidgetGroup(
     val appName: String,
@@ -99,6 +109,12 @@ class WidgetFragment : Fragment() {
     private var activeGridDialog: FontBottomSheetDialogLocked? = null
     private var lastWidgetInfo: AppWidgetProviderInfo? = null
     private var placeholderVisible = false
+
+    /** Boxes for the widgets of a restored backup, each brought back by a tap. */
+    private val pendingViews = mutableListOf<View>()
+
+    /** The waiting widget being brought back and the place it should take. */
+    private var restoreTarget: Pair<WidgetEntry, GridRect>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -559,9 +575,18 @@ class WidgetFragment : Fragment() {
         val (defaultCellsW, defaultCellsH) = defaultCells(widgetInfo)
         AppLogger.v(TAG, "📐 Default size for widgetId=$appWidgetId: $defaultCellsW x $defaultCellsH cells")
 
-        val wrapper = newWrapper(hostView, widgetInfo, appWidgetId, defaultCellsW, defaultCellsH)
+        val target = restoreTarget?.takeIf { it.first.provider == widgetInfo.provider.flattenToString() }
+        val wrapper = newWrapper(
+            hostView, widgetInfo, appWidgetId,
+            target?.second?.cellsW ?: defaultCellsW, target?.second?.cellsH ?: defaultCellsH
+        )
 
-        if (!addWrapperToGrid(wrapper)) return
+        if (!addWrapperToGrid(wrapper, target?.second)) return
+        target?.let { (entry, _) ->
+            PendingWidgets.remove(prefs, entry)
+            restoreTarget = null
+            showPendingWidgets()
+        }
         AppLogger.i(TAG, "✅ Wrapper created for widgetId=$appWidgetId")
         offerToOpenStoppedApp(widgetInfo)
         updateEmptyPlaceholder(widgetWrappers)
@@ -590,10 +615,13 @@ class WidgetFragment : Fragment() {
         }
     }
 
-    /** Puts a new widget on the first free place; returns false when the page is full. */
-    private fun addWrapperToGrid(wrapper: ResizableWidgetWrapper): Boolean {
+    /** Puts a new widget at [wanted] when that is free, else on the first free place; false when the page is full. */
+    private fun addWrapperToGrid(wrapper: ResizableWidgetWrapper, wanted: GridRect? = null): Boolean {
         val id = wrapper.hostView.appWidgetId
-        val place = grid().firstFree(occupiedBy(widgetWrappers), wrapper.cellsW, wrapper.cellsH)
+        val taken = occupiedBy(widgetWrappers)
+        val fitted = wanted?.let { grid().fit(it) }
+        val place = fitted?.takeIf { want -> taken.none { it.overlaps(want) } }
+            ?: grid().firstFree(taken, wrapper.cellsW, wrapper.cellsH)
         if (place == null) {
             AppLogger.w(TAG, "No room left for widgetId=$id")
             showLongToast(getLocalizedString(R.string.widgets_no_space))
@@ -655,6 +683,7 @@ class WidgetFragment : Fragment() {
             val savedWidgets = widgetDao.getAll()
             if (savedWidgets.isEmpty()) {
                 AppLogger.w(TAG, "⚠️ No saved widgets found in Room")
+                binding.widgetGrid.post { if (isViewCreated()) showPendingWidgets() }
                 return@launch
             }
 
@@ -699,6 +728,7 @@ class WidgetFragment : Fragment() {
                         logWidgetRestored(saved)
                     }
                     if (repaired) saveWidgets()
+                    showPendingWidgets()
                 }
                 logGridSnapshot()
             }
@@ -753,8 +783,75 @@ class WidgetFragment : Fragment() {
         }
     }
 
+    /**
+     * The widgets of a restored backup: a box at each one's place and size, "tap to bring back".
+     * Android only lets a widget in with the user's consent, so each comes back by its own tap.
+     */
+    private fun showPendingWidgets() {
+        pendingViews.forEach { binding.widgetGrid.removeView(it) }
+        pendingViews.clear()
+        val waiting = PendingWidgets.list(prefs)
+        if (waiting.isEmpty()) {
+            updateEmptyPlaceholder(widgetWrappers)
+            return
+        }
+        val grid = grid()
+        val ink = prefs.appColor
+        val density = resources.displayMetrics.density
+        val taken = occupiedBy(widgetWrappers).toMutableList()
+        waiting.forEach { entry ->
+            val wanted = grid.fit(GridRect(entry.col, entry.row, entry.cellsW, entry.cellsH))
+            val place = wanted.takeIf { want -> taken.none { it.overlaps(want) } }
+                ?: grid.firstFree(taken, wanted.cellsW, wanted.cellsH) ?: return@forEach
+            taken += place
+            val info = providerOf(entry)
+            val status = getLocalizedString(if (info != null) R.string.pending_widget_tap else R.string.pending_widget_missing)
+            val box = FrameLayout(requireContext()).apply {
+                val pad = (8 * density).toInt()
+                setPadding(pad, pad, pad, pad)
+                background = GradientDrawable().apply { setStroke((1.5f * density).toInt().coerceAtLeast(1), ink) }
+                // One text that shrinks to the box: a widget one or two cells high has little room
+                addView(TextView(requireContext()).apply {
+                    text = SpannableStringBuilder().apply {
+                        append(entry.label, StyleSpan(Typeface.BOLD), 0)
+                        append("\n")
+                        append(status, RelativeSizeSpan(0.85f), 0)
+                    }
+                    setTextColor(ink)
+                    typeface = FontManager.getTypeface(requireContext())
+                    gravity = Gravity.CENTER
+                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(this, 8, 16, 1, TypedValue.COMPLEX_UNIT_SP)
+                }, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
+                layoutParams = FrameLayout.LayoutParams(grid.sizeOf(place.cellsW), grid.sizeOf(place.cellsH))
+                translationX = grid.offsetOf(place.col).toFloat()
+                translationY = grid.offsetOf(place.row).toFloat()
+                contentDescription = "${entry.label}. $status"
+                setOnClickListener {
+                    val provider = providerOf(entry)
+                    if (provider == null) {
+                        showLongToast(getLocalizedString(R.string.pending_widget_missing))
+                    } else {
+                        restoreTarget = entry to place
+                        addWidget(provider)
+                    }
+                }
+            }
+            binding.widgetGrid.addView(box)
+            pendingViews += box
+        }
+        updateEmptyPlaceholder(widgetWrappers)
+    }
+
+    /** The installed provider a waiting widget stands for, in its profile; null when the app is not installed. */
+    private fun providerOf(entry: WidgetEntry): AppWidgetProviderInfo? {
+        val component = ComponentName.unflattenFromString(entry.provider) ?: return null
+        val user = userForSerial(requireContext(), entry.userSerial) ?: return null
+        return runCatching { appWidgetManager.getInstalledProvidersForProfile(user) }.getOrNull()
+            ?.firstOrNull { it.provider == component }
+    }
+
     private fun updateEmptyPlaceholder(wrappers: List<ResizableWidgetWrapper>) {
-        val shouldBeVisible = wrappers.isEmpty()
+        val shouldBeVisible = wrappers.isEmpty() && pendingViews.isEmpty()
 
         // Only update if visibility changed
         if (placeholderVisible == shouldBeVisible) {

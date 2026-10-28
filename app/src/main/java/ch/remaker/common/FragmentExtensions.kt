@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Color
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
@@ -123,7 +122,8 @@ fun showCustomToast(
 @SuppressLint("ServiceCast")
 fun Fragment.hideKeyboard() {
     val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    val view = activity?.currentFocus ?: View(requireContext()) // Use current focus or a new view
+    // The focused view, else this fragment's own: a new, unattached view has no window token to hide from
+    val view = activity?.currentFocus ?: this.view ?: return
     if (inputMethodManager.isActive) { // Check if IME is active before hiding
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }

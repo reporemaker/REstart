@@ -4,7 +4,57 @@ REstart is a fork of mLauncher, which descends from Olauncher; the people behind
 the two changes sent back upstream and every difference at the fork point are in
 [FOUNDATION.md](FOUNDATION.md). This file starts where that one ends.
 
-## Unreleased
+## 1.3.0 - 28 October 2026
+
+A minor release: backups are rebuilt from the ground up, with a password, and the fixes
+gathered for 1.2.1 come with them. Backups of 1.0 to 1.2 are still read.
+
+### Backups
+- **Every backup has a password.** Making a backup asks for a password (at least 8 characters,
+  twice) and the file is encrypted with it (AES-256-GCM, key from PBKDF2-HMAC-SHA256, 600,000
+  rounds); restoring asks for it again. A wrong password or a damaged file is refused without
+  touching anything. The password is not kept anywhere: without it the file cannot be opened.
+- **You choose what goes in, and what comes back.** Seven parts, each with a tick both ways:
+  settings; home screen and gestures; drawer (hidden, locked and pinned apps, names,
+  categories); shortcuts; notes and to-dos; widget layout; font. A restore changes only the
+  parts ticked; before, it wiped every setting first.
+- **Notes are merged.** An entry only in the backup is added, one written since stays, one in
+  both keeps the later edit, and one deleted on either side does not come back. "Replace them
+  with the notes in the backup" is still there.
+- **Shortcuts and widgets wait instead of vanishing.** Shortcuts an app still offers are pinned
+  again; the ones only their app can add again (a browser's "Add to home screen") wait in a
+  list with their name, category, lock and place until they are added again, instead of being
+  pruned at once. Widgets come back as boxes in their old place: one tap and Android's consent,
+  and the widget sits there again.
+- **Automatic backup to a folder of your choice.** Off until you turn it on; then an encrypted
+  backup after every update and at most once a day when something changed, the last 5 kept.
+  The folder stays when RE*start is removed, so a reinstall or a new phone can be restored from
+  it. The password is not stored: the key from it is kept wrapped by the Android Keystore.
+- **A fresh install offers the restore.** The first-run tips carry "Have a backup? Tap to
+  restore it." and "Continue without a backup"; the tips stay until one of the two.
+- **Copies before updates hold everything** (notes, widget layout and shortcuts too), and one is
+  also taken before every restore, as a way back.
+- **An old backup can no longer delete settings.** Restoring wrote the file's old version number
+  back, and the clean-up for that version then removed two settings still in use (A-Z bar,
+  swipe threshold). The version number is never taken from a backup now, and the clean-up never
+  touches those keys.
+- **No phone-to-phone transfer of launcher data.** It carried widget ids that do not exist on
+  the new phone; a new phone gets its setup from a backup file.
+
+### Added
+- **Hidden apps: hiding is not locking.** A line under the page title says that a hidden app
+  only leaves the drawer and the search, and where the lock is (long press, Lock; if Lock is
+  not in the menu, Settings › Features › Context Menu). 21 languages.
+
+
+### Changed
+- **Up to five notes on the home screen** (three before). Where the home apps leave less room
+  (large notes size, many apps) the block shows fewer instead of running under the app list; the
+  counts always stay.
+- **AM/PM switch off means a 24-hour clock.** On a phone set to 12 hours the switch used to drop
+  only the marker ("3:28", morning or afternoon?); off now shows "15:28". With the switch on, or
+  on a phone set to 24 hours, nothing changes.
+
 
 ### Fixed
 - **Sheets on the light theme.** Every sheet (choices, category actions, rename, sliders) stood
@@ -22,7 +72,36 @@ the two changes sent back upstream and every difference at the fork point are in
   reads "Home screen, categories". 21 languages.
 - **Device summary** (the RE* mark in the settings): the values are in a plain monospaced face
   whatever the font, so model names and numbers stay readable in Doto, and the colours follow
-  the theme (white titles on the light theme's sheet were hard to see).
+  the theme (white titles on the light theme's sheet were hard to see). The values are now in
+  the full text colour too, and the grey outline around every sheet is gone (only the top rule
+  stays).
+- **Grey, faint texts on both themes.** A dotted font loses most of its ink when it is also
+  dimmed, so texts drawn at 60 to 80 per cent read as grey. In full colour now: the notes counts
+  on the home screen, the small 01-04 in front of the home apps, the weekday in the ring clock,
+  the section labels and arrows in the settings, the labels and dates on the notes page, the
+  second button and the notes in sheets, the count and arrow on drawer category heads and the
+  folder line under a search result. The A-Z bar in the drawer was a fixed grey with a white
+  highlight, so the chosen letter vanished on the light theme; it follows the drawer's text
+  colour. Placeholder texts are darker. Still dimmed on purpose: done entries, an option not
+  chosen and empty fields.
+- **Drawer menu and edit rows.** The long-press menu and the rename and tag rows stand on a
+  see-through ground, and the app's own name and icon showed through them as a grey ghost; the
+  row steps aside while one of them is open.
+- **Keyboard after the drawer.** Leaving the drawer lets go of whichever field had the keyboard
+  (the search, a rename or tag row), and the home screen closes any keyboard left open.
+- **Home notes counts.** The count line breaks only between counts and drops the dot where it
+  breaks ("Notes 4 · To-do 3 / Overdue 2", not "Notes 4 · To-do 3 · / Overdue 2").
+- **Long home notes.** A note without a day ran past the screen edge, cut mid-letter; it ends in
+  "…" now, like the others.
+- **Notes page for screen readers.** Done and Important are check boxes with their state ("Important,
+  ticked"), the to-do boxes in the list too, and Note / To-do say which one is chosen.
+
+
+### Build
+- **Reproducible release.** Without the signing key the release builds unsigned instead of
+  stopping, so F-Droid and anyone else can rebuild it. Each published release is rebuilt on a
+  clean Linux machine and compared with the signed APK (GitHub Actions); unit tests, translations
+  and the no-em-dash rule run on every push. The key never leaves the release machine.
 
 ## 1.2.0 - 26 October 2026
 

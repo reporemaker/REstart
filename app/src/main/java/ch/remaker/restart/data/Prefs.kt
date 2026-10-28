@@ -13,6 +13,7 @@ import ch.remaker.common.AppLogger
 import ch.remaker.common.showLongToast
 import ch.remaker.restart.R
 import ch.remaker.restart.data.Constants.Gravity
+import ch.remaker.restart.data.backup.PendingShortcuts
 import ch.remaker.restart.helper.emptyString
 import ch.remaker.restart.helper.getUserHandleFromString
 import ch.remaker.restart.helper.isSystemInDarkMode
@@ -36,81 +37,6 @@ class Prefs(val context: Context) {
     internal val prefsOnboarding: SharedPreferences = context.getSharedPreferences(PREFS_ONBOARDING_FILENAME, Context.MODE_PRIVATE)
     internal val pinnedAppsKey = PINNED_APPS
 
-    fun saveToString(): String {
-        val allPreferences = HashMap<String, Any?>(prefsNormal.all)
-
-        val moshi = Moshi.Builder().build()
-
-        val type = Types.newParameterizedType(
-            Map::class.java,
-            String::class.java,
-            Any::class.java
-        )
-
-        val adapter = moshi.adapter<Map<String, Any?>>(type).indent("  ") // Pretty-print
-
-        return adapter.toJson(allPreferences)
-    }
-
-    private companion object {
-        /** Settings stored as Float; a backup file cannot tell 1.0 from 1. */
-        val FLOAT_KEYS = setOf(SHORT_SWIPE_THRESHOLD, LONG_SWIPE_THRESHOLD, WEATHER_LATITUDE, WEATHER_LONGITUDE)
-    }
-
-    /**
-     * Replaces all settings with the ones in [json] and returns false, changing nothing, when the
-     * file cannot be read. The old settings are only dropped once the new ones are known to parse.
-     */
-    fun loadFromString(json: String): Boolean {
-        val moshi = Moshi.Builder().build()
-
-        val type = Types.newParameterizedType(
-            Map::class.java,
-            String::class.java,
-            Any::class.java
-        )
-
-        val adapter = moshi.adapter<Map<String, Any?>>(type)
-
-        val all = try {
-            adapter.fromJson(json)
-        } catch (e: Exception) {
-            AppLogger.e("backup error", "Backup file could not be parsed", e)
-            null
-        }
-        if (all.isNullOrEmpty()) return false
-
-        prefsNormal.edit {
-            clear()
-            for ((key, value) in all) {
-                when (value) {
-                    is String -> putString(key, value)
-                    is Boolean -> putBoolean(key, value)
-                    is Double -> {
-                        // JSON has one number type: 1.0 would come back as an Int and crash getFloat
-                        if (key in FLOAT_KEYS || value % 1 != 0.0) {
-                            putFloat(key, value.toFloat())
-                        } else {
-                            putInt(key, value.toInt())
-                        }
-                    }
-
-                    is List<*> -> {
-                        // Moshi deserializes sets as lists
-                        val stringSet = value.filterIsInstance<String>().toSet()
-                        putStringSet(key, stringSet)
-                    }
-
-                    else -> {
-                        AppLogger.d("backup error", "Unsupported type for key '$key': $value")
-                    }
-                }
-            }
-        }
-        return true
-    }
-
-    /** Applies a theme file. Only [allowedKeys], the colour settings a theme may carry, are written. */
     var appVersion: Int
         get() = getSetting(APP_VERSION, -1)
         set(value) = prefsNormal.edit { putInt(APP_VERSION, value) }
@@ -323,6 +249,13 @@ class Prefs(val context: Context) {
     var showClockFormat: Boolean
         get() = getSetting(SHOW_CLOCK_FORMAT, true)
         set(value) = prefsNormal.edit { putBoolean(SHOW_CLOCK_FORMAT, value) }
+
+    /**
+     * The home clock counts 24 hours unless the phone counts 12 and the AM/PM switch is on: with
+     * the switch off a 12-hour "3:28" could be night or afternoon, so it turns to "15:28".
+     */
+    val clock24Hour: Boolean
+        get() = android.text.format.DateFormat.is24HourFormat(context) || !showClockFormat
 
     /** Notes on the home screen, in the clock block (the counts and the important entries). */
     var notesOnHome: Boolean
@@ -759,6 +692,9 @@ class Prefs(val context: Context) {
     /** Forgets everything stored for a shortcut the user removed. */
     fun removeShortcutSettings(shortcut: AppListItem) = forgetShortcuts(setOf(shortcut.settingsKey))
 
+    /** Forgets everything stored for the shortcut [settingsKey], e.g. one from a backup that will not be added again. */
+    fun forgetShortcutSettings(settingsKey: String) = forgetShortcuts(setOf(settingsKey))
+
     /**
      * Forgets shortcuts that are no longer pinned, e.g. because the app that created them
      * was uninstalled or removed them. [pinnedKeys] are the settings keys of all pinned shortcuts.
@@ -773,9 +709,37 @@ class Prefs(val context: Context) {
         hiddenApps.mapNotNullTo(known) { hiddenKeyToSettingsKey(it) }
         shortcutSlotIds().mapNotNullTo(known) { id -> loadApp(id).takeIf { it.isShortcut }?.settingsKey }
 
-        val orphans = known - pinnedKeys
+        // Shortcuts from a backup keep their settings while they wait to be added again
+        val orphans = known - pinnedKeys - PendingShortcuts.keys(this)
         if (orphans.isNotEmpty()) forgetShortcuts(orphans)
         return orphans.isNotEmpty()
+    }
+
+    /**
+     * Gives the settings of the shortcut [oldKey] (from a backup, waiting) to [newKey], the same
+     * shortcut added again under another id: name, category, lock, pin, hiding, home place, gesture.
+     */
+    fun moveShortcutSettings(oldKey: String, newKey: String) {
+        if (oldKey == newKey) return
+        val oldClass = oldKey.substringAfter('/')
+        val newClass = newKey.substringAfter('/')
+        prefsNormal.edit {
+            prefsNormal.all.forEach { (key, value) ->
+                val match = SHORTCUT_SETTING_REGEX.matchEntire(key) ?: return@forEach
+                if (match.groupValues[1] != oldKey || value !is String) return@forEach
+                remove(key)
+                putString(newKey + key.removePrefix(oldKey), value)
+            }
+        }
+        lockedApps = lockedApps.mapTo(mutableSetOf()) { if (it == oldKey) newKey else it }
+        pinnedApps = pinnedApps.mapTo(mutableSetOf()) { if (it == oldKey) newKey else it }
+        hiddenApps = hiddenApps.mapTo(mutableSetOf()) {
+            if (hiddenKeyToSettingsKey(it) == oldKey) it.replace("|$oldClass|", "|$newClass|") else it
+        }
+        shortcutSlotIds().forEach { id ->
+            val app = loadApp(id)
+            if (app.settingsKey == oldKey) storeApp(id, app.copy(activityClass = newClass))
+        }
     }
 
     /** Hidden apps are stored as "package|class|userHash". */

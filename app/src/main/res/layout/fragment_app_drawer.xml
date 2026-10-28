@@ -41,6 +41,15 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginTop="12dp" />
+
+        <!-- Hidden apps only: hiding is not locking, and where the lock is -->
+        <ch.remaker.components.views.FontAppCompatTextView
+            android:id="@+id/pageNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <!-- Search Bar positioned at the top -->

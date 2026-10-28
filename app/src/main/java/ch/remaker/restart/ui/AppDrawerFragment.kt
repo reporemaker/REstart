@@ -94,10 +94,6 @@ class AppDrawerFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (prefs.firstSettingsOpen) {
-            prefs.firstSettingsOpen = false
-        }
-
         ViewCompat.setOnApplyWindowInsetsListener(binding.mainLayout) { _, insets ->
             val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
 
@@ -807,9 +803,11 @@ class AppDrawerFragment : BaseFragment() {
 
     override fun onStop() {
         super.onStop()
-        if (requireContext().hasSoftKeyboard()) {
-            binding.search.hideKeyboard()
-        }
+        // Whichever field holds the keyboard (the search, a rename or tag row) lets go of it when the
+        // drawer goes; closing it through the search box alone left a tag row's keyboard on the home screen
+        activity?.currentFocus?.clearFocus()
+        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm?.hideSoftInputFromWindow(binding.root.windowToken, 0)
     }
 
 
@@ -1171,6 +1169,11 @@ class AppDrawerFragment : BaseFragment() {
             setOnClickListener { closeDrawer() }
         }
         binding.headRule.setBackgroundColor(ink)
+        binding.pageNote.apply {
+            isVisible = flag == AppDrawerFlag.HiddenApps
+            text = getLocalizedString(R.string.hidden_apps_note)
+            setTextColor(ink)
+        }
         // The search sits under the head rule, not a second screen margin lower
         (binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams).topMargin =
             (8 * resources.displayMetrics.density).toInt()

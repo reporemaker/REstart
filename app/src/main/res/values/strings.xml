@@ -40,6 +40,7 @@
 
     <!-- Hidden Apps -->
     <string name="settings_hidden_apps_title">Hidden Apps</string>
+    <string name="hidden_apps_note">Hiding is not locking: a hidden app leaves the drawer and the search, but anyone can still open it. To lock an app, long-press it and choose Lock; if Lock is not in the menu, turn it on under Settings › Features › Context Menu.</string>
 
 
     <string name="settings_advanced_title">Advanced</string>
@@ -132,9 +133,8 @@
     <string name="category_show_count">Show app count in categories</string>
     <string name="drawer_search_height">Search Area Height</string>
     <string name="drawer_search_spacing">Space Below Search</string>
-    <string name="advanced_settings_backup_restore_snapshot">Restore automatic backup</string>
-    <string name="advanced_settings_backup_restore_snapshot_item">Settings of %1$s, %2$s</string>
-    <string name="advanced_settings_backup_restore_snapshot_confirm">All current settings will be replaced with this copy.</string>
+    <string name="advanced_settings_backup_restore_snapshot_item">%1$s · %2$s</string>
+    <string name="advanced_settings_backup_restore_snapshot_confirm">Everything is replaced with this copy: settings, home screen, drawer, shortcuts, notes and widget layout.</string>
     <string name="advanced_settings_backup_restore_snapshot_failed">This backup could not be read.</string>
     <string name="widgets_app_not_opened_yet">%1$s has not been opened yet. Android keeps such apps stopped, so this widget may stay empty or say \"open the app first\" until you open %1$s once. Open it now?</string>
     <string name="drawer_view">App Drawer View</string>
@@ -235,8 +235,6 @@
 
     <string name="advanced_settings_backup_restore_title">Backup/Restore</string>
 
-    <string name="advanced_settings_backup_restore_backup">Backup</string>
-    <string name="advanced_settings_backup_restore_restore">Restore</string>
     <string name="advanced_settings_backup_restore_clear">Clear All Data</string>
 
     <string name="advanced_settings_backup_restore_clear_title">Clear Preferences</string>
@@ -553,4 +551,61 @@
     <string name="gesture_fallback_settings">phone settings</string>
     <string name="gesture_fallback_phone">Phone</string>
     <string name="wellbeing_not_opened">Digital Wellbeing could not be opened on this phone.</string>
+    <string name="backup_create">Create backup</string>
+    <string name="backup_restore">Restore from backup</string>
+    <string name="backup_snapshots">Copies before updates</string>
+    <string name="backup_choose_sections">What goes into the backup</string>
+    <string name="backup_restore_choose_sections">What to restore</string>
+    <string name="backup_section_settings">Settings</string>
+    <string name="backup_section_home">Home screen and gestures</string>
+    <string name="backup_section_drawer">App drawer: hidden, locked, names, categories</string>
+    <string name="backup_section_shortcuts">Shortcuts</string>
+    <string name="backup_section_notes">Notes and to-dos</string>
+    <string name="backup_section_widgets">Widget layout</string>
+    <string name="backup_section_font">Font</string>
+    <string name="backup_password_title">Backup password</string>
+    <string name="backup_password_note">Every backup is encrypted with this password, at least 8 characters. Without it the backup cannot be opened: keep it in a password manager.</string>
+    <string name="backup_password_hint">Password</string>
+    <string name="backup_password_repeat_hint">Repeat the password</string>
+    <string name="backup_password_too_short">At least 8 characters.</string>
+    <string name="backup_password_mismatch">The two passwords are not the same.</string>
+    <string name="backup_password_enter">The password this backup was made with.</string>
+    <string name="backup_password_wrong">Wrong password, or the file is damaged.</string>
+    <string name="backup_working">One moment: encrypting.</string>
+    <string name="backup_opening">One moment: opening the backup.</string>
+    <string name="backup_saved">Backup saved: %1$s</string>
+    <string name="backup_save_failed">The backup could not be saved.</string>
+    <string name="backup_read_failed">This file is not a RE*start backup or cannot be read.</string>
+    <string name="backup_notes_merge">Merge with the notes on this phone</string>
+    <string name="backup_notes_replace">Replace them with the notes in the backup</string>
+    <string name="backup_made_on">Backup of %1$s.</string>
+    <string name="backup_old_format">A backup from an earlier version: settings, home screen, drawer and notes, without a password.</string>
+    <string name="backup_restore_confirm">The chosen parts are replaced with the backup. The state before is kept under Copies before updates.</string>
+    <string name="backup_restored_title">Backup restored</string>
+    <string name="backup_restored_shortcuts">Shortcuts waiting to be added again: %1$d. See Settings › Advanced › Backup/Restore.</string>
+    <string name="backup_restored_widgets">Widgets waiting on the widget page: %1$d. Tap each one to bring it back.</string>
+    <string name="backup_restored_all">Everything chosen is back.</string>
+    <string name="backup_restore_first_run">Have a backup? Tap to restore it.</string>
+    <string name="backup_continue_without">Continue without a backup</string>
+    <string name="auto_backup_title">Automatic backup</string>
+    <string name="auto_backup_explain">RE*start writes an encrypted backup into a folder you choose: after each update, and once a day when something changed. The last 5 are kept. The folder stays when RE*start is removed, so a new install can be restored from it.</string>
+    <string name="auto_backup_turn_on">Choose folder</string>
+    <string name="auto_backup_turn_off">Turn off</string>
+    <string name="auto_backup_now">Back up now</string>
+    <string name="auto_backup_off_confirm">No more automatic backups. The files already in the folder stay.</string>
+    <string name="auto_backup_is_on">Automatic backup is on.</string>
+    <string name="auto_backup_is_off">Automatic backup is off.</string>
+    <string name="auto_backup_written">Backup written.</string>
+    <string name="auto_backup_state_off">Automatic backup: off</string>
+    <string name="auto_backup_state_on">Automatic backup: on, %1$s</string>
+    <string name="auto_backup_state_failed">Automatic backup stopped: the folder cannot be reached</string>
+    <string name="auto_backup_password_note">The automatic backups are encrypted with this password, at least 8 characters. It is not stored: without it they cannot be opened, so keep it in a password manager.</string>
+    <string name="pending_shortcuts_title">Shortcuts to add again</string>
+    <string name="pending_shortcuts_explain">This shortcut came from a backup. Only %1$s can add it again (for example with Add to home screen); its name, category, lock and place wait and come back with it. Forget it if you will not add it again.</string>
+    <string name="pending_shortcuts_forget">Forget</string>
+    <string name="pending_shortcut_tap">This shortcut came from a backup and has to be added again from %1$s.</string>
+    <string name="pending_shortcut_match_title">Is this a shortcut from the backup?</string>
+    <string name="pending_shortcut_match_none">No, a new one</string>
+    <string name="pending_widget_tap">Tap to bring back</string>
+    <string name="pending_widget_missing">App not installed</string>
 </resources>

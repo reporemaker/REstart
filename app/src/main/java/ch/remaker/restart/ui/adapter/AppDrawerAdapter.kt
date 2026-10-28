@@ -29,6 +29,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.biometric.BiometricPrompt
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
@@ -440,6 +441,12 @@ class AppDrawerAdapter(
         private val appInfo: TextView = itemView.appInfo
         private val appDelete: TextView = itemView.appDelete
 
+        // The menu and the edit rows stand on a see-through ground over the row: its own name and
+        // icon showed through them as a grey ghost, so they step aside while one of them is open
+        private fun syncTitle() {
+            appTitleFrame.isInvisible = appHideLayout.isVisible || appRenameLayout.isVisible || appTagLayout.isVisible
+        }
+
         @SuppressLint("RtlHardcoded", "NewApi")
         fun bind(
             flag: AppDrawerFlag,
@@ -460,6 +467,7 @@ class AppDrawerAdapter(
             appHideLayout.isVisible = absoluteAdapterPosition == openedContextMenuPosition
             appRenameLayout.isVisible = false
             appTagLayout.isVisible = false
+            syncTitle()
 
             val packageName = appListItem.activityPackage
             val settingsKey = appListItem.settingsKey
@@ -513,6 +521,7 @@ class AppDrawerAdapter(
                     appRenameEdit.hint = appListItem.activityLabel
                     appRenameLayout.isVisible = true
                     appHideLayout.isVisible = false
+                    syncTitle()
                     appRenameEdit.showKeyboard()
                     appRenameEdit.imeOptions = EditorInfo.IME_ACTION_DONE
                 }
@@ -524,6 +533,7 @@ class AppDrawerAdapter(
                     appTagEdit.hint = appListItem.activityLabel
                     appTagLayout.isVisible = true
                     appHideLayout.isVisible = false
+                    syncTitle()
                     appTagEdit.showKeyboard()
                     appTagEdit.imeOptions = EditorInfo.IME_ACTION_DONE
                 }
@@ -550,6 +560,7 @@ class AppDrawerAdapter(
 
             appClose.setOnClickListener {
                 appHideLayout.isVisible = false
+                syncTitle()
                 openedContextMenuPosition = RecyclerView.NO_POSITION
 
                 val sidebarContainer = (context as? Activity)
@@ -622,6 +633,7 @@ class AppDrawerAdapter(
 
                             // Open this one
                             appHideLayout.isVisible = true
+                            syncTitle()
                             sidebarContainer?.isVisible = false
                             openedContextMenuPosition = currentPos
 

@@ -25,6 +25,7 @@ import ch.remaker.common.AppLogger
 import ch.remaker.common.CrashHandler
 import ch.remaker.common.getLocalizedString
 import ch.remaker.common.hideKeyboard
+import ch.remaker.common.showLongToast
 import ch.remaker.common.showShortToast
 import ch.remaker.restart.data.AppCategory
 import ch.remaker.restart.data.AppListItem
@@ -34,6 +35,7 @@ import ch.remaker.restart.data.ContactCategory
 import ch.remaker.restart.data.ContactListItem
 import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.data.SHORTCUT_PREFIX
+import ch.remaker.restart.data.backup.PendingShortcuts
 import ch.remaker.restart.data.settingsKeyOf
 import ch.remaker.restart.helper.ChineseSortHelper
 import ch.remaker.restart.helper.ShortcutHelper
@@ -354,7 +356,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun launchUnlockedApp(appListItem: AppListItem) {
         if (appListItem.isShortcut) {
             if (!ShortcutHelper.startShortcut(appContext, appListItem)) {
-                appContext.showShortToast(getLocalizedString(R.string.shortcut_launch_failed))
+                // One from a backup that has to be added again from the app that made it
+                val waiting = appListItem.settingsKey in PendingShortcuts.keys(prefs)
+                val app = runCatching {
+                    appContext.packageManager.getApplicationLabel(appContext.packageManager.getApplicationInfo(appListItem.activityPackage, 0)).toString()
+                }.getOrDefault(appListItem.activityPackage)
+                appContext.showLongToast(
+                    if (waiting) getLocalizedString(R.string.pending_shortcut_tap, app) else getLocalizedString(R.string.shortcut_launch_failed)
+                )
             }
             return
         }
@@ -644,6 +653,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     ): MutableList<AppListItem> = withContext(Dispatchers.IO) {
 
         val prefs = Prefs(context)
+        // Shortcuts from a restored backup are pinned again as soon as this launcher may do it
+        PendingShortcuts.retry(context)
         val hiddenAppsSet = prefs.hiddenApps
         val pinnedPackages = prefs.pinnedApps.toSet()
         // Filled from several profiles in parallel

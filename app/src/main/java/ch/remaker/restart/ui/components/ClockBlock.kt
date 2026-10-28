@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.core.graphics.ColorUtils
 import androidx.core.view.isVisible
 import ch.remaker.common.getLocalizedString
 import ch.remaker.restart.R
@@ -66,12 +65,11 @@ class ClockBlock(
         return "[${cal.get(Calendar.DAY_OF_YEAR)}/${cal.getActualMaximum(Calendar.DAY_OF_YEAR)}]"
     }
 
-    /** Time and date patterns in the app language, 12 or 24 hours as the phone is set. */
+    /** Time and date patterns in the app language: 12 hours with AM/PM or 24 hours, see [Prefs.clock24Hour]. */
     private fun patterns() {
         val locale = prefs.appLanguage.formatLocale()
-        val is24 = DateFormat.is24HourFormat(context)
-        val best12Raw = DateFormat.getBestDateTimePattern(locale, "hm")
-        val best12 = if (prefs.showClockFormat) best12Raw else best12Raw.replace("a", "").trim()
+        val is24 = prefs.clock24Hour
+        val best12 = DateFormat.getBestDateTimePattern(locale, "hm")
         val best24 = DateFormat.getBestDateTimePattern(locale, "Hm")
         val timePattern = clockPattern(if (is24) best24 else best12)
         b.clock.format12Hour = timePattern
@@ -87,12 +85,12 @@ class ClockBlock(
     private fun clockPattern(pattern: String): String {
         if (prefs.clockStyle != Constants.ClockStyle.Swiss) return pattern
         // Two digits on both lines; AM/PM has no place in the stack and moves to the date line
-        return if (DateFormat.is24HourFormat(context)) "HH\nmm" else "hh\nmm"
+        return if (prefs.clock24Hour) "HH\nmm" else "hh\nmm"
     }
 
     /** "Swiss" with a 12-hour clock: the AM/PM marker joins the date line. */
     private fun datePattern(pattern: String): String =
-        if (prefs.clockStyle == Constants.ClockStyle.Swiss && prefs.showClockFormat && !DateFormat.is24HourFormat(context)) "$pattern · a" else pattern
+        if (prefs.clockStyle == Constants.ClockStyle.Swiss && !prefs.clock24Hour) "$pattern · a" else pattern
 
     /**
      * Whether the date/notes column can be as wide as the room it stands in: yes under the clock or
@@ -185,7 +183,7 @@ class ClockBlock(
     }
 
     /**
-     * The notes block: a count line (only the counts above zero) and up to three important entries,
+     * The notes block: a count line (only the counts above zero) and up to five important entries,
      * chosen by [NotesHome]. It has the look the alarm had: small spaced capitals in every style but
      * Classic, the notes colour, size and alignment. Nothing to show hides the whole block.
      */
@@ -206,7 +204,7 @@ class ClockBlock(
             R.string.settings_notes_title to summary.notes,
             R.string.notes_kind_todo to summary.openTodos,
             R.string.notes_overdue to summary.overdue,
-        ).filter { it.second > 0 }.joinToString(" · ") { (label, n) -> "${getLocalizedString(label)} ${number.format(n)}" }
+        ).filter { it.second > 0 }.map { (label, n) -> "${getLocalizedString(label)} ${number.format(n)}" }
         if (counts.isEmpty() && summary.featured.isEmpty()) {
             block.isVisible = false
             return
@@ -233,7 +231,7 @@ class ClockBlock(
         block.layoutParams = lp
         block.gravity = gravity
 
-        fun styled(view: TextView, lines: Int = 1) = view.apply {
+        fun <T : TextView> styled(view: T, lines: Int = 1): T = view.apply {
             this.textSize = textSize
             typeface = FontManager.getTypeface(context)
             isAllCaps = capsOn
@@ -245,12 +243,12 @@ class ClockBlock(
 
         val pad = (4 * density).toInt()
         if (counts.isNotEmpty()) {
-            // The counts may take more lines rather than lose the last number
-            block.addView(styled(TextView(context), lines = 3).apply {
+            // The counts may take more lines rather than lose the last number; they break only between counts
+            block.addView(styled(SeparatedLineView(context), lines = 3).apply {
                 layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 this.gravity = gravity
-                text = counts
-                setTextColor(ColorUtils.setAlphaComponent(color, 184))
+                items = counts
+                setTextColor(color)
                 setPadding(0, pad, 0, pad)
                 onNotes?.let { open -> setOnClickListener { open(0L) } }
             })
@@ -295,5 +293,28 @@ class ClockBlock(
             block.addView(row)
         }
         block.isVisible = true
+    }
+
+    /**
+     * Shows the entries of the notes block, from the top, while they end above [limit] (a window y)
+     * and hides the rest: with a large notes size and many home apps the block ran under the app
+     * list. The counts always stay. Worked out afresh on every call, so an entry hidden while the
+     * home screen was still settling comes back once there is room.
+     */
+    fun fitNotes(limit: Int) {
+        val block = b.homeNotes
+        if (!block.isVisible) return
+        val at = IntArray(2)
+        block.getLocationInWindow(at)
+        var bottom = at[1] + block.paddingTop
+        var room = true
+        for (i in 0 until block.childCount) {
+            val child = block.getChildAt(i)
+            // A hidden entry keeps the height of its last layout
+            bottom += child.height
+            if (child !is HomeNoteRow) continue
+            room = room && bottom <= limit
+            if (child.isVisible != room) child.isVisible = room
+        }
     }
 }

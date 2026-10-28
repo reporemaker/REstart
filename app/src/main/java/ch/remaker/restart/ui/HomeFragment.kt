@@ -27,6 +27,7 @@ import android.widget.Space
 import android.widget.TextView
 import androidx.biometric.BiometricPrompt
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.edit
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +39,7 @@ import ch.remaker.common.ColorManager
 import ch.remaker.common.CrashHandler
 import ch.remaker.common.attachGestureManager
 import ch.remaker.common.getLocalizedString
+import ch.remaker.common.hideKeyboard
 import ch.remaker.common.isGestureNavigationEnabled
 import ch.remaker.common.launchCalendar
 import ch.remaker.common.openAlarmApp
@@ -52,10 +54,15 @@ import ch.remaker.common.openWebBrowser
 import ch.remaker.common.showShortToast
 import ch.remaker.restart.MainViewModel
 import ch.remaker.restart.R
+import ch.remaker.restart.MainActivity
 import ch.remaker.restart.data.Constants
 import ch.remaker.restart.data.Constants.Action
 import ch.remaker.restart.data.Constants.AppDrawerFlag
 import ch.remaker.restart.data.Prefs
+import ch.remaker.restart.data.RESTORE_SUMMARY
+import ch.remaker.restart.data.backup.AutoBackup
+import ch.remaker.restart.data.backup.PendingShortcuts
+import ch.remaker.restart.data.backup.PendingWidgets
 import ch.remaker.restart.databinding.FragmentHomeBinding
 import ch.remaker.restart.helper.reMarkFor
 import ch.remaker.restart.helper.FontManager
@@ -160,6 +167,8 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
 
         FontManager.reloadFont(requireContext())
         clockBlock = ClockBlock(binding.clockBlock, prefs) { id -> showNotesManager(id) }
+        // The notes under the clock must not run into the home apps (large text, many apps)
+        binding.root.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ -> fitNotesAboveApps() }
 
         initAppObservers()
         initClickListeners()
@@ -228,10 +237,48 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
         super.onResume()
         // Back from the notes page or another app: the entries may have changed
         clockBlock?.renderNotes()
+        // The home screen has no text field: a keyboard left open by the drawer goes
+        hideKeyboard()
+        showRestoreSummaryOnce()
+    }
+
+    /**
+     * The first-run tips stay until the user decides: a backup restored (BackupManager clears the
+     * mark) or "continue without a backup" here. Then they are gone for good.
+     */
+    private fun dismissFirstRunTips() {
+        if (!prefs.firstSettingsOpen) return
+        prefs.firstSettingsOpen = false
+        _binding?.firstRunTips?.isVisible = false
+    }
+
+    /** After a restore (the app restarted): once, what came back and what still waits. */
+    private fun showRestoreSummaryOnce() {
+        if (!prefs.prefsNormal.getBoolean(RESTORE_SUMMARY, false)) return
+        prefs.prefsNormal.edit { remove(RESTORE_SUMMARY) }
+        val shortcuts = PendingShortcuts.list(prefs).size
+        val widgets = PendingWidgets.list(prefs).size
+        val lines = listOfNotNull(
+            getLocalizedString(R.string.backup_restored_shortcuts, shortcuts).takeIf { shortcuts > 0 },
+            getLocalizedString(R.string.backup_restored_widgets, widgets).takeIf { widgets > 0 },
+        ).ifEmpty { listOf(getLocalizedString(R.string.backup_restored_all)) }
+        dialogBuilder.confirm(getLocalizedString(R.string.backup_restored_title), lines.joinToString("\n\n"), getLocalizedString(R.string.okay), negative = null) {}
+    }
+
+    private fun fitNotesAboveApps() {
+        val apps = binding.homeAppsLayout
+        val first = (0 until apps.childCount).map { apps.getChildAt(it) }.firstOrNull { it.isVisible } ?: return
+        val at = IntArray(2)
+        first.getLocationInWindow(at)
+        clockBlock?.fitNotes(at[1] - (8 * resources.displayMetrics.density).toInt())
     }
 
     override fun onStop() {
         super.onStop()
+
+        // At most once a day and only when something changed (see AutoBackup)
+        val appContext = requireContext().applicationContext
+        if (AutoBackup.isOn(prefs)) Thread { AutoBackup.run(appContext) }.start()
 
         context?.let { ctx ->
             try {
@@ -443,6 +490,8 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
             clockBlock.date.setOnClickListener(this@HomeFragment)
             totalScreenTime.setOnClickListener(this@HomeFragment)
             setDefaultLauncher.setOnClickListener(this@HomeFragment)
+            firstRunRestore.setOnClickListener { (activity as? MainActivity)?.backupFlow?.restore() }
+            firstRunSkip.setOnClickListener { dismissFirstRunTips() }
             battery.setOnClickListener(this@HomeFragment)
             weather.setOnClickListener(this@HomeFragment)
 
@@ -933,14 +982,14 @@ class HomeFragment : BaseFragment(), View.OnClickListener, View.OnLongClickListe
         binding.homeAppsLayout.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE or LinearLayout.SHOW_DIVIDER_END
     }
 
-    /** "01  Phone": a small, dimmed index in front of the label when the list is left-aligned. */
+    /** "01  Phone": a small index in front of the label when the list is left-aligned. */
     private fun indexed(i: Int, label: CharSequence): CharSequence {
         if (prefs.homeAlignment != Constants.Gravity.Left) return label
         val index = (i + 1).toString().padStart(2, '0')
         return android.text.SpannableStringBuilder().apply {
             append(index)
             setSpan(android.text.style.RelativeSizeSpan(0.42f), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            setSpan(android.text.style.ForegroundColorSpan(androidx.core.graphics.ColorUtils.setAlphaComponent(prefs.appColor, 190)), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(android.text.style.ForegroundColorSpan(prefs.appColor), 0, index.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             append("    ")
             append(label)
         }

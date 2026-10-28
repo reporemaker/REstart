@@ -12,7 +12,7 @@ plugins {
 // =========================
 
 val major = 1
-val minor = 2
+val minor = 3
 val patch = 0
 val build = 1
 
@@ -77,27 +77,32 @@ extensions.configure<ApplicationExtension>("android") {
     }
 
     signingConfigs {
-        create("release") {
-            val keystoreFile = rootProject.file("app/restart.jks")
+        val keystoreFile = rootProject.file("app/restart.jks")
 
+        // Signing secrets come from the environment, a Gradle property, or app/keystore.properties
+        // (ignored by git) when building on this machine.
+        val localSecrets = Properties().apply {
+            val file = rootProject.file("app/keystore.properties")
+            if (file.exists()) file.inputStream().use { load(it) }
+        }
+        fun secret(name: String): String? =
+            System.getenv(name)
+                ?: project.findProperty(name) as String?
+                ?: localSecrets.getProperty(name)
+
+        val names = listOf("KEY_STORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD")
+        // Only where the key is: F-Droid and CI build the same release unsigned, and the result is
+        // compared with the signed APK (reproducible build)
+        if (keystoreFile.exists() && names.all { secret(it) != null }) {
             println("Using keystore: ${keystoreFile.absolutePath} (${keystoreFile.length()} bytes)")
-
-            // Signing secrets come from the environment, a Gradle property, or app/keystore.properties
-            // (ignored by git) when building on this machine.
-            val localSecrets = Properties().apply {
-                val file = rootProject.file("app/keystore.properties")
-                if (file.exists()) file.inputStream().use { load(it) }
+            create("release") {
+                storeFile = keystoreFile
+                storePassword = secret("KEY_STORE_PASSWORD")
+                keyAlias = secret("KEY_ALIAS")
+                keyPassword = secret("KEY_PASSWORD")
             }
-            fun required(name: String): String =
-                System.getenv(name)
-                    ?: project.findProperty(name) as String?
-                    ?: localSecrets.getProperty(name)
-                    ?: error("Missing required environment variable: $name")
-
-            storeFile = keystoreFile
-            storePassword = required("KEY_STORE_PASSWORD")
-            keyAlias = required("KEY_ALIAS")
-            keyPassword = required("KEY_PASSWORD")
+        } else {
+            println("No release key here: the release APK is built unsigned")
         }
     }
 
@@ -122,7 +127,7 @@ extensions.configure<ApplicationExtension>("android") {
                 "proguard-rules.pro"
             )
 
-            signingConfig = signingConfigs["release"]
+            signingConfig = signingConfigs.findByName("release")
 
             resValue("string", "app_version", baseVersionName)
             resValue("string", "empty", "")

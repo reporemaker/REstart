@@ -59,9 +59,13 @@ that carries your taste, not the noise of every app on it.
   circle, a four-sided figure or a triangle in one stroke to start what you choose, and try any
   gesture on a pad first. Fewer missed swipes, more done without looking for an icon.
 - **Settings where you expect them:** seven sections by what they affect: Features, Look &
-  Feel, Gestures, Home Screen Apps, Hidden Apps, Notes, Advanced. An automatic backup before
-  every update, 21 languages. You find what you
-  look for, and an update never undoes your setup.
+  Feel, Gestures, Home Screen Apps, Hidden Apps, Notes, Advanced. 21 languages. You find what
+  you look for.
+- **Backups behind a password:** every backup file is encrypted with your password, and you
+  choose what goes in: settings, home screen and gestures, drawer, shortcuts, notes, widget
+  layout, font. Restoring takes the parts you tick and merges the notes; an automatic backup can
+  go to a folder of your choice, and a copy is kept before every update. A new phone or a
+  reinstall gets your setup back, and nobody else can read it.
 - **Quiet:** no ads, no analytics, no crash uploads, no accounts. The only request it makes on
   its own is the weather, with the location rounded to about 1 km; dependencies audited with
   [LifeLine](https://github.com/reporemaker/LifeLine). A home screen that does not sell your

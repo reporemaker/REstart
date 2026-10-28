@@ -1,5 +1,5 @@
 # Dependency Timeline: REstart
-Runs: 4 · 2026-10-24 → 2026-10-26
+Runs: 5 · 2026-10-24 → 2026-10-28
 
 Regenerated from every public snapshot in `state/`. Only packages that changed in an
 important field are listed, most recently changed first; versions for direct and vendored

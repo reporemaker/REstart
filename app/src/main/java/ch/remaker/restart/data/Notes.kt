@@ -36,6 +36,8 @@ class NotesStore(private val prefs: Prefs) {
         .adapter<List<NoteItem>>(Types.newParameterizedType(List::class.java, NoteItem::class.java))
     private val namesAdapter = Moshi.Builder().build()
         .adapter<List<String>>(Types.newParameterizedType(List::class.java, String::class.java))
+    private val idsAdapter = Moshi.Builder().build()
+        .adapter<List<Long>>(Types.newParameterizedType(List::class.java, java.lang.Long::class.java))
 
     fun load(): List<NoteItem> {
         val json = prefs.prefsNormal.getString(NOTES_ITEMS, null)
@@ -50,6 +52,23 @@ class NotesStore(private val prefs: Prefs) {
 
     fun save(items: List<NoteItem>) {
         prefs.prefsNormal.edit(commit = true) { putString(NOTES_ITEMS, adapter.toJson(items)) }
+    }
+
+    /**
+     * Ids of deleted entries, so that merging a backup taken before the deletion does not bring
+     * them back. Only ids, no text; the oldest drop off past [MAX_DELETED].
+     */
+    fun deletedIds(): Set<Long> = try {
+        prefs.prefsNormal.getString(NOTES_DELETED, null)?.let { idsAdapter.fromJson(it) }.orEmpty().toSet()
+    } catch (e: Exception) {
+        AppLogger.e("NotesStore", "Could not read deleted note ids", e)
+        emptySet()
+    }
+
+    fun markDeleted(ids: Collection<Long>) {
+        if (ids.isEmpty()) return
+        val all = (deletedIds().toList() + ids).distinct().takeLast(MAX_DELETED)
+        prefs.prefsNormal.edit(commit = true) { putString(NOTES_DELETED, idsAdapter.toJson(all)) }
     }
 
     /** The categories the user created, kept even while no entry carries them. */
@@ -98,10 +117,18 @@ class NotesStore(private val prefs: Prefs) {
         } catch (_: Exception) {
             emptyList()
         }
+        val items = fromOldMessages(old)
+        save(items)
+        if (items.isNotEmpty()) AppLogger.i("NotesStore", "Moved ${items.size} old notes")
+        return items
+    }
+
+    /** The conversion of [migrateOldMessages], also used for the notes in a backup from before 1.2.0. */
+    fun fromOldMessages(old: List<Message>): List<NoteItem> {
         val now = System.currentTimeMillis()
         val none = setOf("None", getLocalizedStringArray(R.array.categories).firstOrNull().orEmpty())
         val high = setOf("High", getLocalizedStringArray(R.array.priorities).lastOrNull().orEmpty())
-        val items = old.mapIndexed { i, m ->
+        return old.mapIndexed { i, m ->
             val created = parseOldTimestamp(m.timestamp) ?: (now - i * 60_000L)
             NoteItem(
                 id = now - i,
@@ -112,9 +139,10 @@ class NotesStore(private val prefs: Prefs) {
                 category = if (m.category in none) "" else m.category.trim(),
             )
         }
-        save(items)
-        if (items.isNotEmpty()) AppLogger.i("NotesStore", "Moved ${items.size} old notes")
-        return items
+    }
+
+    companion object {
+        private const val MAX_DELETED = 2000
     }
 
     /** Old stamps look like "Mon, 26 Oct - 09:40" in the app language; without a year, this year is assumed. */
@@ -130,10 +158,5 @@ class NotesStore(private val prefs: Prefs) {
             }
         }
         return null
-    }
-
-    companion object {
-        private const val NOTES_ITEMS = "NOTES_ITEMS"
-        private const val NOTES_CATEGORIES = "NOTES_CATEGORIES"
     }
 }

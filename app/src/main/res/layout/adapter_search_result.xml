@@ -36,7 +36,6 @@
             android:id="@+id/resultSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alpha="0.5"
             android:ellipsize="start"
             android:maxLines="1" />
     </LinearLayout>

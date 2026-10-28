@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.core.content.edit
 import ch.remaker.common.AppLogger
 import ch.remaker.restart.BuildConfig
+import ch.remaker.restart.data.backup.AutoBackup
 import java.io.File
 
 class Migration(val context: Context) {
@@ -17,7 +18,9 @@ class Migration(val context: Context) {
         // wrong can then be undone from Settings > Backup/Restore. Rule for new migrations: a key
         // is moved to its replacement or left alone, never just deleted.
         if (savedVersionCode != -1 && savedVersionCode != currentVersionCode) {
-            SettingsSnapshots.save(context, prefs, savedVersionCode)
+            SettingsSnapshots.save(context, savedVersionCode)
+            // And a fresh automatic backup in the user's folder, where one is set up
+            if (AutoBackup.isOn(prefs)) Thread { AutoBackup.run(context.applicationContext, force = true) }.start()
         }
 
         // Map of version code -> preferences to clear (wildcards allowed)
@@ -44,16 +47,13 @@ class Migration(val context: Context) {
             10812 to listOf(
                 "LOCK_MODE",
             ),
-            1100504 to listOf(
-                "SHOW_AZSIDEBAR",
-            ),
             1100508 to listOf(
                 "EXPERIMENTAL_OPTIONS",
             ),
+            // SHOW_AZSIDEBAR (1100504) and the swipe thresholds (1100709) were dropped here once and
+            // are settings again today; a cleanup must never touch a key that is in use
             1100709 to listOf(
                 "APP_TIMER",
-                "SHORT_SWIPE_THRESHOLD",
-                "LONG_SWIPE_THRESHOLD",
             ),
             1110303 to listOf(
                 "APP_ALIAS_*"

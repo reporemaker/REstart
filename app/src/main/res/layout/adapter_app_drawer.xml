@@ -192,7 +192,7 @@
             android:maxLength="30"
             android:maxLines="1"
             android:paddingVertical="@dimen/app_padding_vertical"
-            android:textColorHint="?attr/primaryColorTrans50"
+            android:textColorHint="?attr/primaryColorTrans80"
             tools:ignore="LabelFor" />
 
         <ImageView
@@ -243,7 +243,7 @@
             android:maxLength="30"
             android:maxLines="1"
             android:paddingVertical="@dimen/app_padding_vertical"
-            android:textColorHint="?attr/primaryColorTrans50"
+            android:textColorHint="?attr/primaryColorTrans80"
             tools:ignore="LabelFor" />
 
         <ch.remaker.components.views.FontAppCompatTextView

@@ -195,3 +195,20 @@ internal const val NOTES_PRIORITY = "NOTES_PRIORITY"
 // Onboarding / Expert options
 internal const val ONBOARDING_COMPLETED = "ONBOARDING_COMPLETED"
 internal const val EXPERT_OPTIONS = "EXPERT_OPTIONS"
+
+// Notes page (1.2.0) and the ids of deleted entries, so a restored backup does not bring them back
+internal const val NOTES_ITEMS = "NOTES_ITEMS"
+internal const val NOTES_CATEGORIES = "NOTES_CATEGORIES"
+internal const val NOTES_DELETED = "NOTES_DELETED"
+
+// Backup (1.3.0): what waits after a restore, and the automatic backup; state of this install only
+internal const val PENDING_SHORTCUTS = "PENDING_SHORTCUTS"
+internal const val PENDING_WIDGETS = "PENDING_WIDGETS"
+internal const val RESTORE_SUMMARY = "RESTORE_SUMMARY"
+internal const val AUTO_BACKUP_FOLDER = "AUTO_BACKUP_FOLDER"
+internal const val AUTO_BACKUP_SECTIONS = "AUTO_BACKUP_SECTIONS"
+internal const val AUTO_BACKUP_KEY = "AUTO_BACKUP_KEY"
+internal const val AUTO_BACKUP_SALT = "AUTO_BACKUP_SALT"
+internal const val AUTO_BACKUP_LAST = "AUTO_BACKUP_LAST"
+internal const val AUTO_BACKUP_HASH = "AUTO_BACKUP_HASH"
+internal const val AUTO_BACKUP_FAILED = "AUTO_BACKUP_FAILED"

@@ -12,6 +12,10 @@ app/build
 app/debug
 diff.*
 *.jks
+*.keystore
+*.p12
+*.pk8
+*.pem
 app/keystore.properties
 
 # Gradle daemon JVM ölçütü (JDK indirme adresleri içerir); derleme kurulu JDK ile yapılır

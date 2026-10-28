@@ -71,8 +71,9 @@ class NotesHomeTest {
             item("today", important = true, dueDay = 26),
             item("overdue", todo = true, important = true, dueDay = 22),
         )
-        assertEquals(listOf("overdue", "today", "upcoming"), texts(items))
-        assertEquals(listOf("today", "upcoming", "undated"), texts(items.dropLast(1)))
+        assertEquals(listOf("overdue", "today", "upcoming", "undated"), texts(items))
+        // Three lines keep the first three in that order
+        assertEquals(listOf("overdue", "today", "upcoming"), texts(items, lines = 3))
     }
 
     @Test
@@ -100,10 +101,10 @@ class NotesHomeTest {
     }
 
     @Test
-    fun neverMoreThanThreeLines() {
+    fun neverMoreThanFiveLines() {
         val items = (1..8).map { item("late $it", todo = true, important = true, dueDay = 10 + it) }
-        assertEquals(3, NotesHome.summarize(items, now, zone = zone).featured.size)
-        assertEquals(3, NotesHome.summarize(items, now, 9, zone).featured.size)
+        assertEquals(5, NotesHome.summarize(items, now, zone = zone).featured.size)
+        assertEquals(5, NotesHome.summarize(items, now, 9, zone).featured.size)
         assertEquals(0, NotesHome.summarize(items, now, 0, zone).featured.size)
     }
 

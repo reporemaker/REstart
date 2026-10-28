@@ -97,8 +97,7 @@ class RingClockView @JvmOverloads constructor(
         val big: String
         val small: String
         if (inside == ch.remaker.restart.data.Constants.RingInside.Time) {
-            val is24 = android.text.format.DateFormat.is24HourFormat(context)
-            big = android.text.format.DateFormat.format(if (is24) "HH:mm" else "h:mm", now).toString()
+            big = android.text.format.DateFormat.format(if (ch.remaker.restart.data.Prefs(context).clock24Hour) "HH:mm" else "h:mm", now).toString()
             small = "${now.get(Calendar.DAY_OF_MONTH)} $weekday"
             textPaint.typeface = FontManager.weighted(context, 700)
             textPaint.textSize = size * 0.19f
@@ -113,7 +112,7 @@ class RingClockView @JvmOverloads constructor(
         textPaint.color = color
         canvas.drawText(big, cx, cy + textPaint.textSize * 0.30f, textPaint)
 
-        textPaint.color = ColorUtils.setAlphaComponent(color, 150)
+        textPaint.color = color
         textPaint.typeface = FontManager.weighted(context, 400)
         textPaint.textSize = size * 0.075f
         textPaint.letterSpacing = 0.25f

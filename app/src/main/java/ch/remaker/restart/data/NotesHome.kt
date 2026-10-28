@@ -28,8 +28,8 @@ object NotesHome {
 
     data class Summary(val notes: Int, val openTodos: Int, val overdue: Int, val featured: List<Featured>)
 
-    /** At most three lines on the home screen (decided 26 Oct 2026: no setting). */
-    const val MAX_LINES = 3
+    /** At most five entries on the home screen (26 Oct 2026: three, no setting; 28 Oct 2026: five). Where the home apps leave less room, ClockBlock.fitNotes shows fewer. */
+    const val MAX_LINES = 5
 
     /** Midnight at the start of the day [millis] falls on, in [zone]. */
     fun startOfDay(millis: Long, zone: TimeZone = TimeZone.getDefault()): Long =

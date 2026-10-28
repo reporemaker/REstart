@@ -2,14 +2,19 @@ package ch.remaker.restart.data
 
 import android.content.Context
 import ch.remaker.common.AppLogger
+import ch.remaker.restart.data.backup.BackupCodec
+import ch.remaker.restart.data.backup.BackupManager
+import ch.remaker.restart.data.backup.BackupSection
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 /**
- * Automatic copies of all settings, taken before an app update is allowed to change them.
- * They live in the app's private storage, so they survive updates but not an uninstall.
+ * Automatic copies of everything a backup can hold (settings, home, drawer, shortcuts, notes,
+ * widget layout, font), taken before an app update is allowed to change them and before a
+ * restore. They live in the app's private storage without a password, so they survive updates
+ * but not an uninstall; copies from before 1.3.0 (settings only) are still read.
  */
 object SettingsSnapshots {
 
@@ -21,11 +26,11 @@ object SettingsSnapshots {
     private fun dir(context: Context): File = File(context.filesDir, "backups").apply { mkdirs() }
 
     /** Writes a snapshot named after the version the settings belong to; keeps the last [KEEP]. */
-    fun save(context: Context, prefs: Prefs, versionCode: Int): File? {
+    fun save(context: Context, versionCode: Int): File? {
         return try {
             val stamp = SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(Date())
             val file = File(dir(context), "$PREFIX$versionCode-$stamp.json")
-            file.writeText(prefs.saveToString())
+            file.writeText(BackupCodec.toJson(BackupManager.collect(context, BackupSection.entries.toSet())))
             list(context).drop(KEEP).forEach { it.file.delete() }
             AppLogger.i("SettingsSnapshots", "Saved ${file.name}")
             file

@@ -69,6 +69,8 @@ class FontBottomSheetDialogLocked(context: Context) : AppCompatDialog(context), 
             // Swiss sheet: square corners, no shadow, a 2 dp rule at the top
             cardElevation = 0f
             radius = 0f
+            // Material 3 outlines cards in a grey stroke by default; the sheet has only its top rule
+            strokeWidth = 0
             // Taps on the sheet's empty parts are not taps outside it
             isClickable = true
             // The colour goes on the content, not the card: a card the colour of the theme's surface

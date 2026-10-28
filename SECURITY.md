@@ -21,7 +21,12 @@ to be named.
   plain text; nothing is sent.
 - The only network request the app makes on its own is the weather, to open-meteo.com, with the
   location rounded to about 1 km.
-- Launcher data is excluded from cloud backup. Notes stay out of screenshots.
+- Launcher data is excluded from cloud backup and from phone-to-phone transfer. Notes stay out
+  of screenshots.
+- Backup files are encrypted with the user's password (AES-256-GCM, key from PBKDF2-HMAC-SHA256
+  with 600,000 rounds) and hold only the settings listed in the code. The automatic backup does
+  not store the password: the key derived from it is kept wrapped by a key in the Android
+  Keystore. A forgotten password cannot be recovered.
 - Third-party widgets are rendered without loading their code into the launcher's process.
 - Nothing typed into the drawer leaves the device.
 

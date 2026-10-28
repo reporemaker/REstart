@@ -1,0 +1,39 @@
+name: Checks
+
+# Unit tests, the translations and the no-em-dash rule on every push and pull request
+on:
+  push:
+  pull_request:
+
+# Read-only: this workflow only inspects the checked-out files
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Translations
+        run: python3 -I scripts/check-strings.py
+
+      # The character is built from its bytes so this file does not contain it; the LifeLine
+      # baseline and reports are written once and never rewritten, so they are left out
+      - name: No em dash
+        run: |
+          dash="$(printf '\xe2\x80\x94')"
+          if git grep -n -I -F "$dash" -- . ':!LifeLine_Report'; then
+            echo "Em dash found: use a colon, semicolon, comma or hyphen instead"
+            exit 1
+          fi
+
+      - name: Unit tests
+        run: ./gradlew testProdDebugUnitTest --no-daemon

@@ -3,13 +3,13 @@ package ch.remaker.restart.ui.components
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
+import ch.remaker.restart.data.Prefs
 import ch.remaker.restart.helper.CustomFontView
 import ch.remaker.restart.helper.FontManager
 import ch.remaker.restart.helper.sp2px
@@ -29,8 +29,11 @@ class AZSidebarView @JvmOverloads constructor(
     private val baseTextSizeSp = 20f
     private val selectedTextSizeSp = baseTextSizeSp + 2f
 
+    // The letters in the drawer's text colour: a fixed grey with a white highlight disappears
+    // on the light theme, and the dotted font washes grey out further
+    private val ink: Int get() = Prefs(context).appColor
+
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.GRAY
         textAlign = Paint.Align.CENTER
         style = Paint.Style.FILL
         textSize = sp2px(resources, baseTextSizeSp)
@@ -77,6 +80,7 @@ class AZSidebarView @JvmOverloads constructor(
 
         // ✅ FIX: Typeface resolved ONCE per draw
         paint.typeface = FontManager.getTypeface(context)
+        paint.color = ink
 
         letters.forEachIndexed { index, letter ->
             val isSelected = index == selectedIndex
@@ -86,7 +90,6 @@ class AZSidebarView @JvmOverloads constructor(
                 resources,
                 if (isSelected) selectedTextSizeSp else baseTextSizeSp
             )
-            paint.color = if (isSelected) Color.WHITE else Color.GRAY
 
             val x = width / 2f
             val y = startY + itemHeight * index -

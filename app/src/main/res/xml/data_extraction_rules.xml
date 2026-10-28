@@ -8,10 +8,12 @@
         <exclude domain="file" path="." />
     </cloud-backup>
 
-    <!-- Moving directly to a new device keeps settings and the widget layout -->
+    <!-- Nor to a direct phone-to-phone transfer: widget ids and profiles do not survive it, and a
+         new phone gets everything from a backup file (Settings > Advanced > Backup/Restore) -->
     <device-transfer>
-        <include domain="sharedpref" path="." />
-        <include domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="file" path="." />
     </device-transfer>
 
 </data-extraction-rules>

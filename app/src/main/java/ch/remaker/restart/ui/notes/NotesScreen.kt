@@ -20,6 +20,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -34,6 +36,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -87,6 +93,7 @@ class NotesState(private val store: NotesStore) {
 
     fun delete(item: NoteItem) {
         items.removeAll { it.id == item.id }
+        store.markDeleted(listOf(item.id))
         val wasOpen = editingId == item.id
         if (wasOpen) {
             pendingSave = null
@@ -97,6 +104,7 @@ class NotesState(private val store: NotesStore) {
     }
 
     fun clearDone() {
+        store.markDeleted(items.filter { it.todo && it.done }.map { it.id })
         items.removeAll { it.todo && it.done }
         persist()
     }
@@ -133,7 +141,7 @@ private fun fullLabel(millis: Long, is24: Boolean): String =
 
 private fun caps(s: String) = s.uppercase(Locale.getDefault())
 
-/** The page colours: the theme's pure black or white, the text in full contrast, dimmed and hairline tints. */
+/** The page colours: the theme's pure black or white, the text in full contrast; [muted] only for what is done, unchosen or empty. */
 private class Ink(val text: Color, val bg: Color) {
     val muted = text.copy(alpha = 0.72f)
     val line = text.copy(alpha = 0.14f)
@@ -183,10 +191,17 @@ private fun Body(text: String, ink: Color, modifier: Modifier = Modifier, size: 
     )
 }
 
-/** Square check box, 1.5 dp outline, filled with the text colour when ticked; 44 dp to touch. */
+/**
+ * Square check box, 1.5 dp outline, filled with the text colour when ticked; 44 dp to touch.
+ * A screen reader hears it as a check box named [label], ticked or not. Without [onToggle] it only
+ * draws: the row around it is the check box.
+ */
 @Composable
-private fun CheckSquare(checked: Boolean, ink: Ink, onToggle: () -> Unit) {
-    Box(modifier = Modifier.size(44.dp).clickable(onClick = onToggle), contentAlignment = Alignment.Center) {
+private fun CheckSquare(checked: Boolean, ink: Ink, label: String, onToggle: (() -> Unit)? = null) {
+    val touch = if (onToggle == null) Modifier.clearAndSetSemantics {}
+    else Modifier.toggleable(value = checked, role = Role.Checkbox, onValueChange = { onToggle() })
+        .semantics { contentDescription = label }
+    Box(modifier = Modifier.size(44.dp).then(touch), contentAlignment = Alignment.Center) {
         Box(
             modifier = Modifier.size(18.dp).border(1.5.dp, ink.text)
                 .background(if (checked) ink.text else Color.Transparent)
@@ -233,16 +248,16 @@ private fun NotesList(state: NotesState, ink: Ink, dialogs: DialogManager, onBac
             LazyColumn(modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 24.dp)) {
                 fun section(label: String, entries: List<NoteItem>) {
                     if (entries.isEmpty()) return
-                    item { Caps(label, ink.muted, Modifier.padding(top = 22.dp, bottom = 4.dp)) }
+                    item { Caps(label, ink.text, Modifier.padding(top = 22.dp, bottom = 4.dp)) }
                     entries.forEach { entry ->
                         item(key = entry.id) {
                             Column(modifier = Modifier.fillMaxWidth().clickable { state.editingId = entry.id }) {
                                 Row(verticalAlignment = Alignment.Top, modifier = Modifier.padding(vertical = 6.dp)) {
-                                    if (entry.todo) CheckSquare(entry.done, ink) { state.toggleDone(entry) }
+                                    if (entry.todo) CheckSquare(entry.done, ink, getLocalizedString(R.string.notes_section_done)) { state.toggleDone(entry) }
                                     Column(modifier = Modifier.weight(1f).padding(top = 10.dp, bottom = 6.dp)) {
                                         Body(entry.text, if (entry.done) ink.muted else ink.text, bold = entry.important && !entry.done, struck = entry.done, lines = 2)
                                         val meta = metaOf(entry, today)
-                                        if (meta.isNotEmpty()) Caps(meta, ink.muted, Modifier.padding(top = 5.dp))
+                                        if (meta.isNotEmpty()) Caps(meta, ink.text, Modifier.padding(top = 5.dp))
                                     }
                                 }
                                 Rule(ink.line)
@@ -274,9 +289,9 @@ private fun NotesList(state: NotesState, ink: Ink, dialogs: DialogManager, onBac
             Rule(ink.text, thick = true)
             Row(horizontalArrangement = Arrangement.spacedBy(22.dp)) {
                 Caps(getLocalizedString(R.string.notes_kind_note), if (!newIsTodo) ink.text else ink.muted, bold = !newIsTodo,
-                    modifier = Modifier.clickable { newIsTodo = false }.padding(vertical = 14.dp))
+                    modifier = Modifier.selectable(selected = !newIsTodo, role = Role.RadioButton) { newIsTodo = false }.padding(vertical = 14.dp))
                 Caps(getLocalizedString(R.string.notes_kind_todo), if (newIsTodo) ink.text else ink.muted, bold = newIsTodo,
-                    modifier = Modifier.clickable { newIsTodo = true }.padding(vertical = 14.dp))
+                    modifier = Modifier.selectable(selected = newIsTodo, role = Role.RadioButton) { newIsTodo = true }.padding(vertical = 14.dp))
             }
             Row(verticalAlignment = Alignment.Bottom) {
                 BasicTextField(
@@ -310,12 +325,20 @@ private fun NotesList(state: NotesState, ink: Ink, dialogs: DialogManager, onBac
     }
 }
 
-/** A ruled settings-style row: label in spaced capitals, the value, an optional end mark. */
+/**
+ * A ruled settings-style row: label in spaced capitals, the value, an optional end mark.
+ * With [checked] the whole row is one check box for a screen reader (label and state together).
+ */
 @Composable
-private fun FieldRow(label: String, ink: Ink, onClick: (() -> Unit)? = null, end: @Composable () -> Unit = {}, value: @Composable () -> Unit) {
-    Column(modifier = Modifier.fillMaxWidth().let { if (onClick != null) it.clickable(onClick = onClick) else it }) {
+private fun FieldRow(label: String, ink: Ink, onClick: (() -> Unit)? = null, checked: Boolean? = null, end: @Composable () -> Unit = {}, value: @Composable () -> Unit) {
+    val touch = when {
+        onClick == null -> Modifier
+        checked != null -> Modifier.toggleable(value = checked, role = Role.Checkbox, onValueChange = { onClick() })
+        else -> Modifier.clickable(onClick = onClick)
+    }
+    Column(modifier = Modifier.fillMaxWidth().then(touch)) {
         Row(modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp), verticalAlignment = Alignment.CenterVertically) {
-            Caps(label, ink.muted, Modifier.width(118.dp))
+            Caps(label, ink.text, Modifier.width(118.dp))
             Box(modifier = Modifier.weight(1f)) { value() }
             end()
         }
@@ -363,15 +386,15 @@ private fun NoteEditor(state: NotesState, original: NoteItem, ink: Ink, dialogs:
             FieldRow(getLocalizedString(R.string.notes_kind), ink) {
                 Row(horizontalArrangement = Arrangement.spacedBy(22.dp)) {
                     Caps(getLocalizedString(R.string.notes_kind_note), if (!todo) ink.text else ink.muted, bold = !todo,
-                        modifier = Modifier.clickable { todo = false; commit() }.padding(vertical = 14.dp))
+                        modifier = Modifier.selectable(selected = !todo, role = Role.RadioButton) { todo = false; commit() }.padding(vertical = 14.dp))
                     Caps(getLocalizedString(R.string.notes_kind_todo), if (todo) ink.text else ink.muted, bold = todo,
-                        modifier = Modifier.clickable { todo = true; commit() }.padding(vertical = 14.dp))
+                        modifier = Modifier.selectable(selected = todo, role = Role.RadioButton) { todo = true; commit() }.padding(vertical = 14.dp))
                 }
             }
-            if (todo) FieldRow(getLocalizedString(R.string.notes_section_done), ink, onClick = { done = !done; commit() },
-                end = { CheckSquare(done, ink) { done = !done; commit() } }) {}
-            FieldRow(getLocalizedString(R.string.notes_important), ink, onClick = { important = !important; commit() },
-                end = { CheckSquare(important, ink) { important = !important; commit() } }) {}
+            if (todo) FieldRow(getLocalizedString(R.string.notes_section_done), ink, onClick = { done = !done; commit() }, checked = done,
+                end = { CheckSquare(done, ink, getLocalizedString(R.string.notes_section_done)) }) {}
+            FieldRow(getLocalizedString(R.string.notes_important), ink, onClick = { important = !important; commit() }, checked = important,
+                end = { CheckSquare(important, ink, getLocalizedString(R.string.notes_important)) }) {}
             FieldRow(getLocalizedString(R.string.category), ink, onClick = {
                 val existing = state.categories()
                 val labels = listOf(getLocalizedString(R.string.notes_category_none)) + existing + ("+ " + getLocalizedString(R.string.categories_new))
@@ -401,7 +424,7 @@ private fun NoteEditor(state: NotesState, original: NoteItem, ink: Ink, dialogs:
                 Body(due?.let { dayLabel(it) } ?: getLocalizedString(R.string.notes_date_none), if (due == null) ink.muted else ink.text)
             }
             FieldRow(getLocalizedString(R.string.notes_written), ink) {
-                Body(fullLabel(original.created, DateFormat.is24HourFormat(context)), ink.muted, size = 15f)
+                Body(fullLabel(original.created, DateFormat.is24HourFormat(context)), ink.text, size = 15f)
             }
             Spacer(Modifier.height(24.dp))
         }
