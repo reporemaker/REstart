@@ -11,8 +11,8 @@ on:
       tag:
         description: Release tag to check, e.g. v1.3.1
         required: true
-      ref:
-        description: Commit to build instead of the tag (only when the tag cannot build on a clean machine, e.g. a later fix to the verification metadata); empty = the tag
+      metadata_from:
+        description: Take gradle/verification-metadata.xml from this commit (only when the tag's checksums miss what a clean machine needs; the file is not in the APK); empty = the tag's own
         required: false
 
 # Read-only: the workflow builds and compares, it writes nothing back
@@ -25,10 +25,18 @@ jobs:
     env:
       TAG: ${{ github.event.release.tag_name || inputs.tag }}
     steps:
+      # The tag itself is built: AGP writes the commit id into the APK (version-control-info)
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ inputs.ref || env.TAG }}
+          ref: ${{ env.TAG }}
+          fetch-depth: 0
           persist-credentials: false
+
+      - name: Take the verification metadata from a later commit
+        if: inputs.metadata_from != ''
+        env:
+          FROM: ${{ inputs.metadata_from }}
+        run: git checkout "$FROM" -- gradle/verification-metadata.xml
 
       # Another JDK than the one on the release machine on purpose: the result must not depend on it
       - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
