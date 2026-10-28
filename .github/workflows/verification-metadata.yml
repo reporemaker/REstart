@@ -1,0 +1,38 @@
+name: Verification metadata
+
+# Run by hand after a dependency change: a clean Linux machine resolves some metadata files
+# (Gradle module files, parent POMs) that a developer's warm cache never asks for. The checksums
+# it would add are written to gradle/verification-metadata.xml and kept as an artifact, as the
+# file and as a diff, to be reviewed and committed by hand. Nothing is written back to the repo.
+on:
+  workflow_dispatch:
+
+# Read-only: the result leaves the run as an artifact only
+permissions:
+  contents: read
+
+jobs:
+  write:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Write the checksums a clean machine needs
+        run: |
+          ./gradlew --no-daemon --write-verification-metadata sha256 \
+            help testProdDebugUnitTest assembleProdRelease
+          git diff gradle/verification-metadata.xml > verification-metadata.diff
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: verification-metadata
+          path: |
+            gradle/verification-metadata.xml
+            verification-metadata.diff

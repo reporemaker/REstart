@@ -9,8 +9,11 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Release tag to check, e.g. v1.2.1
+        description: Release tag to check, e.g. v1.3.1
         required: true
+      ref:
+        description: Commit to build instead of the tag (only when the tag cannot build on a clean machine, e.g. a later fix to the verification metadata); empty = the tag
+        required: false
 
 # Read-only: the workflow builds and compares, it writes nothing back
 permissions:
@@ -24,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ env.TAG }}
+          ref: ${{ inputs.ref || env.TAG }}
           persist-credentials: false
 
       # Another JDK than the one on the release machine on purpose: the result must not depend on it
@@ -54,6 +57,7 @@ jobs:
       - name: Show where they differ
         if: failure()
         run: |
+          sudo apt-get update -q
           sudo apt-get install -y -q diffoscope-minimal
           diffoscope --html diffoscope.html signed/*.apk \
             app/build/outputs/apk/prod/release/app-prod-release-unsigned.apk || true
